@@ -1,0 +1,158 @@
+//------------------------------------
+//  #GRID
+//------------------------------------
+
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+.#{$namespace}container,
+%#{$namespace}container {
+  @include container-fixed();
+  // transition: width $base-transition-speed ease;
+  @media (min-width: $screen-sm) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg) {
+    width: $container-lg;
+  }
+}
+
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+
+.#{$namespace}container-fluid,
+%#{$namespace}container-fluid {
+  @include container-fixed();
+}
+
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+.#{$namespace}row,
+%#{$namespace}row {
+  @include make-row();
+}
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@include make-grid-columns();
+
+
+// Extra small grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+@include make-grid($grid-columns, xs, col-width);
+@include make-grid($grid-columns, xs, col-push);
+@include make-grid($grid-columns, xs, col-pull);
+@include make-grid($grid-columns, xs, col-offset);
+@include make-grid($grid-columns, xs, col-pv);
+@include make-grid($grid-columns, xs, col-ph);
+@include make-grid($grid-columns, xs, row-height);
+@include make-grid($grid-columns, xs, row-push);
+@include make-grid($grid-columns, xs, row-pull);
+@include make-grid($grid-columns, xs, row-inset);
+@include make-grid-extension(xs, col-pv-halve);
+@include make-grid-extension(xs, col-centered);
+@include make-grid-extension(xs, row-halve);
+@include make-grid-extension(xs, row-push-halve);
+@include make-grid-extension(xs, row-pull-halve);
+
+@media (max-width: $screen-xs-max) {
+  @include make-grid-extension(xs, col-flush);
+  @include make-grid-extension(xs, row-flush);
+}
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: $screen-sm) {
+  @include make-grid($grid-columns, sm, col-width);
+  @include make-grid($grid-columns, sm, col-push);
+  @include make-grid($grid-columns, sm, col-pull);
+  @include make-grid($grid-columns, sm, col-offset);
+  @include make-grid($grid-columns, sm, col-pv);
+  @include make-grid($grid-columns, sm, col-ph);
+  @include make-grid($grid-columns, sm, row-height);
+  @include make-grid($grid-columns, sm, row-push);
+  @include make-grid($grid-columns, sm, row-pull);
+  @include make-grid($grid-columns, sm, row-inset);
+  @include make-grid-extension(sm, col-pv-halve);
+  @include make-grid-extension(sm, col-centered);
+  @include make-grid-extension(sm, row-halve);
+  @include make-grid-extension(sm, row-push-halve);
+  @include make-grid-extension(sm, row-pull-halve);
+}
+
+@media (max-width: $screen-sm-max) {
+  @include make-grid-extension(sm, col-flush);
+  @include make-grid-extension(sm, row-flush);
+}
+
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: $screen-md) {
+  @include make-grid($grid-columns, md, col-width);
+  @include make-grid($grid-columns, md, col-push);
+  @include make-grid($grid-columns, md, col-pull);
+  @include make-grid($grid-columns, md, col-offset);
+  @include make-grid($grid-columns, md, col-pv);
+  @include make-grid($grid-columns, md, col-ph);
+  @include make-grid($grid-columns, md, row-height);
+  @include make-grid($grid-columns, md, row-push);
+  @include make-grid($grid-columns, md, row-pull);
+  @include make-grid($grid-columns, md, row-inset);
+  @include make-grid-extension(md, col-pv-halve);
+  @include make-grid-extension(md, col-centered);
+  @include make-grid-extension(md, row-halve);
+  @include make-grid-extension(md, row-push-halve);
+  @include make-grid-extension(md, row-pull-halve);
+}
+
+@media (max-width: $screen-md-max) {
+  @include make-grid-extension(md, col-flush);
+  @include make-grid-extension(md, row-flush);
+}
+
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: $screen-lg) {
+  @include make-grid($grid-columns, lg, col-width);
+  @include make-grid($grid-columns, lg, col-push);
+  @include make-grid($grid-columns, lg, col-pull);
+  @include make-grid($grid-columns, lg, col-offset);
+  @include make-grid($grid-columns, lg, col-pv);
+  @include make-grid($grid-columns, lg, col-ph);
+  @include make-grid($grid-columns, lg, row-height);
+  @include make-grid($grid-columns, lg, row-push);
+  @include make-grid($grid-columns, lg, row-pull);
+  @include make-grid($grid-columns, lg, row-inset);
+  @include make-grid-extension(lg, col-pv-halve);
+  @include make-grid-extension(lg, col-centered);
+  @include make-grid-extension(lg, row-push-halve);
+  @include make-grid-extension(lg, row-pull-halve);
+  @include make-grid-extension(lg, row-halve);
+  @include make-grid-extension(lg, col-flush);
+  @include make-grid-extension(lg, row-flush);
+}

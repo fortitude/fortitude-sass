@@ -1,0 +1,17 @@
+{
+  "name": "fortitude",
+  "homepage": "http://fortitude.io/",
+  "version": "4.0.0-rc.1",
+  "main": "dist/_fortitude.scss",
+  "ignore": [
+    "app",
+    "bin",
+    "features",
+    "lib",
+    ".gitignore",
+    "Gemfile",
+    "Gemfile.lock",
+    "Rakefile",
+    "fortitude.gemspec"
+  ]
+}

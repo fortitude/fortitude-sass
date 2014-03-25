@@ -1,0 +1,21 @@
+//------------------------------------
+//  #SHARED
+//------------------------------------
+
+//
+// Where `margin-bottom` is concerned,this value will be the same as the
+// base line-height. This allows us to keep a consistent vertical rhythm.
+// As per: csswizardry.com/2012/06/single-direction-margin-declarations
+//
+
+//
+// Where `margin-left` is concerned we want to try and indent certain elements
+// by a consistent amount. Define that amount once,here.
+//
+
+ul,
+ol,
+dd,
+%margin-left {
+  margin-left: 1.6rem;
+}

@@ -1,0 +1,80 @@
+//------------------------------------
+//  #FUNCTIONS
+//------------------------------------
+
+//
+// fortitude makes use of a few functions that are also available for you to use
+// later on in your extension of the framework.
+//
+
+
+
+
+
+//
+// Maths helpers.
+//
+// Halve and double numbers, returning rounded integers. E.g.:
+//
+// .foo {
+//     padding: halve(3.2rem);
+// }
+//
+//
+
+@function quarter($number) {
+  @return $number / 4;
+}
+
+@function halve($number) {
+  @return $number / 2;
+}
+
+@function double($number) {
+  @return $number * 2;
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: 10px) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function spacing-units-delta($height, $spacing-units-height) {
+  $value: halve($spacing-units-height - $height);
+  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function spacing-units-height($height, $base-spacing-unit: $base-spacing-unit) {
+  $spacing-units: floor($height / $base-spacing-unit);
+  $spacing-units-delta: strip-unit($height) % strip-unit($base-spacing-unit);
+  $value: if($spacing-units-delta > 0, (1 + $spacing-units) * $base-spacing-unit, $spacing-units * $base-spacing-unit);
+  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function negitive-component-padding($height, $base-line-height: $base-line-height) {
+  $value: halve($height - $base-line-height);
+  @if ($value > 0) {  $value: 0; }
+  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function component-margin($height, $spacing-units-height, $base-line-height: $base-line-height) {
+  $value: halve($spacing-units-height - $height);
+  @if ($value < 0) { $value: negitive-component-padding($height, $base-line-height) + spacing-units-delta($height, $spacing-units-height); }
+  @if ($value == 0) { $value: 0; }
+  @return $value;
+}
+
+@function component-padding($height, $base-line-height: $base-line-height) {
+  $value: halve($height - $base-line-height);
+  @if ($value < 0) {  $value: 0; }
+  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}

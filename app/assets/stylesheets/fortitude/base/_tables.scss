@@ -1,0 +1,16 @@
+//------------------------------------
+//  #TABLES
+//------------------------------------
+
+//
+// Simple `table` styles.
+//
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: quarter($base-spacing-unit);
+}

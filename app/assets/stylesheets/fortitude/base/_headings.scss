@@ -1,0 +1,146 @@
+//------------------------------------
+//  #HEADINGS
+//------------------------------------
+
+//
+// Headings 1–6, with corresponding Greek-alphabet abstract classes for double-
+// stranded heading hierarchy: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+//
+
+@mixin alpha() {
+  font-size: $heading-size-1;
+  line-height: if($heading-size-1 > $base-line-height, double($base-line-height), $base-line-height);
+}
+
+@mixin beta() {
+  font-size: $heading-size-2;
+  line-height: if($heading-size-2 > $base-line-height, double($base-line-height), $base-line-height);
+}
+
+@mixin gamma() {
+  font-size: $heading-size-3;
+  line-height: if($heading-size-3 > $base-line-height, double($base-line-height), $base-line-height);
+}
+
+@mixin delta() {
+  font-size: $heading-size-4;
+  line-height: if($heading-size-4 > $base-line-height, double($base-line-height), $base-line-height);
+}
+
+@mixin epsilon() {
+  font-size: $heading-size-5;
+  line-height: if($heading-size-5 > $base-line-height, double($base-line-height), $base-line-height);
+}
+
+@mixin zeta() {
+  font-size: $heading-size-6;
+  line-height: if($heading-size-6 > $base-line-height, double($base-line-height), $base-line-height);
+}
+
+h1,
+.alpha-xs {
+  @include alpha;
+}
+
+h2,
+.beta-xs {
+  @include beta;
+}
+
+h3,
+.gamma-xs {
+  @include gamma;
+}
+
+h4,
+.delta-xs {
+  @include delta;
+}
+
+h5,
+.epsilon-xs {
+  @include epsilon;
+}
+
+h6,
+.zeta-xs {
+  @include zeta;
+}
+
+@media (min-width: $screen-sm) {
+  .alpha-sm {
+    @include alpha;
+  }
+
+  .beta-sm {
+    @include beta;
+  }
+
+  .gamma-sm {
+    @include gamma;
+  }
+
+  .delta-sm {
+    @include delta;
+  }
+
+  .epsilon-sm {
+    @include epsilon;
+  }
+
+  .zeta-sm {
+    @include zeta;
+  }
+}
+
+@media (min-width: $screen-md) {
+  .alpha-md {
+    @include alpha;
+  }
+
+  .beta-md {
+    @include beta;
+  }
+
+  .gamma-md {
+    @include gamma;
+  }
+
+  .delta-md {
+    @include delta;
+  }
+
+  .epsilon-md {
+    @include epsilon;
+  }
+
+  .zeta-md {
+    @include zeta;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .alpha-lg {
+    @include alpha;
+  }
+
+  .beta-lg {
+    @include beta;
+  }
+
+  .gamma-lg {
+    @include gamma;
+  }
+
+  .delta-lg {
+    @include delta;
+  }
+
+  .epsilon-lg {
+    @include epsilon;
+  }
+
+  .zeta-lg {
+    @include zeta;
+  }
+}

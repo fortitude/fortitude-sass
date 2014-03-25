@@ -1,0 +1,11 @@
+.#{$namespace}navigation,
+%#{$namespace}navigation {
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+}
+
+.#{$namespace}navigation__link,
+%#{$namespace}navigation__link {
+  display: block;
+}

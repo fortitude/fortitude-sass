@@ -1,0 +1,44 @@
+//------------------------------------
+//  #TABS
+//------------------------------------
+
+//
+// A simple abstraction for making equal-width navigation tabs.
+//
+// 1. Reset any residual styles (most likely from lists).
+// 2. Tables for layout!
+// 3. Force all `table-cell` children to have equal widths.
+// 4. Force the object to be the full width of its parent. Combined with [2],
+//    this makes the object behave in a quasi-`display: block;` manner.
+//
+
+.#{$namespace}tabs,
+%#{$namespace}tabs {
+  display: table; // [2]
+  list-style: none; // [1]
+  margin: 0; // [1]
+  padding: 0; // [1]
+  table-layout: fixed; // [3]
+  text-align: center;
+  width: 100%; // [4]
+}
+
+.#{$namespace}tabs__item,
+%#{$namespace}tabs__item {
+  display: table-cell; // [2]
+}
+
+.#{$namespace}tabs__link,
+%#{$namespace}tabs__link {
+  display: block;
+}
+
+.#{$namespace}tabs__target,
+%#{$namespace}tabs__target {
+  display: none;
+}
+
+.#{$namespace}tabs__target--active,
+%#{$namespace}tabs__target--active {
+  display: block;
+}

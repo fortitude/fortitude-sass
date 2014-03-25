@@ -1,0 +1,38 @@
+.fade {
+  opacity: 0;
+  transition: opacity $base-transition-speed linear;
+}
+
+.fade--in {
+  opacity: 1;
+}
+
+.collapse {
+  display: none;
+}
+
+.collapse--open {
+  display: block;
+}
+
+.collapse--collapsing {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  transition: height $base-transition-speed ease;
+}
+
+.row--insert.ng-enter,
+.row--insert.ng-leave {
+  transition: $base-transition-speed linear all;
+}
+
+.row--insert.ng-enter,
+.row--insert.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.row--insert.ng-leave,
+.row--insert.ng-enter.ng-enter-active {
+  opacity: 1;
+}

@@ -1,0 +1,47 @@
+//------------------------------------
+//  #MEDIA
+//------------------------------------
+
+//
+// Place any image- and text-like content side-by-side, as per:
+// stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+//
+
+.#{$namespace}media,
+%#{$namespace}media {
+  @extend %cf;
+  display: block;
+}
+
+.#{$namespace}media__object,
+%#{$namespace}media__object {
+  float: left;
+  margin-right: $base-spacing-unit;
+
+  > img {
+    display: block;
+  }
+
+  //
+  // Reversed image location (right instead of left). Extends `.media`.
+  //
+
+  .#{$namespace}media--reverse > &,
+  %#{$namespace}media--reverse > & {
+    float: right;
+    margin-left: $base-spacing-unit;
+    margin-right: 0;
+  }
+
+}
+
+.#{$namespace}media__body,
+%#{$namespace}media__body {
+  overflow: hidden;
+
+  &,
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+}

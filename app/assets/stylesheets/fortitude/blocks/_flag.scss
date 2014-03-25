@@ -1,0 +1,106 @@
+//------------------------------------
+//  #flag
+//------------------------------------
+
+//
+// The flag object is a design pattern similar to the media object, however it
+// utilises `display: table[-cell];` to give us control over the vertical
+// alignments of the text and image. csswizardry.com/2013/05/the-flag-object
+//
+// 1. Allows us to control vertical alignments
+// 2. Force the object to be the full width of its parent. Combined with [1],
+//    this makes the object behave in a quasi-`display: block;` manner.
+//
+
+.#{$namespace}flag,
+%#{$namespace}flag {
+  display: table; // [1]
+  width: 100%; // [2]
+}
+
+//
+// Items within a flag object. There should only ever be one of each.
+//
+// 1. Default to aligning content to their middles.
+//
+
+.#{$namespace}flag__object,
+%#{$namespace}flag__object,
+.#{$namespace}flag__body,
+%#{$namespace}flag__body {
+  display: table-cell;
+  vertical-align: middle; // [1]
+}
+
+//
+// Flag images have a space between them and the body of the object.
+//
+
+.#{$namespace}flag__object,
+%#{$namespace}flag__object {
+  padding-right: $base-spacing-unit;
+
+  > img {
+    display: block;
+    max-width: none;
+  }
+}
+
+//
+// The container for the main content of the flag object.
+//
+// 1. Forces the `.flag__body` to take up all remaining space.
+//
+
+.#{$namespace}flag__body,
+%#{$namespace}flag__body {
+  width: 100%;
+}
+
+
+
+
+
+//
+// Reversed flag objects have their image-content to the right, and text-content
+// to the left.
+//
+// 1. Reassign margins to the correct sides.
+//
+.#{$namespace}flag--reverse,
+%#{$namespace}flag--reverse {
+  > .#{$namespace}flag__object,
+  > %#{$namespace}flag__object {
+    padding-left: $base-spacing-unit; // [1]
+    padding-right: 0; // [1]
+  }
+}
+
+
+
+
+
+//
+// Vertical alignment variations of the flag object. Either align image- and
+// text-content to the tops of bottoms of each other.
+//
+
+.#{$namespace}flag--top,
+%#{$namespace}flag--top {
+  .#{$namespace}flag__img,
+  %#{$namespace}flag__img,
+  .#{$namespace}flag__body,
+  %#{$namespace}flag__body {
+    vertical-align: top;
+  }
+}
+
+.#{$namespace}flag--bottom,
+%#{$namespace}flag--bottom {
+  .#{$namespace}flag__img,
+  %#{$namespace}flag__img,
+  .#{$namespace}flag__body,
+  %#{$namespace}flag__body {
+    vertical-align: bottom;
+  }
+}

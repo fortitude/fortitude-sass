@@ -1,0 +1,33 @@
+//------------------------------------
+//  #PARAGRAPHS
+//------------------------------------
+
+pre {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+p {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+//
+// The `.lead` class is used to make the introductory text (usually a paragraph)
+// of a document slightly larger: en.wikipedia.org/wiki/Lede_(news)
+//
+
+.#{$namespace}lead,
+%#{$namespace}lead {
+  font-size: $heading-size-4;
+  line-height: $base-line-height * 1.5;
+  margin-top: halve($base-spacing-unit) * -1;
+  position: relative;
+  top: quarter($base-spacing-unit);
+}
+
+.#{$namespace}trail,
+%#{$namespace}trail {
+  font-size: $heading-size-6;
+  line-height: halve($base-line-height);
+}

@@ -1,0 +1,70 @@
+.list--inline {
+  margin: 0 quarter($grid-gutter-width) * -1;
+
+  &,
+  > li {
+    display: inline-block;
+  }
+
+  > li {
+    display: inline-block;
+    margin: 0 quarter($grid-gutter-width);
+  }
+}
+
+.list--disc {
+  > li {
+    + li::before {
+      content: "\2022";
+      left: quarter(convert-to-rem($grid-gutter-width) + 0.6rem) * -1;
+      position: relative;
+    }
+  }
+}
+
+.list--grouped-switches {
+  list-style: none;
+  margin: 0;
+
+  .input--checkbox {
+    margin-right: quarter($base-spacing-unit);
+  }
+
+  > li {
+    position: relative;
+
+    > .label {
+      font-weight: $medium;
+    }
+
+    .label {
+      width: 100%;
+    }
+
+    &::before {
+      border: 0;
+      border-left-width: 0.1rem;
+      border-style: dashed;
+      bottom: 0;
+      color: #ccc;
+      content: "";
+      left: halve($input-switch-size);
+      position: absolute;
+      top: double($base-spacing-unit);
+    }
+
+    > ul {
+      list-style: none;
+      margin-left: $base-spacing-unit;
+    }
+  }
+}
+
+.list--grouped-switches__multiple {
+  line-height: double($base-line-height);
+  margin-bottom: halve($base-spacing-unit);
+
+  > ul {
+    line-height: $base-line-height;
+  }
+}

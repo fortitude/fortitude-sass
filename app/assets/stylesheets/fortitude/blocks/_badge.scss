@@ -1,0 +1,31 @@
+//------------------------------------
+//  #BADGE
+//------------------------------------
+
+//
+// Badges, what else?.
+//
+// 1. So we can apply the `.badge` class to naturally-inline elements.
+//
+
+.#{$namespace}badge,
+%#{$namespace}badge {
+  background-color: transparent;
+  border: $badge-border-width solid transparent;
+  border-radius: $badge-border-radius;
+  color: $base-text-color;
+  display: inline-block; // [1]
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  margin: component-margin($badge-height, $badge-spacing-units-height) 0;
+  min-height: $badge-height;
+  overflow: hidden;
+  padding: component-padding($badge-height - double($badge-border-width)) component-padding($badge-height + 1rem);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}

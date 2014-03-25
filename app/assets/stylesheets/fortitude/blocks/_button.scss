@@ -1,0 +1,81 @@
+//------------------------------------
+//  #BUTTON
+//------------------------------------
+
+//
+// Buttons, what else?.
+//
+// 1. So we can apply the `.button` class to naturally-inline elements.
+//
+
+.#{$namespace}button,
+%#{$namespace}button {
+  background-color: transparent;
+  border: $button-border-width solid transparent;
+  border-radius: $button-border-radius;
+  color: $base-text-color;
+  cursor: pointer;
+  display: inline-block; // [1]
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  margin: component-margin($button-height, $button-spacing-units-height) 0;
+  min-height: $button-height;
+  overflow: hidden;
+  padding: component-padding($button-height - double($button-border-width)) halve(component-padding($button-height - double($button-border-width)));
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.#{$namespace}button + .#{$namespace}label--inline {
+  margin-left: halve($base-spacing-unit);
+}
+
+.#{$namespace}button__target,
+%#{$namespace}button__target {
+  cursor: pointer;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.#{$namespace}button--small,
+%#{$namespace}button--small {
+  font-size: $heading-size-6;
+  margin: component-margin($button-small-height, $button-small-spacing-units-height) 0;
+  min-height: $button-small-height;
+  padding: component-padding($button-small-height - double($button-border-width)) double(component-padding($button-small-height - double($button-border-width)));
+}
+
+.#{$namespace}button--large,
+%#{$namespace}button--large {
+  font-size: $heading-size-4;
+  margin: component-margin($button-large-height, $button-large-spacing-units-height) 0;
+  min-height: $button-large-height;
+  padding: component-padding($button-large-height - double($button-border-width)) halve(component-padding($button-large-height - double($button-border-width)));
+}
+
+.#{$namespace}button--block,
+%#{$namespace}button--block {
+  width: 100%;
+}
+
+.#{$namespace}button--hibar,
+%#{$namespace}button--hibar {
+  font-size: $base-font-size;
+  line-height: $base-font-size;
+  margin: component-margin($button-hibar-height, $button-hibar-spacing-units-height, $base-font-size) - double($button-border-width) 0 component-margin($button-hibar-height, $button-hibar-spacing-units-height, $base-font-size);
+  min-height: $button-hibar-height;
+  padding: component-padding($button-hibar-height - double($button-border-width), $base-font-size) double(component-padding($button-hibar-height - double($button-border-width), $base-font-size));
+  vertical-align: middle;
+}

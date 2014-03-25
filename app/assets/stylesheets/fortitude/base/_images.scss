@@ -1,0 +1,34 @@
+//------------------------------------
+//  #IMAGES
+//------------------------------------
+
+//
+// 1. Fluid images for responsive purposes.
+// 2. Offset `alt` text from surrounding copy.
+//
+
+img {
+  font-style: italic; // [2]
+  max-width: 100%; // [1]
+  vertical-align: middle;
+
+  &.icon {
+    display: inline;
+  }
+
+  &.responsive {
+    width: 100%;
+  }
+
+}
+
+
+//
+// If a `width` and/or `height` attribute have been explicitly defined, let’s
+// not make the image fluid.
+//
+
+img[width],
+img[height] {
+  max-width: none;
+}

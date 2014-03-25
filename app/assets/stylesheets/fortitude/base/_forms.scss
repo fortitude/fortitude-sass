@@ -1,0 +1,141 @@
+//------------------------------------
+//  #FORMS
+//------------------------------------
+
+//
+// Form elements, with a few extras for vertical rhythm.
+//
+
+.field {
+  @extend %cf;
+}
+
+.field__message {
+  border: $input-field-border-width solid transparent;
+  font-size: $heading-size-6;
+  line-height: $field-message-line-height;
+  margin-bottom: component-margin($field-message-height, $field-message-spacing-units-height, $field-message-line-height) + component-margin($input-field-height - double($input-field-border-width), $input-field-spacing-units-height, $field-message-line-height);
+  margin-top: component-margin($input-field-height - double($input-field-border-width), $input-field-spacing-units-height, $field-message-line-height) * -1;
+  padding: double(component-padding($field-message-height - double($input-field-border-width), $field-message-line-height)) component-padding($input-field-height - double($input-field-border-width), $input-field-line-height) 0;
+}
+
+.label {
+  display: inline-block;
+  position: relative;
+}
+
+.label--block {
+  display: inline-block;
+  width: 100%;
+}
+
+.label--reverse {
+  text-align: right;
+}
+
+// I don't really like this name.
+
+.label--file {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.input {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+%input--field {
+  border: $input-field-border-width solid;
+  border-radius: $input-field-border-radius;
+  font-size: $base-font-size;
+  line-height: $input-field-line-height;
+  margin: component-margin($input-field-height, $input-field-spacing-units-height, $input-field-line-height) 0;
+  min-height: $input-field-height;
+  padding: component-padding($input-field-height - double($input-field-border-width), $input-field-line-height);
+  width: 100%;
+}
+
+.input--text {
+  @extend %input--field;
+}
+
+.input--select {
+  @extend %input--field;
+  border: $input-field-border-width solid;
+  height: $input-field-height;
+  position: relative;
+}
+
+.input--textarea {
+  @extend %input--field;
+  border: $input-field-border-width solid;
+  font-size: $base-font-size;
+  line-height: $input-textarea-line-height;
+  margin: component-margin($input-textarea-height, $input-textarea-spacing-units-height, $input-textarea-line-height) 0;
+  min-height: $input-textarea-height;
+  padding: component-padding($input-textarea-height - double($input-field-border-width), $input-textarea-height - double($input-field-border-width) - $base-spacing-unit);
+  resize: vertical;
+
+  + .field__message {
+    margin-bottom: component-margin($field-message-height, $field-message-spacing-units-height, $field-message-line-height) + component-margin($input-textarea-height - double($input-field-border-width), $input-textarea-spacing-units-height, $field-message-line-height);
+    margin-top: component-margin($input-textarea-height - double($input-field-border-width), $input-textarea-spacing-units-height, $field-message-line-height) * -1;
+  }
+}
+
+%input--switch {
+  border: $input-switch-border-width solid;
+  border-radius: $input-switch-border-radius;
+  display: inline-block;
+  height: $input-switch-size;
+  position: relative;
+  top: -0.1rem;
+  vertical-align: middle;
+  width: $input-switch-size;
+}
+
+.input--radio {
+  @extend %input--switch;
+}
+
+.input--checkbox {
+  @extend %input--switch;
+}
+
+.input-group {
+  border-collapse: separate;
+  display: table;
+  margin: component-margin($input-field-height, $input-field-spacing-units-height, $input-field-line-height) 0;
+  position: relative;
+  width: 100%;
+
+  > .input {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    display: table-cell;
+    margin: 0;
+    width: 100%;
+
+    + .input-group__addon {
+      border-left: 0;
+      border-radius: 0 $input-field-border-radius $input-field-border-radius 0;
+    }
+  }
+}
+
+.input-group__addon {
+  border: $input-field-border-width solid;
+  border-radius: $input-field-border-radius 0 0 $input-field-border-radius;
+  border-right: 0;
+  display: table-cell;
+  font-size: $heading-size-5;
+  padding: 0 halve(component-padding($input-field-height - double($input-field-border-width), $input-field-line-height));
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  + .input {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}

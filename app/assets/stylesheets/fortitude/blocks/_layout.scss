@@ -1,0 +1,180 @@
+//------------------------------------
+//  #LAYOUT
+//------------------------------------
+
+//
+// The fortitude layout system uses `box-sizing: border-box;` and
+// `display: inline-block;` to create an extremely powerful, flexible
+// alternative to the traditional grid system. Combine the layout items with
+// the widths found in `trumps.widths`.
+//
+
+
+
+
+
+//
+// Here we set a variable assuming that `box-sizing: border-box;` is not set
+// globally. If it has been previously been defined, the following variable will
+// be overriden and will be set to `true`.
+//
+
+$global-border-box: false !default;
+
+
+
+
+
+.#{$namespace}layout,
+%#{$namespace}layout {
+  list-style: none;
+  margin: 0;
+  margin-left: -$base-spacing-unit;
+  padding: 0;
+}
+
+//
+// 1. Cause columns to stack side-by-side.
+// 2. Space columns apart.
+// 3. Align columns to the tops of each other.
+// 4. Full-width unless told to behave otherwise.
+// 5. Required to combine fluid widths and fixed gutters.
+//
+
+.#{$namespace}layout__item,
+%#{$namespace}layout__item {
+  display: inline-block; // [1]
+  padding-left: $base-spacing-unit; // [2]
+  vertical-align: top; // [3]
+  width: 100%; // [4]
+
+  @if $global-border-box == false {
+    -webkit-box-sizing: border-box; // [5]
+    -moz-box-sizing: border-box; // [5]
+    box-sizing: border-box; // [5]
+  }
+
+}
+
+
+
+
+
+//
+// Align layout items to the vertical centers or bottoms of each other.
+//
+
+.#{$namespace}layout--middle,
+%#{$namespace}layout--middle {
+  > .#{$namespace}layout__item,
+  > %#{$namespace}layout__item {
+    vertical-align: middle;
+  }
+}
+
+.#{$namespace}layout--bottom,
+%#{$namespace}layout--bottom {
+  > .#{$namespace}layout__item,
+  > %#{$namespace}layout__item {
+    vertical-align: bottom;
+  }
+}
+
+
+
+
+
+//
+// Reversed rendered order of layout items, e.g. items 1, 2, 3, 4 in your markup
+// will display in order 4, 3, 2, 1 on your page.
+//
+
+.#{$namespace}layout--rev,
+%#{$namespace}layout--rev {
+  direction: rtl;
+  text-align: left;
+
+  > .#{$namespace}layout__item,
+  > %#{$namespace}layout__item {
+    direction: ltr;
+    text-align: left;
+  }
+}
+
+
+
+
+
+//
+// Layout items without gutters.
+//
+
+.#{$namespace}layout--flush,
+%#{$namespace}layout--flush {
+  margin-left: 0;
+
+  > .#{$namespace}layout__item,
+  > %#{$namespace}layout__item {
+    padding-left: 0;
+  }
+}
+
+
+
+
+
+//
+// Make the layout items fill up from the right hand side.
+//
+
+.#{$namespace}layout--right,
+%#{$namespace}layout--right {
+  text-align: right;
+
+  > .#{$namespace}layout__item,
+  > %#{$namespace}layout__item {
+    text-align: left;
+  }
+}
+
+//
+// Make the layout items fill up from the center outward.
+//
+
+.#{$namespace}layout--center,
+%#{$namespace}layout--center {
+  text-align: center;
+
+  > .#{$namespace}layout__item,
+  > %#{$namespace}layout__item {
+    text-align: left;
+  }
+}
+
+
+
+
+
+//
+// Different size variations.
+//
+
+.#{$namespace}layout--small,
+%#{$namespace}layout--small {
+  margin-left: -(halve($base-spacing-unit));
+
+  > .#{$namespace}layout__item,
+  > %#{$namespace}layout__item {
+    padding-left: halve($base-spacing-unit);
+  }
+}
+
+.#{$namespace}layout--large,
+%#{$namespace}layout--large {
+  margin-left: -(double($base-spacing-unit));
+
+  > .#{$namespace}layout__item,
+  > %#{$namespace}layout__item {
+    padding-left: double($base-spacing-unit);
+  }
+}

@@ -1,0 +1,247 @@
+//------------------------------------
+//  #MIXINS
+//------------------------------------
+
+//
+// fortitude has a number of default mixins that the framework, and developers
+// working with it, can make use of.
+//
+
+@mixin clearfix() {
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+
+// Responsive utilities
+// -------------------------
+// More easily include all the states for responsive-utilities.less.
+// [converter] $parent hack
+@mixin responsive-visibility($parent) {
+  #{$parent} {
+    display: block !important;
+  }
+
+  table#{$parent} { display: table; }
+
+  tr#{$parent} { display: table-row !important; }
+
+  th#{$parent},
+    td#{$parent} { display: table-cell !important; }
+}
+
+// [converter] $parent hack
+@mixin responsive-invisibility($parent) {
+  #{$parent} {
+    display: none !important;
+  }
+}
+
+
+
+// Grid System
+// -----------
+
+// Centered container element
+@mixin container-fixed() {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: halve($grid-gutter-width);
+  padding-right: halve($grid-gutter-width);
+}
+
+// Creates a wrapper for a series of columns
+@mixin make-row($gutter: $grid-gutter-width) {
+  font-size: 0;
+  margin-left: halve($gutter) * -1;
+  margin-right: halve($gutter) * -1;
+}
+
+
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
+
+// [converter] Grid converted to use SASS cycles (LESS uses recursive nested mixin defs not supported by SASS)
+@mixin make-grid-columns() {
+  [class*=col-] {
+    display: inline-block;
+    font-size: $base-font-size;
+    // Prevent columns from collapsing when empty
+    min-height: 0.1rem;
+
+    // Inner gutter via padding
+    padding-left: halve($grid-gutter-width);
+    padding-right: halve($grid-gutter-width);
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+  }
+}
+
+
+@mixin make-grid-extension($class, $type) {
+  @if ($type == col-pv-halve) {
+    .#{$namespace}col-#{$class}-pv-halve,
+    %#{$namespace}col-#{$class}-pv-halve {
+      padding-bottom: halve($base-spacing-unit);
+      padding-top: halve($base-spacing-unit);
+    }
+  }
+
+  @if ($type == col-flush) {
+    .#{$namespace}col-#{$class}-flush,
+    %#{$namespace}col-#{$class}-flush {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @if($type == col-centered) {
+    .#{$namespace}col-#{$class}-centered,
+    %#{$namespace}col-#{$class}-centered {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @if ($type == row-flush) {
+    .#{$namespace}row-#{$class}-flush,
+    %#{$namespace}row-#{$class}-flush {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  @if ($type == row-halve) {
+    .#{$namespace}row-#{$class}-halve,
+    %#{$namespace}row-#{$class}-halve {
+      min-height: halve($base-spacing-unit);
+    }
+  }
+
+  @if ($type == row-push-halve) {
+    .#{$namespace}row-#{$class}-push-halve,
+    %#{$namespace}row-#{$class}-push-halve {
+      margin-bottom: halve($base-spacing-unit);
+    }
+  }
+
+  @if ($type == row-pull-halve) {
+    .#{$namespace}row-#{$class}-pull-halve,
+    %#{$namespace}row-#{$class}-pull-halve {
+      margin-top: halve($base-spacing-unit) * -1;
+    }
+  }
+
+}
+
+
+@mixin calc-grid($index, $class, $type) {
+  @if ($type == col-width) and ($index > 0) {
+    .#{$namespace}col-#{$class}-#{$index},
+    %#{$namespace}col-#{$class}-#{$index} {
+      width: percentage($index / $grid-columns);
+    }
+  }
+
+  @if ($type == col-push) {
+    .#{$namespace}col-#{$class}-push-#{$index},
+    %#{$namespace}col-#{$class}-push-#{$index} {
+      left: percentage($index / $grid-columns);
+    }
+  }
+
+  @if ($type == col-pull) {
+    .#{$namespace}col-#{$class}-pull-#{$index},
+    %#{$namespace}col-#{$class}-pull-#{$index} {
+      right: percentage($index / $grid-columns);
+    }
+  }
+
+  @if ($type == col-offset) {
+    .#{$namespace}col-#{$class}-offset-#{$index},
+    %#{$namespace}col-#{$class}-offset-#{$index} {
+      margin-left: percentage($index / $grid-columns);
+    }
+  }
+
+  @if ($type == col-pv) {
+    .#{$namespace}col-#{$class}-pv-#{$index},
+    %#{$namespace}col-#{$class}-pv-#{$index} {
+      padding-bottom: $base-spacing-unit * $index;
+      padding-top: $base-spacing-unit * $index;
+    }
+  }
+
+  @if ($type == col-ph) {
+    .#{$namespace}col-#{$class}-ph-#{$index},
+    %#{$namespace}col-#{$class}-ph-#{$index} {
+      padding-left: $base-spacing-unit * $index;
+      padding-right: $base-spacing-unit * $index;
+    }
+  }
+
+  @if ($type == row-height) {
+    .#{$namespace}row-#{$class}-#{$index},
+    %#{$namespace}row-#{$class}-#{$index} {
+      height: $base-spacing-unit * $index;
+    }
+  }
+
+  @if ($type == row-push) {
+    .#{$namespace}row-#{$class}-push-#{$index},
+    %#{$namespace}row-#{$class}-push-#{$index} {
+      margin-bottom: $base-spacing-unit * $index;
+    }
+  }
+
+  @if ($type == row-pull) {
+    .#{$namespace}row-#{$class}-pull-#{$index},
+    %#{$namespace}row-#{$class}-pull-#{$index} {
+      margin-top: ($base-spacing-unit * $index) * -1;
+    }
+  }
+
+  @if ($type == row-inset) {
+    .#{$namespace}row-#{$class}-inset-#{$index},
+    %#{$namespace}row-#{$class}-inset-#{$index} {
+      line-height: $base-spacing-unit * $index;
+    }
+  }
+}
+
+// [converter] This is defined recursively in LESS, but SASS supports real loops
+@mixin make-grid($columns, $class, $type) {
+  @for $i from 0 through $columns {
+    @include calc-grid($i, $class, $type);
+  }
+}
+
+@mixin text-align($property, $class) {
+  .text-#{$property}-#{$class} {
+    text-align: $property;
+  }
+}
+
+@mixin helpers() {
+  .hidden {
+    display: none;
+  }
+
+  .screen-reader-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+}

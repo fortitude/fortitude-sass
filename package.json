@@ -1,0 +1,24 @@
+{
+  "name": "fortitude",
+  "version": "3.2.0-beta.2",
+  "description": "A simple and practical CSS Framework.",
+  "main": "dist/_fortitude.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fortitude/fortitude"
+  },
+  "keywords": [
+    "scss",
+    "css",
+    "mixins"
+  ],
+  "author": "Hired",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fortitude/fortitude/issues"
+  },
+  "homepage": "https://github.com/fortitude/fortitude"
+}
