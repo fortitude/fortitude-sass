@@ -67,4 +67,8 @@
   > ul {
     line-height: $base-line-height;
   }
+
+  + .list--grouped-switches__multiple {
+    margin-top: $base-spacing-unit * -1;
+  }
 }
