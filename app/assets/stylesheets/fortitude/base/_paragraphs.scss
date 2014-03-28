@@ -17,7 +17,7 @@ p {
 // of a document slightly larger: en.wikipedia.org/wiki/Lede_(news)
 //
 
-.#{$namespace}lead,
+p.#{$namespace}lead,
 %#{$namespace}lead {
   font-size: $heading-size-4;
   line-height: $base-line-height * 1.5;
@@ -26,7 +26,7 @@ p {
   top: quarter($base-spacing-unit);
 }
 
-.#{$namespace}trail,
+p.#{$namespace}trail,
 %#{$namespace}trail {
   font-size: $heading-size-6;
   line-height: halve($base-line-height);
