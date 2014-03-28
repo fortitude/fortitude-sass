@@ -179,6 +179,13 @@
     }
   }
 
+  @if ($type == col-pb) {
+    .#{$namespace}col-#{$class}-pb-#{$index},
+    %#{$namespace}col-#{$class}-pb-#{$index} {
+      padding-bottom: $base-spacing-unit * $index;
+    }
+  }
+
   @if ($type == col-ph) {
     .#{$namespace}col-#{$class}-ph-#{$index},
     %#{$namespace}col-#{$class}-ph-#{$index} {

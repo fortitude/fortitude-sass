@@ -60,6 +60,7 @@
 @include make-grid($grid-columns, xs, col-pull);
 @include make-grid($grid-columns, xs, col-offset);
 @include make-grid($grid-columns, xs, col-pv);
+@include make-grid($grid-columns, xs, col-pb);
 @include make-grid($grid-columns, xs, col-ph);
 @include make-grid($grid-columns, xs, row-height);
 @include make-grid($grid-columns, xs, row-push);
@@ -88,6 +89,7 @@
   @include make-grid($grid-columns, sm, col-offset);
   @include make-grid($grid-columns, sm, col-pv);
   @include make-grid($grid-columns, sm, col-ph);
+  @include make-grid($grid-columns, sm, col-pb);
   @include make-grid($grid-columns, sm, row-height);
   @include make-grid($grid-columns, sm, row-push);
   @include make-grid($grid-columns, sm, row-pull);
@@ -116,6 +118,7 @@
   @include make-grid($grid-columns, md, col-offset);
   @include make-grid($grid-columns, md, col-pv);
   @include make-grid($grid-columns, md, col-ph);
+  @include make-grid($grid-columns, md, col-pb);
   @include make-grid($grid-columns, md, row-height);
   @include make-grid($grid-columns, md, row-push);
   @include make-grid($grid-columns, md, row-pull);
@@ -144,6 +147,7 @@
   @include make-grid($grid-columns, lg, col-offset);
   @include make-grid($grid-columns, lg, col-pv);
   @include make-grid($grid-columns, lg, col-ph);
+  @include make-grid($grid-columns, lg, col-pb);
   @include make-grid($grid-columns, lg, row-height);
   @include make-grid($grid-columns, lg, row-push);
   @include make-grid($grid-columns, lg, row-pull);

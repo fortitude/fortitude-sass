@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fortitude-rails (0.0.1.rc1)
+    fortitude-rails (0.0.1.rc2)
       autoprefixer-rails (~> 1.1.20140319)
       sass (~> 3.3)
       thor
