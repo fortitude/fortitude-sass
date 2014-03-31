@@ -69,6 +69,6 @@
   }
 
   + .list--grouped-switches__multiple {
-    margin-top: $base-spacing-unit * -1;
+    margin-top: halve($base-spacing-unit) * -1;
   }
 }
