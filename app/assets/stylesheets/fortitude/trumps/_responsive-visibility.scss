@@ -24,38 +24,38 @@
 
 // Visibility utilities
 
-@include responsive-invisibility('.#{$namespace}visible-xs, .#{$namespace}visible-sm, .#{$namespace}visible-md, .#{$namespace}visible-lg, %#{$namespace}visible-xs, %#{$namespace}visible-sm, %#{$namespace}visible-md, %#{$namespace}visible-lg');
+@include responsive-invisibility('.xs-visible, .sm-visible, .md-visible, .lg-visible');
 
 @media (max-width: $screen-xs-max) {
-  @include responsive-visibility('.#{$namespace}visible-xs, %#{$namespace}visible-xs');
+  @include responsive-visibility('.xs-visible');
 }
 
 @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-  @include responsive-visibility('.#{$namespace}visible-sm, %#{$namespace}visible-sm');
+  @include responsive-visibility('.sm-visible');
 }
 
 @media (min-width: $screen-md) and (max-width: $screen-md-max) {
-  @include responsive-visibility('.#{$namespace}visible-md, %#{$namespace}visible-md');
+  @include responsive-visibility('.md-visible');
 }
 
 @media (min-width: $screen-lg) {
-  @include responsive-visibility('.#{$namespace}visible-lg, %#{$namespace}visible-lg');
+  @include responsive-visibility('.lg-visible');
 }
 
 @media (max-width: $screen-xs-max) {
-  @include responsive-invisibility('.#{$namespace}hidden-xs, %#{$namespace}hidden-xs');
+  @include responsive-invisibility('.xs-hidden');
 }
 
 @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-  @include responsive-invisibility('.#{$namespace}hidden-sm, %#{$namespace}hidden-sm');
+  @include responsive-invisibility('.sm-hidden');
 }
 
 @media (min-width: $screen-md) and (max-width: $screen-md-max) {
-  @include responsive-invisibility('.#{$namespace}hidden-md, %#{$namespace}hidden-md');
+  @include responsive-invisibility('.md-hidden');
 }
 
 @media (min-width: $screen-lg) {
-  @include responsive-invisibility('.#{$namespace}hidden-lg, %#{$namespace}hidden-lg');
+  @include responsive-invisibility('.lg-hidden');
 }
 
 
@@ -63,12 +63,12 @@
 //
 // Media queries are placed on the inside to be mixin-friendly.
 
-@include responsive-invisibility('.#{$namespace}visible-print, %#{$namespace}visible-print');
+@include responsive-invisibility('.print-visible');
 
 @media print {
-  @include responsive-visibility('.#{$namespace}visible-print, %#{$namespace}visible-print');
+  @include responsive-visibility('.print-visible');
 }
 
 @media print {
-  @include responsive-invisibility('.#{$namespace}hidden-print, %#{$namespace}hidden-print');
+  @include responsive-invisibility('.print-hidden');
 }

@@ -1,5 +1,9 @@
+//------------------------------------
+//  #LIST
+//------------------------------------
+
 .list--inline {
-  margin: 0 quarter($grid-gutter-width) * -1;
+  margin: 0 (-(quarter($grid-gutter-width)));
 
   &,
   > li {
@@ -16,7 +20,7 @@
   > li {
     + li::before {
       content: "\2022";
-      left: quarter(convert-to-rem($grid-gutter-width) + 0.6rem) * -1;
+      left: (-(quarter(convert-to-rem($grid-gutter-width) + 0.6rem)));
       position: relative;
     }
   }
@@ -70,6 +74,6 @@
   }
 
   + .list--grouped-switches__multiple {
-    margin-top: halve($base-spacing-unit) * -1;
+    margin-top: (-(halve($base-spacing-unit)));
   }
 }

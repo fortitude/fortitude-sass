@@ -1,9 +1,13 @@
+//------------------------------------
+//  #NAVIGATIONBAR
+//------------------------------------
+
 .navigationbar {
   @include clearfix;
   border: $navigationbar-border-width solid;
   margin: component-margin($navigationbar-height, $navigationbar-spacing-units-height) 0;
   min-height: $navigationbar-height;
-  padding: 0;
+  padding: 0 halve($base-spacing-unit);
   position: relative;
   width: 100%;
 }
@@ -21,7 +25,7 @@
 
 .navigationbar__header {
   @include clearfix;
-  margin: 0 halve($grid-gutter-width) * -1;
+  margin: 0 (-(halve($grid-gutter-width)));
 }
 
 .navigationbar__header__logo {
@@ -39,7 +43,7 @@
 }
 
 .navigationbar__collapse {
-  margin: 0 halve($grid-gutter-width) * -1;
+  margin: 0 (-(halve($grid-gutter-width)));
 }
 
 .navigationbar__navigation {

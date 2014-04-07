@@ -8,12 +8,9 @@
 // 1. So we can apply the `.box` class to naturally-inline elements.
 //
 
-.#{$namespace}box,
-%#{$namespace}box {
+.box {
   @extend %cf;
   display: block; // [1]
-  padding-bottom: $box-padding;
-  padding-top: $box-padding;
   width: 100%;
 }
 
@@ -21,45 +18,6 @@
   display: inline-block;
 }
 
-.box--padded {
-  padding-left: $box-padding;
-  padding-right: $box-padding;
-
-  &.box--small {
-    padding-left: $box-small-padding;
-    padding-right: $box-small-padding;
-  }
-
-  &.box--large {
-    padding-left: $box-large-padding;
-    padding-right: $box-large-padding;
-  }
-}
-
 .box--rounded {
   border-radius: $box-border-radius;
-}
-
-
-
-//
-// Box size variants
-//
-
-.#{$namespace}box--small,
-%#{$namespace}box--small {
-  padding-bottom: $box-small-padding;
-  padding-top: $box-small-padding;
-}
-
-.#{$namespace}box--large,
-%#{$namespace}box--large {
-  padding-bottom: $box-large-padding;
-  padding-top: $box-large-padding;
-}
-
-.#{$namespace}box--flush,
-%#{$namespace}box--flush {
-  padding-bottom: 0;
-  padding-top: 0;
 }

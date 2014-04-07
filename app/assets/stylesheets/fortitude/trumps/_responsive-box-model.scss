@@ -1,0 +1,29 @@
+@for $i from 0 through $grid-columns {
+  // @include responsive-box-model($i, xs, border);
+  @include responsive-box-model($i, xs, margin);
+  @include responsive-box-model($i, xs, padding);
+}
+
+@media (min-width: $screen-sm) {
+  @for $i from 0 through $grid-columns {
+    // @include responsive-box-model($i, sm, border);
+    @include responsive-box-model($i, sm, margin);
+    @include responsive-box-model($i, sm, padding);
+  }
+}
+
+@media (min-width: $screen-md) {
+  @for $i from 0 through $grid-columns {
+    // @include responsive-box-model($i, md, border);
+    @include responsive-box-model($i, md, margin);
+    @include responsive-box-model($i, md, padding);
+  }
+}
+
+@media (min-width: $screen-lg) {
+  @for $i from 0 through $grid-columns {
+    // @include responsive-box-model($i, lg, border);
+    @include responsive-box-model($i, lg, margin);
+    @include responsive-box-model($i, lg, padding);
+  }
+}

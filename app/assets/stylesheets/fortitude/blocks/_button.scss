@@ -8,8 +8,7 @@
 // 1. So we can apply the `.button` class to naturally-inline elements.
 //
 
-.#{$namespace}button,
-%#{$namespace}button {
+.button {
   background-color: transparent;
   border: $button-border-width solid transparent;
   border-radius: $button-border-radius;
@@ -31,12 +30,11 @@
   white-space: nowrap;
 }
 
-.#{$namespace}button + .#{$namespace}label--inline {
+.button + .label--inline {
   margin-left: halve($base-spacing-unit);
 }
 
-.#{$namespace}button__target,
-%#{$namespace}button__target {
+.button__target {
   cursor: pointer;
   height: 100%;
   margin: 0;
@@ -49,29 +47,25 @@
   z-index: 1;
 }
 
-.#{$namespace}button--small,
-%#{$namespace}button--small {
+.button--small {
   font-size: $heading-size-6;
   margin: component-margin($button-small-height, $button-small-spacing-units-height) 0;
   min-height: $button-small-height;
   padding: component-padding($button-small-height - double($button-border-width)) double(component-padding($button-small-height - double($button-border-width)));
 }
 
-.#{$namespace}button--large,
-%#{$namespace}button--large {
+.button--large {
   font-size: $heading-size-4;
   margin: component-margin($button-large-height, $button-large-spacing-units-height) 0;
   min-height: $button-large-height;
   padding: component-padding($button-large-height - double($button-border-width)) halve(component-padding($button-large-height - double($button-border-width)));
 }
 
-.#{$namespace}button--block,
-%#{$namespace}button--block {
+.button--block {
   width: 100%;
 }
 
-.#{$namespace}button--hibar,
-%#{$namespace}button--hibar {
+.button--hibar {
   font-size: $base-font-size;
   line-height: $base-font-size;
   margin: component-margin($button-hibar-height, $button-hibar-spacing-units-height, $base-font-size) - double($button-border-width) 0 component-margin($button-hibar-height, $button-hibar-spacing-units-height, $base-font-size);

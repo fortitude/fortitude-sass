@@ -1,3 +1,3 @@
 module Fortitude
-  VERSION = '0.0.1.rc5'
+  VERSION = '0.1.0'
 end

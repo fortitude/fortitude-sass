@@ -18,8 +18,6 @@
 
 // Responsive utilities
 // -------------------------
-// More easily include all the states for responsive-utilities.less.
-// [converter] $parent hack
 @mixin responsive-visibility($parent) {
   #{$parent} {
     display: block !important;
@@ -33,7 +31,6 @@
     td#{$parent} { display: table-cell !important; }
 }
 
-// [converter] $parent hack
 @mixin responsive-invisibility($parent) {
   #{$parent} {
     display: none !important;
@@ -49,190 +46,142 @@
 @mixin container-fixed() {
   margin-right: auto;
   margin-left: auto;
-  padding-left: halve($grid-gutter-width);
-  padding-right: halve($grid-gutter-width);
 }
 
-// Creates a wrapper for a series of columns
-@mixin make-row($gutter: $grid-gutter-width) {
-  font-size: 0;
-  margin-left: halve($gutter) * -1;
-  margin-right: halve($gutter) * -1;
-}
-
-
-// Framework grid generation
-//
-// Used only by Bootstrap to generate the correct number of grid classes given
-// any value of `$grid-columns`.
-
-// [converter] Grid converted to use SASS cycles (LESS uses recursive nested mixin defs not supported by SASS)
-@mixin make-grid-columns() {
-  [class*=col-] {
-    display: inline-block;
-    font-size: $base-font-size;
-    // Prevent columns from collapsing when empty
-    min-height: 0.1rem;
-
-    // Inner gutter via padding
-    padding-left: halve($grid-gutter-width);
-    padding-right: halve($grid-gutter-width);
-    position: relative;
-    vertical-align: top;
-    width: 100%;
+@mixin responsive-text-align($class, $type) {
+  .#{$class}-text-#{$type} {
+    text-align: $type;
   }
 }
 
 
-@mixin make-grid-extension($class, $type) {
-  @if ($type == col-pv-halve) {
-    .#{$namespace}col-#{$class}-pv-halve,
-    %#{$namespace}col-#{$class}-pv-halve {
-      padding-bottom: halve($base-spacing-unit);
-      padding-top: halve($base-spacing-unit);
+@mixin responsive-box-model($columns, $class, $type) {
+  $shorthand: null;
+  @if $type == 'margin' {
+    $shorthand: m;
+
+    .#{$class}-#{$shorthand}-#{$columns} {
+      #{$type}: (-($base-spacing-unit * $columns));
     }
-  }
 
-  @if ($type == col-flush) {
-    .#{$namespace}col-#{$class}-flush,
-    %#{$namespace}col-#{$class}-flush {
-      padding-left: 0;
-      padding-right: 0;
+    .#{$class}-#{$shorthand}rl-#{$columns} {
+      #{$type}-left: (-($base-spacing-unit * $columns));
+      #{$type}-right: (-($base-spacing-unit * $columns));
     }
-  }
 
-  @if($type == col-centered) {
-    .#{$namespace}col-#{$class}-centered,
-    %#{$namespace}col-#{$class}-centered {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    .#{$class}-#{$shorthand}tb-#{$columns} {
+      #{$type}-bottom: (-($base-spacing-unit * $columns));
+      #{$type}-top: (-($base-spacing-unit * $columns));
     }
-  }
 
-  @if ($type == row-flush) {
-    .#{$namespace}row-#{$class}-flush,
-    %#{$namespace}row-#{$class}-flush {
-      margin-left: 0;
-      margin-right: 0;
+    .#{$class}-#{$shorthand}t-#{$columns} {
+      #{$type}-top: (-($base-spacing-unit * $columns));
     }
-  }
 
-  @if ($type == row-halve) {
-    .#{$namespace}row-#{$class}-halve,
-    %#{$namespace}row-#{$class}-halve {
-      min-height: halve($base-spacing-unit);
+    .#{$class}-#{$shorthand}r-#{$columns} {
+      #{$type}-right: (-($base-spacing-unit * $columns));
     }
-  }
 
-  @if ($type == row-push-halve) {
-    .#{$namespace}row-#{$class}-push-halve,
-    %#{$namespace}row-#{$class}-push-halve {
-      margin-bottom: halve($base-spacing-unit);
+    .#{$class}-#{$shorthand}b-#{$columns} {
+      #{$type}-bottom: (-($base-spacing-unit * $columns));
     }
-  }
 
-  @if ($type == row-pull-halve) {
-    .#{$namespace}row-#{$class}-pull-halve,
-    %#{$namespace}row-#{$class}-pull-halve {
-      margin-top: halve($base-spacing-unit) * -1;
+    .#{$class}-#{$shorthand}l-#{$columns} {
+      #{$type}-left: (-($base-spacing-unit * $columns));
     }
-  }
 
-}
-
-
-@mixin calc-grid($index, $class, $type) {
-  @if ($type == col-width) and ($index > 0) {
-    .#{$namespace}col-#{$class}-#{$index},
-    %#{$namespace}col-#{$class}-#{$index} {
-      width: percentage($index / $grid-columns);
+    .#{$class}-#{$shorthand}h-#{$columns} {
+      #{$type}: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
     }
-  }
 
-  @if ($type == col-push) {
-    .#{$namespace}col-#{$class}-push-#{$index},
-    %#{$namespace}col-#{$class}-push-#{$index} {
-      left: percentage($index / $grid-columns);
+    .#{$class}-#{$shorthand}rlh-#{$columns} {
+      #{$type}-left: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
+      #{$type}-right: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
     }
-  }
 
-  @if ($type == col-pull) {
-    .#{$namespace}col-#{$class}-pull-#{$index},
-    %#{$namespace}col-#{$class}-pull-#{$index} {
-      right: percentage($index / $grid-columns);
+    .#{$class}-#{$shorthand}tbh-#{$columns} {
+      #{$type}-bottom: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
+      #{$type}-top: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
     }
-  }
 
-  @if ($type == col-offset) {
-    .#{$namespace}col-#{$class}-offset-#{$index},
-    %#{$namespace}col-#{$class}-offset-#{$index} {
-      margin-left: percentage($index / $grid-columns);
+    .#{$class}-#{$shorthand}th-#{$columns} {
+      #{$type}-top: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
     }
-  }
 
-  @if ($type == col-pv) {
-    .#{$namespace}col-#{$class}-pv-#{$index},
-    %#{$namespace}col-#{$class}-pv-#{$index} {
-      padding-bottom: $base-spacing-unit * $index;
-      padding-top: $base-spacing-unit * $index;
+    .#{$class}-#{$shorthand}rh-#{$columns} {
+      #{$type}-right: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
     }
-  }
 
-  @if ($type == col-pb) {
-    .#{$namespace}col-#{$class}-pb-#{$index},
-    %#{$namespace}col-#{$class}-pb-#{$index} {
-      padding-bottom: $base-spacing-unit * $index;
+    .#{$class}-#{$shorthand}bh-#{$columns} {
+      #{$type}-bottom: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
     }
-  }
 
-  @if ($type == col-ph) {
-    .#{$namespace}col-#{$class}-ph-#{$index},
-    %#{$namespace}col-#{$class}-ph-#{$index} {
-      padding-left: $base-spacing-unit * $index;
-      padding-right: $base-spacing-unit * $index;
+    .#{$class}-#{$shorthand}lh-#{$columns} {
+      #{$type}-left: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
     }
+
+  } @elseif $type == 'padding' {
+    $shorthand: p;
   }
 
-  @if ($type == row-height) {
-    .#{$namespace}row-#{$class}-#{$index},
-    %#{$namespace}row-#{$class}-#{$index} {
-      height: $base-spacing-unit * $index;
-    }
+  .#{$class}-#{$shorthand}#{$columns} {
+    #{$type}: $base-spacing-unit * $columns;
   }
 
-  @if ($type == row-push) {
-    .#{$namespace}row-#{$class}-push-#{$index},
-    %#{$namespace}row-#{$class}-push-#{$index} {
-      margin-bottom: $base-spacing-unit * $index;
-    }
+  .#{$class}-#{$shorthand}rl#{$columns} {
+    #{$type}-left: $base-spacing-unit * $columns;
+    #{$type}-right: $base-spacing-unit * $columns;
   }
 
-  @if ($type == row-pull) {
-    .#{$namespace}row-#{$class}-pull-#{$index},
-    %#{$namespace}row-#{$class}-pull-#{$index} {
-      margin-top: ($base-spacing-unit * $index) * -1;
-    }
+  .#{$class}-#{$shorthand}tb#{$columns} {
+    #{$type}-bottom: $base-spacing-unit * $columns;
+    #{$type}-top: $base-spacing-unit * $columns;
   }
 
-  @if ($type == row-inset) {
-    .#{$namespace}row-#{$class}-inset-#{$index},
-    %#{$namespace}row-#{$class}-inset-#{$index} {
-      line-height: $base-spacing-unit * $index;
-    }
+  .#{$class}-#{$shorthand}t#{$columns} {
+    #{$type}-top: $base-spacing-unit * $columns;
   }
-}
 
-// [converter] This is defined recursively in LESS, but SASS supports real loops
-@mixin make-grid($columns, $class, $type) {
-  @for $i from 0 through $columns {
-    @include calc-grid($i, $class, $type);
+  .#{$class}-#{$shorthand}r#{$columns} {
+    #{$type}-right: $base-spacing-unit * $columns;
   }
-}
 
-@mixin text-align($property, $class) {
-  .text-#{$property}-#{$class} {
-    text-align: $property;
+  .#{$class}-#{$shorthand}b#{$columns} {
+    #{$type}-bottom: $base-spacing-unit * $columns;
+  }
+
+  .#{$class}-#{$shorthand}l#{$columns} {
+    #{$type}-left: $base-spacing-unit * $columns;
+  }
+
+  .#{$class}-#{$shorthand}h#{$columns} {
+    #{$type}: $base-spacing-unit * $columns + halve($base-spacing-unit);
+  }
+
+  .#{$class}-#{$shorthand}rlh#{$columns} {
+    #{$type}-left: $base-spacing-unit * $columns + halve($base-spacing-unit);
+    #{$type}-right: $base-spacing-unit * $columns + halve($base-spacing-unit);
+  }
+
+  .#{$class}-#{$shorthand}tbh#{$columns} {
+    #{$type}-bottom: $base-spacing-unit * $columns + halve($base-spacing-unit);
+    #{$type}-top: $base-spacing-unit * $columns + halve($base-spacing-unit);
+  }
+
+  .#{$class}-#{$shorthand}th#{$columns} {
+    #{$type}-top: $base-spacing-unit * $columns + halve($base-spacing-unit);
+  }
+
+  .#{$class}-#{$shorthand}rh#{$columns} {
+    #{$type}-right: $base-spacing-unit * $columns + halve($base-spacing-unit);
+  }
+
+  .#{$class}-#{$shorthand}bh#{$columns} {
+    #{$type}-bottom: $base-spacing-unit * $columns + halve($base-spacing-unit);
+  }
+
+  .#{$class}-#{$shorthand}lh#{$columns} {
+    #{$type}-left: $base-spacing-unit * $columns + halve($base-spacing-unit);
   }
 }
 
@@ -245,43 +194,72 @@
 // stranded heading hierarchy: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
 //
 
-@mixin alpha() {
-  font-size: $heading-size-1;
-  line-height: if($heading-size-1 > $base-line-height, double($base-line-height), $base-line-height);
-}
 
-@mixin beta() {
-  font-size: $heading-size-2;
-  line-height: if($heading-size-2 > $base-line-height, double($base-line-height), $base-line-height);
-}
+@mixin responsive-font($class, $type) {
+  $font-size: null;
 
-@mixin gamma() {
-  font-size: $heading-size-3;
-  line-height: if($heading-size-3 > $base-line-height, double($base-line-height), $base-line-height);
-}
-
-@mixin delta() {
-  font-size: $heading-size-4;
-  line-height: if($heading-size-4 > $base-line-height, double($base-line-height), $base-line-height);
-}
-
-@mixin epsilon() {
-  font-size: $heading-size-5;
-  line-height: if($heading-size-5 > $base-line-height, double($base-line-height), $base-line-height);
-}
-
-@mixin zeta() {
-  font-size: $heading-size-6;
-  line-height: if($heading-size-6 > $base-line-height, double($base-line-height), $base-line-height);
-}
-
-
-@mixin helpers() {
-  .hidden {
-    display: none;
+  @if $type == 'alpha' {
+    $font-size: $heading-size-1;
+  } @elseif $type == 'beta' {
+    $font-size: $heading-size-2;
+  } @elseif $type == 'gamma' {
+    $font-size: $heading-size-3;
+  } @elseif $type == 'delta' {
+    $font-size: $heading-size-4;
+  } @elseif $type == 'epsilon' {
+    $font-size: $heading-size-5;
+  } @elseif $type == 'zeta' {
+    $font-size: $heading-size-6;
   }
 
-  .screen-reader-only {
+  .#{$class}-#{$type} {
+    font-size: $font-size;
+    line-height: if($font-size > $base-line-height, double($base-line-height), $base-line-height);
+  }
+}
+
+@mixin responsive-width($index, $class) {
+  .#{$class}-#{$index}of#{$grid-columns} {
+    width: percentage($index / $grid-columns);
+  }
+}
+
+@mixin responsive-offset($index, $class) {
+  .#{$class}-offset#{$index}of#{$grid-columns} {
+    margin-left: percentage($index / $grid-columns);
+  }
+}
+
+@mixin responsive-push($index, $class) {
+  .#{$class}-push#{$index}of#{$grid-columns} {
+    left: percentage($index / $grid-columns);
+  }
+}
+
+@mixin responsive-pull($index, $class) {
+  .#{$class}-pull#{$index}of#{$grid-columns} {
+    right: percentage($index / $grid-columns);
+  }
+}
+
+@mixin responsive-height($index, $class) {
+  .#{$class}-#{$index} {
+    min-height: $base-spacing-unit * $index;
+  }
+}
+
+@mixin responsive-line-height($index, $class) {
+  .#{$class}-inset#{$index} {
+    line-height: $base-line-height * $index;
+  }
+
+  .#{$class}-inseth#{$index} {
+    line-height: ($base-line-height * $index) + halve($base-line-height);
+  }
+}
+
+@mixin helpers() {
+  .screen-reader-visible {
     border: 0;
     clip: rect(0, 0, 0, 0);
     height: 1px;

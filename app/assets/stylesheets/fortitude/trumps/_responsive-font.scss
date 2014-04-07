@@ -1,0 +1,23 @@
+$sizes: alpha, beta, gamma, delta, epsilon, zeta;
+
+@each $size in $sizes {
+  @include responsive-font(xs, $size);
+}
+
+@media (min-width: $screen-sm) {
+  @each $size in $sizes {
+    @include responsive-font(sm, $size);
+  }
+}
+
+@media (min-width: $screen-md) {
+  @each $size in $sizes {
+    @include responsive-font(md, $size);
+  }
+}
+
+@media (min-width: $screen-lg) {
+  @each $size in $sizes {
+    @include responsive-font(lg, $size);
+  }
+}

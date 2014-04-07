@@ -13,20 +13,9 @@
 
 
 
-//
-// Here we set a variable assuming that `box-sizing: border-box;` is not set
-// globally. If it has been previously been defined, the following variable will
-// be overriden and will be set to `true`.
-//
-
-$global-border-box: false !default;
-
-
-
-
-
-.#{$namespace}layout,
-%#{$namespace}layout {
+.layout {
+  display: block;
+  font-size: 0;
   list-style: none;
   margin: 0;
   margin-left: -$base-spacing-unit;
@@ -35,25 +24,21 @@ $global-border-box: false !default;
 
 //
 // 1. Cause columns to stack side-by-side.
-// 2. Space columns apart.
-// 3. Align columns to the tops of each other.
-// 4. Full-width unless told to behave otherwise.
-// 5. Required to combine fluid widths and fixed gutters.
+// 2. Used in conjunction with `.layout` to
+//    remove pseudo margin for inline-block elements.
+// 3. Space columns apart.
+// 4. Used for elements that use push/pull extensions
+// 5. Align columns to the tops of each other.
+// 6. Full-width unless told to behave otherwise.
 //
 
-.#{$namespace}layout__item,
-%#{$namespace}layout__item {
+.layout__item {
   display: inline-block; // [1]
-  padding-left: $base-spacing-unit; // [2]
-  vertical-align: top; // [3]
-  width: 100%; // [4]
-
-  @if $global-border-box == false {
-    -webkit-box-sizing: border-box; // [5]
-    -moz-box-sizing: border-box; // [5]
-    box-sizing: border-box; // [5]
-  }
-
+  font-size: $base-font-size; // [2]
+  padding-left: $base-spacing-unit; // [3]
+  position: relative; // [4]
+  vertical-align: top; // [5]
+  width: 100%; // [6]
 }
 
 
@@ -64,18 +49,14 @@ $global-border-box: false !default;
 // Align layout items to the vertical centers or bottoms of each other.
 //
 
-.#{$namespace}layout--middle,
-%#{$namespace}layout--middle {
-  > .#{$namespace}layout__item,
-  > %#{$namespace}layout__item {
+.layout--middle {
+  > .layout__item {
     vertical-align: middle;
   }
 }
 
-.#{$namespace}layout--bottom,
-%#{$namespace}layout--bottom {
-  > .#{$namespace}layout__item,
-  > %#{$namespace}layout__item {
+.layout--bottom {
+  > .layout__item {
     vertical-align: bottom;
   }
 }
@@ -89,13 +70,11 @@ $global-border-box: false !default;
 // will display in order 4, 3, 2, 1 on your page.
 //
 
-.#{$namespace}layout--rev,
-%#{$namespace}layout--rev {
+.layout--rev {
   direction: rtl;
   text-align: left;
 
-  > .#{$namespace}layout__item,
-  > %#{$namespace}layout__item {
+  > .layout__item {
     direction: ltr;
     text-align: left;
   }
@@ -109,45 +88,11 @@ $global-border-box: false !default;
 // Layout items without gutters.
 //
 
-.#{$namespace}layout--flush,
-%#{$namespace}layout--flush {
+.layout--flush {
   margin-left: 0;
 
-  > .#{$namespace}layout__item,
-  > %#{$namespace}layout__item {
+  > .layout__item {
     padding-left: 0;
-  }
-}
-
-
-
-
-
-//
-// Make the layout items fill up from the right hand side.
-//
-
-.#{$namespace}layout--right,
-%#{$namespace}layout--right {
-  text-align: right;
-
-  > .#{$namespace}layout__item,
-  > %#{$namespace}layout__item {
-    text-align: left;
-  }
-}
-
-//
-// Make the layout items fill up from the center outward.
-//
-
-.#{$namespace}layout--center,
-%#{$namespace}layout--center {
-  text-align: center;
-
-  > .#{$namespace}layout__item,
-  > %#{$namespace}layout__item {
-    text-align: left;
   }
 }
 
@@ -159,22 +104,18 @@ $global-border-box: false !default;
 // Different size variations.
 //
 
-.#{$namespace}layout--small,
-%#{$namespace}layout--small {
-  margin-left: -(halve($base-spacing-unit));
+.layout--small {
+  margin-left: (-(halve($base-spacing-unit)));
 
-  > .#{$namespace}layout__item,
-  > %#{$namespace}layout__item {
+  > .layout__item {
     padding-left: halve($base-spacing-unit);
   }
 }
 
-.#{$namespace}layout--large,
-%#{$namespace}layout--large {
-  margin-left: -(double($base-spacing-unit));
+.layout--large {
+  margin-left: (-(double($base-spacing-unit)));
 
-  > .#{$namespace}layout__item,
-  > %#{$namespace}layout__item {
+  > .layout__item {
     padding-left: double($base-spacing-unit);
   }
 }

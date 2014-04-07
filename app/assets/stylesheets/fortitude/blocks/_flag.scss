@@ -1,5 +1,5 @@
 //------------------------------------
-//  #flag
+//  #FLAG
 //------------------------------------
 
 //
@@ -12,8 +12,7 @@
 //    this makes the object behave in a quasi-`display: block;` manner.
 //
 
-.#{$namespace}flag,
-%#{$namespace}flag {
+.flag {
   display: table; // [1]
   width: 100%; // [2]
 }
@@ -24,10 +23,8 @@
 // 1. Default to aligning content to their middles.
 //
 
-.#{$namespace}flag__object,
-%#{$namespace}flag__object,
-.#{$namespace}flag__body,
-%#{$namespace}flag__body {
+.flag__object,
+.flag__body {
   display: table-cell;
   vertical-align: middle; // [1]
 }
@@ -36,8 +33,7 @@
 // Flag images have a space between them and the body of the object.
 //
 
-.#{$namespace}flag__object,
-%#{$namespace}flag__object {
+.flag__object {
   padding-right: $base-spacing-unit;
 
   > img {
@@ -52,8 +48,7 @@
 // 1. Forces the `.flag__body` to take up all remaining space.
 //
 
-.#{$namespace}flag__body,
-%#{$namespace}flag__body {
+.flag__body {
   width: 100%;
 }
 
@@ -67,10 +62,8 @@
 //
 // 1. Reassign margins to the correct sides.
 //
-.#{$namespace}flag--reverse,
-%#{$namespace}flag--reverse {
-  > .#{$namespace}flag__object,
-  > %#{$namespace}flag__object {
+.flag--reverse {
+  > .flag__object {
     padding-left: $base-spacing-unit; // [1]
     padding-right: 0; // [1]
   }
@@ -85,22 +78,16 @@
 // text-content to the tops of bottoms of each other.
 //
 
-.#{$namespace}flag--top,
-%#{$namespace}flag--top {
-  .#{$namespace}flag__img,
-  %#{$namespace}flag__img,
-  .#{$namespace}flag__body,
-  %#{$namespace}flag__body {
+.flag--top {
+  .flag__img,
+  .flag__body {
     vertical-align: top;
   }
 }
 
-.#{$namespace}flag--bottom,
-%#{$namespace}flag--bottom {
-  .#{$namespace}flag__img,
-  %#{$namespace}flag__img,
-  .#{$namespace}flag__body,
-  %#{$namespace}flag__body {
+.flag--bottom {
+  .flag__img,
+  .flag__body {
     vertical-align: bottom;
   }
 }

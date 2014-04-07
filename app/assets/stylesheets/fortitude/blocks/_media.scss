@@ -7,14 +7,12 @@
 // stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
 //
 
-.#{$namespace}media,
-%#{$namespace}media {
-  @extend %cf;
+.media {
+  @include clearfix;
   display: block;
 }
 
-.#{$namespace}media__object,
-%#{$namespace}media__object {
+.media__object {
   float: left;
   margin-right: $base-spacing-unit;
 

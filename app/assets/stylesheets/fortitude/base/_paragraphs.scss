@@ -12,22 +12,49 @@ p {
   line-height: $base-line-height;
 }
 
+.#{$namespace}p--tall,
+%#{$namespace}p--tall {
+  line-height: $base-line-height * 1.25;
+}
+
+.#{$namespace}p--short,
+%#{$namespace}p--short {
+  line-height: halve($base-line-height) * 1.5;
+}
+
 //
 // The `.lead` class is used to make the introductory text (usually a paragraph)
 // of a document slightly larger: en.wikipedia.org/wiki/Lede_(news)
 //
 
-p.#{$namespace}lead,
-%#{$namespace}lead {
+.#{$namespace}p--lead,
+%#{$namespace}p--lead {
   font-size: $heading-size-4;
-  line-height: $base-line-height * 1.5;
-  margin-top: halve($base-spacing-unit) * -1;
-  position: relative;
-  top: quarter($base-spacing-unit);
+  line-height: $base-line-height * 1.25;
+
+  &.#{$namespace}p--tall,
+  &%#{$namespace}p--tall {
+    line-height: $base-line-height * 1.5;
+  }
+
+  &.#{$namespace}p--short,
+  &%#{$namespace}p--short {
+    line-height: $base-line-height;
+  }
 }
 
-p.#{$namespace}trail,
-%#{$namespace}trail {
+.#{$namespace}p--trail,
+%#{$namespace}p--trail {
   font-size: $heading-size-6;
-  line-height: halve($base-line-height);
+  line-height: halve($base-line-height) * 1.5;
+
+  &.#{$namespace}p--tall,
+  &%#{$namespace}p--tall {
+    line-height: $base-line-height;
+  }
+
+  &.#{$namespace}p--short,
+  &%#{$namespace}p--short {
+    line-height: halve($base-line-height);
+  }
 }

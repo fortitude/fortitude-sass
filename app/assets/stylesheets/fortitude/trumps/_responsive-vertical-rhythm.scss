@@ -1,0 +1,25 @@
+@for $i from 0 through $grid-columns {
+  @include responsive-height($i, xs);
+  @include responsive-line-height($i, xs);
+}
+
+@media (min-width: $screen-sm) {
+  @for $i from 0 through $grid-columns {
+    @include responsive-height($i, sm);
+    @include responsive-line-height($i, sm);
+  }
+}
+
+@media (min-width: $screen-md) {
+  @for $i from 0 through $grid-columns {
+    @include responsive-height($i, md);
+    @include responsive-line-height($i, md);
+  }
+}
+
+@media (min-width: $screen-lg) {
+  @for $i from 0 through $grid-columns {
+    @include responsive-height($i, lg);
+    @include responsive-line-height($i, lg);
+  }
+}

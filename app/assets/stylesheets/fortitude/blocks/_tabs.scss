@@ -12,8 +12,7 @@
 //    this makes the object behave in a quasi-`display: block;` manner.
 //
 
-.#{$namespace}tabs,
-%#{$namespace}tabs {
+.tabs {
   display: table; // [2]
   list-style: none; // [1]
   margin: 0; // [1]
@@ -23,22 +22,18 @@
   width: 100%; // [4]
 }
 
-.#{$namespace}tabs__item,
-%#{$namespace}tabs__item {
+.tabs__item {
   display: table-cell; // [2]
 }
 
-.#{$namespace}tabs__link,
-%#{$namespace}tabs__link {
+.tabs__link {
   display: block;
 }
 
-.#{$namespace}tabs__target,
-%#{$namespace}tabs__target {
+.tabs__target {
   display: none;
 }
 
-.#{$namespace}tabs__target--active,
-%#{$namespace}tabs__target--active {
+.tabs__target--is-active {
   display: block;
 }

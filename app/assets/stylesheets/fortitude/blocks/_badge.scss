@@ -8,8 +8,7 @@
 // 1. So we can apply the `.badge` class to naturally-inline elements.
 //
 
-.#{$namespace}badge,
-%#{$namespace}badge {
+.badge {
   background-color: transparent;
   border: $badge-border-width solid transparent;
   border-radius: $badge-border-radius;
