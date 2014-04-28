@@ -1,9 +1,9 @@
 .flex-media {
   position: relative;
-  padding-top: 25px;
+  padding-top: $base-spacing-unit;
   padding-bottom: 67.5%;
   height: 0;
-  margin-bottom: 16px;
+  margin-bottom: halve($base-spacing-unit);
   overflow: hidden;
 }
 
