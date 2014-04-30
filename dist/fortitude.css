@@ -978,10 +978,18 @@ img[height] {
   margin: 0 5px;
 }
 
-.list--disc > li + li::before {
+.list--disc > li::after {
   content: "\2022";
-  left: -0.65rem;
+  right: -0.65rem;
   position: relative;
+}
+
+.list--disc > li:last-child::after {
+  content : ""
+}
+
+.list--disc > li .strong {
+  margin-left: 0.1rem;
 }
 
 .list--grouped-switches {
