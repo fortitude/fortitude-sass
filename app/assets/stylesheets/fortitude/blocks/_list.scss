@@ -2,28 +2,43 @@
 //  #LIST
 //------------------------------------
 
-.list--inline {
-  margin: 0 (-(quarter($grid-gutter-width)));
+$list-artifact-width: 0.6rem;
 
-  &,
+.list--inline {
+  display: inline-block;
+  margin: 0 (-(halve($base-spacing-unit)));
+  overflow: hidden;
+  vertical-align: middle;
+
   > li {
-    display: inline-block;
+    float: left;
+    margin: 0 halve($base-spacing-unit) 0 halve($base-spacing-unit) + $list-artifact-width;
+
+    &:first-child {
+      margin: 0 halve($base-spacing-unit);
+    }
   }
 
-  > li {
-    display: inline-block;
-    margin: 0 quarter($grid-gutter-width);
+  &.list--bare {
+    > li {
+      margin: 0 halve($base-spacing-unit);
+    }
   }
 }
 
-.list--disc {
+.list--bare {
+  list-style: none;
+}
+
+.list--artifacts-divide {
   > li {
-    + li::before {
-      content: "\2022";
-      left: (-(quarter(convert-to-rem($grid-gutter-width) + 0.6rem)));
-      position: relative;
+    direction: rtl;
+
+    &:last-child {
+      list-style: none;
     }
   }
+
 }
 
 .list--grouped-switches {
