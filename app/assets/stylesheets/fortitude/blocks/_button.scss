@@ -19,7 +19,6 @@
   line-height: $base-line-height;
   margin: component-margin($button-height, $button-spacing-units-height) 0;
   min-height: $button-height;
-  overflow: hidden;
   padding: component-padding($button-height - double($button-border-width)) halve(component-padding($button-height - double($button-border-width)));
   position: relative;
   text-align: center;
