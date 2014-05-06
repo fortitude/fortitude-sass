@@ -43,8 +43,8 @@ p {
   }
 }
 
-.#{$namespace}p--trail,
-%#{$namespace}p--trail {
+.#{$namespace}p--micro,
+%#{$namespace}p--micro {
   font-size: $heading-size-6;
   line-height: halve($base-line-height) * 1.5;
 
