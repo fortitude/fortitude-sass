@@ -3,27 +3,19 @@
 //------------------------------------
 
 .list--inline {
-  margin: 0 (-(quarter($grid-gutter-width)));
+  @include clearfix;
 
-  &,
-  > li {
-    display: inline-block;
-  }
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
 
   > li {
-    display: inline-block;
-    margin: 0 quarter($grid-gutter-width);
+    float: left;
   }
 }
 
-.list--disc {
-  > li {
-    + li::before {
-      content: "\2022";
-      left: (-(quarter(convert-to-rem($grid-gutter-width) + 0.6rem)));
-      position: relative;
-    }
-  }
+.list--bare {
+  list-style: none;
 }
 
 .list--grouped-switches {
