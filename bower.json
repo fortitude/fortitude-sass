@@ -1,10 +1,14 @@
 {
-  "name": "fortitude",
+  "name": "fortitude-sass",
   "homepage": "http://fortitude.io/",
-  "version": "4.0.0-rc.1",
-  "main": "dist/_fortitude.scss",
+  "version": "0.1.1",
+  "main": [
+    "app/assets/stylesheets/fortitude/tools/_functions.scss",
+    "app/assets/stylesheets/fortitude/tools/_mixins.scss",
+    "app/assets/stylesheets/fortitude/settings/_defaults.scss",
+    "app/assets/stylesheets/_fortitude.scss"
+  ],
   "ignore": [
-    "app",
     "bin",
     "features",
     "lib",
@@ -12,6 +16,28 @@
     "Gemfile",
     "Gemfile.lock",
     "Rakefile",
-    "fortitude.gemspec"
-  ]
+    "fortitude.gemspec",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "Aaron Reisman <aaron@hired.com>"
+  ],
+  "description": "Fortitude provides a comprehensive framework of Rock solid CSS Patterns and Components.",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "css",
+    "sass",
+    "bootstrap",
+    "oocss",
+    "BEM",
+    "framework",
+    "fortitude"
+  ],
+  "license": "MIT"
 }
