@@ -3,7 +3,7 @@
 require 'fileutils'
 require 'find'
 
-namespace :'fortitude-rails' do
+namespace :'fortitude-sass' do
   desc 'Move files to the Rails assets directory.'
   task :install, [:sass_path] do |t, args|
     args.with_defaults(:sass_path => 'public/stylesheets/sass')

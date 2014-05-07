@@ -1,4 +1,4 @@
-require 'fortitude-rails/version'
+require 'fortitude-sass/version'
 require 'fileutils'
 require 'thor'
 

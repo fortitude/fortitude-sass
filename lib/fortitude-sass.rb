@@ -2,7 +2,7 @@
 dir = File.dirname(__FILE__)
 $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
-require 'fortitude-rails/generator'
+require 'fortitude-sass/generator'
 
 unless defined?(Sass)
   require 'sass'
@@ -11,7 +11,7 @@ end
 module Fortitude
   if defined?(Rails) && defined?(Rails::Engine)
     class Engine < ::Rails::Engine
-      require 'fortitude-rails/engine'
+      require 'fortitude-sass/engine'
     end
 
     module Rails
