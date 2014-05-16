@@ -7,20 +7,24 @@
   border: $navigationbar-border-width solid;
   margin: component-margin($navigationbar-height, $navigationbar-spacing-units-height) 0;
   min-height: $navigationbar-height;
+  overflow: hidden;
   padding: 0 halve($base-spacing-unit);
   position: relative;
   width: 100%;
 }
 
+.navigationbar--absolute-top {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+
+
 .navigationbar--fixed-top {
   position: fixed;
   top: 0;
   z-index: 2;
-
-  + .container {
-    margin-top: $navigationbar-height;
-    // transition: width $base-transition-speed ease, margin-top $base-transition-speed ease;
-  }
 }
 
 .navigationbar__header {
