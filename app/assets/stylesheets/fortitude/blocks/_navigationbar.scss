@@ -7,7 +7,6 @@
   border: $navigationbar-border-width solid;
   margin: component-margin($navigationbar-height, $navigationbar-spacing-units-height) 0;
   min-height: $navigationbar-height;
-  overflow: hidden;
   padding: 0 halve($base-spacing-unit);
   position: relative;
   width: 100%;
