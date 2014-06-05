@@ -62,7 +62,7 @@
   .navigation__link {
     border-bottom: $navigationbar-navigation-item-border-width solid transparent;
     font-size: $heading-size-5;
-    padding: component-padding($navigationbar-spacing-units-height - $navigationbar-navigation-item-border-width) convert-to-rem(halve($grid-gutter-width));
+    padding: component-padding($navigationbar-spacing-units-height - $navigationbar-navigation-item-border-width) px-to-rem(halve($grid-gutter-width));
     text-decoration: none;
   }
 }
@@ -88,7 +88,7 @@
       }
 
       .navigation__link {
-        padding: component-padding($navigationbar-spacing-units-height - $navigationbar-navigation-item-border-width) convert-to-rem(halve($grid-gutter-width));
+        padding: component-padding($navigationbar-spacing-units-height - $navigationbar-navigation-item-border-width) px-to-rem(halve($grid-gutter-width));
       }
     }
 

@@ -38,7 +38,7 @@
   @return $num / ($num * 0 + 1);
 }
 
-@function convert-to-rem($value, $base-value: 10px) {
+@function px-to-rem($value, $base-value: 10px) {
   $value: strip-unit($value) / strip-unit($base-value) * 1rem;
   @if ($value == 0) { $value: 0; } // Turn 0rem into 0
   @return $value;
