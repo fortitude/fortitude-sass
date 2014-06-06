@@ -2,6 +2,9 @@
 //  #TABS
 //------------------------------------
 
+
+.tabs {}
+
 //
 // A simple abstraction for making equal-width navigation tabs.
 //
@@ -12,7 +15,7 @@
 //    this makes the object behave in a quasi-`display: block;` manner.
 //
 
-.tabs {
+.tabs__navigation {
   display: table; // [2]
   list-style: none; // [1]
   margin: 0; // [1]
@@ -22,18 +25,18 @@
   width: 100%; // [4]
 }
 
-.tabs__item {
+.tabs__navigation__item {
   display: table-cell; // [2]
 }
 
-.tabs__link {
+.tabs__navigation__item__link {
   display: block;
 }
 
-.tabs__target {
+.tabs__content {
   display: none;
 }
 
-.tabs__target--is-active {
+.tabs__content--is-active {
   display: block;
 }
