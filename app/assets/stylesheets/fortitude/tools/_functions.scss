@@ -1,80 +1,115 @@
-//------------------------------------
-//  #FUNCTIONS
-//------------------------------------
+///*------------------------------------*\
+//    #FUNCTIONS
+//\*------------------------------------*/
 
-//
 // fortitude makes use of a few functions that are also available for you to use
 // later on in your extension of the framework.
-//
 
 
 
 
 
-//
 // Maths helpers.
 //
 // Halve and double numbers, returning rounded integers. E.g.:
 //
 // .foo {
-//     padding: halve(3.2rem);
+//     padding: halve(3.2px);
 // }
 //
-//
-
-@function quarter($number) {
-  @return $number / 4;
+@function quarter($fortitude-value) {
+    @return $fortitude-value / 4;
 }
 
-@function halve($number) {
-  @return $number / 2;
+@function halve($fortitude-value) {
+    @return $fortitude-value / 2;
 }
 
-@function double($number) {
-  @return $number * 2;
+@function double($fortitude-value) {
+    @return $fortitude-value * 2;
 }
 
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+@function quadruple($fortitude-value) {
+    @return $fortitude-value * 4;
 }
 
-@function px-to-rem($value, $base-value: 10px) {
-  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
-  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
-  @return $value;
+
+@function fortitude-strip-unit($fortitude-value) {
+  @return $fortitude-value / ($fortitude-value * 0 + 1);
 }
 
-@function spacing-units-delta($height, $spacing-units-height) {
-  $value: halve($spacing-units-height - $height);
-  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
-  @return $value;
+@function fortitude-px-to-rem($fortitude-value) {
+    @return fortitude-strip-unit($fortitude-value) * 0.1rem;
 }
 
-@function spacing-units-height($height, $base-spacing-unit: $base-spacing-unit) {
-  $spacing-units: floor($height / $base-spacing-unit);
-  $spacing-units-delta: strip-unit($height) % strip-unit($base-spacing-unit);
-  $value: if($spacing-units-delta > 0, (1 + $spacing-units) * $base-spacing-unit, $spacing-units * $base-spacing-unit);
-  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
-  @return $value;
+@function fortitude-rem-to-px($fortitude-value) {
+    @return fortitude-strip-unit($fortitude-value) * 10px;
 }
 
-@function negitive-component-padding($height, $base-line-height: $base-line-height) {
-  $value: halve($height - $base-line-height);
-  @if ($value > 0) {  $value: 0; }
-  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
-  @return $value;
+@function fortitude-block-spacing-unit-height($fortitude-block-height, $fortitude-block-spacing-unit: $fortitude-base-spacing-unit) {
+    $fortitude-value: ceil($fortitude-block-height / $fortitude-block-spacing-unit) * $fortitude-block-spacing-unit;
+    @return $fortitude-value;
 }
 
-@function component-margin($height, $spacing-units-height, $base-line-height: $base-line-height) {
-  $value: halve($spacing-units-height - $height);
-  @if ($value < 0) { $value: negitive-component-padding($height, $base-line-height) + spacing-units-delta($height, $spacing-units-height); }
-  @if ($value == 0) { $value: 0; }
-  @return $value;
+@function fortitude-block-spacing-unit-delta($fortitude-block-height, $fortitude-block-spacing-unit: $fortitude-base-spacing-unit) {
+    $fortitude-block-spacing-unit-height: fortitude-block-spacing-unit-height($fortitude-block-height, $fortitude-block-spacing-unit);
+    $fortitude-value: halve($fortitude-block-spacing-unit-height - $fortitude-block-height);
+
+    // normalize value 0rem to 0.
+    @if ($fortitude-value == 0) { $fortitude-value: 0; }
+    @return $fortitude-value;
 }
 
-@function component-padding($height, $base-line-height: $base-line-height) {
-  $value: halve($height - $base-line-height);
-  @if ($value < 0) {  $value: 0; }
-  @if ($value == 0) { $value: 0; } // Turn 0rem into 0
-  @return $value;
+@function fortitude-block-negitive-padding($fortitude-block-height, $fortitude-block-border-width: 0rem, $fortitude-block-spacing-unit: $fortitude-base-spacing-unit) {
+    $fortitude-value: halve($fortitude-block-height - $fortitude-block-spacing-unit - double($fortitude-block-border-width));
+
+    // normalize value 0rem to 0.
+    @if ($fortitude-value > 0) { $fortitude-value: 0; }
+    @return $fortitude-value;
+}
+
+@function fortitude-block-margin($fortitude-block-height, $fortitude-block-border-width: 0rem, $fortitude-block-spacing-unit: $fortitude-base-spacing-unit) {
+    $fortitude-block-spacing-unit-height: fortitude-block-spacing-unit-height($fortitude-block-height, $fortitude-block-spacing-unit);
+    $fortitude-value: halve($fortitude-block-spacing-unit-height - $fortitude-block-height);
+    
+    @if ($fortitude-value < 0) {
+        $fortitude-value: fortitude-block-negitive-padding($fortitude-block-height, $fortitude-block-border-width, $fortitude-block-spacing-unit) + fortitude-block-spacing-unit-delta($fortitude-block-height, $fortitude-block-spacing-unit);
+    }
+
+    // normalize value 0rem to 0.
+    @if ($fortitude-value == 0) { $fortitude-value: 0; }
+    @return $fortitude-value;
+}
+
+@function fortitude-block-padding($fortitude-block-height, $fortitude-block-border-width: 0rem, $fortitude-block-line-height: $fortitude-base-line-height) {
+    $fortitude-value: halve($fortitude-block-height - $fortitude-block-line-height - double($fortitude-block-border-width));
+
+    // normalize value 0rem to 0.
+    @if ($fortitude-value <= 0) { $fortitude-value: 0; }
+    @return $fortitude-value;
+}
+
+@function fortitude-map-to-query($map) {
+    $query: '';
+    @for $i from 1 through length($map) {
+        $part: "(#{nth(nth($map, $i), 1)}:#{nth(nth($map, $i), 2)})";
+        @if $i != length($map) {
+            $part: str-insert($part, " and ", str-length($part)+1);
+        }
+        $query: str-insert($query, $part, str-length($query)+1);
+    }
+    @return $query;
+}
+
+@function fortitude-query($object) {
+    @if type-of($object) == map {
+        @return fortitude-map-to-query($object);
+    }
+    @elseif type-of($object) == number {
+        @return fortitude-map-to-query((min-width: $object));
+    }
+    @else {
+        @return null;
+    }
+
 }

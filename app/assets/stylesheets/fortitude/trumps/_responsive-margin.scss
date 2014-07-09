@@ -1,0 +1,129 @@
+$fortitude-responsive-margin-unit-total: 10 !default;
+$fortitude-responsive-negative-margin-unit-total: 10 !default;
+
+
+@include fortitude-breakpoint-classes {
+    @for $i from 0 through $fortitude-responsive-margin-unit-total {
+        ##{$fortitude-app-id} &-mh#{$i} {
+            margin: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+        }
+
+        ##{$fortitude-app-id} &-m#{$i} {
+            margin: $fortitude-base-spacing-unit * $i;
+        }
+
+        ##{$fortitude-app-id} &-mtbh#{$i} {
+            margin-top: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+            margin-bottom: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+        }
+
+        ##{$fortitude-app-id} &-mtb#{$i} {
+            margin-top: $fortitude-base-spacing-unit * $i;
+            margin-bottom: $fortitude-base-spacing-unit * $i;
+        }
+
+        ##{$fortitude-app-id} &-mrlh#{$i} {
+            margin-right: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+            margin-left: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+        }
+
+        ##{$fortitude-app-id} &-mrl#{$i} {
+            margin-right: $fortitude-base-spacing-unit * $i;
+            margin-left: $fortitude-base-spacing-unit * $i;
+        }
+
+        ##{$fortitude-app-id} &-mlh#{$i} {
+            margin-left: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+        }
+
+        ##{$fortitude-app-id} &-ml#{$i} {
+            margin-left: $fortitude-base-spacing-unit * $i;
+        }
+
+        ##{$fortitude-app-id} &-mbh#{$i} {
+            margin-bottom: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+        }
+
+        ##{$fortitude-app-id} &-mb#{$i} {
+            margin-bottom: $fortitude-base-spacing-unit * $i;
+        }
+
+        ##{$fortitude-app-id} &-mrh#{$i} {
+            margin-right: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+        }
+
+        ##{$fortitude-app-id} &-mr#{$i} {
+            margin-right: $fortitude-base-spacing-unit * $i;
+        }
+
+        ##{$fortitude-app-id} &-mth#{$i} {
+            margin-top: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+        }
+
+        ##{$fortitude-app-id} &-mt#{$i} {
+            margin-top: $fortitude-base-spacing-unit * $i;
+        }
+    }
+    @for $i from 0 through $fortitude-responsive-negative-margin-unit-total {
+        ##{$fortitude-app-id} &-mh-#{$i} {
+            margin: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+        }
+
+        ##{$fortitude-app-id} &-m-#{$i} {
+            margin: -($fortitude-base-spacing-unit * $i);
+        }
+
+        ##{$fortitude-app-id} &-mtbh-#{$i} {
+            margin-top: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+            margin-bottom: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+        }
+
+        ##{$fortitude-app-id} &-mtb-#{$i} {
+            margin-top: -($fortitude-base-spacing-unit * $i);
+            margin-bottom: -($fortitude-base-spacing-unit * $i);
+        }
+
+        ##{$fortitude-app-id} &-mrlh-#{$i} {
+            margin-right: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+            margin-left: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+        }
+
+        ##{$fortitude-app-id} &-mrl-#{$i} {
+            margin-right: -($fortitude-base-spacing-unit * $i);
+            margin-left: -($fortitude-base-spacing-unit * $i);
+        }
+
+        ##{$fortitude-app-id} &-mlh-#{$i} {
+            margin-left: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+        }
+
+        ##{$fortitude-app-id} &-ml-#{$i} {
+            margin-left: -($fortitude-base-spacing-unit * $i);
+        }
+
+        ##{$fortitude-app-id} &-mbh-#{$i} {
+            margin-bottom: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+        }
+
+        ##{$fortitude-app-id} &-mb-#{$i} {
+            margin-bottom: -($fortitude-base-spacing-unit * $i);
+        }
+
+        ##{$fortitude-app-id} &-mrh-#{$i} {
+            margin-right: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+        }
+
+        ##{$fortitude-app-id} &-mr-#{$i} {
+            margin-right: -($fortitude-base-spacing-unit * $i);
+        }
+
+        ##{$fortitude-app-id} &-mth-#{$i} {
+            margin-top: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+        }
+
+        ##{$fortitude-app-id} &-mt-#{$i} {
+            margin-top: -($fortitude-base-spacing-unit * $i);
+        }
+    }
+}
+

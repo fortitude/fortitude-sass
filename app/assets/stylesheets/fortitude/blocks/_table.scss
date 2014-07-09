@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+
+// Predefine the variables below in order to alter and enable specific features.
+$fortitude-enable-table--fixed:     false !default;
+
+
+
+
+
+.#{$fortitude-namespace}table,
+%#{$fortitude-namespace}table {
+    width: 100%;
+}
+
+
+
+
+
+@if ($fortitude-enable-table--fixed == true) {
+
+    /**
+     * Force tables into having equal-width columns.
+     */
+    .#{$fortitude-namespace}table--fixed,
+    %#{$fortitude-namespace}table--fixed {
+        table-layout: fixed;
+    }
+
+}

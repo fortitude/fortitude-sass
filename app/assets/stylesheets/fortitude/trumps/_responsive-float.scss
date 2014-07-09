@@ -1,0 +1,13 @@
+@include fortitude-breakpoint-classes {
+    ##{$fortitude-app-id} &-float-left {
+        float: left;
+    }
+
+    ##{$fortitude-app-id} &-float-right {
+        float: right;
+    }
+
+    ##{$fortitude-app-id} &-float-none {
+        float: none;
+    }
+}

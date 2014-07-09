@@ -1,30 +1,22 @@
-//------------------------------------
-//  #FLASHBAR
-//------------------------------------
+/*------------------------------------*\
+    #FLASHBAR
+\*------------------------------------*/
 
-.flashbar {
-  border: $flashbar-border-width solid;
-  line-height: $base-line-height;
-  margin: component-margin($flashbar-height, $flashbar-spacing-units-height) 0 double(component-margin($flashbar-height, $flashbar-spacing-units-height));
-  min-height: $flashbar-height;
-  padding: component-padding($flashbar-height - double($flashbar-border-width)) 0;
-  position: relative;
+
+@mixin fortitude-flashbar {
+    @include fortitude-clearfix;
+    position: relative;
 }
 
-.flashbar__close {
-  font-size: $heading-size-3;
-  line-height: 1;
-  margin-right: (-(halve($heading-size-3)));
-  margin-top: (-(halve($heading-size-3)));
-  position: absolute;
-  right: $base-spacing-unit;
-  text-decoration: none;
-  top: 50%;
+@mixin fortitude-flashbar__close {
+    position: absolute;
+    right: halve($fortitude-base-spacing-unit);
 }
 
-.flashbar--hibar {
-  margin: component-margin($flashbar-hibar-height, $flashbar-hibar-spacing-units-height) 0 double(component-margin($flashbar-hibar-height, $flashbar-hibar-spacing-units-height));
-  min-height: $flashbar-hibar-height;
-  padding: component-padding($flashbar-hibar-height - double($flashbar-border-width)) double(component-padding($flashbar-hibar-height - double($flashbar-border-width)));
-  text-align: center;
+.#{$fortitude-namespace}flashbar {
+  @include fortitude-flashbar;
+}
+
+.#{$fortitude-namespace}flashbar__close {
+  @include fortitude-flashbar__close;
 }

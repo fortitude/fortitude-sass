@@ -1,0 +1,35 @@
+##{$fortitude-app-id} {
+  @include fortitude-breakpoint-classes {
+    &-none {
+      display: none;
+    }
+
+    &-inline {
+      display: inline;
+    }
+
+    &-inline-block {
+      display: inline-block;
+    }
+
+    &-block {
+      display: block;
+    }
+
+    &-table {
+      display: table;
+    }
+
+    &-table-cell {
+      display: table-cell;
+    }
+
+    &-table-column {
+      display: table-column;
+    }
+
+    &-inherit {
+      display: inherit;
+    }
+  }
+}

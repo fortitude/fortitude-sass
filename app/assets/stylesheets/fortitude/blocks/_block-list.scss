@@ -1,0 +1,83 @@
+/*------------------------------------*\
+    #BLOCK-LIST
+\*------------------------------------*/
+
+/**
+ * The block list object creates blocky list items out of a `ul` or `ol`.
+ */
+
+// Predefine the variables below in order to alter and enable specific features.
+$fortitude-block-list-padding:          $fortitude-base-spacing-unit !default;
+$fortitude-block-list-padding--small:   halve($fortitude-block-list-padding) !default;
+$fortitude-block-list-padding--large:   double($fortitude-block-list-padding) !default;
+
+$fortitude-enable-block-list--small:    false !default;
+$fortitude-enable-block-list--large:    false !default;
+
+@mixin fortitude-block-list {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin fortitude-block-list__item($extension: null) {
+    @if ($extension == small) {
+        @include fortitude-block-list--small__item;
+    } @else if ($extension == large) {
+        @include fortitude-block-list--large__item;
+    } @else {
+        padding: $fortitude-block-list-padding;
+    }
+}
+
+@mixin fortitude-block-list--small__item {
+    padding: $fortitude-block-list-padding--small;
+}
+
+@mixin fortitude-block-list--large__item {
+    padding: $fortitude-block-list-padding--large;
+}
+
+.#{$fortitude-namespace}block-list {
+    @include fortitude-block-list;
+}
+
+    .#{$fortitude-namespace}block-list__item {
+        @include fortitude-block-list__item;
+    }
+
+
+
+
+
+@if ($fortitude-enable-block-list--small == true) {
+
+    /**
+     * Small block-lists.
+     */
+
+    .#{$fortitude-namespace}block-list--small {
+        > .#{$fortitude-namespace}block-list__item {
+            @include fortitude-block-list--small__item;
+        }
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-block-list--large == true) {
+
+    /**
+     * Large block-lists.
+     */
+
+    .#{$fortitude-namespace}block-list--large {
+        > .#{$fortitude-namespace}block-list__item {
+            @include fortitude-block-list--large__item;
+        }
+    }
+
+}

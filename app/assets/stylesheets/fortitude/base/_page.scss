@@ -1,30 +1,28 @@
-//------------------------------------
-//  #PAGE
-//------------------------------------
+/*------------------------------------*\
+    #PAGE
+\*------------------------------------*/
 
-//
-// High-, page-level styling.
-//
-// 1. Set the default `font-size` and `line-height` for the entire project,
-//    sourced from our default variables. The `font-size` is calculated to exist
-//    in ems, the `line-height` is calculated to exist unitlessly.
-// 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
-//    navigating between pages that do/do not have enough content to produce
-//    scrollbars naturally.
-// 3. Ensure the page always fills at least the entire height of the viewport.
-//
-
+/**
+ * High-, page-level styling.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ */
 html {
-  background-color: $base-background-color;
-  color: $base-text-color;
-  font-size: (10px / 16px) * 100%; // [1]
-  line-height: $base-line-height; // [1]
-  min-height: 100%; // [3]
-  overflow-y: scroll; // [2]
-  -webkit-text-size-adjust: 100%;
+    font-size: $fortitude-base-rem-font-size; /* [1] */
+    line-height: $fortitude-base-line-height / $fortitude-base-font-size; /* [1] */
+    background-color: $fortitude-base-background-color;
+    color: $fortitude-base-color;
+    overflow-y: scroll; /* [2] */
+    min-height: 100%; /* [3] */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {
-  font-size: $base-font-size;
-  line-height: $base-line-height;
+    @include fortitude-font-size($fortitude-base-font-size, true);
 }
