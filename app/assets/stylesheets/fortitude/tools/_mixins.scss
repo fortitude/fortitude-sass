@@ -1,272 +1,58 @@
-//------------------------------------
-//  #MIXINS
-//------------------------------------
+///*------------------------------------*\
+//    #MIXINS
+//\*------------------------------------*/
 
-//
-// fortitude has a number of default mixins that the framework, and developers
+// Fortitude has a number of default mixins that the framework, and developers
 // working with it, can make use of.
-//
 
-@mixin clearfix() {
-  &:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
+// Predefine the variables below in order to alter and enable specific features.
+$fortitude-enable-classes:   false !default;
+
+
+
+@mixin fortitude-breakpoint($fortitude-alias, $fortitude-breakpoints: $fortitude-class-breakpoints) {
+    $fortitude-query: fortitude-query(map-get($fortitude-breakpoints, $fortitude-alias));
+    // if there is no media query.
+    @if not $fortitude-query {
+        @content;
+    } @else {
+        // if there is a media query.
+        @media #{$fortitude-query} {
+            @content;
+        }
+    }
 }
 
-
-// Responsive utilities
-// -------------------------
-@mixin responsive-visibility($parent) {
-  #{$parent} {
-    display: block !important;
-  }
-
-  table#{$parent} { display: table; }
-
-  tr#{$parent} { display: table-row !important; }
-
-  th#{$parent},
-    td#{$parent} { display: table-cell !important; }
+@mixin fortitude-breakpoint-classes($fortitude-breakpoints: $fortitude-class-breakpoints) {
+    @each $fortitude-alias, $fortitude-breakpoint in $fortitude-breakpoints {
+        $fortitude-query: fortitude-query($fortitude-breakpoint);
+        .#{$fortitude-alias} {
+            // if there is no media query.
+            @if not $fortitude-query {
+                @content;
+            }
+            // if there is a media query.
+           @else {
+                @media #{$fortitude-query} {
+                    @content;
+                }
+            }
+        }
+    }
 }
 
-@mixin responsive-invisibility($parent) {
-  #{$parent} {
-    display: none !important;
-  }
+@mixin fortitude-font-size($fortitude-font-size, $fortitude-line-height: true) {
+    font-size: $fortitude-font-size;
+
+    @if $fortitude-line-height == true {
+        line-height: ceil($fortitude-font-size / $fortitude-base-line-height) * $fortitude-base-line-height;
+    }
 }
 
-
-
-// Grid System
-// -----------
-
-// Centered container element
-@mixin container-fixed() {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@mixin responsive-text-align($class, $type) {
-  .#{$class}-text-#{$type} {
-    text-align: $type;
-  }
-}
-
-
-@mixin responsive-box-model($columns, $class, $type) {
-  $shorthand: null;
-  @if $type == 'margin' {
-    $shorthand: m;
-
-    .#{$class}-#{$shorthand}-#{$columns} {
-      #{$type}: (-($base-spacing-unit * $columns));
+@mixin fortitude-clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
     }
-
-    .#{$class}-#{$shorthand}rl-#{$columns} {
-      #{$type}-left: (-($base-spacing-unit * $columns));
-      #{$type}-right: (-($base-spacing-unit * $columns));
-    }
-
-    .#{$class}-#{$shorthand}tb-#{$columns} {
-      #{$type}-bottom: (-($base-spacing-unit * $columns));
-      #{$type}-top: (-($base-spacing-unit * $columns));
-    }
-
-    .#{$class}-#{$shorthand}t-#{$columns} {
-      #{$type}-top: (-($base-spacing-unit * $columns));
-    }
-
-    .#{$class}-#{$shorthand}r-#{$columns} {
-      #{$type}-right: (-($base-spacing-unit * $columns));
-    }
-
-    .#{$class}-#{$shorthand}b-#{$columns} {
-      #{$type}-bottom: (-($base-spacing-unit * $columns));
-    }
-
-    .#{$class}-#{$shorthand}l-#{$columns} {
-      #{$type}-left: (-($base-spacing-unit * $columns));
-    }
-
-    .#{$class}-#{$shorthand}h-#{$columns} {
-      #{$type}: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
-    }
-
-    .#{$class}-#{$shorthand}rlh-#{$columns} {
-      #{$type}-left: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
-      #{$type}-right: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
-    }
-
-    .#{$class}-#{$shorthand}tbh-#{$columns} {
-      #{$type}-bottom: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
-      #{$type}-top: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
-    }
-
-    .#{$class}-#{$shorthand}th-#{$columns} {
-      #{$type}-top: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
-    }
-
-    .#{$class}-#{$shorthand}rh-#{$columns} {
-      #{$type}-right: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
-    }
-
-    .#{$class}-#{$shorthand}bh-#{$columns} {
-      #{$type}-bottom: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
-    }
-
-    .#{$class}-#{$shorthand}lh-#{$columns} {
-      #{$type}-left: (-($base-spacing-unit * $columns) - halve($base-spacing-unit));
-    }
-
-  } @elseif $type == 'padding' {
-    $shorthand: p;
-  }
-
-  .#{$class}-#{$shorthand}#{$columns} {
-    #{$type}: $base-spacing-unit * $columns;
-  }
-
-  .#{$class}-#{$shorthand}rl#{$columns} {
-    #{$type}-left: $base-spacing-unit * $columns;
-    #{$type}-right: $base-spacing-unit * $columns;
-  }
-
-  .#{$class}-#{$shorthand}tb#{$columns} {
-    #{$type}-bottom: $base-spacing-unit * $columns;
-    #{$type}-top: $base-spacing-unit * $columns;
-  }
-
-  .#{$class}-#{$shorthand}t#{$columns} {
-    #{$type}-top: $base-spacing-unit * $columns;
-  }
-
-  .#{$class}-#{$shorthand}r#{$columns} {
-    #{$type}-right: $base-spacing-unit * $columns;
-  }
-
-  .#{$class}-#{$shorthand}b#{$columns} {
-    #{$type}-bottom: $base-spacing-unit * $columns;
-  }
-
-  .#{$class}-#{$shorthand}l#{$columns} {
-    #{$type}-left: $base-spacing-unit * $columns;
-  }
-
-  .#{$class}-#{$shorthand}h#{$columns} {
-    #{$type}: $base-spacing-unit * $columns + halve($base-spacing-unit);
-  }
-
-  .#{$class}-#{$shorthand}rlh#{$columns} {
-    #{$type}-left: $base-spacing-unit * $columns + halve($base-spacing-unit);
-    #{$type}-right: $base-spacing-unit * $columns + halve($base-spacing-unit);
-  }
-
-  .#{$class}-#{$shorthand}tbh#{$columns} {
-    #{$type}-bottom: $base-spacing-unit * $columns + halve($base-spacing-unit);
-    #{$type}-top: $base-spacing-unit * $columns + halve($base-spacing-unit);
-  }
-
-  .#{$class}-#{$shorthand}th#{$columns} {
-    #{$type}-top: $base-spacing-unit * $columns + halve($base-spacing-unit);
-  }
-
-  .#{$class}-#{$shorthand}rh#{$columns} {
-    #{$type}-right: $base-spacing-unit * $columns + halve($base-spacing-unit);
-  }
-
-  .#{$class}-#{$shorthand}bh#{$columns} {
-    #{$type}-bottom: $base-spacing-unit * $columns + halve($base-spacing-unit);
-  }
-
-  .#{$class}-#{$shorthand}lh#{$columns} {
-    #{$type}-left: $base-spacing-unit * $columns + halve($base-spacing-unit);
-  }
-}
-
-//------------------------------------
-//  #HEADINGS
-//------------------------------------
-
-//
-// Headings 1–6, with corresponding Greek-alphabet abstract classes for double-
-// stranded heading hierarchy: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
-//
-
-
-@mixin responsive-font($class, $type) {
-  $font-size: null;
-
-  @if $type == 'alpha' {
-    $font-size: $heading-size-1;
-  } @elseif $type == 'beta' {
-    $font-size: $heading-size-2;
-  } @elseif $type == 'gamma' {
-    $font-size: $heading-size-3;
-  } @elseif $type == 'delta' {
-    $font-size: $heading-size-4;
-  } @elseif $type == 'epsilon' {
-    $font-size: $heading-size-5;
-  } @elseif $type == 'zeta' {
-    $font-size: $heading-size-6;
-  }
-
-  .#{$class}-#{$type} {
-    font-size: $font-size;
-    line-height: if($font-size > $base-line-height, double($base-line-height), $base-line-height);
-  }
-}
-
-@mixin responsive-width($index, $class) {
-  .#{$class}-#{$index}of#{$grid-columns} {
-    width: percentage($index / $grid-columns);
-  }
-}
-
-@mixin responsive-offset($index, $class) {
-  .#{$class}-offset#{$index}of#{$grid-columns} {
-    margin-left: percentage($index / $grid-columns);
-  }
-}
-
-@mixin responsive-push($index, $class) {
-  .#{$class}-push#{$index}of#{$grid-columns} {
-    left: percentage($index / $grid-columns);
-  }
-}
-
-@mixin responsive-pull($index, $class) {
-  .#{$class}-pull#{$index}of#{$grid-columns} {
-    right: percentage($index / $grid-columns);
-  }
-}
-
-@mixin responsive-height($index, $class) {
-  .#{$class}-#{$index} {
-    min-height: $base-spacing-unit * $index;
-  }
-}
-
-@mixin responsive-line-height($index, $class) {
-  .#{$class}-inset#{$index} {
-    line-height: $base-line-height * $index;
-  }
-
-  .#{$class}-inseth#{$index} {
-    line-height: ($base-line-height * $index) + halve($base-line-height);
-  }
-}
-
-@mixin helpers() {
-  .screen-reader-visible {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
 }

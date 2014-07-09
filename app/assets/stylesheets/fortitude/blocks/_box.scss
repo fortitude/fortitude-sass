@@ -1,23 +1,23 @@
-//------------------------------------
-//  #BOX
-//------------------------------------
+/*------------------------------------*\
+    #BOX
+\*------------------------------------*/
 
-//
-// Box off and pad contained content.
-//
-// 1. So we can apply the `.box` class to naturally-inline elements.
-//
+/**
+ * The box object simply boxes off content.
+ */
 
-.box {
-  @extend %cf;
-  display: block; // [1]
-  width: 100%;
+
+
+
+
+@mixin fortitude-box {
+    /**
+     * 1. So we can apply the `.box` class to naturally-inline elements.
+     */
+    @include fortitude-clearfix;
+    display: block; /* [1] */
 }
 
-.box--inline {
-  display: inline-block;
-}
-
-.box--rounded {
-  border-radius: $box-border-radius;
+.#{$fortitude-namespace}box {
+  @include fortitude-box;
 }

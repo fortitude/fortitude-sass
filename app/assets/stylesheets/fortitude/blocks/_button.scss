@@ -1,73 +1,234 @@
-//------------------------------------
-//  #BUTTON
-//------------------------------------
+/*------------------------------------*\
+    #BUTTON
+\*------------------------------------*/
 
-//
-// Buttons, what else?.
-//
-// 1. So we can apply the `.button` class to naturally-inline elements.
-//
+/**
+ * A simple button object.
+ */
 
-.button {
-  background-color: transparent;
-  border: $button-border-width solid transparent;
-  border-radius: $button-border-radius;
-  color: $base-text-color;
-  cursor: pointer;
-  display: inline-block; // [1]
-  font-size: $base-font-size;
-  line-height: $base-line-height;
-  margin: component-margin($button-height, $button-spacing-units-height) 0;
-  min-height: $button-height;
-  padding: component-padding($button-height - double($button-border-width)) halve(component-padding($button-height - double($button-border-width)));
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
+// Predefine the variables below in order to alter and enable specific features.
+$fortitude-button-border-width:              0.1rem !default;
+$fortitude-button-border-style:              solid !default;
+$fortitude-button-border-radius:             0.2rem !default;
+
+$fortitude-button-height:                    $fortitude-base-spacing-unit + 1.6rem !default;
+$fortitude-button-font-size:                 1.4rem !default;
+$fortitude-button-horizontal-padding:        fortitude-block-padding($fortitude-button-height, $fortitude-button-border-width) * 2 !default;
+$fortitude-button-height--small:             $fortitude-base-spacing-unit + 1.0rem !default;
+$fortitude-button-font-size--small:          1.2rem !default;
+$fortitude-button-horizontal-padding--small: fortitude-block-padding($fortitude-button-height--small, $fortitude-button-border-width) * 2 !default;
+$fortitude-button-height--large:             double($fortitude-base-spacing-unit) + 2.0rem !default;
+$fortitude-button-font-size--large:          1.8rem !default;
+$fortitude-button-horizontal-padding--large: fortitude-block-padding($fortitude-button-height--large, $fortitude-button-border-width) * 2 !default;
+
+$fortitude-enable-button--small:             false !default;
+$fortitude-enable-button--large:             false !default;
+$fortitude-enable-button--full:              false !default;
+$fortitude-enable-button--pill:              false !default;
+
+
+
+
+
+// Here we set a variable assuming that `box-sizing: border-box;` is not set
+// globally. If it has been previously been defined, the following variable will
+// be overriden and will be set to `true`.
+$fortitude-global-border-box: false !default;
+
+
+
+
+@mixin fortitude-button($extension: null) {
+    /**
+     * 1. Allow us to style box model properties.
+     * 2. Line different sized buttons up a little nicer.
+     * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+     *    buttons).
+     * 4. Reset/normalize some styles.
+     * 5. Force all button-styled elements to appear clickable.
+     * 6. Fixes odd inner spacing in IE7.
+     * 7. Subtract the border size from the padding value so that buttons do not
+     *    grow larger as we add borders.
+     * 8. Set badge text to nowrap.
+     * 9. set position: relative in case if button has a `button__target`
+     *    the position of the target will be inside of the button.
+     * 10. Required to combine fluid widths and fixed gutters.
+     */
+    display: inline-block; /* [1] */
+    vertical-align: middle; /* [2] */
+    font: inherit; /* [3] */
+    text-align: center; /* [4] */
+    cursor: pointer; /* [5] */
+    overflow: visible; /* [6] */
+    white-space: nowrap; /* [8] */
+    position: relative; /* [9] */
+
+    @if ($extension == small) {
+        @include fortitude-button--small;
+    } @else if ($extension == large) {
+        @include fortitude-button--large;
+    } @else {
+        @include fortitude-font-size($fortitude-button-font-size);
+        margin: fortitude-block-margin($fortitude-button-height, $fortitude-button-border-width) 0; /* [4] */
+        padding: fortitude-block-padding($fortitude-button-height, $fortitude-button-border-width) $fortitude-button-horizontal-padding; /* [7] */
+    }
+
+    @if($fortitude-button-border-width != 0) {
+        border: $fortitude-button-border-width $fortitude-button-border-style transparent;
+    } @else {
+        border: 0; /* [4] */
+    }
+    
+    @if ($extension == pill) {
+        @include fortitude-button--pill;
+    } @else if($fortitude-button-border-radius != 0) {
+        border-radius: $fortitude-button-border-radius;
+    }
+
+    @if ($extension == full) {
+        @include fortitude-button--full;
+    }
+
+    @if $fortitude-global-border-box == false {
+        box-sizing: border-box; /* [10] */
+    }
+
+    &,
+    &:hover,
+    &:active,
+    &:focus,
+    &:visited {
+        text-decoration: none; /* [4] */
+    }
+
+    &::-moz-focus-inner {
+        /**
+         * Fix a Firefox bug whereby `input type="submit"` gains 0.2rem extra padding.
+         */
+        border:  0;
+        padding: 0;
+    }
 }
 
-.button + .label--inline {
-  margin-left: halve($base-spacing-unit);
+@mixin fortitude-button--small {
+    /**
+     * 1. Reset/normalize some styles.
+     * 2. Subtract the border size from the padding value so that buttons do not
+     *    grow larger as we add borders.
+     */
+    @include fortitude-font-size($fortitude-button-font-size--small);
+    margin: fortitude-block-margin($fortitude-button-height--small, $fortitude-button-border-width) 0; /* [1] */
+    padding: fortitude-block-padding($fortitude-button-height--small, $fortitude-button-border-width) $fortitude-button-horizontal-padding--small; /* [2] */
 }
 
-.button__target {
-  cursor: pointer;
-  height: 100%;
-  margin: 0;
-  opacity: 0;
-  padding: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1;
+@mixin fortitude-button--large {
+    /**
+     * 1. Reset/normalize some styles.
+     * 2. Subtract the border size from the padding value so that buttons do not
+     *    grow larger as we add borders.
+     */
+    @include fortitude-font-size($fortitude-button-font-size--large);
+    margin: fortitude-block-margin($fortitude-button-height--large, $fortitude-button-border-width) 0; /* [1] */
+    padding: fortitude-block-padding($fortitude-button-height--large, $fortitude-button-border-width) $fortitude-button-horizontal-padding--large; /* [2] */
 }
 
-.button--small {
-  font-size: $heading-size-6;
-  margin: component-margin($button-small-height, $button-small-spacing-units-height) 0;
-  min-height: $button-small-height;
-  padding: component-padding($button-small-height - double($button-border-width)) double(component-padding($button-small-height - double($button-border-width)));
+@mixin fortitude-button--full {
+    width: 100%;
+
+    @if $fortitude-global-border-box == false {
+        /**
+         * Remove paddings so that widths and paddings don’t conflict.
+         */
+        padding-right: 0;
+        padding-left:  0;
+    }
 }
 
-.button--large {
-  font-size: $heading-size-4;
-  margin: component-margin($button-large-height, $button-large-spacing-units-height) 0;
-  min-height: $button-large-height;
-  padding: component-padding($button-large-height - double($button-border-width)) halve(component-padding($button-large-height - double($button-border-width)));
+@mixin fortitude-button--pill {
+    /**
+     * 1. Overly-large value to ensure the radius rounds the whole end of the
+     *    button.
+     */
+    border-radius: 10rem; /* [1] */
 }
 
-.button--block {
-  width: 100%;
+@mixin fortitude-button__target {
+    position: absolute;
+    opacity: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
 }
 
-.button--hibar {
-  font-size: $base-font-size;
-  line-height: $base-font-size;
-  margin: component-margin($button-hibar-height, $button-hibar-spacing-units-height, $base-font-size) - double($button-border-width) 0 component-margin($button-hibar-height, $button-hibar-spacing-units-height, $base-font-size);
-  min-height: $button-hibar-height;
-  padding: component-padding($button-hibar-height - double($button-border-width), $base-font-size) double(component-padding($button-hibar-height - double($button-border-width), $base-font-size));
-  vertical-align: middle;
+.#{$fortitude-namespace}button {
+    @include fortitude-button;
+}
+
+.#{$fortitude-namespace}button__target {
+    @include fortitude-button__target;
+}
+
+
+
+
+
+@if ($fortitude-enable-button--small == true) {
+
+    /**
+     * Small buttons.
+     */
+
+    .#{$fortitude-namespace}button--small {
+        @include fortitude-button--small;
+    }
+
+}
+
+@if ($fortitude-enable-button--large == true) {
+
+    /**
+     * Large buttons.
+     */
+
+    .#{$fortitude-namespace}button--large {
+        @include fortitude-button--large;
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-button--full == true) {
+
+    /**
+     * Full-width buttons.
+     */
+
+    .#{$fortitude-namespace}button--full {
+        @include fortitude-button--full;
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-button--pill == true) {
+
+    /**
+     * Round-ended buttons.
+     */
+
+    .#{$fortitude-namespace}button--pill {
+        @include fortitude-button--pill;
+    }
+
 }

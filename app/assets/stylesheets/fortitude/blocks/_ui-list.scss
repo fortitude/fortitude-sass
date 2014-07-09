@@ -1,0 +1,97 @@
+/*------------------------------------*\
+    #UI-LIST
+\*------------------------------------*/
+
+/**
+ * The UI list object creates blocky list items with a keyline separator out of
+ * a `ul` or `ol`.
+ */
+
+// Predefine the variables below in order to alter and enable specific features.
+$fortitude-ui-list-padding:         $fortitude-base-spacing-unit !default;
+$fortitude-ui-list-padding--small:  halve($fortitude-ui-list-padding) !default;
+$fortitude-ui-list-padding--large:  double($fortitude-ui-list-padding) !default;
+
+$fortitude-ui-list-border-width:    0.1rem !default;
+$fortitude-ui-list-border-style:    solid !default;
+$fortitude-ui-list-border-color:    #ccc !default;
+
+$fortitude-enable-ui-list--small:   false !default;
+$fortitude-enable-ui-list--large:   false !default;
+
+@mixin fortitude-ui-list {
+    border:  0 $fortitude-ui-list-border-style $fortitude-ui-list-border-color;
+    margin:  0;
+    padding: 0;
+    list-style: none;
+    border-top-width: $fortitude-ui-list-border-width;
+}
+
+@mixin fortitude-ui-list__item($extension: null) {
+    border: 0 $fortitude-ui-list-border-style $fortitude-ui-list-border-color;
+    border-bottom-width: $fortitude-ui-list-border-width;
+
+    @if ($extension == small) {
+        @include fortitude-ui-list--small__item;
+    } @else if ($extension == large) {
+        @include fortitude-ui-list--large__item;
+    } @else {
+        padding: $fortitude-ui-list-padding;
+    }
+}
+
+@mixin fortitude-ui-list--small__item {
+    padding: $fortitude-ui-list-padding--small;
+}
+
+@mixin fortitude-ui-list--large__item {
+    padding: $fortitude-ui-list-padding--large;
+}
+
+
+.#{$fortitude-namespace}ui-list {
+    @include fortitude-ui-list;
+}
+
+    .#{$fortitude-namespace}ui-list__item {
+        @include fortitude-ui-list__item;
+    }
+
+
+
+
+
+@if ($fortitude-enable-ui-list--small == true) {
+
+    /**
+     * Small ui-lists.
+     */
+
+    .#{$fortitude-namespace}ui-list--small {
+
+        > .#{$fortitude-namespace}ui-list__item {
+            @include fortitude-ui-list--small__item;
+        }
+
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-ui-list--large == true) {
+
+    /**
+     * Large ui-lists.
+     */
+
+    .#{$fortitude-namespace}ui-list--large {
+
+        > .#{$fortitude-namespace}ui-list__item {
+            @include fortitude-ui-list--large__item;
+        }
+
+    }
+}

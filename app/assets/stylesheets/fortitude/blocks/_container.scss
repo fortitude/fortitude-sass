@@ -1,21 +1,67 @@
-//------------------------------------
-//  #CONTAINER
-//------------------------------------
+/*------------------------------------*\
+    #CONTAINER
+\*------------------------------------*/
 
-.container {
-  @include container-fixed();
-  @media (min-width: $screen-sm) {
-    width: $container-sm;
-  }
-  @media (min-width: $screen-md) {
-    width: $container-md;
-  }
-  @media (min-width: $screen-lg) {
-    width: $container-lg;
-  }
+$fortitude-container-breakpoints:   (xs: 100%,
+                                     sm: 72rem + $fortitude-base-spacing-unit,
+                                     md: 94rem + $fortitude-base-spacing-unit,
+                                     lg: 114rem + $fortitude-base-spacing-unit) !default;
+$fortitude-container-z-index:       2 !default;
+
+
+
+
+
+// Here we set a variable assuming that `box-sizing: border-box;` is not set
+// globally. If it has been previously been defined, the following variable will
+// be overriden and will be set to `true`.
+$fortitude-global-border-box: false !default;
+
+@mixin fortitude-container {
+    @include fortitude-clearfix;
+
+    margin-right: auto;
+    margin-left: auto;
+    @each $alias, $breakpoint in $fortitude-breakpoints {
+        $query: fortitude-query($breakpoint);
+        // if there is no media query.
+        @if not $query {
+            width: map-get($fortitude-container-breakpoints, $alias);
+        }
+        // if there is a media query.
+        @else {
+            @media #{$query} {
+                width: map-get($fortitude-container-breakpoints, $alias);
+            }
+        }
+    }
+
+    @if $fortitude-global-border-box == false {
+        box-sizing: border-box; /* [10] */
+    }
 }
 
-.#{$namespace}container--fluid,
-%#{$namespace}container--fluid {
-  @include container-fixed();
+@mixin fortitude-container--fixed-top {
+    position: fixed;
+    z-index: $fortitude-container-z-index;
+    top: 0;
+}
+
+@mixin fortitude-container--absolute-top {
+    position: absolute;
+    z-index: $fortitude-container-z-index;
+    top: 0;
+}
+
+.#{$fortitude-namespace}container {
+    @include fortitude-container;
+}
+
+
+.#{$fortitude-namespace}container--fixed-top {
+    @include fortitude-container--fixed-top;
+}
+
+.#{$fortitude-namespace}container--absolute-top {
+    @include fortitude-container--absolute-top;
 }

@@ -1,93 +1,426 @@
-//------------------------------------
-//  #FLAG
-//------------------------------------
+/*------------------------------------*\
+    #FLAG
+\*------------------------------------*/
 
-//
-// The flag object is a design pattern similar to the media object, however it
-// utilises `display: table[-cell];` to give us control over the vertical
-// alignments of the text and image. csswizardry.com/2013/05/the-flag-object
-//
-// 1. Allows us to control vertical alignments
-// 2. Force the object to be the full width of its parent. Combined with [1],
-//    this makes the object behave in a quasi-`display: block;` manner.
-//
+/**
+ * The flag object is a design pattern similar to the media object, however it
+ * utilises `display: table[-cell];` to give us control over the vertical
+ * alignments of the text and image. csswizardry.com/2013/05/the-flag-object
+ */
 
-.flag {
-  display: table; // [1]
-  width: 100%; // [2]
+// Predefine the variables below in order to alter and enable specific features.
+$fortitude-flag-gutter:             $fortitude-base-spacing-unit !default;
+$fortitude-flag-gutter--small:      halve($fortitude-flag-gutter) !default;
+$fortitude-flag-gutter--large:      double($fortitude-flag-gutter) !default;
+
+$fortitude-enable-flag--small:      false !default;
+$fortitude-enable-flag--large:      false !default;
+$fortitude-enable-flag--rev:        false !default;
+$fortitude-enable-flag--flush:      false !default;
+$fortitude-enable-flag--top:        false !default;
+$fortitude-enable-flag--bottom:     false !default;
+$fortitude-enable-flag--responsive: false !default;
+$fortitude-flag-collapse-at:        720px !default;
+
+
+
+
+
+@mixin fortitude-flag {
+    /**
+     * 1. Allows us to control vertical alignments
+     * 2. Force the object to be the full width of its parent. Combined with [1],
+     *    this makes the object behave in a quasi-`display: block;` manner.
+     */
+    display: table; /* [1] */
+    width: 100%; /* [2] */
 }
 
-//
-// Items within a flag object. There should only ever be one of each.
-//
-// 1. Default to aligning content to their middles.
-//
+@mixin fortitude-flag__object {
+    /**
+     * 1. Default to aligning content to their middles.
+     */
+    display: table-cell;
+    vertical-align: middle; /* [1] */
+    padding-right: $fortitude-flag-gutter;
 
-.flag__object,
-.flag__body {
-  display: table-cell;
-  vertical-align: middle; // [1]
+    > img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: none;
+    }
+
 }
 
-//
-// Flag images have a space between them and the body of the object.
-//
+@mixin fortitude-flag__body {
+    /**
+     * The container for the main content of the flag object.
+     *
+     * 1. Forces the `.flag__body` to take up all remaining space.
+     * 2. Default to aligning content to their middles.
+     */
 
-.flag__object {
-  padding-right: $base-spacing-unit;
-
-  > img {
-    display: block;
-    max-width: none;
-  }
+    display: table-cell;
+    width: 100%; /* [1] */
+    vertical-align: middle; /* [2] */
 }
 
-//
-// The container for the main content of the flag object.
-//
-// 1. Forces the `.flag__body` to take up all remaining space.
-//
-
-.flag__body {
-  width: 100%;
+@mixin fortitude-flag--small__object {
+    padding-right: $fortitude-flag-gutter--small;
 }
 
-
-
-
-
-//
-// Reversed flag objects have their image-content to the right, and text-content
-// to the left.
-//
-// 1. Reassign margins to the correct sides.
-//
-.flag--reverse {
-  > .flag__object {
-    padding-left: $base-spacing-unit; // [1]
-    padding-right: 0; // [1]
-  }
+@mixin fortitude-flag--small--rev__object {
+    padding-right: 0;
+    padding-left:  $fortitude-flag-gutter--small;
 }
 
+@mixin fortitude-flag--large__object {
+    padding-right: $fortitude-flag-gutter--large;
+}
 
+@mixin fortitude-flag--large--rev__object {
+    padding-right: 0;
+    padding-left:  $fortitude-flag-gutter--large;
+}
 
+@mixin fortitude-flag--rev {
+    /**
+     * 1. Swap the rendered direction of the object…
+     */
 
+    direction: rtl; /* [1] */
+}
 
-//
-// Vertical alignment variations of the flag object. Either align image- and
-// text-content to the tops of bottoms of each other.
-//
+@mixin fortitude-flag--rev__object {
+    /**
+     * 1. Swap the rendered direction of the object…
+     * 2. …and reset it.
+     * 3. Reassign margins to the correct sides.
+     */
 
-.flag--top {
-  .flag__img,
-  .flag__body {
+    direction: ltr; /* [2] */
+    padding-right: 0; /* [3] */
+    padding-left: $fortitude-flag-gutter; /* [3] */
+}
+
+@mixin fortitude-flag--rev__body {
+    /**
+     * 2. …and reset it.
+     */
+    direction: ltr; /* [2] */
+}
+
+@mixin fortitude-flag--flush__object {
+    padding-right: 0;
+    padding-left:  0;
+}
+
+@mixin fortitude-flag--top__object {
     vertical-align: top;
-  }
 }
 
-.flag--bottom {
-  .flag__img,
-  .flag__body {
+@mixin fortitude-flag--top__body {
+    vertical-align: top;
+}
+
+@mixin fortitude-flag--bottom__object {
     vertical-align: bottom;
-  }
+}
+
+@mixin fortitude-flag--bottom__body {
+    vertical-align: bottom;
+}
+
+@mixin fortitude-flag--responsive {
+    /**
+     * Responsive flag objects.
+     *
+     * There is a very pragmatic, simple implementation of a responsive flag
+     * object, which simply places the text-content beneath the image-content.
+     *
+     * We use a `max-width` media query because:
+     *
+     * a) it is the least verbose method in terms of amount of code required.
+     * b) the flag object’s default state is image-next-to-text, so its stacked
+     *    state is the exception, rather than the rule.
+     */
+
+    @media screen and (max-width: $fortitude-flag-collapse-at) {
+        @if ($fortitude-enable-flag--rev == true) {
+            /**
+             * Disable reversal of content because there is no concept of
+             * ‘reversed’ in a stacked layout.
+             */
+            direction: ltr;
+        }
+
+        display: block;
+        @content;
+    }
+}
+
+@mixin fortitude-flag--responsive__object {
+    /**
+     * Rework the spacings on regular flag objects.
+     */
+    display: block;
+    padding-right: 0;
+    padding-left:  0;
+    margin-bottom: $fortitude-flag-gutter;
+}
+
+@mixin fortitude-flag--responsive__body {
+    display: block;
+}
+
+@mixin fortitude-flag--responsive--small__object {
+    /**
+     * Small responsive flags.
+     *
+     * Take a little more heavy-handed approach to reworking
+     * spacings on flags that are also small flags in their regular
+     * state.
+     */
+
+    padding-right: 0;
+    padding-left:  0;
+}
+
+@mixin fortitude-flag--responsive--large__object {
+    /**
+     * Large responsive flags.
+     *
+     * Take a little more heavy-handed approach to reworking
+     * spacings on flags that are also large flags in their regular
+     * state.
+     */
+
+    padding-right: 0;
+    padding-left:  0;
+}
+
+.#{$fortitude-namespace}flag {
+    @include fortitude-flag;
+}
+
+    /**
+     * Items within a flag object. There should only ever be one of each.
+     */
+
+
+    /**
+     * Flag images have a space between them and the body of the object.
+     */
+    .#{$fortitude-namespace}flag__object {
+        @include fortitude-flag__object;
+    }
+
+    .#{$fortitude-namespace}flag__body {
+        @include fortitude-flag__body;
+    }
+
+
+
+
+
+@if ($fortitude-enable-flag--small == true) {
+
+    /**
+     * Small flags.
+     */
+
+    .#{$fortitude-namespace}flag--small {
+
+        > .#{$fortitude-namespace}flag__object {
+            @include fortitude-flag--small__object;
+        }
+
+        @if ($fortitude-enable-flag--rev == true) {
+
+            /**
+             * Small reversed flags.
+             */
+
+            &.#{$fortitude-namespace}flag--rev {
+
+                > .#{$fortitude-namespace}flag__object {
+                    @include fortitude-flag--small--rev__object;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+@if ($fortitude-enable-flag--large == true) {
+
+    /**
+     * Large flags.
+     */
+
+    .#{$fortitude-namespace}flag--large {
+
+        > .#{$fortitude-namespace}flag__object {
+            @include fortitude-flag--large__object;
+        }
+
+        @if ($fortitude-enable-flag--rev == true) {
+
+            /**
+             * Large reversed flags.
+             */
+
+            &.#{$fortitude-namespace}flag--rev {
+
+                > .#{$fortitude-namespace}flag__object {
+                    @include fortitude-flag--large--rev__object;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-flag--rev == true) {
+
+    /**
+     * Reversed flag objects have their image-content to the right, and text-content
+     * to the left.
+     */
+
+    .#{$fortitude-namespace}flag--rev {
+        @include fortitude-flag--rev;
+
+        > .#{$fortitude-namespace}flag__object {
+            @include fortitude-flag--rev__object;
+        }
+
+        > .#{$fortitude-namespace}flag__body {
+            @include fortitude-flag--rev__body;
+        }
+
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-flag--flush == true) {
+
+    /**
+     * Flush flag objects have no space between the image- and text-content.
+     */
+
+    .#{$fortitude-namespace}flag--flush {
+
+        > .#{$fortitude-namespace}flag__object {
+            @include fortitude-flag--flush__object;
+        }
+
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-flag--top == true) {
+
+    /**
+     * Vertically top aligned flag objects.
+     */
+
+    .#{$fortitude-namespace}flag--top {
+
+        .#{$fortitude-namespace}flag__object {
+            @include fortitude-flag--top__object;
+        }
+
+        .#{$fortitude-namespace}flag__body {
+            @include fortitude-flag--top__body;
+        }
+
+    }
+
+}
+
+@if ($fortitude-enable-flag--bottom == true) {
+
+    /**
+     * Vertically bottom aligned flag objects.
+     */
+
+    .#{$fortitude-namespace}flag--bottom {
+
+        .#{$fortitude-namespace}flag__object {
+            @include fortitude-flag--bottom__object;
+        }
+
+        .#{$fortitude-namespace}flag__body {
+            @include fortitude-flag--bottom__body;
+        }
+
+    }
+
+}
+
+
+
+
+@if ($fortitude-enable-flag--responsive == true) {
+
+    .#{$fortitude-namespace}flag--responsive {
+
+        @include fortitude-flag--responsive {
+
+            > .#{$fortitude-namespace}flag__object {
+                @include fortitude-flag--responsive__object;
+            }
+
+            > .#{$fortitude-namespace}flag__body {
+                @include fortitude-flag--responsive__body;
+            }
+
+            @if ($fortitude-enable-flag--small == true) {
+
+                &.#{$fortitude-namespace}flag--small {
+
+                    > .#{$fortitude-namespace}flag__object {
+                        @include fortitude-flag--responsive--small__object;
+                    }
+
+                }
+
+            }
+
+            @if ($fortitude-enable-flag--large == true) {
+
+                &.#{$fortitude-namespace}flag--large {
+
+                    > .#{$fortitude-namespace}flag__object {
+                        @include fortitude-flag--responsive--large__object;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
 }

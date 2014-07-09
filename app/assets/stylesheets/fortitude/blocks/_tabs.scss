@@ -1,42 +1,19 @@
-//------------------------------------
-//  #TABS
-//------------------------------------
+/*------------------------------------*\
+    #TABS
+\*------------------------------------*/
 
-
-.tabs {}
-
-//
-// A simple abstraction for making equal-width navigation tabs.
-//
-// 1. Reset any residual styles (most likely from lists).
-// 2. Tables for layout!
-// 3. Force all `table-cell` children to have equal widths.
-// 4. Force the object to be the full width of its parent. Combined with [2],
-//    this makes the object behave in a quasi-`display: block;` manner.
-//
-
-.tabs__navigation {
-  display: table; // [2]
-  list-style: none; // [1]
-  margin: 0; // [1]
-  padding: 0; // [1]
-  table-layout: fixed; // [3]
-  text-align: center;
-  width: 100%; // [4]
+@mixin fortitude-tabs__target {
+    display: none;
 }
 
-.tabs__navigation__item {
-  display: table-cell; // [2]
+@mixin fortitude-tabs__target--is-selected {
+    display: block;
 }
 
-.tabs__navigation__item__link {
-  display: block;
+.#{$fortitude-namespace}tabs__target {
+  @include fortitude-tabs__target;
 }
 
-.tabs__content {
-  display: none;
-}
-
-.tabs__content--is-active {
-  display: block;
+.#{$fortitude-namespace}tabs__target--is-selected {
+  @include fortitude-tabs__target--is-selected;
 }

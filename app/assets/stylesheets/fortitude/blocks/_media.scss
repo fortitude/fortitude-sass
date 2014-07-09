@@ -1,45 +1,289 @@
-//------------------------------------
-//  #MEDIA
-//------------------------------------
+/*------------------------------------*\
+    #MEDIA
+\*------------------------------------*/
 
-//
-// Place any image- and text-like content side-by-side, as per:
-// stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
-//
+/**
+ * Place any image- and text-like content side-by-side, as per:
+ * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ */
 
-.media {
-  @include clearfix;
-  display: block;
-}
+// Predefine the variables below in order to alter and enable specific features.
+$fortitude-media-gutter:                $fortitude-base-spacing-unit !default;
+$fortitude-media-gutter--small:         halve($fortitude-media-gutter) !default;
+$fortitude-media-gutter--large:         double($fortitude-media-gutter) !default;
 
-.media__object {
-  float: left;
-  margin-right: $base-spacing-unit;
+$fortitude-enable-media--small:         false !default;
+$fortitude-enable-media--large:         false !default;
+$fortitude-enable-media--rev:           false !default;
+$fortitude-enable-media--flush:         false !default;
+$fortitude-enable-media--responsive:    false !default;
+$fortitude-media-collapse-at:           720px !default;
 
-  > img {
+
+
+
+
+@mixin fortitude-media {
+    @include fortitude-clearfix;
     display: block;
-  }
+}
 
-  //
-  // Reversed image location (right instead of left). Extends `.media`.
-  //
+@mixin fortitude-media__object {
+    float: left;
+    margin-right: $fortitude-media-gutter;
 
-  .#{$namespace}media--reverse > &,
-  %#{$namespace}media--reverse > & {
-    float: right;
-    margin-left: $base-spacing-unit;
+    > img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@mixin fortitude-media__body {
+    overflow: hidden;
+    display: block;
+}
+
+@mixin fortitude-media--small__object {
+    margin-right: $fortitude-media-gutter--small;
+}
+
+@mixin fortitude-media--small--rev__object {
     margin-right: 0;
-  }
+    margin-left:  $fortitude-media-gutter--small;
+}
+
+@mixin fortitude-media--large__object {
+    margin-right: $fortitude-media-gutter--large;
+}
+
+@mixin fortitude-media--large--rev__object {
+    margin-right: 0;
+    margin-left:  $fortitude-media-gutter--large;
+}
+
+@mixin fortitude-media--rev__object {
+    float: right;
+    margin-right: 0;
+    margin-left: $fortitude-media-gutter;
+}
+
+@mixin fortitude-media--flush__object {
+    margin-right: 0;
+    margin-left:  0;
+}
+
+@mixin fortitude-media--responsive__object {
+    float: none;
+    margin-right: 0;
+    margin-bottom: $fortitude-media-gutter;
+    margin-left:  0;
+}
+
+@mixin fortitude-media--responsive--small__object {
+    margin-right: 0;
+    margin-left:  0;
+}
+
+@mixin fortitude-media--responsive--large__object {
+    margin-right: 0;
+    margin-left:  0;
+}
+
+
+
+.#{$fortitude-namespace}media {
+    @include fortitude-media;
+}
+
+    .#{$fortitude-namespace}media__object {
+        @include fortitude-media__object;
+    }
+
+    .#{$fortitude-namespace}media__body {
+        @include fortitude-media__body;
+    }
+
+
+
+
+
+@if ($fortitude-enable-media--small == true) {
+
+    /**
+     * Small media objects.
+     */
+
+    .#{$fortitude-namespace}media--small {
+
+        > .#{$fortitude-namespace}media__object {
+            @include fortitude-media--small__object;
+        }
+
+        @if ($fortitude-enable-media--rev == true) {
+
+            /**
+             * Small reversed media objects.
+             */
+
+            &.#{$fortitude-namespace}media--rev {
+
+                > .#{$fortitude-namespace}media__object {
+                    @include fortitude-media--small--rev__object;
+                }
+
+            }
+
+        }
+
+    }
 
 }
 
-.#{$namespace}media__body,
-%#{$namespace}media__body {
-  overflow: hidden;
+@if ($fortitude-enable-media--large == true) {
 
-  &,
-  > :last-child {
-    margin-bottom: 0;
-  }
+    /**
+     * Large media objects.
+     */
+
+    .#{$fortitude-namespace}media--large {
+
+        > .#{$fortitude-namespace}media__object {
+            @include fortitude-media--large__object;
+        }
+
+        @if ($fortitude-enable-media--rev == true) {
+
+            /**
+             * Large reversed media objects.
+             */
+
+            &.#{$fortitude-namespace}media--rev {
+
+                > .#{$fortitude-namespace}media__object {
+                    @include fortitude-media--large--rev__object;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-media--rev == true) {
+
+    /**
+     * Reversed image location (right instead of left). Extends `.media`.
+     */
+
+    .#{$fortitude-namespace}media--rev {
+
+        > .#{$fortitude-namespace}media__object {
+            @include fortitude-media--rev__object;
+        }
+
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-media--flush == true) {
+
+    /**
+     * Flush media objects have no space between the image- and text-content.
+     */
+
+    .#{$fortitude-namespace}media--flush {
+
+        > .#{$fortitude-namespace}media__object {
+            @include fortitude-media--flush__object;
+        }
+
+    }
+
+}
+
+
+
+
+
+@if ($fortitude-enable-media--responsive == true) {
+
+    /**
+     * Responsive media objects.
+     *
+     * There is a very pragmatic, simple implementation of a responsive media
+     * object, which simply places the text-content beneath the image-content.
+     *
+     * We use a `max-width` media query because:
+     *
+     * a) it is the least verbose method in terms of amount of code required.
+     * b) the media object’s default state is image-next-to-text, so its stacked
+     *    state is the exception, rather than the rule.
+     */
+
+    @media screen and (max-width: $fortitude-media-collapse-at) {
+
+        .#{$fortitude-namespace}media--responsive {
+
+            /**
+             * Rework the spacings on regular media objects.
+             */
+            > .#{$fortitude-namespace}media__object {
+                @include fortitude-media--responsive__object;
+            }
+
+            @if ($fortitude-enable-media--small == true) {
+
+                /**
+                 * Small responsive media objects.
+                 *
+                 * Take a little more heavy-handed approach to reworking
+                 * spacings on media objects that are also small media objects
+                 * in their regular state.
+                 */
+
+                &.#{$fortitude-namespace}media--small {
+
+                    > .#{$fortitude-namespace}media__object {
+                        @include fortitude-media--responsive--small__object;
+                    }
+
+                }
+
+            }
+
+            @if ($fortitude-enable-media--large == true) {
+
+                /**
+                 * Large responsive media objects.
+                 *
+                 * Take a little more heavy-handed approach to reworking
+                 * spacings on media objects that are also large media objects
+                 * in their regular state.
+                 */
+
+                &.#{$fortitude-namespace}media--large {
+
+                    > .#{$fortitude-namespace}media__object {
+                        @include fortitude-media--responsive--large__object;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
 
 }
