@@ -23,11 +23,10 @@ Rock solid CSS Patterns and Components.
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency('sass', '~> 3.3')
-  s.add_dependency('autoprefixer-rails', '~> 1.1.20140319')
+  s.add_dependency('sass')
+  s.add_dependency('autoprefixer-rails')
   s.add_dependency('thor')
 
-  s.add_development_dependency('compass', '~> 1.0.0.alpha.19')
   s.add_development_dependency('aruba', '~> 0.4')
   s.add_development_dependency('rake')
 end

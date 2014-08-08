@@ -12,13 +12,10 @@ $fortitude-button-border-style:              solid !default;
 $fortitude-button-border-radius:             0.2rem !default;
 
 $fortitude-button-height:                    $fortitude-base-spacing-unit + 1.6rem !default;
-$fortitude-button-font-size:                 1.4rem !default;
 $fortitude-button-horizontal-padding:        fortitude-block-padding($fortitude-button-height, $fortitude-button-border-width) * 2 !default;
 $fortitude-button-height--small:             $fortitude-base-spacing-unit + 1.0rem !default;
-$fortitude-button-font-size--small:          1.2rem !default;
 $fortitude-button-horizontal-padding--small: fortitude-block-padding($fortitude-button-height--small, $fortitude-button-border-width) * 2 !default;
 $fortitude-button-height--large:             double($fortitude-base-spacing-unit) + 2.0rem !default;
-$fortitude-button-font-size--large:          1.8rem !default;
 $fortitude-button-horizontal-padding--large: fortitude-block-padding($fortitude-button-height--large, $fortitude-button-border-width) * 2 !default;
 
 $fortitude-enable-button--small:             false !default;
@@ -57,6 +54,7 @@ $fortitude-global-border-box: false !default;
     display: inline-block; /* [1] */
     vertical-align: middle; /* [2] */
     font: inherit; /* [3] */
+    font-size: $fortitude-base-font-size;
     text-align: center; /* [4] */
     cursor: pointer; /* [5] */
     overflow: visible; /* [6] */
@@ -68,7 +66,6 @@ $fortitude-global-border-box: false !default;
     } @else if ($extension == large) {
         @include fortitude-button--large;
     } @else {
-        @include fortitude-font-size($fortitude-button-font-size);
         margin: fortitude-block-margin($fortitude-button-height, $fortitude-button-border-width) 0; /* [4] */
         padding: fortitude-block-padding($fortitude-button-height, $fortitude-button-border-width) $fortitude-button-horizontal-padding; /* [7] */
     }
@@ -116,7 +113,6 @@ $fortitude-global-border-box: false !default;
      * 2. Subtract the border size from the padding value so that buttons do not
      *    grow larger as we add borders.
      */
-    @include fortitude-font-size($fortitude-button-font-size--small);
     margin: fortitude-block-margin($fortitude-button-height--small, $fortitude-button-border-width) 0; /* [1] */
     padding: fortitude-block-padding($fortitude-button-height--small, $fortitude-button-border-width) $fortitude-button-horizontal-padding--small; /* [2] */
 }
@@ -127,7 +123,6 @@ $fortitude-global-border-box: false !default;
      * 2. Subtract the border size from the padding value so that buttons do not
      *    grow larger as we add borders.
      */
-    @include fortitude-font-size($fortitude-button-font-size--large);
     margin: fortitude-block-margin($fortitude-button-height--large, $fortitude-button-border-width) 0; /* [1] */
     padding: fortitude-block-padding($fortitude-button-height--large, $fortitude-button-border-width) $fortitude-button-horizontal-padding--large; /* [2] */
 }
