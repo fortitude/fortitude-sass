@@ -38,6 +38,7 @@ $fortitude-global-border-box: false !default;
 
 @mixin fortitude-layout($extension: null) {
     list-style: none;
+    display: block;
     margin:  0;
     padding: 0;
     margin-left: -$fortitude-layout-gutter;
