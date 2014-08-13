@@ -26,6 +26,9 @@
     return result || 0;
   }
 
+
+  $.support.transition = transitionEnd()
+
   $.fn.transitionEnd = function (callback) {
     var self = this;
     var called = false;
@@ -43,9 +46,5 @@
     $this.on($.support.transition.end, _callback);
     var timeoutId = setTimeout(_callback, duration);
   };
-
-  $(function () {
-    $.support.transition = transitionEnd()
-  });
 
 })(jQuery);

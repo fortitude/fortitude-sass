@@ -15,27 +15,30 @@
 
     $(document).
       on('open:ft:shade', '.shade', function(event) {
-        var $this = $(this);
+        if(!$html.hasClass('html--shade--is-active')) {
+          var $this = $(this);
 
-        // set the transitioning class
-        $html.addClass('html--shade--is-transitioning');
+          // set the transitioning class
+          $html.addClass('html--shade--is-transitioning');
 
-        // set additional class in seperate event queue.
-        setTimeout(function() {
-          $html.addClass('html--shade--is-active');
-        }, 0);
+          // set additional class in seperate event queue.
+          setTimeout(function() {
+            $html.addClass('html--shade--is-active');
+          }, 0);
 
-        // watch the transitionEnd event to remove the transitioning class.
-        $this.transitionEnd(transitionEndOpen);
+          // watch the transitionEnd event to remove the transitioning class.
+          $this.transitionEnd(transitionEndOpen);
+        }
       }).
       on('close:ft:shade', '.shade', function(event) {
-        var $this = $(this);
-        $html.
-          addClass('html--shade--is-transitioning').
-          removeClass('html--shade--is-active')
+        if($html.hasClass('html--shade--is-active')) {
+          var $this = $(this);
+          $html.
+            addClass('html--shade--is-transitioning').
+            removeClass('html--shade--is-active')
 
-        $this.transitionEnd(transitionEndOpen);
-
+          $this.transitionEnd(transitionEndOpen);
+        }
       }).
       on('click.ft.shade.data-api', '.shade', function(event) {
         $(this).trigger('close:ft:shade');
