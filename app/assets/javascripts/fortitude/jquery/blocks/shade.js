@@ -1,43 +1,31 @@
 (function($) {
     'use strict';
-    var $html = $('html');
-
-    function transitionEndOpen() {
-      var $html = $('html');
-      $html.removeClass('html--shade--is-transitioning');
-    }
-
-    function transitionEndClose() {
-      var $html = $('html');
-      $html.removeClass('html--shade--is-transitioning');
-      $(document).trigger('close:ft:shade');
-    }
-
     $(document).
       on('open:ft:shade', '.shade', function(event) {
-        if(!$html.hasClass('html--shade--is-active')) {
-          var $this = $(this);
-
-          // set the transitioning class
-          $html.addClass('html--shade--is-transitioning');
-
-          // set additional class in seperate event queue.
-          setTimeout(function() {
-            $html.addClass('html--shade--is-active');
-          }, 0);
-
-          // watch the transitionEnd event to remove the transitioning class.
-          $this.transitionEnd(transitionEndOpen);
+        var $this = $(this);
+        if(!$this.hasClass('shade--is-active')) {
+          $this
+            .addClass('shade--is-active')
+            .addClass($this.data().showClass)
+            .show()
+            .waitForAnimation()
+            .then(function() {
+              $this.removeClass($this.data().showClass);
+            });
         }
       }).
       on('close:ft:shade', '.shade', function(event) {
-        if($html.hasClass('html--shade--is-active')) {
-          var $this = $(this);
-          $html.
-            addClass('html--shade--is-transitioning').
-            removeClass('html--shade--is-active')
-
-          $this.transitionEnd(transitionEndOpen);
+        var $this = $(this);
+        if($this.hasClass('shade--is-active')) {
+          $this
+            .addClass($this.data().hideClass)
+            .waitForAnimation()
+            .then(function() {
+              $this
+                .hide()
+                .removeClass('shade--is-active')
+                .removeClass($this.data().hideClass);
+            });
         }
       }).
       on('click.ft.shade.data-api', '.shade', function(event) {
