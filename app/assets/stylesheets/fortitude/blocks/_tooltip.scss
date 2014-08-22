@@ -2,17 +2,18 @@
     #TOOLTIP
 \*------------------------------------*/
 
-$fortitude-tooltip-width: 18rem;
-$fortitude-tooltip-border-radius: 0.2rem;
-$fortitude-tooltip-arrow-size: 0.6rem;
-$fortitude-tooltip-color: #ffffff;
-$fortitude-tooltip-background-color: rgba(30,30,30, 0.9);
-$fortitude-tooltip-padding: 0.8rem;
-$fortitude-tooltip-font-size: 1rem;
-$fortitude-tooltip-line-height: 1.4rem;
-$fortitude-tooltip-padding-vertical: $fortitude-tooltip-padding;
-$fortitude-tooltip-padding-horizontal: $fortitude-tooltip-padding;
-$fortitude-tooltip-min-height: $fortitude-tooltip-line-height + ($fortitude-tooltip-padding * 2);
+$fortitude-tooltip-width:              18rem !default;
+$fortitude-tooltip-border-radius:      0.2rem !default;
+$fortitude-tooltip-arrow-size:         0.6rem !default;
+$fortitude-tooltip-color:              #ffffff !default;
+$fortitude-tooltip-background-color:   rgba(30,30,30, 0.9) !default;
+$fortitude-tooltip-padding:            0.8rem !default;
+$fortitude-tooltip-font-size:          1rem !default;
+$fortitude-tooltip-line-height:        1.4rem !default;
+$fortitude-tooltip-padding-vertical:   $fortitude-tooltip-padding !default;
+$fortitude-tooltip-padding-horizontal: $fortitude-tooltip-padding !default;
+$fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortitude-tooltip-padding * 2) !default;
+
 
 @mixin fortitude-tooltip {
   position: relative;
