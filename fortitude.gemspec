@@ -29,4 +29,6 @@ Rock solid CSS Patterns and Components.
 
   s.add_development_dependency('aruba', '~> 0.4')
   s.add_development_dependency('rake')
+  s.add_development_dependency('hologram')
+  s.add_development_dependency('compass')
 end
