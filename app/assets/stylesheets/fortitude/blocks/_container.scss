@@ -6,7 +6,6 @@ $fortitude-container-breakpoints:   (xs: 100%,
                                      sm: 72rem + $fortitude-base-spacing-unit,
                                      md: 94rem + $fortitude-base-spacing-unit,
                                      lg: 114rem + $fortitude-base-spacing-unit) !default;
-$fortitude-container-z-index:       2 !default;
 
 
 
@@ -41,27 +40,6 @@ $fortitude-global-border-box: false !default;
     }
 }
 
-@mixin fortitude-container--fixed-top {
-    position: fixed;
-    z-index: $fortitude-container-z-index;
-    top: 0;
-}
-
-@mixin fortitude-container--absolute-top {
-    position: absolute;
-    z-index: $fortitude-container-z-index;
-    top: 0;
-}
-
 .#{$fortitude-namespace}container {
     @include fortitude-container;
-}
-
-
-.#{$fortitude-namespace}container--fixed-top {
-    @include fortitude-container--fixed-top;
-}
-
-.#{$fortitude-namespace}container--absolute-top {
-    @include fortitude-container--absolute-top;
 }
