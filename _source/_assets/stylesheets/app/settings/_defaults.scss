@@ -1,0 +1,23 @@
+@import "../app/assets/stylesheets/fortitude/settings/defaults";
+
+$app-id: docs;
+$base-spacing-unit: $fortitude-base-spacing-unit;
+$base-line-height:  $fortitude-base-line-height;
+$base-font-size: 1.6rem;
+$breakpoints: $fortitude-breakpoints;
+$class-breakpoints: $fortitude-class-breakpoints;
+
+
+// fortitude settings
+$fortitude-enable-badge--pill:  true;
+$fortitude-enable-button--full:  true;
+$fortitude-enable-button--small:  true;
+$fortitude-enable-button--large:  true;
+$fortitude-enable-button--pill:  true;
+$fortitude-enable-button--rounded:  true;
+$fortitude-enable-layout--large: true;
+
+
+// fortitude aliases
+$fortitude-app-id: $app-id;
+$fortitude-base-font-size: $base-font-size;

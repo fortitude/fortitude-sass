@@ -1,0 +1,20 @@
+.tooltip--top.tooltip--example::before {
+    border-top-color: #BADA55;
+}
+
+.tooltip--right.tooltip--example::before {
+    border-right-color: #BADA55;
+}
+
+.tooltip--bottom.tooltip--example::before {
+    border-bottom-color: #BADA55;
+}
+
+.tooltip--left.tooltip--example::before {
+    border-left-color: #BADA55;
+}
+
+.tooltip--example::after {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}

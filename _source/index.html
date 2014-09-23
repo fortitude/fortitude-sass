@@ -1,0 +1,39 @@
+---
+layout: default
+html_class: "landing-page"
+---
+<div class="box box--landing xs-mt-4 xs-pt4">
+	<div class="box box--landing-graphic xs-mt-3 xs-pt3">
+		<div class="container xs-ptb10 xs-prl1 sm-prl0">
+			<h1 class="xs-alpha xs-inset2 xs-mb1">Why use Fortitude?</h1>
+			<h3 class="xs-gamma xs-inset2">
+				Designed for products, not prototypes.<br />
+				And it’s Better Than Bootstrap™.
+			</h3>
+		</div>
+	</div>
+</div>
+<div class="box box--primary xs-text-center xs-inset2">
+	<a href="http://hired.com">
+		<span class="xs-epsilon xs-prh0">created by</span>
+		<svg width="84" height="14" viewBox="0 0 84 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" style="position: relative; top: 0.2rem;">
+			<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+				<path d="M8.226,7.29 L8.226,12.6 L10.44,12.6 L10.44,0 L8.226,0 L8.226,5.238 L2.214,5.238 L2.214,0 L0,0 L0,12.6 L2.214,12.6 L2.214,7.29 L8.226,7.29 Z M20.6700394,0 L20.6700394,12.6 L22.8840394,12.6 L22.8840394,0 L20.6700394,0 Z M43.8060788,12.6 L40.4040788,7.83 C42.1680788,7.344 43.4100788,6.084 43.4100788,3.996 C43.4100788,1.53 41.6280788,0 38.7300788,0 L33.1140788,0 L33.1140788,12.6 L35.3280788,12.6 L35.3280788,8.208 L38.1000788,8.208 L41.1960788,12.6 L43.8060788,12.6 Z M41.1600788,4.122 C41.1600788,5.418 40.1520788,6.246 38.5680788,6.246 L35.3280788,6.246 L35.3280788,2.016 L38.5500788,2.016 C40.1880788,2.016 41.1600788,2.736 41.1600788,4.122 Z M62.3341183,0 L52.9921183,0 L52.9921183,12.6 L62.4241183,12.6 L62.4241183,10.62 L55.2061183,10.62 L55.2061183,7.236 L61.5241183,7.236 L61.5241183,5.256 L55.2061183,5.256 L55.2061183,1.98 L62.3341183,1.98 L62.3341183,0 Z M83.3101577,6.282 C83.3101577,2.718 80.5741577,0 76.6141577,0 L71.9161577,0 L71.9161577,12.6 L76.6141577,12.6 C80.5741577,12.6 83.3101577,9.846 83.3101577,6.282 Z M80.9881577,6.318 C80.9881577,8.802 79.2601577,10.584 76.6141577,10.584 L74.1301577,10.584 L74.1301577,2.016 L76.6141577,2.016 C79.2601577,2.016 80.9881577,3.834 80.9881577,6.318 Z" id="HIRED" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+			</g>
+		</svg>
+	</a>
+</div>
+
+<div class="container xs-pt3 xs-prl1 sm-prl0">
+	<div class="layout layout--large">
+{% strip %}
+{% for section in site.data.index.sections %}
+<div class="layout__item sm-6of12 md-4of12 xs-mb3 xs-text-center">
+	<img src="{{ section.src | asset_path }}" alt="{{ section.title }}" class="xs-mb2">
+	<h3 class="xs-gamma xs-mb1 xs-inset2 xs-text-left">{{ section.title }}</h3>
+	<p class="xs-text-left">{{ section.body }}</p>
+</div>
+{% endfor %}
+{% endstrip %}
+	</div>
+</div>

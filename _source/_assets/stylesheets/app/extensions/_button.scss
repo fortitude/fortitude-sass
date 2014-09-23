@@ -1,0 +1,10 @@
+.button--primary {
+    background: $primary-color;
+    &,
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+        color: $white-color;
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Fortitude Docs",
+  "version": "0.0.1",
+  "homepage": "https://github.com/fortitude/fortitude-sass",
+  "authors": [
+    "Aaron Reisman <aaron@hired.com>"
+  ],
+  "description": "Fortitude Docs",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.3"
+  }
+}

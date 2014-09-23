@@ -1,0 +1,11 @@
+.ui-list--example {
+    background-color: #BADA55;
+}
+
+.ui-list--example .ui-list__item {
+    border-color: #FFFFFF;
+}
+
+.ui-list--example .ui-list__link {
+    color: #FFFFFF;
+}

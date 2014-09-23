@@ -1,0 +1,7 @@
+.block-list--example {
+    background-color: #BADA55;
+}
+
+.block-list--example .block-list__link {
+    color: #FFFFFF;
+}

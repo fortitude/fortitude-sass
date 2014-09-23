@@ -1,0 +1,19 @@
+# Site settings
+title: Fortitude
+email: aaron@hired.com
+author: Aaron Reisman
+created_at: Hired
+created_at_site: "https://hired.com"
+description: > # this means to ignore newlines until "baseurl:"
+  Fortitude is a frontend framework design for products, not prototypes.
+  Fortitude is architected around one simple principle: keep developers out of
+  the CSS and provide them with a consistent API to compose views, all in markup.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://fortitude.io/docs" # the base hostname & protocol for your site
+twitter_username: fortitudeio
+github_username:  fortitude
+
+# Build settings
+markdown: kramdown
+source:      .
+destination: ../docs

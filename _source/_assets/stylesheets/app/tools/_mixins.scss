@@ -1,0 +1,13 @@
+@mixin font-size-alias($alias, $line-height: false) {
+	@include fortitude-font-size-alias($alias, $line-height);
+}
+
+@mixin breakpoint($alias, $breakpoints: $class-breakpoints) {
+	@include fortitude-breakpoint($alias, $breakpoints) {
+		@content;
+	}
+}
+
+@mixin clearfix {
+	@include fortitude-clearfix;
+}
