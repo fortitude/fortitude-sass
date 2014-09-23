@@ -55,6 +55,7 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
     content: attr(data-tooltip);
     font-size: $fortitude-tooltip-font-size;
     line-height: $fortitude-tooltip-line-height;
+    white-space: normal;
   }
 }
 

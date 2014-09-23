@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html id="docs" class="page page--generator">
+
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Fortitude | Generator</title>
+    <meta name="description" content="Fortitude is a frontend framework design for products, not prototypes. Fortitude is architected around one simple principle: keep developers out of the CSS and provide them with a consistent API to compose views, all in markup.
+">
+
+	<link rel="stylesheet" href="/assets/main-3236ac4d4ae8d3538bf5894ca79271f2.css">
+	<script src="/assets/head-2ea5112695f44bb7665d90b86ed664b3.js"></script>
+
+    <link rel="canonical" href="http://fortitude.io/docs/generator/">
+</head>
+
+
+    <body>
+        <header class="navigationbar">
+
+  <div class="container xs-prl1 sm-prl0">
+
+    <a class="navigationbar__title" href="/">Fortitude</a>
+
+    <nav class="navigationbar__nav">
+      <a href="#" class="navigationbar__nav__icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="navigationbar__trigger">
+        
+          
+          <a class="navigationbar__link" href="/architecture/">Architecture</a>
+          
+        
+          
+          <a class="navigationbar__link" href="/blog/">Blog</a>
+          
+        
+          
+          <a class="navigationbar__link" href="/documentation/">Documentation</a>
+          
+        
+          
+        
+          
+          <a class="navigationbar__link" href="/generator/">Generator</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+        <div class="xs-2 sm-3"></div>
+<div class="container xs-prl1 sm-prl0">
+    <div class="post xs-ptb1">
+
+        <header class="post__header xs-mb1">
+            <h1 class="xs-alpha xs-inset2">Generator</h1>
+            <p class="text-gray">Explore the different base components of fortitude by choosing one and playing with it live.</p>
+        </header>
+        <article class="post__content">
+            <div class="layout xs-mb2">
+	<div class="layout__item sm-6of12">
+		<div class="field field--required">
+			<div class="layout">
+				<div class="layout__item sm-6of12">
+					<label for="extension-block" class="xs-delta xs-block xs-inset2">
+						Block
+						<span class="field__indicator">*</span>
+					</label>
+				</div><div class="layout__item sm-6of12">
+					<select name="extension-block" id="extension-block" class="select-input input--full">
+						
+						<optgroup label="Lists">
+							
+							<option value="bare-list">bare-list</option>
+							
+							<option value="block-list">block-list</option>
+							
+							<option value="inline-list">inline-list</option>
+							
+							<option value="ui-list">ui-list</option>
+							
+						</optgroup>
+						
+						<optgroup label="UI">
+							
+							<option value="badge">badge</option>
+							
+							<option value="box">box</option>
+							
+							<option value="button">button</option>
+							
+							<option value="flag">flag</option>
+							
+							<option value="flashbar">flashbar</option>
+							
+							<option value="input">input</option>
+							
+							<option value="layout">layout</option>
+							
+							<option value="media">media</option>
+							
+							<option value="table">table</option>
+							
+							<option value="tabs">tabs</option>
+							
+							<option value="tooltip">tooltip</option>
+							
+						</optgroup>
+						
+						<optgroup label="container">
+							
+							<option value="container">container</option>
+							
+							<option value="fluid-container">fluid-container</option>
+							
+						</optgroup>
+						
+						<optgroup label="navigation">
+							
+							<option value="list-navigation">list-navigation</option>
+							
+							<option value="tabs-navigation">tabs-navigation</option>
+							
+						</optgroup>
+						
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="layout">
+	<div class="layout__item sm-6of12 sm-push6of12 xs-mb1">
+		<label for="extension-css" class="xs-delta xs-block xs-inset2">Preview</label>
+		<div id="extension-preview"></div>
+	</div><div class="layout__item sm-6of12 sm-pull6of12">
+		<div class="field field--required xs-mb1">
+			<label for="extension-css" class="xs-delta xs-block xs-inset2 clearfix">
+				CSS
+				<span class="field__indicator">*</span>
+			</label>
+			<textarea name="extension-css" id="extension-css" class="textarea-input input--full" rows="10"></textarea>
+		</div>
+		<div class="field field--required">
+			<label for="extension-html" class="xs-delta xs-block xs-inset2 clearfix">
+				HTML
+				<span class="field__indicator">*</span>
+			</label>
+			<textarea name="extension-html" id="extension-html" class="textarea-input input--full" rows="10"></textarea>
+		</div>
+	</div>
+</div>
+
+	
+<script type="text/html" id="html-template-bare-list"><ul class="bare-list bare-list--example">
+    <li class="bare-list__item">
+        <a href="#" class="bare-list__link">Item 1</a>
+    </li>
+    <li class="bare-list__item">
+        <a href="#" class="bare-list__link">Item 2</a>
+    </li>
+    <li class="bare-list__item">
+        <a href="#" class="bare-list__link">Item 3</a>
+    </li>
+</ul></script>			
+<script type="text/css" id="css-template-bare-list">.bare-list--example {
+    background-color: #BADA55;
+}
+
+.bare-list--example .bare-list__link {
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-block-list"><ul class="block-list block-list--example">
+    <li class="block-list__item">
+        <a href="#" class="block-list__link">Item 1</a>
+    </li>
+    <li class="block-list__item">
+        <a href="#" class="block-list__link">Item 2</a>
+    </li>
+    <li class="block-list__item">
+        <a href="#" class="block-list__link">Item 3</a>
+    </li>
+</ul></script>			
+<script type="text/css" id="css-template-block-list">.block-list--example {
+    background-color: #BADA55;
+}
+
+.block-list--example .block-list__link {
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-inline-list"><ul class="inline-list inline-list--example">
+	<li class="inline-list__item">
+		<a href="#" class="inline-list__link">Item 1</a>
+	</li>
+	<li class="inline-list__item">
+		<a href="#" class="inline-list__link">Item 2</a>
+	</li>
+	<li class="inline-list__item">
+		<a href="#" class="inline-list__link">Item 3</a>
+	</li>
+</ul></script>			
+<script type="text/css" id="css-template-inline-list">.inline-list--example {
+    background-color: #BADA55;
+}
+
+.inline-list--example .inline-list__link {
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-ui-list"><ul class="ui-list ui-list--example">
+	<li class="ui-list__item">
+		<a href="#" class="ui-list__link">Item 1</a>
+	</li>
+	<li class="ui-list__item">
+		<a href="#" class="ui-list__link">Item 2</a>
+	</li>
+	<li class="ui-list__item">
+		<a href="#" class="ui-list__link">Item 3</a>
+	</li>
+</ul></script>			
+<script type="text/css" id="css-template-ui-list">.ui-list--example {
+    background-color: #BADA55;
+}
+
+.ui-list--example .ui-list__item {
+    border-color: #FFFFFF;
+}
+
+.ui-list--example .ui-list__link {
+    color: #FFFFFF;
+}</script>			
+	
+
+	
+<script type="text/html" id="html-template-badge"><span class="badge badge--example">Example</span>
+<span class="badge badge--pill badge--example">Example</span></script>			
+<script type="text/css" id="css-template-badge">.badge--example {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-box"><div class="box box--example xs-p1">
+	<h1 class="xs-alpha xs-mb1">Header</h1>
+	<p class="xs-epsilon">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, quos perferendis ipsa omnis veritatis asperiores qui quibusdam, officiis itaque cupiditate in atque. Consequatur laboriosam error dolore mollitia, dolores saepe recusandae?</p>
+</div></script>			
+<script type="text/css" id="css-template-box">.box--example {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-button"><button class="button button--small button--example">Example</button>
+<button class="button button--example">Example</button>
+<button class="button button--pill button--example">Example</button>
+<button class="button button--large button--example">Example</button>
+<button class="button button--full button--example">Example</button></script>			
+<script type="text/css" id="css-template-button">.button--example {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-flag"><div class="flag flag--example xs-p1">
+	<div class="flag__object">
+		<img src="http://placehold.it/140" alt="Media">
+	</div>
+	<div class="flag__body">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam corrupti doloremque eos distinctio beatae, facere aperiam, illum a porro iusto architecto nisi vero animi ducimus dolores quia cupiditate fugit. Delectus.</p>
+	</div>
+</div></script>			
+<script type="text/css" id="css-template-flag">.flag--example {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-flashbar"><div class="flashbar flashbar--example xs-prl1">
+	<a href="#" class="flashbar__close xs-gamma xs-inset2">&times;</a>
+	<div class="fluid-container xs-ptbh0">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque enim adipisci, accusantium voluptate error illum. Natus repellendus harum laboriosam, quis dolores similique, nobis alias porro recusandae adipisci eligendi. Enim, architecto.
+	</div>
+</div></script>			
+<script type="text/css" id="css-template-flashbar">.flashbar--example {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}
+
+.flashbar--example .flashbar__close {
+	color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-input"><div class="field xs-mb1">
+	<input type="text" class="text-input">
+</div>
+
+<div class="field xs-mb1">
+	<select name="" id="" class="select-input">
+		<option class="placeholder">Select One</option>
+		<option value="one">One</option>
+	</select>
+</div>
+
+<div class="field xs-mb1">
+	<textarea name="" id="" cols="30" rows="10" class="textarea-input"></textarea>
+</div>
+
+<div class="field xs-mb1">
+	<input type="radio" class="radio-input">
+	<input type="checkbox" class="checkbox-input">
+</div>
+
+<div class="field xs-mb1">
+	<input type="text" class="text-input input--full">
+</div>
+
+<div class="field xs-mb1">
+	<select name="" id="" class="select-input input--full">
+		<option class="placeholder">Select One</option>
+		<option value="one">One</option>
+	</select>
+</div>
+
+<div class="field xs-mb1">
+	<textarea name="" id="" cols="30" rows="10" class="textarea-input input--full"></textarea>
+</div>
+</script>			
+<script type="text/css" id="css-template-input"></script>			
+	
+<script type="text/html" id="html-template-layout"><div class="layout layout--example">
+	<div class="layout__item xs-4of12">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla consequuntur veniam velit, nam quidem tenetur nostrum, quam, labore sequi iste voluptates repudiandae voluptate nemo fugit quo atque. Cum, minima aperiam!
+	</div><div class="layout__item xs-4of12">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur facere, repellat illo accusantium unde aperiam iusto impedit ut placeat odio, iure facilis tempora, nostrum ex quae tenetur voluptatibus asperiores excepturi?
+	</div><div class="layout__item xs-4of12">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis maxime in, dicta sequi placeat labore quasi recusandae consequuntur doloribus animi incidunt dolorem, enim, ducimus atque perferendis sunt ratione, laudantium omnis.
+	</div>
+</div></script>			
+<script type="text/css" id="css-template-layout">.layout--example {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-media"><div class="media media--example xs-p1">
+	<div class="media__object">
+		<img src="http://placehold.it/140" alt="Media">
+	</div>
+	<div class="media__body">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam corrupti doloremque eos distinctio beatae, facere aperiam, illum a porro iusto architecto nisi vero animi ducimus dolores quia cupiditate fugit. Delectus.</p>
+	</div>
+</div></script>			
+<script type="text/css" id="css-template-media">.media--example {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-table"></script>			
+<script type="text/css" id="css-template-table"></script>			
+	
+<script type="text/html" id="html-template-tabs"></script>			
+<script type="text/css" id="css-template-tabs"></script>			
+	
+<script type="text/html" id="html-template-tooltip"><div class="button button--example tooltip tooltip--top tooltip--example" data-tooltip="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, inventore quam cum explicabo delectus cumque molestias, nisi esse minus dolor cupiditate ipsa pariatur veniam unde possimus modi iure harum. Delectus.">Example (top)</div>
+
+<div class="button button--example tooltip tooltip--right tooltip--example" data-tooltip="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, inventore quam cum explicabo delectus cumque molestias, nisi esse minus dolor cupiditate ipsa pariatur veniam unde possimus modi iure harum. Delectus.">Example (right)</div>
+
+<div class="button button--example tooltip tooltip--bottom tooltip--example" data-tooltip="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, inventore quam cum explicabo delectus cumque molestias, nisi esse minus dolor cupiditate ipsa pariatur veniam unde possimus modi iure harum. Delectus.">Example (bottom)</div>
+
+<div class="button button--example tooltip tooltip--left tooltip--example" data-tooltip="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, inventore quam cum explicabo delectus cumque molestias, nisi esse minus dolor cupiditate ipsa pariatur veniam unde possimus modi iure harum. Delectus.">Example (left)</div></script>			
+<script type="text/css" id="css-template-tooltip">.tooltip--top.tooltip--example::before {
+    border-top-color: #BADA55;
+}
+
+.tooltip--right.tooltip--example::before {
+    border-right-color: #BADA55;
+}
+
+.tooltip--bottom.tooltip--example::before {
+    border-bottom-color: #BADA55;
+}
+
+.tooltip--left.tooltip--example::before {
+    border-left-color: #BADA55;
+}
+
+.tooltip--example::after {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}</script>			
+	
+
+	
+<script type="text/html" id="html-template-container"></script>			
+<script type="text/css" id="css-template-container"></script>			
+	
+<script type="text/html" id="html-template-fluid-container"></script>			
+<script type="text/css" id="css-template-fluid-container"></script>			
+	
+
+	
+<script type="text/html" id="html-template-list-navigation"><ul class="list-navigation list-navigation--example">
+    <li class="list-navigation__item">
+        <a href="#" class="list-navigation__link">Item 1</a>
+    </li>
+    <li class="list-navigation__item">
+        <a href="#" class="list-navigation__link">Item 2</a>
+    </li>
+    <li class="list-navigation__item">
+        <a href="#" class="list-navigation__link">Item 3</a>
+    </li>
+</ul></script>			
+<script type="text/css" id="css-template-list-navigation">.list-navigation--example {
+    background-color: #BADA55;
+}
+
+.list-navigation--example .list-navigation__link {
+    color: #FFFFFF;
+}</script>			
+	
+<script type="text/html" id="html-template-tabs-navigation"><ul class="tabs-navigation tabs-navigation--example xs-mb1">
+    <li class="tabs-navigation__item">
+        <a href="#" class="tabs-navigation__link">Item 1</a>
+    </li>
+    <li class="tabs-navigation__item">
+        <a href="#" class="tabs-navigation__link">Item 2</a>
+    </li>
+    <li class="tabs-navigation__item">
+        <a href="#" class="tabs-navigation__link">Item 3</a>
+    </li>
+</ul>
+
+<ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--example">
+    <li class="tabs-navigation__item">
+        <a href="#" class="tabs-navigation__link">Item 1</a>
+    </li>
+    <li class="tabs-navigation__item">
+        <a href="#" class="tabs-navigation__link">Item 2</a>
+    </li>
+    <li class="tabs-navigation__item">
+        <a href="#" class="tabs-navigation__link">Item 3</a>
+    </li>
+</ul></script>			
+<script type="text/css" id="css-template-tabs-navigation">.tabs-navigation--example {
+    background-color: #BADA55;
+}
+
+.tabs-navigation--example .tabs-navigation__link {
+    color: #FFFFFF;
+}</script>			
+	
+
+
+        </article>
+
+    </div>
+</div>
+
+        <footer class="site-footer">
+
+  <div class="container xs-prl1 sm-prl0">
+
+    <h2 class="footer-heading">Fortitude &mdash; 2014</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Created at <a href="https://hired.com">Hired</a></li>
+          <li>With &hearts; from <a href="mailto:aaron@hired.com">Aaron Reisman</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/fortitude" target="_blank">
+              <span class="icon icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+              <span class="username">fortitude</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/fortitudeio" target="_blank">
+              <span class="icon icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">fortitudeio</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Fortitude is a frontend framework design for products, not prototypes. Fortitude is architected around one simple principle: keep developers out of the CSS and provide them with a consistent API to compose views, all in markup.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+		<script src="/assets/body-b4963307b2a28699bfbb31f05089029d.js"></script>
+
+    </body>
+
+</html>

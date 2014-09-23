@@ -1,0 +1,8 @@
+.flashbar--example {
+    background-color: #BADA55;
+    color: #FFFFFF;
+}
+
+.flashbar--example .flashbar__close {
+	color: #FFFFFF;
+}

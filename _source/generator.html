@@ -1,0 +1,59 @@
+---
+layout: page
+title: Generator
+description: Explore the different base components of fortitude by choosing one and playing with it live.
+html_class: page--generator
+permalink: /generator/
+---
+
+<div class="layout xs-mb2">
+	<div class="layout__item sm-6of12">
+		<div class="field field--required">
+			<div class="layout">
+				<div class="layout__item sm-6of12">
+					<label for="extension-block" class="xs-delta xs-block xs-inset2">
+						Block
+						<span class="field__indicator">*</span>
+					</label>
+				</div><div class="layout__item sm-6of12">
+					<select name="extension-block" id="extension-block" class="select-input input--full">
+						{% for block_group in site.data.generator.block_groups %}
+						<optgroup label="{{block_group.label}}">
+							{% for block in block_group.blocks %}
+							<option value="{{block.name}}">{{block.name}}</option>
+							{% endfor %}
+						</optgroup>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="layout">
+	<div class="layout__item sm-6of12 sm-push6of12 xs-mb1">
+		<label for="extension-css" class="xs-delta xs-block xs-inset2">Preview</label>
+		<div id="extension-preview"></div>
+	</div><div class="layout__item sm-6of12 sm-pull6of12">
+		<div class="field field--required xs-mb1">
+			<label for="extension-css" class="xs-delta xs-block xs-inset2 clearfix">
+				CSS
+				<span class="field__indicator">*</span>
+			</label>
+			<textarea name="extension-css" id="extension-css" class="textarea-input input--full" rows="10"></textarea>
+		</div>
+		<div class="field field--required">
+			<label for="extension-html" class="xs-delta xs-block xs-inset2 clearfix">
+				HTML
+				<span class="field__indicator">*</span>
+			</label>
+			<textarea name="extension-html" id="extension-html" class="textarea-input input--full" rows="10"></textarea>
+		</div>
+	</div>
+</div>
+{% for block_group in site.data.generator.block_groups %}
+	{% for block in block_group.blocks %}
+<script type="text/html" id="html-template-{{block.name}}">{% include generator/{{block.name}}.html %}</script>			
+<script type="text/css" id="css-template-{{block.name}}">{% include generator/{{block.name}}.css %}</script>			
+	{% endfor %}
+{% endfor %}

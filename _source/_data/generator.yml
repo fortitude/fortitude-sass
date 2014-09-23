@@ -1,0 +1,28 @@
+block_groups:
+  - label: Lists
+    blocks:
+      - name: bare-list
+      - name: block-list
+      - name: inline-list
+      - name: ui-list
+  - label: UI
+    blocks:
+      - name: badge
+      - name: box
+      - name: button
+      - name: flag
+      - name: flashbar
+      - name: input
+      - name: layout
+      - name: media
+      - name: table
+      - name: tabs
+      - name: tooltip
+  - label: container
+    blocks:
+      - name: container
+      - name: fluid-container
+  - label: navigation
+    blocks:
+      - name: list-navigation
+      - name: tabs-navigation

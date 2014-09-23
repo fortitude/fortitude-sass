@@ -1,0 +1,199 @@
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+
+
+/**
+ * Links
+ */
+a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:visited {
+        color: darken($primary-color, 15%);
+    }
+
+    &:hover {
+        color: $base-text-color;
+        text-decoration: underline;
+    }
+}
+
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    color: $gray-color;
+    border-left: 4px solid $gray-color-light;
+    padding-left: $base-spacing-unit / 2;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $gray-color-light;
+    border-radius: 3px;
+    background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: scroll;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+/**
+ * Icons
+ */
+.icon {
+
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+
+        path {
+            fill: $gray-color;
+        }
+    }
+
+    &--loading {
+        background: transparent image-url('common/loading.gif') no-repeat 0 0;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-top: -0.2rem;
+    }
+
+}
+
+
+.text-gray {
+    color: $gray-color;
+}
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+    border-top: 1px solid $gray-color-light;
+    padding: $base-spacing-unit 0;
+}
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: $base-spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.footer-col-wrapper {
+    font-size: 15px;
+    color: $gray-color;
+    margin-left: -$base-spacing-unit / 2;
+    @include clearfix;
+}
+
+.footer-col {
+    float: left;
+    margin-bottom: $base-spacing-unit / 2;
+    padding-left: $base-spacing-unit / 2;
+}
+
+.footer-col-1 {
+    width: -webkit-calc(35% - (#{$base-spacing-unit} / 2));
+    width:         calc(35% - (#{$base-spacing-unit} / 2));
+}
+
+.footer-col-2 {
+    width: -webkit-calc(20% - (#{$base-spacing-unit} / 2));
+    width:         calc(20% - (#{$base-spacing-unit} / 2));
+}
+
+.footer-col-3 {
+    width: -webkit-calc(45% - (#{$base-spacing-unit} / 2));
+    width:         calc(45% - (#{$base-spacing-unit} / 2));
+}
+
+@include breakpoint(sm, $breakpoints) {
+    .footer-col-1,
+    .footer-col-2 {
+        width: -webkit-calc(50% - (#{$base-spacing-unit} / 2));
+        width:         calc(50% - (#{$base-spacing-unit} / 2));
+    }
+
+    .footer-col-3 {
+        width: -webkit-calc(100% - (#{$base-spacing-unit} / 2));
+        width:         calc(100% - (#{$base-spacing-unit} / 2));
+    }
+}
+
+@include breakpoint(xs, $breakpoints) {
+    .footer-col {
+        float: none;
+        width: -webkit-calc(100% - (#{$base-spacing-unit} / 2));
+        width:         calc(100% - (#{$base-spacing-unit} / 2));
+    }
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+.markdown-content {
+    margin-bottom: $base-spacing-unit;
+
+    h2 {
+        @include font-size-alias(beta);
+    }
+
+    h3 {
+        @include font-size-alias(gamma);
+    }
+
+    h4 {
+        @include font-size-alias(delta);
+    }
+}
+
+
+.text-hired {
+    font-family: Gotham-Medium;
+    @include font-size-alias(delta);
+    color: $white-color;
+    letter-spacing: 0.6rem;
+    text-transform: uppercase;
+}

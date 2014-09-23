@@ -1,0 +1,40 @@
+.box--landing {
+	background-color: $black-color;
+	background-image: image-url('index/hero_bg.jpg');
+	background-repeat: no-repeat, repeat;
+	background-position: top center, 0 0;
+	background-attachment: scroll;
+	background-size: auto;
+	color: $white-color;
+	// position: relative;
+	overflow: hidden;
+
+	.hidpi & {
+		background-image: image-url('index_2x/hero_bg.jpg');
+		background-size: 6.2rem;
+	}
+}
+
+.box--landing-graphic {
+	background-color: $black-color;
+	background-image: image-url('index/hero_gfx.png');
+	background-repeat: no-repeat, repeat;
+	background-position: top center, 0 0;
+	background-attachment: fixed;
+	background-size: auto;
+	color: $white-color;
+
+	.hidpi & {
+		background-image: image-url('index_2x/hero_gfx.png');
+		background-size: 133.0rem 76.1rem;
+	}
+}
+
+.box--primary {
+	background-color: $primary-color;
+	color: $white-color;
+	a, a:hover {
+		color: $white-color;
+		text-decoration: none;
+	}
+}
