@@ -717,7 +717,7 @@ body {
 .tabs__target {
   display: none; }
 
-.fortitude-tabs__target--is-selected {
+.fortitude-tabs__target--is-active {
   display: block; }
 
 /*------------------------------------*\
