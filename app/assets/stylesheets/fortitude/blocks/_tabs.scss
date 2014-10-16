@@ -6,7 +6,7 @@
     display: none;
 }
 
-@mixin fortitude-tabs__target--is-selected {
+@mixin fortitude-tabs__target--is-active {
     display: block;
 }
 
@@ -14,6 +14,6 @@
   @include fortitude-tabs__target;
 }
 
-.#{$fortitude-namespace}tabs__target--is-selected {
-  @include fortitude-tabs__target--is-selected;
+.#{$fortitude-namespace}tabs__target--is-active {
+  @include fortitude-tabs__target--is-active;
 }
