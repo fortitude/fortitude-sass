@@ -3,10 +3,10 @@
 
   var $document = $(document);
 
-  function setClassName() {
-    var $this = $(this),
-        className = $this.find(':selected').attr('class') || "",
-        data = $this.data('ft.select') || {};
+  function setClassName(event) {
+    var $this = $(event.currentTarget),
+      className = $this.find(':selected').attr('class') || '',
+      data = $this.data('ft.select') || {};
 
     if (className !== data.previousClass) {
       $this.
@@ -20,7 +20,7 @@
   $document.on('change.ft.select.data-api', 'select:not([multiple])', setClassName);
 
   $document.on('DOMContentLoaded', function() {
-    $document.find('select').data('ft.select', {previousClass: ""}).each(setClassName);
+    $document.find('select').data('ft.select', {previousClass: ''}).each(setClassName);
   });
 
 })(jQuery);

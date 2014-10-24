@@ -68,12 +68,6 @@ module.exports = function (grunt) {
       options: {
         jshintrc: 'config/.jshintrc'
       },
-      grunt: {
-        options: {
-          jshintrc: 'grunt/.jshintrc'
-        },
-        src: ['Gruntfile.js', 'grunt/*.js']
-      },
       core: {
         src: '<%= project.assets.javascripts %>/**/*.js'
       }
@@ -81,19 +75,12 @@ module.exports = function (grunt) {
 
     jscs: {
       options: {
-        config: 'js/.jscsrc'
-      },
-      grunt: {
-        src: '<%= jshint.grunt.src %>'
+        config: 'config/.jscsrc',
+        excludeFiles: [ '<%= project.assets.javascripts %>/fortitude.jquery.js' ]
       },
       core: {
-        src: '<%= jshint.core.src %>'
-      },
-      assets: {
-        options: {
-          requireCamelCaseOrUpperCaseIdentifiers: null
-        },
-        src: '<%= jshint.assets.src %>'
+        src: '<%= jshint.core.src %>',
+        excludeFiles: [ '<%= project.assets.javascripts %>/fortitude/jquery/index.js' ]
       }
     },
 
@@ -128,8 +115,7 @@ module.exports = function (grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed',
-          compass: true
+          style: 'compressed'
         },
         files: {
           'dist/css/<%= pkg.name %>.css': '<%= project.assets.stylesheets %>/fortitude.scss',
@@ -200,8 +186,9 @@ module.exports = function (grunt) {
 
   // These plugins provide necessary tasks.
   require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
-  grunt.registerTask('test', ['dist-css', 'dist-js', 'csslint:dist', 'test-js']);
-  grunt.registerTask('test-js', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt']);
+
+  grunt.registerTask('test', ['test-js', 'test-scss']);
+  grunt.registerTask('test-js', ['jshint:core', 'jscs:core']);
   grunt.registerTask('test-scss', ['scsslint', 'dist-css', 'csslint:dist'])
 
   // JS distribution task.
