@@ -4,67 +4,100 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+
 body {
   margin: 0;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
   display: block;
 }
 
-audio, canvas, progress, video {
+
+audio,
+canvas,
+progress,
+video {
   display: inline-block;
   vertical-align: baseline;
 }
+
 
 audio:not([controls]) {
   display: none;
   height: 0;
 }
 
-[hidden], template {
+
+[hidden],
+template {
   display: none;
 }
 
+
 a {
   background: transparent;
-  &:active, &:hover {
+
+  &:active,
+  &:hover {
     outline: 0;
   }
 }
+
 
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
-b, strong {
+
+b,
+strong {
   font-weight: bold;
 }
+
 
 dfn {
   font-style: italic;
 }
+
 
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 
+
 mark {
   background: #ff0;
   color: #000;
 }
 
+
 small {
   font-size: 80%;
 }
+
 
 sub {
   font-size: 75%;
   line-height: 0;
   position: relative;
+  bottom: -0.25em;
   vertical-align: baseline;
 }
+
 
 sup {
   font-size: 75%;
@@ -74,21 +107,21 @@ sup {
   top: -0.5em;
 }
 
-sub {
-  bottom: -0.25em;
-}
 
 img {
   border: 0;
 }
 
+
 svg:not(:root) {
   overflow: hidden;
 }
 
+
 figure {
   margin: 1em 40px;
 }
+
 
 hr {
   -moz-box-sizing: content-box;
@@ -96,80 +129,105 @@ hr {
   height: 0;
 }
 
+
 pre {
   overflow: auto;
 }
 
-code, kbd, pre, samp {
-  font-family: monospace, monospace;
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace,
+monospace;
   font-size: 1em;
 }
 
-button, input, optgroup, select, textarea {
+
+button,
+input,
+optgroup,
+select,
+textarea {
   color: inherit;
   font: inherit;
   margin: 0;
 }
+
 
 button {
   overflow: visible;
   text-transform: none;
 }
 
+
 select {
   text-transform: none;
 }
 
-button, html input[type="button"] {
+
+button,
+html input[type="button"] {
   -webkit-appearance: button;
   cursor: pointer;
 }
 
-input {
-  &[type="reset"], &[type="submit"] {
-    -webkit-appearance: button;
-    cursor: pointer;
-  }
-}
 
-button[disabled], html input[disabled] {
+button[disabled],
+html input[disabled] {
   cursor: default;
 }
+
 
 button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
+
 input {
+  line-height: normal;
+
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
   }
-  line-height: normal;
-  &[type="checkbox"], &[type="radio"] {
+
+  &[type="reset"],
+  &[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+
+  &[type="checkbox"],
+  &[type="radio"] {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0;
   }
+
   &[type="number"] {
-    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
       height: auto;
     }
   }
-  &[type="search"] {
 
-    @if ($fortitude-global-border-box == false) {
+  &[type="search"] {
+    @if $fortitude-global-border-box == false {
       -webkit-appearance: textfield;
       -moz-box-sizing: content-box;
       box-sizing: content-box;
     }
 
-    &::-webkit-search-cancel-button, &::-webkit-search-decoration {
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration {
       -webkit-appearance: none;
     }
   }
 }
+
 
 fieldset {
   border: 1px solid #c0c0c0;
@@ -177,24 +235,30 @@ fieldset {
   padding: 0.35em 0.625em 0.75em;
 }
 
+
 legend {
   border: 0;
   padding: 0;
 }
 
+
 textarea {
   overflow: auto;
 }
 
+
 optgroup {
   font-weight: bold;
 }
+
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-td, th {
+
+td,
+th {
   padding: 0;
 }

@@ -1,32 +1,24 @@
-/*------------------------------------*\
-    #IMAGES
-\*------------------------------------*/
+//------------------------------------
+//    #IMAGES
+//------------------------------------
 
-/**
- * 1. Fluid images for responsive purposes.
- * 2. Offset `alt` text from surrounding copy.
- * 3. fix 2px pseudo margin with vertical-align.
- */
+// 1. Fluid images for responsive purposes.
+// 2. Offset `alt` text from surrounding copy.
+// 3. fix 2px pseudo margin with vertical-align.
 img {
-    max-width: 100%; /* [1] */
-    font-style: italic; /* [2] */
-    vertical-align: middle; /* [3] */
+  max-width: 100%;        // [1]
+  font-style: italic;     // [2]
+  vertical-align: middle; // [3]
+
+  .responsive {
+    width: 100%;
+  }
 }
 
 
-
-
-
-/**
- * If a `width` and/or `height` attribute have been explicitly defined, let’s
- * not make the image fluid.
- */
+// If a `width` and/or `height` attribute have been explicitly defined, let’s
+// not make the image fluid.
 img[width],
 img[height] {
-    max-width: none;
-}
-
-
-img.responsive {
-  width: 100%;
+  max-width: none;
 }

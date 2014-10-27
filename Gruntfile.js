@@ -154,6 +154,15 @@ module.exports = function (grunt) {
       }
     },
 
+    csslint: {
+      options: {
+        csslintrc: 'config/.csslintrc'
+      },
+      dist: [
+        'dist/css/<%= pkg.name %>.css'
+      ]
+    },
+
     usebanner: {
       options: {
         position: 'top',

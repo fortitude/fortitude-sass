@@ -1,22 +1,15 @@
-/*------------------------------------*\
-    #BOX
-\*------------------------------------*/
+//------------------------------------
+//    #BOX
+//------------------------------------
 
-/**
- * The box object simply boxes off content.
- */
-
-
-
-
+// The box object simply boxes off content.
 
 @mixin fortitude-box {
-    /**
-     * 1. So we can apply the `.box` class to naturally-inline elements.
-     */
-    @include fortitude-clearfix;
-    display: block; /* [1] */
+  // 1. So we can apply the `.box` class to naturally-inline elements.
+  @include fortitude-clearfix;
+  display: block; // [1]
 }
+
 
 .#{$fortitude-namespace}box {
   @include fortitude-box;

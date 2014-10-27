@@ -1,58 +1,53 @@
-/*------------------------------------*\
-    #TABS NAVIGATION
-\*------------------------------------*/
-
+//------------------------------------
+//    #TABS NAVIGATION
+//------------------------------------
 
 @mixin fortitude-tabs-navigation {
-    /**
-     * A simple abstraction for making equal-width navigation tabs.
-     *
-     * 1. Reset any residual styles (most likely from lists).
-     * 2. Tables for layout!
-     */
-
-    margin:  0; /* [1] */
-    padding: 0; /* [1] */
-    list-style: none; /* [1] */
-    display: table; /* [2] */
-    text-align: center;
+  // A simple abstraction for making equal-width navigation tabs.
+  //
+  // 1. Reset any residual styles (most likely from lists).
+  // 2. Tables for layout!
+  margin: 0;            // [1]
+  padding: 0;           // [1]
+  list-style: none;     // [1]
+  display: table;       // [2]
+  text-align: center;
 }
+
 
 @mixin fortitude-tabs-navigation--fixed {
-    /**
-     * 1. Force all `table-cell` children to have equal widths.
-     * 2. Force the object to be the full width of its parent. Combined with [2],
-     *    this makes the object behave in a quasi-`display: block;` manner.
-     */
-
-    table-layout: fixed; /* [1] */
-    width: 100%; /* [2] */
+  // 1. Force all `table-cell` children to have equal widths.
+  // 2. Force the object to be the full width of its parent. Combined with [2],
+  //    this makes the object behave in a quasi-`display: block;` manner.
+  table-layout: fixed;  // [1]
+  width: 100%;          // [2]
 }
+
 
 @mixin fortitude-tabs-navigation__item {
-    /**
-     * 1. Tables for layout!
-     */
-
-    display: table-cell; /* [1] */
+  // 1. Tables for layout!
+  display: table-cell; // [1]
 }
+
 
 @mixin fortitude-tabs-navigation__link {
-    display: block;
+  display: block;
 }
+
 
 .#{$fortitude-namespace}tabs-navigation {
-    @include fortitude-tabs-navigation;
-
-    &--fixed {
-        @include fortitude-tabs-navigation--fixed;
-    }
+  @include fortitude-tabs-navigation;
+  &--fixed {
+    @include fortitude-tabs-navigation--fixed;
+  }
 }
 
-    .#{$fortitude-namespace}tabs-navigation__item {
-        @include fortitude-tabs-navigation__item;
-    }
 
-        .#{$fortitude-namespace}tabs-navigation__link {
-            @include fortitude-tabs-navigation__link;
-        }
+.#{$fortitude-namespace}tabs-navigation__item {
+  @include fortitude-tabs-navigation__item;
+}
+
+
+.#{$fortitude-namespace}tabs-navigation__link {
+  @include fortitude-tabs-navigation__link;
+}

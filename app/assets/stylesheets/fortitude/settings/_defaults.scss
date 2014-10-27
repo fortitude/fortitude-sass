@@ -6,53 +6,29 @@
 // adjusted, you should redfine the variables in your own overrides file and
 // include it in your project before this file.
 
+// High-level base settings.
+// 1. Make sure to change the breakpoints in blocks/_container.scss
+//    if you change $fortitude-breakpoints.
 
-
-
-
-/**
- * High-level base settings.
- * 1. Make sure to change the breakpoints in blocks/_container.scss
- *    if you change $fortitude-breakpoints.
- */
-
-$fortitude-app-id:                  fortitude !default;
-$fortitude-base-font-size:          1.2rem !default;
-$fortitude-base-line-height:        2rem !default;
-$fortitude-base-color:              #333 !default;
-$fortitude-base-background-color:   #fff !default;
-$fortitude-class-breakpoints:       (
-                                     xs: null,
-                                     sm: 768px,
-                                     md: 992px,
-                                     lg: 1200px
-                                    ) !default; /* [1] */
-$fortitude-breakpoints:             (
-                                      xs: (max-width: 767px),
-                                      sm: (min-width: 768px, max-width: 991px),
-                                      md: (min-width: 992px, max-width: 1199px),
-                                      lg: (min-width: 1200px)
-                                    ) !default;  /* [1] */
-
-
-
-
+$fortitude-app-id: fortitude !default;
+$fortitude-base-font-size: 1.2rem !default;
+$fortitude-base-line-height: 2rem !default;
+$fortitude-base-color: #333 !default;
+$fortitude-base-background-color: #fff !default;
+$fortitude-class-breakpoints: (xs: null, sm: 768px, md: 992px, lg: 1200px) !default; // [1]
+$fortitude-breakpoints: (xs: (max-width: 767px), sm: (min-width: 768px, max-width: 991px), md: (min-width: 992px, max-width: 1199px), lg: (min-width: 1200px)) !default; // [1]
 
 // Namespace.
 //
 // Would you like Fortitude’ classes to be prepended with a namespace? If so,
 // define it here.
-$fortitude-namespace:               null !default;
-
-
-
-
+$fortitude-namespace: null !default;
 
 // These variables are framework variables, sourced from variables defined
 // above. Feel free to use these variables throughout your project, but do not
 // modify or reassign them.
 
-$fortitude-base-spacing-unit:           $fortitude-base-line-height;
-$fortitude-base-spacing-unit--small:    round($fortitude-base-line-height / 2);
-$fortitude-base-spacing-unit--large:    round($fortitude-base-line-height * 2);
-$fortitude-base-rem-font-size:          0.625rem;
+$fortitude-base-spacing-unit: $fortitude-base-line-height;
+$fortitude-base-spacing-unit--small: round($fortitude-base-line-height / 2);
+$fortitude-base-spacing-unit--large: round($fortitude-base-line-height * 2);
+$fortitude-base-rem-font-size: 0.625rem;

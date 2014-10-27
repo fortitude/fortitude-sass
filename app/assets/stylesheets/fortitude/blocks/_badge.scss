@@ -1,141 +1,110 @@
-/*------------------------------------*\
-    #BADGE
-\*------------------------------------*/
+//------------------------------------
+//    #BADGE
+//------------------------------------
 
-/**
- * A simple badge object.
- */
+// A simple badge object.
 
 // Predefine the variables below in order to alter and enable specific features.
-$fortitude-badge-height:          $fortitude-base-spacing-unit * 1.3 !default;
-$fortitude-badge-height--small:   $fortitude-base-spacing-unit !default;
-$fortitude-badge-height--large:   double($fortitude-base-spacing-unit) !default;
-$fortitude-badge-font-size:       $fortitude-base-font-size !default;
+$fortitude-badge-height: $fortitude-base-spacing-unit * 1.3 !default;
+$fortitude-badge-height--small: $fortitude-base-spacing-unit !default;
+$fortitude-badge-height--large: double($fortitude-base-spacing-unit) !default;
+$fortitude-badge-font-size: $fortitude-base-font-size !default;
 
-$fortitude-badge-border-width:    0.1rem !default;
-$fortitude-badge-border-style:    solid !default;
-$fortitude-badge-border-radius:   0 !default;
+$fortitude-badge-border-width: 0.1rem !default;
+$fortitude-badge-border-style: solid !default;
+$fortitude-badge-border-radius: 0 !default;
 
-$fortitude-enable-badge--small:   false !default;
-$fortitude-enable-badge--large:   false !default;
-$fortitude-enable-badge--pill:    false !default;
-
-
-
-
+$fortitude-enable-badge--small: false !default;
+$fortitude-enable-badge--large: false !default;
+$fortitude-enable-badge--pill: false !default;
 
 @mixin fortitude-badge($extension: null) {
-    /**
-     * 1. Allow us to style box model properties.
-     * 2. Line different sized badges up with text.
-     * 3. Make badges inherit font styles (often necessary when styling `input`s as
-     *    badges).
-     * 4. Reset/normalize some styles.
-     * 6. Fixes odd inner spacing in IE7.
-     * 7. Subtract the border size from the padding value so that badges do not
-     *    grow larger as we add borders.
-     * 8. Set badge text to nowrap.
-     */
-    display: inline-block; /* [1] */
-    vertical-align: middle; /* [2] */
-    font: inherit; /* [3] */
-    text-align: center; /* [4] */
-    font-size: $fortitude-badge-font-size;
-    margin: -0.2rem 0 0; /* [4] */
-    height: $fortitude-badge-height;
-    overflow: visible; /* [6] */
-    white-space: nowrap; /* [8] */
-    line-height: $fortitude-base-line-height;
+  // 1. Allow us to style box model properties.
+  // 2. Line different sized badges up with text.
+  // 3. Make badges inherit font styles (often necessary when styling `input`s as
+  //    badges).
+  // 4. Reset/normalize some styles.
+  // 6. Fixes odd inner spacing in IE7.
+  // 7. Subtract the border size from the padding value so that badges do not
+  //    grow larger as we add borders.
+  // 8. Set badge text to nowrap.
+  display: inline-block;                      // [1]
+  vertical-align: middle;                     // [2]
+  font: inherit;                              // [3]
+  text-align: center;                         // [4]
+  font-size: $fortitude-badge-font-size;
+  margin: -0.2rem 0 0;                        // [4]
+  height: $fortitude-badge-height;
+  overflow: visible;                          // [6]
+  white-space: nowrap;                        // [8]
+  line-height: $fortitude-base-line-height;
 
-    @if ($extension == small) {
-        @include fortitude-badge--small;        
-    } @else if ($extension == large) {
-        @include fortitude-badge--large;
-    } @else {
-        padding: fortitude-block-padding($fortitude-badge-height, $fortitude-badge-border-width) quarter($fortitude-base-spacing-unit); /* [7] */
-    }
+  @if $extension == small {
+    @include fortitude-badge--small;
+  } @else if $extension == large {
+    @include fortitude-badge--large;
+  } @else {
+    padding: fortitude-block-padding($fortitude-badge-height, $fortitude-badge-border-width) quarter($fortitude-base-spacing-unit); // [7]
+  }
 
-    @if($fortitude-badge-border-width != 0) {
-        border: $fortitude-badge-border-width $fortitude-badge-border-style transparent;
-    } @else {
-        border: 0; /* [4] */
-    }
+  @if $fortitude-badge-border-width != 0 {
+    border: $fortitude-badge-border-width $fortitude-badge-border-style transparent;
+  } @else {
+    border: 0; // [4]
+  }
 
-    @if ($extension == pill) {
-        @include fortitude-badge--pill;
-    } @else if($fortitude-badge-border-radius != 0) {
-        border-radius: $fortitude-badge-border-radius;
-    }
+  @if $extension == pill {
+    @include fortitude-badge--pill;
+  } @else if $fortitude-badge-border-radius != 0 {
+    border-radius: $fortitude-badge-border-radius;
+  }
 }
+
 
 @mixin fortitude-badge--small {
-    padding: fortitude-block-padding($fortitude-badge-height--small, $fortitude-badge-border-width) quarter($fortitude-base-spacing-unit); /* [7] */
+  padding: fortitude-block-padding($fortitude-badge-height--small, $fortitude-badge-border-width) quarter($fortitude-base-spacing-unit); // [7]
 }
+
 
 @mixin fortitude-badge--large {
-    padding: fortitude-block-padding($fortitude-badge-height--large, $fortitude-badge-border-width) quarter($fortitude-base-spacing-unit); /* [7] */
-    @if ($fortitude-block-height > $fortitude-block-line-height) {
-        line-height: ceil($fortitude-block-height / $fortitude-block-line-height) * $fortitude-block-line-height;
-    }
+  padding: fortitude-block-padding($fortitude-badge-height--large, $fortitude-badge-border-width) quarter($fortitude-base-spacing-unit); // [7]
+  @if $fortitude-block-height > $fortitude-block-line-height {
+    line-height: ceil($fortitude-block-height / $fortitude-block-line-height) * $fortitude-block-line-height;
+  }
 }
+
 
 @mixin fortitude-badge--pill {
-    /**
-     * 1. Overly-large value to ensure the radius rounds the whole end of the
-     *    badge.
-     */
-
-    border-radius: 10rem; /* [1] */
+  // 1. Overly-large value to ensure the radius rounds the whole end of the
+  //    badge.
+  border-radius: 10rem; // [1]
 }
+
 
 .#{$fortitude-namespace}badge {
-    @include fortitude-badge;
+  @include fortitude-badge;
 }
 
 
-
-
-
-@if ($fortitude-enable-badge--small == true) {
-
-    /**
-     * Small badges.
-     */
-
-    .#{$fortitude-namespace}badge--small {
-        @include fortitude-badge--small;
-    }
-
+@if $fortitude-enable-badge--small == true {
+  // Small badges.
+  .#{$fortitude-namespace}badge--small {
+    @include fortitude-badge--small;
+  }
 }
 
 
-
-
-
-@if ($fortitude-enable-badge--large == true) {
-
-    /**
-     * Large badges.
-     */
-
-    .#{$fortitude-namespace}badge--large {
-        @include fortitude-badge--large;
-    }
-
+@if $fortitude-enable-badge--large == true {
+  // Large badges.
+  .#{$fortitude-namespace}badge--large {
+    @include fortitude-badge--large;
+  }
 }
 
 
-
-
-
-@if ($fortitude-enable-badge--pill == true) {
-
-    /**
-     * Round-ended badges.
-     */
-
-    .#{$fortitude-namespace}badge--pill {
-        @include fortitude-badge--pill;
-    }
-
+@if $fortitude-enable-badge--pill == true {
+  // Round-ended badges.
+  .#{$fortitude-namespace}badge--pill {
+    @include fortitude-badge--pill;
+  }
 }

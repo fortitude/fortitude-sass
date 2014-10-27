@@ -1,19 +1,19 @@
-/*------------------------------------*\
-    #TOOLTIP
-\*------------------------------------*/
+//------------------------------------
+//    #TOOLTIP
+//------------------------------------
 
-$fortitude-tooltip-width:              18rem !default;
-$fortitude-tooltip-border-radius:      0.2rem !default;
-$fortitude-tooltip-arrow-size:         0.6rem !default;
-$fortitude-tooltip-color:              #ffffff !default;
-$fortitude-tooltip-background-color:   rgba(30,30,30, 0.9) !default;
-$fortitude-tooltip-padding:            0.8rem !default;
-$fortitude-tooltip-font-size:          1rem !default;
-$fortitude-tooltip-line-height:        1.4rem !default;
-$fortitude-tooltip-padding-vertical:   $fortitude-tooltip-padding !default;
+$fortitude-tooltip-width: 18rem !default;
+$fortitude-tooltip-border-radius: 0.2rem !default;
+$fortitude-tooltip-arrow-size: 0.6rem !default;
+$fortitude-tooltip-color: #fff !default;
+$fortitude-tooltip-background-color: rgba(30, 30, 30, 0.9) !default;
+$fortitude-tooltip-background-fallback: ie-hex-str($fortitude-tooltip-background-color) !default;
+$fortitude-tooltip-padding: 0.8rem !default;
+$fortitude-tooltip-font-size: 1rem !default;
+$fortitude-tooltip-line-height: 1.4rem !default;
+$fortitude-tooltip-padding-vertical: $fortitude-tooltip-padding !default;
 $fortitude-tooltip-padding-horizontal: $fortitude-tooltip-padding !default;
-$fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortitude-tooltip-padding * 2) !default;
-
+$fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-tooltip-padding * 2 !default;
 
 @mixin fortitude-tooltip {
   position: relative;
@@ -25,10 +25,7 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
     visibility: hidden;
     opacity: 0;
     transform: translate3d(0, 0, 0);
-    transition:
-    opacity 0.15s ease-in-out,
-    visibility 0.15s ease-in-out,
-    transform 0.15s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out, transform 0.15s cubic-bezier(0.71, 1.7, 0.77, 1.24);
     pointer-events: none;
   }
 
@@ -49,6 +46,7 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
     z-index: 1000;
     padding: $fortitude-tooltip-padding-vertical $fortitude-tooltip-padding-horizontal;
     width: $fortitude-tooltip-width;
+    background-color: $fortitude-tooltip-background-fallback;
     background-color: $fortitude-tooltip-background-color;
     border-radius: $fortitude-tooltip-border-radius;
     color: $fortitude-tooltip-color;
@@ -58,16 +56,18 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
   }
 }
 
+
 @mixin fortitude-tooltip--top {
-   &::before,
-   &::after {
-      bottom: 100%;
-      left: 50%;
-   }
+  &::before,
+  &::after {
+    bottom: 100%;
+    left: 50%;
+  }
 
   &::before {
     margin-left: -$fortitude-tooltip-arrow-size;
     margin-bottom: -($fortitude-tooltip-arrow-size * 2);
+    border-top-color: $fortitude-tooltip-background-fallback;
     border-top-color: $fortitude-tooltip-background-color;
   }
 
@@ -79,9 +79,10 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
   &:hover::after,
   &:focus::before,
   &:focus::after {
-    transform: translateY(-(($fortitude-base-spacing-unit / 4) + $fortitude-tooltip-arrow-size));
+    transform: translateY(-($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size));
   }
 }
+
 
 @mixin fortitude-tooltip--right {
   &::before,
@@ -91,10 +92,11 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
   }
 
   &::before {
-    top: $fortitude-tooltip-padding-vertical - (($fortitude-tooltip-arrow-size / 2) + ($fortitude-tooltip-padding-vertical / 2));
+    top: $fortitude-tooltip-padding-vertical - ($fortitude-tooltip-arrow-size / 2 + $fortitude-tooltip-padding-vertical / 2);
     margin-bottom: 0;
     margin-left: -($fortitude-tooltip-arrow-size * 2);
     border-top-color: transparent;
+    border-right-color: $fortitude-tooltip-background-fallback;
     border-right-color: $fortitude-tooltip-background-color;
   }
 
@@ -107,9 +109,10 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
   &:hover::after,
   &:focus::before,
   &:focus::after {
-    transform: translateX((($fortitude-base-spacing-unit / 4) + $fortitude-tooltip-arrow-size));
+    transform: translateX($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size);
   }
 }
+
 
 @mixin fortitude-tooltip--bottom {
   &::before,
@@ -123,6 +126,7 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
     margin-top: -($fortitude-tooltip-arrow-size * 2);
     margin-bottom: 0;
     border-top-color: transparent;
+    border-bottom-color: $fortitude-tooltip-background-fallback;
     border-bottom-color: $fortitude-tooltip-background-color;
   }
 
@@ -134,9 +138,10 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
   &:hover::after,
   &:focus::before,
   &:focus::after {
-    transform: translateY((($fortitude-base-spacing-unit / 4) + $fortitude-tooltip-arrow-size));
+    transform: translateY($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size);
   }
 }
+
 
 @mixin fortitude-tooltip--left {
   &::before,
@@ -147,11 +152,12 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
   }
 
   &::before {
-    top: $fortitude-tooltip-padding-vertical - (($fortitude-tooltip-arrow-size / 2) + ($fortitude-tooltip-padding-vertical / 2));
+    top: $fortitude-tooltip-padding-vertical - ($fortitude-tooltip-arrow-size / 2 + $fortitude-tooltip-padding-vertical / 2);
     margin-left: 0;
     margin-right: -($fortitude-tooltip-arrow-size * 2);
     margin-bottom: 0;
     border-top-color: transparent;
+    border-left-color: $fortitude-tooltip-background-fallback;
     border-left-color: $fortitude-tooltip-background-color;
   }
 
@@ -164,25 +170,30 @@ $fortitude-tooltip-min-height:         $fortitude-tooltip-line-height + ($fortit
   &:hover::after,
   &:focus::before,
   &:focus::after {
-    transform: translateX(-(($fortitude-base-spacing-unit / 4) + $fortitude-tooltip-arrow-size));
+    transform: translateX(-($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size));
   }
 }
+
 
 .#{$fortitude-namespace}tooltip {
   @include fortitude-tooltip;
 }
 
+
 .#{$fortitude-namespace}tooltip--top {
   @include fortitude-tooltip--top;
 }
+
 
 .#{$fortitude-namespace}tooltip--right {
   @include fortitude-tooltip--right;
 }
 
+
 .#{$fortitude-namespace}tooltip--bottom {
   @include fortitude-tooltip--bottom;
 }
+
 
 .#{$fortitude-namespace}tooltip--left {
   @include fortitude-tooltip--left;
