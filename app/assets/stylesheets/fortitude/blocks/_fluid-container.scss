@@ -1,12 +1,13 @@
-/*------------------------------------*\
-    #FLUID-CONTAINER
-\*------------------------------------*/
+//------------------------------------
+//    #FLUID-CONTAINER
+//------------------------------------
 
 @mixin fortitude-fluid-container {
-    @include fortitude-clearfix;
-    width: 100%;
+  @include fortitude-clearfix;
+  width: 100%;
 }
 
+
 .#{$fortitude-namespace}fluid-container {
-    @include fortitude-fluid-container;
+  @include fortitude-fluid-container;
 }

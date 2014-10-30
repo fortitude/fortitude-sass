@@ -1,10 +1,10 @@
-/*------------------------------------*\
-    #HORIZONTAL RULE
-\*------------------------------------*/
+//------------------------------------
+//    #HORIZONTAL RULE
+//------------------------------------
 
 hr {
-    border-top: halve($fortitude-base-spacing-unit) - 0.1rem solid transparent;
-    border-bottom: 0.1rem solid;
-    border-right-color: transparent;
-    border-left-color: transparent;
+  border-top: halve($fortitude-base-spacing-unit) - 0.1rem solid transparent;
+  border-bottom: 0.1rem solid;
+  border-right-color: transparent;
+  border-left-color: transparent;
 }

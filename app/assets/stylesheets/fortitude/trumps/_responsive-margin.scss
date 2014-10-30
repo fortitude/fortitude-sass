@@ -1,129 +1,188 @@
 $fortitude-responsive-margin-unit-total: 10 !default;
 $fortitude-responsive-negative-margin-unit-total: 10 !default;
 
-
 @include fortitude-breakpoint-classes {
-    @for $i from 0 through $fortitude-responsive-margin-unit-total {
-        ##{$fortitude-app-id} &-mh#{$i} {
-            margin: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
+  ##{$fortitude-app-id} &-mh0 {
+    margin: 0;
+  }
 
-        ##{$fortitude-app-id} &-m#{$i} {
-            margin: $fortitude-base-spacing-unit * $i;
-        }
+  ##{$fortitude-app-id} &-m0 {
+    margin: 0;
+  }
 
-        ##{$fortitude-app-id} &-mtbh#{$i} {
-            margin-top: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-            margin-bottom: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
+  ##{$fortitude-app-id} &-mtbh0 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
-        ##{$fortitude-app-id} &-mtb#{$i} {
-            margin-top: $fortitude-base-spacing-unit * $i;
-            margin-bottom: $fortitude-base-spacing-unit * $i;
-        }
+  ##{$fortitude-app-id} &-mtb0 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
-        ##{$fortitude-app-id} &-mrlh#{$i} {
-            margin-right: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-            margin-left: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
+  ##{$fortitude-app-id} &-mrlh0 {
+    margin-right: 0;
+    margin-left: 0;
+  }
 
-        ##{$fortitude-app-id} &-mrl#{$i} {
-            margin-right: $fortitude-base-spacing-unit * $i;
-            margin-left: $fortitude-base-spacing-unit * $i;
-        }
+  ##{$fortitude-app-id} &-mrl0 {
+    margin-right: 0;
+    margin-left: 0;
+  }
 
-        ##{$fortitude-app-id} &-mlh#{$i} {
-            margin-left: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
+  ##{$fortitude-app-id} &-mlh0 {
+    margin-left: 0;
+  }
 
-        ##{$fortitude-app-id} &-ml#{$i} {
-            margin-left: $fortitude-base-spacing-unit * $i;
-        }
+  ##{$fortitude-app-id} &-ml0 {
+    margin-left: 0;
+  }
 
-        ##{$fortitude-app-id} &-mbh#{$i} {
-            margin-bottom: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
+  ##{$fortitude-app-id} &-mbh0 {
+    margin-bottom: 0;
+  }
 
-        ##{$fortitude-app-id} &-mb#{$i} {
-            margin-bottom: $fortitude-base-spacing-unit * $i;
-        }
+  ##{$fortitude-app-id} &-mb0 {
+    margin-bottom: 0;
+  }
 
-        ##{$fortitude-app-id} &-mrh#{$i} {
-            margin-right: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
+  ##{$fortitude-app-id} &-mrh0 {
+    margin-right: 0;
+  }
 
-        ##{$fortitude-app-id} &-mr#{$i} {
-            margin-right: $fortitude-base-spacing-unit * $i;
-        }
+  ##{$fortitude-app-id} &-mr0 {
+    margin-right: 0;
+  }
 
-        ##{$fortitude-app-id} &-mth#{$i} {
-            margin-top: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
+  ##{$fortitude-app-id} &-mth0 {
+    margin-top: 0;
+  }
 
-        ##{$fortitude-app-id} &-mt#{$i} {
-            margin-top: $fortitude-base-spacing-unit * $i;
-        }
+  ##{$fortitude-app-id} &-mt0 {
+    margin-top: 0;
+  }
+
+  @for $i from 1 through $fortitude-responsive-margin-unit-total {
+    ##{$fortitude-app-id} &-mh#{$i} {
+      margin: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
     }
-    @for $i from 0 through $fortitude-responsive-negative-margin-unit-total {
-        ##{$fortitude-app-id} &-mh-#{$i} {
-            margin: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
-        }
 
-        ##{$fortitude-app-id} &-m-#{$i} {
-            margin: -($fortitude-base-spacing-unit * $i);
-        }
-
-        ##{$fortitude-app-id} &-mtbh-#{$i} {
-            margin-top: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
-            margin-bottom: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
-        }
-
-        ##{$fortitude-app-id} &-mtb-#{$i} {
-            margin-top: -($fortitude-base-spacing-unit * $i);
-            margin-bottom: -($fortitude-base-spacing-unit * $i);
-        }
-
-        ##{$fortitude-app-id} &-mrlh-#{$i} {
-            margin-right: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
-            margin-left: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
-        }
-
-        ##{$fortitude-app-id} &-mrl-#{$i} {
-            margin-right: -($fortitude-base-spacing-unit * $i);
-            margin-left: -($fortitude-base-spacing-unit * $i);
-        }
-
-        ##{$fortitude-app-id} &-mlh-#{$i} {
-            margin-left: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
-        }
-
-        ##{$fortitude-app-id} &-ml-#{$i} {
-            margin-left: -($fortitude-base-spacing-unit * $i);
-        }
-
-        ##{$fortitude-app-id} &-mbh-#{$i} {
-            margin-bottom: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
-        }
-
-        ##{$fortitude-app-id} &-mb-#{$i} {
-            margin-bottom: -($fortitude-base-spacing-unit * $i);
-        }
-
-        ##{$fortitude-app-id} &-mrh-#{$i} {
-            margin-right: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
-        }
-
-        ##{$fortitude-app-id} &-mr-#{$i} {
-            margin-right: -($fortitude-base-spacing-unit * $i);
-        }
-
-        ##{$fortitude-app-id} &-mth-#{$i} {
-            margin-top: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
-        }
-
-        ##{$fortitude-app-id} &-mt-#{$i} {
-            margin-top: -($fortitude-base-spacing-unit * $i);
-        }
+    ##{$fortitude-app-id} &-m#{$i} {
+      margin: $fortitude-base-spacing-unit * $i;
     }
+
+    ##{$fortitude-app-id} &-mtbh#{$i} {
+      margin-top: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+      margin-bottom: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+    }
+
+    ##{$fortitude-app-id} &-mtb#{$i} {
+      margin-top: $fortitude-base-spacing-unit * $i;
+      margin-bottom: $fortitude-base-spacing-unit * $i;
+    }
+
+    ##{$fortitude-app-id} &-mrlh#{$i} {
+      margin-right: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+      margin-left: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+    }
+
+    ##{$fortitude-app-id} &-mrl#{$i} {
+      margin-right: $fortitude-base-spacing-unit * $i;
+      margin-left: $fortitude-base-spacing-unit * $i;
+    }
+
+    ##{$fortitude-app-id} &-mlh#{$i} {
+      margin-left: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+    }
+
+    ##{$fortitude-app-id} &-ml#{$i} {
+      margin-left: $fortitude-base-spacing-unit * $i;
+    }
+
+    ##{$fortitude-app-id} &-mbh#{$i} {
+      margin-bottom: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+    }
+
+    ##{$fortitude-app-id} &-mb#{$i} {
+      margin-bottom: $fortitude-base-spacing-unit * $i;
+    }
+
+    ##{$fortitude-app-id} &-mrh#{$i} {
+      margin-right: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+    }
+
+    ##{$fortitude-app-id} &-mr#{$i} {
+      margin-right: $fortitude-base-spacing-unit * $i;
+    }
+
+    ##{$fortitude-app-id} &-mth#{$i} {
+      margin-top: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
+    }
+
+    ##{$fortitude-app-id} &-mt#{$i} {
+      margin-top: $fortitude-base-spacing-unit * $i;
+    }
+  }
+
+  @for $i from 1 through $fortitude-responsive-negative-margin-unit-total {
+    ##{$fortitude-app-id} &-mh-#{$i} {
+      margin: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+    }
+
+    ##{$fortitude-app-id} &-m-#{$i} {
+      margin: -($fortitude-base-spacing-unit * $i);
+    }
+
+    ##{$fortitude-app-id} &-mtbh-#{$i} {
+      margin-top: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+      margin-bottom: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+    }
+
+    ##{$fortitude-app-id} &-mtb-#{$i} {
+      margin-top: -($fortitude-base-spacing-unit * $i);
+      margin-bottom: -($fortitude-base-spacing-unit * $i);
+    }
+
+    ##{$fortitude-app-id} &-mrlh-#{$i} {
+      margin-right: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+      margin-left: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+    }
+
+    ##{$fortitude-app-id} &-mrl-#{$i} {
+      margin-right: -($fortitude-base-spacing-unit * $i);
+      margin-left: -($fortitude-base-spacing-unit * $i);
+    }
+
+    ##{$fortitude-app-id} &-mlh-#{$i} {
+      margin-left: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+    }
+
+    ##{$fortitude-app-id} &-ml-#{$i} {
+      margin-left: -($fortitude-base-spacing-unit * $i);
+    }
+
+    ##{$fortitude-app-id} &-mbh-#{$i} {
+      margin-bottom: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+    }
+
+    ##{$fortitude-app-id} &-mb-#{$i} {
+      margin-bottom: -($fortitude-base-spacing-unit * $i);
+    }
+
+    ##{$fortitude-app-id} &-mrh-#{$i} {
+      margin-right: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+    }
+
+    ##{$fortitude-app-id} &-mr-#{$i} {
+      margin-right: -($fortitude-base-spacing-unit * $i);
+    }
+
+    ##{$fortitude-app-id} &-mth-#{$i} {
+      margin-top: -($fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit));
+    }
+
+    ##{$fortitude-app-id} &-mt-#{$i} {
+      margin-top: -($fortitude-base-spacing-unit * $i);
+    }
+  }
 }
-

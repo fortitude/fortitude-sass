@@ -1,16 +1,15 @@
-/*------------------------------------*\
-    #BARE-LIST
-\*------------------------------------*/
+//------------------------------------
+//    #BARE-LIST
+//------------------------------------
 
-/**
- * The bare-list object simply removes any indents and bullet points from lists.
- */
+// The bare-list object simply removes any indents and bullet points from lists.
 
 @mixin fortitude-bare-list {
-    margin:  0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+
 
 .#{$fortitude-namespace}bare-list {
   @include fortitude-bare-list;

@@ -1,37 +1,57 @@
 $fortitude-responsive-column-total: 12 !default;
 
 @mixin fortitude-column($fortitude-index) {
+  @if $fortitude-index == 0 {
+    width: 0;
+  } @else {
     width: percentage($fortitude-index / $fortitude-responsive-column-total);
+  }
 }
+
 
 @mixin fortitude-column-offset($fortitude-index) {
-  margin-left: percentage($fortitude-index / $fortitude-responsive-column-total);
+  @if $fortitude-index == 0 {
+    margin-left: 0;
+  } @else {
+    margin-left: percentage($fortitude-index / $fortitude-responsive-column-total);
+  }
 }
+
 
 @mixin fortitude-column-push($fortitude-index) {
-  left: percentage($fortitude-index / $fortitude-responsive-column-total);
+  @if $fortitude-index == 0 {
+    left: 0;
+  } @else {
+    left: percentage($fortitude-index / $fortitude-responsive-column-total);
+  }
 }
 
+
 @mixin fortitude-column-pull($fortitude-index) {
-  right: percentage($fortitude-index / $fortitude-responsive-column-total);
+  @if $fortitude-index == 0 {
+    right: 0;
+  } @else {
+    right: percentage($fortitude-index / $fortitude-responsive-column-total);
+  }
 }
 
 @include fortitude-breakpoint-classes {
-    @for $i from 0 through $fortitude-responsive-column-total {
-        ##{$fortitude-app-id} &-#{$i}of#{$fortitude-responsive-column-total} {
-            @include fortitude-column($i);
-        }
 
-        ##{$fortitude-app-id} &-offset#{$i}of#{$fortitude-responsive-column-total} {
-            @include fortitude-column-offset($i);
-        }
-
-        ##{$fortitude-app-id} &-push#{$i}of#{$fortitude-responsive-column-total} {
-            @include fortitude-column-push($i);
-        }
-
-        ##{$fortitude-app-id} &-pull#{$i}of#{$fortitude-responsive-column-total} {
-            @include fortitude-column-pull($i);
-        }
+  @for $i from 0 through $fortitude-responsive-column-total {
+    ##{$fortitude-app-id} &-#{$i}of#{$fortitude-responsive-column-total} {
+      @include fortitude-column($i);
     }
+
+    ##{$fortitude-app-id} &-offset#{$i}of#{$fortitude-responsive-column-total} {
+      @include fortitude-column-offset($i);
+    }
+
+    ##{$fortitude-app-id} &-push#{$i}of#{$fortitude-responsive-column-total} {
+      @include fortitude-column-push($i);
+    }
+
+    ##{$fortitude-app-id} &-pull#{$i}of#{$fortitude-responsive-column-total} {
+      @include fortitude-column-pull($i);
+    }
+  }
 }

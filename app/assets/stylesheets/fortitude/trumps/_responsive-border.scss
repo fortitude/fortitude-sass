@@ -1,35 +1,65 @@
 $fortitude-responsive-border-unit-total: 1 !default;
 
 @include fortitude-breakpoint-classes {
-    @for $i from 0 through $fortitude-responsive-border-unit-total {
-        ##{$fortitude-app-id} &-b#{$i} {
-            border-width: $i * 0.1rem;
-        }
+  ##{$fortitude-app-id} &-b0 {
+    border-width: 0;
+  }
 
-        ##{$fortitude-app-id} &-btb#{$i} {
-            border-top-width: $i * 0.1rem;
-            border-bottom-width: $i * 0.1rem;
-        }
+  ##{$fortitude-app-id} &-btb0 {
+    border-top-width: 0;
+    border-bottom-width: 0;
+  }
 
-        ##{$fortitude-app-id} &-brl#{$i} {
-            border-right-width: $i * 0.1rem;
-            border-left-width: $i * 0.1rem;
-        }
+  ##{$fortitude-app-id} &-brl0 {
+    border-right-width: 0;
+    border-left-width: 0;
+  }
 
-        ##{$fortitude-app-id} &-bl#{$i} {
-            border-left-width: $i * 0.1rem;
-        }
+  ##{$fortitude-app-id} &-bl0 {
+    border-left-width: 0;
+  }
 
-        ##{$fortitude-app-id} &-bb#{$i} {
-            border-bottom-width: $i * 0.1rem;
-        }
+  ##{$fortitude-app-id} &-bb0 {
+    border-bottom-width: 0;
+  }
 
-        ##{$fortitude-app-id} &-br#{$i} {
-            border-right-width: $i * 0.1rem;
-        }
+  ##{$fortitude-app-id} &-br0 {
+    border-right-width: 0;
+  }
 
-        ##{$fortitude-app-id} &-bt#{$i} {
-            border-top-width: $i * 0.1rem;
-        }
+  ##{$fortitude-app-id} &-bt0 {
+    border-top-width: 0;
+  }
+
+  @for $i from 1 through $fortitude-responsive-border-unit-total {
+    ##{$fortitude-app-id} &-b#{$i} {
+      border-width: $i * 0.1rem;
     }
+
+    ##{$fortitude-app-id} &-btb#{$i} {
+      border-top-width: $i * 0.1rem;
+      border-bottom-width: $i * 0.1rem;
+    }
+
+    ##{$fortitude-app-id} &-brl#{$i} {
+      border-right-width: $i * 0.1rem;
+      border-left-width: $i * 0.1rem;
+    }
+
+    ##{$fortitude-app-id} &-bl#{$i} {
+      border-left-width: $i * 0.1rem;
+    }
+
+    ##{$fortitude-app-id} &-bb#{$i} {
+      border-bottom-width: $i * 0.1rem;
+    }
+
+    ##{$fortitude-app-id} &-br#{$i} {
+      border-right-width: $i * 0.1rem;
+    }
+
+    ##{$fortitude-app-id} &-bt#{$i} {
+      border-top-width: $i * 0.1rem;
+    }
+  }
 }

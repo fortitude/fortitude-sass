@@ -1,21 +1,17 @@
-/*------------------------------------*\
-    #BOX-SIZING
-\*------------------------------------*/
+//------------------------------------
+//    #BOX-SIZING
+//------------------------------------
 
-/**
- * Set the global `box-sizing` state to `border-box`.
- */
+// Set the global `box-sizing` state to `border-box`.
 * {
-    &,
-    &:before,
-    &:after {
-        -webkit-box-sizing: border-box;
-           -moz-box-sizing: border-box;
-                box-sizing: border-box;
-    }
+  &,
+  &:before,
+  &:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 }
-
-
 
 
 // If we have included this file, set a variable to tell the rest of the

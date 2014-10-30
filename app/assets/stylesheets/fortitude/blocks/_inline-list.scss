@@ -1,19 +1,22 @@
-/*------------------------------------*\
-    #INLINE-LIST
-\*------------------------------------*/
+//------------------------------------
+//    #INLINE-LIST
+//------------------------------------
 
 @mixin fortitude-inline-list {
-    display: inline;
+  display: inline;
 }
 
+
 @mixin fortitude-inline-list__item {
-    display: inline;
+  display: inline;
 }
+
 
 .#{$fortitude-namespace}inline-list {
   @include fortitude-inline-list;
 }
 
-  .#{$fortitude-namespace}inline-list__item {
-    @include fortitude-inline-list__item;
-  }
+
+.#{$fortitude-namespace}inline-list__item {
+  @include fortitude-inline-list__item;
+}

@@ -11,3 +11,11 @@ linters:
 
   LeadingZero:
     style: include_zero
+
+  NameFormat:
+    convention: BEM
+
+  PropertySortOrder:
+    order:
+      - any
+    ignore_unspecified: true

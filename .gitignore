@@ -5,3 +5,6 @@
 demo/
 tmp/
 tags
+TODOS.md
+*.sublime-*
+scss-lint-report.xml

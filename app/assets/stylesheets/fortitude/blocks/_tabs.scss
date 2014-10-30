@@ -1,14 +1,15 @@
-/*------------------------------------*\
-    #TABS
-\*------------------------------------*/
+//------------------------------------
+//    #TABS
+//------------------------------------
 
 @mixin fortitude-tabs__target {
-    display: none;
+  display: none;
 }
 
 @mixin fortitude-tabs__target--is-active {
-    display: block;
+  display: block;
 }
+
 
 .#{$fortitude-namespace}tabs__target {
   @include fortitude-tabs__target;

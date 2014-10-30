@@ -1,21 +1,23 @@
-/*------------------------------------*\
-    #FLASHBAR
-\*------------------------------------*/
-
+//------------------------------------
+//    #FLASHBAR
+//------------------------------------
 
 @mixin fortitude-flashbar {
-    @include fortitude-clearfix;
-    position: relative;
+  @include fortitude-clearfix;
+  position: relative;
 }
 
+
 @mixin fortitude-flashbar__close {
-    position: absolute;
-    right: halve($fortitude-base-spacing-unit);
+  position: absolute;
+  right: halve($fortitude-base-spacing-unit);
 }
+
 
 .#{$fortitude-namespace}flashbar {
   @include fortitude-flashbar;
 }
+
 
 .#{$fortitude-namespace}flashbar__close {
   @include fortitude-flashbar__close;
