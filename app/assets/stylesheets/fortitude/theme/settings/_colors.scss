@@ -1,0 +1,47 @@
+$primary-color: blue;
+$success-color: green;
+$info-color   : lightblue;
+$warning-color: yellow;
+$danger-color:  red;
+
+
+$gray-darkest-color : #000000;
+$gray-darker-color  : tint($gray-darkest-color, 13.5%);
+$gray-dark-color    : tint($gray-darkest-color, 20%);
+$gray-color         : tint($gray-darkest-color, 33.5%);
+$gray-light-color   : tint($gray-darkest-color, 46.7%);
+$gray-lighter-color : tint($gray-darkest-color, 93.5%);
+$gray-lightest-color: #FFFFFF;
+
+$fortitude-color-intents: (
+  default: (
+    background-color: $gray-lightest-color,
+    border-color: $gray-lightest-color,
+    color: $gray-darkest-color
+  ),
+  primary: (
+    background-color: $primary-color,
+    border-color: $primary-color,
+    color: $gray-lightest-color
+  ),
+  success: (
+    background-color: $success-color,
+    border-color: $success-color,
+    color: $gray-lightest-color
+  ),
+  info: (
+    background-color: $info-color,
+    border-color: $info-color,
+    color: $gray-lightest-color
+  ),
+  warning: (
+    background-color: $warning-color,
+    border-color: $warning-color,
+    color: $gray-lightest-color
+  ),
+  danger: (
+    background-color: $danger-color,
+    border-color: $danger-color,
+    color: $gray-lightest-color
+  )
+) !default;
