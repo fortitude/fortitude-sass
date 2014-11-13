@@ -1,0 +1,8 @@
+@each $intent, $rules in $fortitude-color-intents {
+  .box--#{$intent} {
+    border-style: solid;
+    @each $property, $value in $rules {
+      #{$property}: $value;
+    }
+  }
+}
