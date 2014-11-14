@@ -20,3 +20,8 @@
 .#{$fortitude-namespace}flashbar__close {
   @include fortitude-flashbar__close;
 }
+
+.#{$fortitude-namespace}flashbar--thin {
+  @include fortitude-flashbar;
+  font-size: 1.1rem;
+}
