@@ -56,7 +56,7 @@
     $fortitude-value: halve($fortitude-block-spacing-unit-height - $fortitude-block-height);
 
     // normalize value 0rem to 0.
-    @if ($fortitude-value == 0) { $fortitude-value: 0; }
+    @if (fortitude-strip-unit($fortitude-value) == 0) { $fortitude-value: 0; }
     @return $fortitude-value;
 }
 
@@ -77,7 +77,7 @@
     }
 
     // normalize value 0rem to 0.
-    @if ($fortitude-value == 0) { $fortitude-value: 0; }
+    @if (fortitude-strip-unit($fortitude-value) == 0) { $fortitude-value: 0; }
     @return $fortitude-value;
 }
 
