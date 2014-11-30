@@ -40,6 +40,16 @@ $fortitude-global-border-box: false !default;
     }
 }
 
+@mixin fortitude-container--fixed-top {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+}
+
 .#{$fortitude-namespace}container {
     @include fortitude-container;
+}
+
+.#{$fortitude-namespace}container--fixed-top {
+    @include fortitude-container--fixed-top;
 }
