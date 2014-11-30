@@ -1,0 +1,9 @@
+@each $intent, $rules in $fortitude-color-intents {
+  .wings--#{$intent} {
+    .wings__wing {
+      &::before {
+        background-color: map_get($rules, background-color);
+      }
+    }
+  }
+}
