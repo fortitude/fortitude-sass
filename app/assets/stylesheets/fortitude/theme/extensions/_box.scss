@@ -1,8 +1,13 @@
 @each $intent, $rules in $fortitude-color-intents {
   .box--#{$intent} {
-    border-style: solid;
     @each $property, $value in $rules {
       #{$property}: $value;
     }
   }
+}
+
+.box--hero {
+  background-color: $gray-darkest-color;
+  border-color: $gray-darker-color;
+  color: $gray-lightest-color;
 }

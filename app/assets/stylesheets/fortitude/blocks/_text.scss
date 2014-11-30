@@ -2,66 +2,26 @@
     #TEXT
 \*------------------------------------*/
 
-@mixin fortitude-text-italic {
+.#{$fortitude-namespace}text-italic {
     font-style: italic;
 }
 
-@mixin fortitude-text-underline {
+.#{$fortitude-namespace}text-underline {
     text-decoration: underline;
 }
 
-@mixin fortitude-text-line-through {
+.#{$fortitude-namespace}text-line-through {
     text-decoration: line-through;
 }
 
-@mixin fortitude-text-lowercase {
+.#{$fortitude-namespace}text-lowercase {
     text-transform: lowercase;
 }
 
-@mixin fortitude-text-uppercase {
+.#{$fortitude-namespace}text-uppercase {
     text-transform: uppercase;
 }
 
-@mixin fortitude-text-capitalize {
+.#{$fortitude-namespace}text-capitalize {
     text-transform: capitalize;
-}
-
-@mixin fortitude-text($extension: null) {
-    @if ($extension == italic) {
-        @include fortitude-text-italic;
-    } @else if ($extension == underline) {
-        @include fortitude-text-underline;
-    } @else if ($extension == line-through) {
-        @include fortitude-text-line-through;
-    } @else if ($extension == lowercase) {
-        @include fortitude-text-lowercase;
-    } @else if ($extension == uppercase) {
-        @include fortitude-text-uppercase;
-    } @else if ($extension == capitalize) {
-        @include fortitude-text-capitalize;
-    }
-}
-
-.#{$fortitude-namespace}fortitude-text-italic {
-    @include fortitude-text-italic;
-}
-
-.#{$fortitude-namespace}fortitude-text-underline {
-    @include fortitude-text-underline;
-}
-
-.#{$fortitude-namespace}fortitude-text-line-through {
-    @include fortitude-text-line-through;
-}
-
-.#{$fortitude-namespace}fortitude-text-lowercase {
-    @include fortitude-text-lowercase;
-}
-
-.#{$fortitude-namespace}fortitude-text-uppercase {
-    @include fortitude-text-uppercase;
-}
-
-.#{$fortitude-namespace}fortitude-text-capitalize {
-    @include fortitude-text-capitalize;
 }
