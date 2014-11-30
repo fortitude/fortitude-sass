@@ -1,0 +1,53 @@
+$primary-color: #1CAFC9 !default;
+$success-color: #18D985 !default;
+$info-color   : #4DDBC4 !default;
+$warning-color: #E9CB0A !default;
+$danger-color : #DE1843 !default;
+
+
+$gray-darkest-color : #373942 !default;
+$gray-darker-color  : #54565E !default;
+$gray-dark-color    : #87898E !default;
+$gray-color         : #CFCFD1 !default;
+$gray-light-color   : #E7E7E8 !default;
+$gray-lighter-color : #FCFCFC !default;
+$gray-lightest-color: #FFFFFF !default;
+
+$fortitude-color-intents: (
+  default: (
+    background-color: $gray-lightest-color,
+    border-color: $gray-lightest-color,
+    color: $gray-darkest-color
+  ),
+  primary: (
+    background-color: $primary-color,
+    border-color: $primary-color,
+    color: $gray-lightest-color
+  ),
+  success: (
+    background-color: $success-color,
+    border-color: $success-color,
+    color: $gray-lightest-color
+  ),
+  info: (
+    background-color: $info-color,
+    border-color: $info-color,
+    color: $gray-lightest-color
+  ),
+  warning: (
+    background-color: $warning-color,
+    border-color: $warning-color,
+    color: $gray-lightest-color
+  ),
+  danger: (
+    background-color: $danger-color,
+    border-color: $danger-color,
+    color: $gray-lightest-color
+  )
+) !default;
+
+
+// Fortitude Overrides
+
+$fortitude-base-background-color: $gray-lighter-color !default;
+$fortitude-base-color           : $gray-darkest-color !default;

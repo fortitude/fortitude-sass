@@ -1,0 +1,7 @@
+@each $intent, $rules in $fortitude-color-intents {
+  .badge--#{$intent} {
+    @each $property, $value in $rules {
+        #{$property}: $value;
+    }
+  }
+}
