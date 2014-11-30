@@ -1,17 +1,17 @@
-$primary-color: blue;
-$success-color: green;
-$info-color   : lightblue;
-$warning-color: yellow;
-$danger-color:  red;
+$primary-color: #1CAFC9 !default;
+$success-color: #18D985 !default;
+$info-color   : #4DDBC4 !default;
+$warning-color: #E9CB0A !default;
+$danger-color : #DE1843 !default;
 
 
-$gray-darkest-color : #000000;
-$gray-darker-color  : tint($gray-darkest-color, 13.5%);
-$gray-dark-color    : tint($gray-darkest-color, 20%);
-$gray-color         : tint($gray-darkest-color, 33.5%);
-$gray-light-color   : tint($gray-darkest-color, 46.7%);
-$gray-lighter-color : tint($gray-darkest-color, 93.5%);
-$gray-lightest-color: #FFFFFF;
+$gray-darkest-color : #373942 !default;
+$gray-darker-color  : #54565E !default;
+$gray-dark-color    : #87898E !default;
+$gray-color         : #CFCFD1 !default;
+$gray-light-color   : #E7E7E8 !default;
+$gray-lighter-color : #FCFCFC !default;
+$gray-lightest-color: #FFFFFF !default;
 
 $fortitude-color-intents: (
   default: (
@@ -45,3 +45,9 @@ $fortitude-color-intents: (
     color: $gray-lightest-color
   )
 ) !default;
+
+
+// Fortitude Overrides
+
+$fortitude-base-background-color: $gray-lighter-color !default;
+$fortitude-base-color           : $gray-darkest-color !default;
