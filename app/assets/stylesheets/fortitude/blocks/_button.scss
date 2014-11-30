@@ -7,7 +7,7 @@
  */
 
 // Predefine the variables below in order to alter and enable specific features.
-$fortitude-button-border-width:              0.1rem !default;
+$fortitude-button-border-width:              0 !default;
 $fortitude-button-border-style:              solid !default;
 $fortitude-button-border-radius:             0.2rem !default;
 
@@ -51,6 +51,8 @@ $fortitude-global-border-box: false !default;
      *    the position of the target will be inside of the button.
      * 10. Required to combine fluid widths and fixed gutters.
      */
+    background-color: transparent;
+    border: $fortitude-button-border-width $fortitude-button-border-style transparent;
     display: inline-block; /* [1] */
     vertical-align: middle; /* [2] */
     font: inherit; /* [3] */
@@ -70,12 +72,6 @@ $fortitude-global-border-box: false !default;
         padding: fortitude-block-padding($fortitude-button-height, $fortitude-button-border-width) $fortitude-button-horizontal-padding; /* [7] */
     }
 
-    @if($fortitude-button-border-width != 0) {
-        border: $fortitude-button-border-width $fortitude-button-border-style transparent;
-    } @else {
-        border: 0; /* [4] */
-    }
-    
     @if ($extension == pill) {
         @include fortitude-button--pill;
     } @else if($fortitude-button-border-radius != 0) {
@@ -193,7 +189,6 @@ $fortitude-global-border-box: false !default;
     .#{$fortitude-namespace}button--large {
         @include fortitude-button--large;
     }
-
 }
 
 

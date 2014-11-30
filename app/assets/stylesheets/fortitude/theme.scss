@@ -1,2 +1,10 @@
 @import "theme/settings/colors";
-@import "theme/extensions/*";
+@import "theme/settings/defaults";
+@import "../fortitude";
+@import "theme/base/page";
+@import "theme/extensions/badge";
+@import "theme/extensions/box";
+@import "theme/extensions/button";
+@import "theme/extensions/flashbar";
+@import "theme/extensions/navigationbar";
+@import "theme/extensions/wings";

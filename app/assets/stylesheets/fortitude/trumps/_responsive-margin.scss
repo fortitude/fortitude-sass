@@ -125,5 +125,10 @@ $fortitude-responsive-negative-margin-unit-total: 10 !default;
             margin-top: -($fortitude-base-spacing-unit * $i);
         }
     }
+
+    ##{$fortitude-app-id} &-mrlauto {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 

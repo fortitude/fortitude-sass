@@ -1,9 +1,7 @@
 @each $intent, $rules in $fortitude-color-intents {
   .badge--#{$intent} {
     @each $property, $value in $rules {
-      @if $property != border-color {
         #{$property}: $value;
-      }
     }
   }
 }
