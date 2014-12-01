@@ -29,10 +29,15 @@ $navigationbar-height: 4rem !default;
 
 .navigationbar__navigation {
   margin-right: -1rem;
+
+  .fluid-container & {
+    margin-right: 0;
+  }
 }
 
 .navigationbar__item {
   display: inline-block;
+  position: relative;
 
   &:hover .navigationbar__dropdown {
     display: block;
@@ -47,6 +52,7 @@ $navigationbar-height: 4rem !default;
 .navigationbar__dropdown {
   display: none;
   position: absolute;
+  right: 0;
   list-style: none;
   z-index: 1;
 }
