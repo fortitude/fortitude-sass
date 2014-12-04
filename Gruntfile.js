@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     app: {
       scss:       'app/assets/stylesheets',
       js:         'app/assets/javascripts',
+      img:        'app/assets/images',
       dist:       'dist',
       tmp:        'tmp',
       sass_specs: 'sass_specs'
@@ -13,6 +14,15 @@ module.exports = function(grunt) {
 
     bower: {
       install: {}
+    },
+
+    copy: {
+      dist: {
+        expand: true,
+        cwd:  '<%= app.img %>',
+        src:  '**/*.png',
+        dest: '<%= app.dist %>/'
+      }
     },
     
     sass: {
@@ -111,7 +121,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          '<%= app.dist %>/<%= pkg.name %>.min.js': '<%= app.tmp %>/<%= pkg.name %>.js'
+          '<%= app.dist %>/<%= pkg.name %>.jquery.js': '<%= app.tmp %>/<%= pkg.name %>.js'
         }
       },
       test: {
@@ -131,6 +141,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Sass resources
   grunt.loadNpmTasks('grunt-contrib-sass');
@@ -144,11 +155,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('setup', ['bower']);
-  grunt.registerTask('test-css',  ['bootcamp:test', 'sass:test', 'autoprefixer:test', 'csslint:test']);
+  grunt.registerTask('test-css',  ['sass:test', 'autoprefixer:test', 'bootcamp:test', 'csslint:test']);
   grunt.registerTask('test-js',  ['jshint:all', 'concat:test', 'jshint:test', 'uglify:test']);
 
   grunt.registerTask('test',  ['test-css', 'test-js', 'clean']);
-  grunt.registerTask('build',  ['sass:dist', 'autoprefixer:dist', 'concat:dist', 'uglify:dist']);
+  grunt.registerTask('build',  ['sass:dist', 'autoprefixer:dist', 'concat:dist', 'uglify:dist', 'copy:dist']);
 
   grunt.registerTask('default', ['test']);
 

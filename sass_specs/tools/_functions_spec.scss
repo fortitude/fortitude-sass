@@ -6,4 +6,16 @@
   @include it("halves values") {
     @include should( expect( halve(20) ), to( equal(10)));
   }
+
+  @include it("strips units") {
+    @include should( expect( fortitude-strip-unit(4px) ), to( equal(4)));
+  }
+
+  @include it("converts px to rem") {
+    @include should( expect( fortitude-px-to-rem(10px) ), to( equal(1rem)));
+  }
+
+  @include it("converts rem to px") {
+    @include should( expect( fortitude-rem-to-px(2rem) ), to( equal(20px)));
+  }
 }
