@@ -1,0 +1,9 @@
+@include describe("Fortitude helper functions") {
+  @include it("renders quarter correctly") {
+    @include should( expect( quarter(20) ), to( equal( 5 )));
+  }
+
+  @include it("halves values") {
+    @include should( expect( halve(20) ), to( equal(10)));
+  }
+}
