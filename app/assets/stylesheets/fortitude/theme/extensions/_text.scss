@@ -1,0 +1,5 @@
+@each $intent, $rules in $fortitude-color-intents {
+  .text-#{$intent} {
+    color: map-get($rules, color);
+  }
+}
