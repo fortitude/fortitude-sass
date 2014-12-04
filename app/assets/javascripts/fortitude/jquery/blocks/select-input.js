@@ -3,7 +3,7 @@
 
   var $document = $(document);
 
-  function setClassName() {
+  var setClassName = function() {
     var $this = $(this),
         className = $this.find(':selected').attr('class') || "",
         data = $this.data('ft.select') || {};
@@ -15,7 +15,7 @@
         data('ft.select', $.merge({previousClass: className}, data));
     }
 
-  }
+  };
 
   $document.on('change.ft.select.data-api', 'select:not([multiple])', setClassName);
 
