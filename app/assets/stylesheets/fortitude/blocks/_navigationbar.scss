@@ -88,13 +88,8 @@ $fortitude-navigationbar-height: 4rem !default;
   }
 
   .navigationbar__toggle {
+    @include fortitude-clearfix;
     margin-top: -$fortitude-navigationbar-height;
-
-    &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
 
     > .icon {
       float: right;
@@ -111,6 +106,13 @@ $fortitude-navigationbar-height: 4rem !default;
     -moz-appearance: none;
     appearance: none;
 
+    + .navigationbar__navigation {
+      display: none;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+    }
+
     &:checked + .navigationbar__navigation {
       display: block;
     }
@@ -118,11 +120,7 @@ $fortitude-navigationbar-height: 4rem !default;
 
   .navigationbar__navigation {
     clear: both;
-    display: none;
     margin-right: 0;
-    position: absolute;
-    top: 100%;
-    width: 100%;
   }
 
   .navigationbar__item {
