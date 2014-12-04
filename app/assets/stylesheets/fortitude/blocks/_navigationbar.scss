@@ -57,7 +57,7 @@ $fortitude-navigationbar-height: 4rem !default;
   z-index: 1;
 }
 
-@media (max-width: 767px) {
+@include fortitude-breakpoint(xs, $fortitude-breakpoints) {
   .navigationbar__header {
     float: none;
   }
@@ -120,6 +120,9 @@ $fortitude-navigationbar-height: 4rem !default;
     clear: both;
     display: none;
     margin-right: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
   }
 
   .navigationbar__item {
@@ -130,79 +133,6 @@ $fortitude-navigationbar-height: 4rem !default;
     a {
       display: block;
       padding: 0 2rem;
-    }
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .navigationbar--employers-offers {
-    .navigationbar__header {
-      float: none;
-    }
-
-    .navigationbar__toggle {
-      float: none;
-
-      > .icon {
-        display: inline-block;
-      }
-    }
-
-    .navigationbar__toggle__helper {
-      display: inline-block;
-    }
-
-    .navigationbar__dropdown {
-      display: block;
-      position: static;
-    }
-
-    .navigationbar__item {
-      display: block;
-    }
-
-    .navigationbar__toggle {
-      margin-top: -$fortitude-navigationbar-height;
-
-      &:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-
-      > .icon {
-        float: right;
-        display: block;
-      }
-    }
-    .navigationbar__toggle__helper {
-      float: right;
-      position: relative;
-      outline: 0;
-      opacity: 0;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-
-      &:checked + .navigationbar__navigation {
-        display: block;
-      }
-    }
-
-    .navigationbar__navigation {
-      clear: both;
-      display: none;
-    }
-
-    .navigationbar__item {
-      + .navigationbar__item {
-        margin-top: -0.1rem;
-      }
-
-      a {
-        display: block;
-        padding: 0 1rem;
-      }
     }
   }
 }
