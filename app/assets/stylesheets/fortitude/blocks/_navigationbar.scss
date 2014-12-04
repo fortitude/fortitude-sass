@@ -1,9 +1,9 @@
-$navigationbar-height: 4rem !default;
+$fortitude-navigationbar-height: 4rem !default;
 
 .navigationbar {
   position: relative;
-  line-height: $navigationbar-height;
-  min-height: $navigationbar-height;
+  line-height: $fortitude-navigationbar-height;
+  min-height: $fortitude-navigationbar-height;
 }
 
 .navigationbar__header {
@@ -88,7 +88,7 @@ $navigationbar-height: 4rem !default;
   }
 
   .navigationbar__toggle {
-    margin-top: -$navigationbar-height;
+    margin-top: -$fortitude-navigationbar-height;
 
     &:after {
       content: "";
@@ -109,8 +109,6 @@ $navigationbar-height: 4rem !default;
     opacity: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
     appearance: none;
 
     &:checked + .navigationbar__navigation {
@@ -164,7 +162,7 @@ $navigationbar-height: 4rem !default;
     }
 
     .navigationbar__toggle {
-      margin-top: -$navigationbar-height;
+      margin-top: -$fortitude-navigationbar-height;
 
       &:after {
         content: "";
@@ -184,8 +182,6 @@ $navigationbar-height: 4rem !default;
       opacity: 0;
       -webkit-appearance: none;
       -moz-appearance: none;
-      -ms-appearance: none;
-      -o-appearance: none;
       appearance: none;
 
       &:checked + .navigationbar__navigation {
