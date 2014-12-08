@@ -27,6 +27,5 @@ Rock solid CSS Patterns and Components.
   s.add_dependency('autoprefixer-rails')
   s.add_dependency('thor')
 
-  s.add_development_dependency('aruba', '~> 0.4')
   s.add_development_dependency('rake')
 end

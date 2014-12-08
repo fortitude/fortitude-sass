@@ -39,7 +39,6 @@ $fortitude-enable-badge--pill:    false !default;
     border: $fortitude-badge-border-width $fortitude-badge-border-style transparent;
     display: inline-block; /* [1] */
     vertical-align: middle; /* [2] */
-    vertical-align: middle; /* [2] */
     font: inherit; /* [3] */
     background-color: transparent; /* [4] */
     text-align: center; /* [4] */

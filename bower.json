@@ -39,5 +39,8 @@
     "framework",
     "fortitude"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
 }

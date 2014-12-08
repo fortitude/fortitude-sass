@@ -306,10 +306,10 @@ li > ol {
 html {
   font-size: 0.625rem;
   /* [1] */
-  line-height: 1.66667;
+  line-height: 1.25;
   /* [1] */
-  background-color: #fff;
-  color: #333;
+  background-color: #FCFCFC;
+  color: #373942;
   overflow-y: scroll;
   /* [2] */
   min-height: 100%;
@@ -318,7 +318,7 @@ html {
 }
 
 body {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 2rem;
 }
 
@@ -353,7 +353,7 @@ body {
   /* [4] */
   text-align: center;
   /* [4] */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   height: 2.6rem;
   overflow: visible;
   /* [5] */
@@ -450,7 +450,7 @@ body {
   /* [2] */
   font: inherit;
   /* [3] */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   text-align: center;
   /* [4] */
   cursor: pointer;
@@ -640,7 +640,7 @@ body {
    * 3. Make inputs inherit use their initial styles (fixes zooming on iOS).
    * 4. Fixes odd inner spacing in IE7.
   */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 2rem;
   /* [3] */
   display: inline-block;
@@ -673,7 +673,7 @@ body {
    * 3. Make inputs inherit use their initial styles (fixes zooming on iOS).
    * 4. Fixes odd inner spacing in IE7.
   */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 2rem;
   /* [3] */
   display: inline-block;
@@ -706,7 +706,7 @@ body {
    * 3. Make inputs inherit use their initial styles (fixes zooming on iOS).
    * 4. Fixes odd inner spacing in IE7.
   */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 2rem;
   /* [3] */
   display: inline-block;
@@ -742,7 +742,7 @@ body {
    * 3. Make inputs inherit use their initial styles (fixes zooming on iOS).
    * 4. Fixes odd inner spacing in IE7.
   */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 2rem;
   /* [3] */
   display: inline-block;
@@ -778,7 +778,7 @@ body {
    * 3. Make inputs inherit use their initial styles (fixes zooming on iOS).
    * 4. Fixes odd inner spacing in IE7.
   */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 2rem;
   /* [3] */
   display: inline-block;
@@ -817,7 +817,7 @@ body {
    * 3. Make inputs inherit use their initial styles (fixes zooming on iOS).
    * 4. Fixes odd inner spacing in IE7.
   */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 2rem;
   /* [3] */
   display: inline-block;
@@ -850,7 +850,7 @@ body {
    * 3. Make inputs inherit use their initial styles (fixes zooming on iOS).
    * 4. Fixes odd inner spacing in IE7.
   */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 2rem;
   /* [3] */
   display: inline-block;
@@ -923,6 +923,16 @@ body {
   width: 100%;
   /* [4] */
   position: relative;
+}
+
+/**
+ * Layouts with large gutters.
+ */
+.layout--large {
+  margin-left: -4rem;
+}
+.layout--large > .layout__item {
+  padding-left: 4rem;
 }
 
 /*------------------------------------*\
@@ -2375,7 +2385,7 @@ body {
 }
 
 #fortitude .xs-alpha {
-  font-size: 3.6rem;
+  font-size: 5.5rem;
 }
 #fortitude .xs-beta {
   font-size: 3rem;
@@ -2395,7 +2405,7 @@ body {
 
 @media (min-width: 768px) {
   #fortitude .sm-alpha {
-    font-size: 3.6rem;
+    font-size: 5.5rem;
   }
   #fortitude .sm-beta {
     font-size: 3rem;
@@ -2416,7 +2426,7 @@ body {
 
 @media (min-width: 992px) {
   #fortitude .md-alpha {
-    font-size: 3.6rem;
+    font-size: 5.5rem;
   }
   #fortitude .md-beta {
     font-size: 3rem;
@@ -2437,7 +2447,7 @@ body {
 
 @media (min-width: 1200px) {
   #fortitude .lg-alpha {
-    font-size: 3.6rem;
+    font-size: 5.5rem;
   }
   #fortitude .lg-beta {
     font-size: 3rem;
@@ -2738,6 +2748,12 @@ body {
 #fortitude .xs-inseth2 {
   line-height: 5rem;
 }
+#fortitude .xs-inset3 {
+  line-height: 6rem;
+}
+#fortitude .xs-inseth3 {
+  line-height: 7rem;
+}
 
 @media (min-width: 768px) {
   #fortitude .sm-inset0 {
@@ -2757,6 +2773,12 @@ body {
   }
   #fortitude .sm-inseth2 {
     line-height: 5rem;
+  }
+  #fortitude .sm-inset3 {
+    line-height: 6rem;
+  }
+  #fortitude .sm-inseth3 {
+    line-height: 7rem;
   }
 }
 
@@ -2779,6 +2801,12 @@ body {
   #fortitude .md-inseth2 {
     line-height: 5rem;
   }
+  #fortitude .md-inset3 {
+    line-height: 6rem;
+  }
+  #fortitude .md-inseth3 {
+    line-height: 7rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -2799,6 +2827,12 @@ body {
   }
   #fortitude .lg-inseth2 {
     line-height: 5rem;
+  }
+  #fortitude .lg-inset3 {
+    line-height: 6rem;
+  }
+  #fortitude .lg-inseth3 {
+    line-height: 7rem;
   }
 }
 
@@ -8973,4 +9007,230 @@ body {
 }
 #fortitude.html--is-locked body {
   overflow: hidden;
+}
+
+.text-extra-light, html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.text-normal, strong {
+  font-weight: 400;
+}
+
+.badge--default {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #373942;
+}
+
+.badge--primary {
+  background-color: #1CAFC9;
+  border-color: #1CAFC9;
+  color: #FFFFFF;
+}
+
+.badge--success {
+  background-color: #18D985;
+  border-color: #18D985;
+  color: #FFFFFF;
+}
+
+.badge--info {
+  background-color: #4DDBC4;
+  border-color: #4DDBC4;
+  color: #FFFFFF;
+}
+
+.badge--warning {
+  background-color: #E9CB0A;
+  border-color: #E9CB0A;
+  color: #FFFFFF;
+}
+
+.badge--danger {
+  background-color: #DE1843;
+  border-color: #DE1843;
+  color: #FFFFFF;
+}
+
+.box--default {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #373942;
+}
+
+.box--primary {
+  background-color: #1CAFC9;
+  border-color: #1CAFC9;
+  color: #FFFFFF;
+}
+
+.box--success {
+  background-color: #18D985;
+  border-color: #18D985;
+  color: #FFFFFF;
+}
+
+.box--info {
+  background-color: #4DDBC4;
+  border-color: #4DDBC4;
+  color: #FFFFFF;
+}
+
+.box--warning {
+  background-color: #E9CB0A;
+  border-color: #E9CB0A;
+  color: #FFFFFF;
+}
+
+.box--danger {
+  background-color: #DE1843;
+  border-color: #DE1843;
+  color: #FFFFFF;
+}
+
+.box--hero {
+  background-color: #373942;
+  border-color: #54565E;
+  color: #FFFFFF;
+}
+
+.button--default {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #373942;
+}
+
+.button--primary {
+  background-color: #1CAFC9;
+  border-color: #1CAFC9;
+  color: #FFFFFF;
+}
+
+.button--success {
+  background-color: #18D985;
+  border-color: #18D985;
+  color: #FFFFFF;
+}
+
+.button--info {
+  background-color: #4DDBC4;
+  border-color: #4DDBC4;
+  color: #FFFFFF;
+}
+
+.button--warning {
+  background-color: #E9CB0A;
+  border-color: #E9CB0A;
+  color: #FFFFFF;
+}
+
+.button--danger {
+  background-color: #DE1843;
+  border-color: #DE1843;
+  color: #FFFFFF;
+}
+
+.flashbar--default {
+  background-color: #FFFFFF;
+  color: #373942;
+}
+
+.flashbar--primary {
+  background-color: #1CAFC9;
+  color: #FFFFFF;
+}
+
+.flashbar--success {
+  background-color: #18D985;
+  color: #FFFFFF;
+}
+
+.flashbar--info {
+  background-color: #4DDBC4;
+  color: #FFFFFF;
+}
+
+.flashbar--warning {
+  background-color: #E9CB0A;
+  color: #FFFFFF;
+}
+
+.flashbar--danger {
+  background-color: #DE1843;
+  color: #FFFFFF;
+}
+
+.navigationbar {
+  text-transform: uppercase;
+}
+
+.navigationbar--default {
+  background-color: #FFFFFF;
+  border-bottom: 0.1rem solid #E7E7E8;
+}
+.navigationbar--default .navigationbar__header__logo {
+  font-size: 1.8rem;
+  color: #373942;
+  text-decoration: none;
+}
+.navigationbar--default .navigationbar__toggle > .icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: 1.9rem 1.9rem;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIdJREFUeNpiYBgFtAaMbm5uCkD6PBALUMnMD0BsyAQ1UICKjgWbxwhiAV1dQE0X79q1a8IQjDxoUCQAKQUqmfkAGBQLQKnCAJoqqAnAqeIDFDNQMbl9gAWFApWD4sHQzNKgjDEfiAOoZOYGIE4ERZ4BFQ1lgJplAIu89VTO0oGj5TvtAUCAAQCVmCDkKRdAyQAAAABJRU5ErkJggg==");
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .navigationbar--default .navigationbar__toggle > .icon {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQRJREFUeNrsl7ENwjAQRU1oKDNCUBaADVK5zgi0VMAEjADZgBEokSuYgCwQYTpKj8CdZEdHSZWz9J9kn919nc73fcYAAACYklk6WGtPFPZKdZ6dc4dRMIldUXgqT+6aRPdFvJQZVAMn1STBIQPBPW9z3oZh+NR1/aZjQ2uhTCgnc0vlcEPLAQD8Z80thWNq0Iq40+qorV2lNVcUXsqTuyTRPjldlUE1NNKac8BLa/ZkzZXC+k1cqBy6n0cnvpnafm6Bv5XojwAosGZuazuFre0R25qX1lxGa9Y6jIZozaEQE6nmyZm1tVlacyFGaM1uMuqTj47TvtFozfHRBQMAAGByvgIMAOBPRPy+NdlpAAAAAElFTkSuQmCC");
+    background-size: 2.2rem 2.2rem;
+  }
+}
+.navigationbar--default .navigationbar__toggle__helper {
+  width: 6rem;
+  height: 6rem;
+  margin-right: -6rem;
+}
+.navigationbar--default .navigationbar__link {
+  color: #373942;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+.navigationbar--default .navigationbar__link::before {
+  content: '';
+  color: #4DDBC4;
+}
+
+.wings--default .wings__wing::before {
+  background-color: #FFFFFF;
+}
+
+.wings--primary .wings__wing::before {
+  background-color: #1CAFC9;
+}
+
+.wings--success .wings__wing::before {
+  background-color: #18D985;
+}
+
+.wings--info .wings__wing::before {
+  background-color: #4DDBC4;
+}
+
+.wings--warning .wings__wing::before {
+  background-color: #E9CB0A;
+}
+
+.wings--danger .wings__wing::before {
+  background-color: #DE1843;
 }
