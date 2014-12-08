@@ -1,7 +1,9 @@
 fortitude-sass
 ==============
 
-Rock Solid CSS Framework
+Rock Solid CSS Framework 
+
+[![Build Status](https://travis-ci.org/fortitude/fortitude-sass.svg?branch=master)](https://travis-ci.org/fortitude/fortitude-sass)
 
 if you want you can check out our style guide to see how we're using certain fortitude components.
 
