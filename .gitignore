@@ -6,3 +6,5 @@ demo/
 tmp/
 tags
 .idea
+*results.css
+bower_components/

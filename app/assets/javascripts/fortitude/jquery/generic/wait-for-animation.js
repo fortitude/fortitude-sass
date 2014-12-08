@@ -63,20 +63,22 @@
   }
 
   $.fn.waitForAnimation = function(options, callback) {
-    var self = this;
-    var called = false;
-    var $this = $(self);
-    var defaults = {
-      type: 'animation'
-    };
+    var self = this,
+        called = false,
+        $this = $(self),
+        defaults = {
+          type: 'animation'
+        },
+        eventType,
+        duration;
 
-    var options = $.extend({}, defaults, options);
+    options = $.extend({}, defaults, options);
     if (options.type === 'animation') {
-      var eventType = animationData.end;
-      var duration = parseDuration(getComputedStyle($this.get(0), null)[animationData.duration]);
+      eventType = animationData.end;
+      duration = parseDuration(getComputedStyle($this.get(0), null)[animationData.duration]);
     } else if (options.type === 'transition') {
-      var eventType = transitionData.end;
-      var duration = parseDuration(getComputedStyle($this.get(0), null)[transitionData.duration]);
+      eventType = transitionData.end;
+      duration = parseDuration(getComputedStyle($this.get(0), null)[transitionData.duration]);
     }
 
     var defer = $.Deferred(function( defer ) {

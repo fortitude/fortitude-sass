@@ -1,11 +1,29 @@
 fortitude-sass
 ==============
 
-Rock Solid CSS Framework
+Rock Solid CSS Framework 
+
+[![Build Status](https://travis-ci.org/fortitude/fortitude-sass.svg?branch=master)](https://travis-ci.org/fortitude/fortitude-sass)
 
 if you want you can check out our style guide to see how we're using certain fortitude components.
 
 https://hired.com/library
+
+## Development
+
+If you want to add more features or change how certain features work in Fortitude, we encourage you to [open a Github issue](https://github.com/fortitude/fortitude-sass/issues) before developing it. It might not be aligned with the goals of this framework, introduce compatibility worries, or benefit from some direction from the maintainers. We don't want you to waste your time, and a little discussion can save a lot of work.
+
+1. Fork the repo [on Github](https://github.com/fortitude/fortitude-sass) and clone your copy of it locally.
+
+2. Add some things to the framework. If you add any SASS functions, mixins, etc please add specs for them via [Bootcamp](https://github.com/thejameskyle/bootcamp/wiki/Introduction). We're working on getting everything that's there specced out.
+
+3. Run specs, build, and linting via `grunt test`
+
+4. Update the distributable css and js via `grunt build` .
+
+5. Push your changes to your Github fork and issue a pull request.
+
+6. We will get back to you ASAP regarding your changes.
 
 
 ## Open Source by Hired
