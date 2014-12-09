@@ -2,8 +2,6 @@
 dir = File.dirname(__FILE__)
 $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
-require 'fortitude-sass/generator'
-
 unless defined?(Sass)
   require 'sass'
 end
@@ -17,7 +15,7 @@ module Fortitude
     module Rails
       class Railtie < ::Rails::Railtie
         rake_tasks do
-          load 'tasks/install.rake'
+          # load 'tasks/install.rake'
         end
       end
     end

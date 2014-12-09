@@ -4,17 +4,15 @@ PATH
     fortitude-sass (0.4.5)
       autoprefixer-rails
       sass (~> 3.3)
-      thor
 
 GEM
   remote: http://rubygems.org/
   specs:
-    autoprefixer-rails (3.0.1.20140826)
+    autoprefixer-rails (4.0.2)
       execjs
-    execjs (2.2.1)
+    execjs (2.2.2)
     rake (10.3.2)
-    sass (3.4.2)
-    thor (0.19.1)
+    sass (3.4.9)
 
 PLATFORMS
   ruby
