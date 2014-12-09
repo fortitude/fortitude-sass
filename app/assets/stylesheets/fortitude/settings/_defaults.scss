@@ -2,14 +2,6 @@
 //    #DEFAULTS
 //\*------------------------------------*/
 
-// These variables are Fortitude’ defaults; they should not be modified or
-// adjusted, you should redfine the variables in your own overrides file and
-// include it in your project before this file.
-
-
-
-
-
 /**
  * High-level base settings.
  * 1. Make sure to change the breakpoints in blocks/_container.scss
@@ -34,19 +26,11 @@ $fortitude-breakpoints:             (
                                       lg: (min-width: 1200px)
                                     ) !default;  /* [1] */
 
-
-
-
-
 // Namespace.
 //
 // Would you like Fortitude’ classes to be prepended with a namespace? If so,
 // define it here.
 $fortitude-namespace:               null !default;
-
-
-
-
 
 // These variables are framework variables, sourced from variables defined
 // above. Feel free to use these variables throughout your project, but do not
