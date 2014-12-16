@@ -26,5 +26,5 @@ Rock solid CSS Patterns and Components.
   s.add_dependency('sass', '~> 3.3')
   s.add_dependency('autoprefixer-rails')
 
-  s.add_development_dependency('rake')
+  s.add_development_dependency('compass')
 end

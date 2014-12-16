@@ -154,11 +154,51 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
+  grunt.registerTask('test-compass', 'Run a test build with Compass', function(){
+    var cb = this.async();
+    var child = grunt.util.spawn({
+      cmd: 'bundle',
+      args: [
+        'exec',
+        'compass',
+        'create',
+        'tmp/new-compass-project',
+        '-r',
+        'fortitude-sass',
+        '--using',
+        'fortitude',
+        '--trace',
+        '--force',
+        '-q'
+      ]
+    }, function (err, result, code) {
+      if (code === 127) {
+        grunt.warn(
+          'You need to have Ruby and Compass installed ' +
+          'and in your system PATH for this task to work. ' +
+          'Make sure you have run bundle install'
+        );
+      }
+
+      if (code != 0) {
+        grunt.warn('Compass failed to build test app correctly.');
+        return cb(err);
+      }
+
+      grunt.log.ok(['Compass built succesfully.'])
+      cb();
+    });
+
+    if (child) {
+      child.stderr.pipe(process.stderr);
+    }
+  });
+
   grunt.registerTask('setup', ['bower']);
   grunt.registerTask('test-css',  ['sass:test', 'autoprefixer:test', 'bootcamp:test', 'csslint:test']);
   grunt.registerTask('test-js',  ['jshint:all', 'concat:test', 'jshint:test', 'uglify:test']);
 
-  grunt.registerTask('test',  ['test-css', 'test-js', 'clean']);
+  grunt.registerTask('test',  ['clean', 'test-css', 'test-js', 'test-compass', 'clean']);
   grunt.registerTask('build',  ['sass:dist', 'autoprefixer:dist', 'concat:dist', 'uglify:dist', 'copy:dist']);
 
   grunt.registerTask('default', ['test']);
