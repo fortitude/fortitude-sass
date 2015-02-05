@@ -26,3 +26,7 @@ html {
 body {
     @include fortitude-font-size($fortitude-base-font-size, true);
 }
+
+.clearfix {
+    @include fortitude-clearfix;
+}
