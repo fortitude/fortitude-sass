@@ -5,6 +5,58 @@ Rock Solid CSS Framework
 
 [![Build Status](https://travis-ci.org/fortitude/fortitude-sass.svg?branch=master)](https://travis-ci.org/fortitude/fortitude-sass)
 
+## Installation
+
+There are several easy ways to use Fortitude in your project.
+
+* [Ruby on Rails](#ruby_on_rails)
+* [Compass (not on Rails)](#compass_not_rails)
+* [Bower](#bower)
+
+### Ruby on Rails <a id="ruby_on_rails"></a>
+
+Before you get started, consider using the [Fortitude Rails gem](https://github.com/hired/fortitude_rails), which makes it easy to specify theme colors, generate new components, and even get documentation specific to your app at `/fortitude`. If you would just like the sass and jquery without the extra whizz-bang, follow these steps:
+
+1. Add Fortitude and Sass-Rails to your Gemfile.
+   ```ruby
+   gem 'fortitude-sass'
+   gem 'sass-rails'
+   ```
+
+   Fortitude also depends on [Autoprefixer](https://github.com/ai/autoprefixer-rails), so make sure your app will function with that.
+
+   Run `bundle install` and restart your Rails app to make sure Fortitude is available in the asset pipeline.
+
+2. Import Fortitude in your `application.scss` :
+   ```scss
+   @import 'fortitude';
+   ```
+
+3. Require Fortitude's jquery helpers in `application.js`
+   ```javascript
+   //= require jquery
+   //= require fortitude/fortitude.jquery
+   //= require_directory fortitude/fortitude
+   ```
+
+### Compass (without Rails) <a id="compass"></a>
+
+1. Install the gem: `gem install fortitude-sass`
+
+2. If you have an existing Compass project, add Fortitude and run the installation:
+   ```ruby
+   # in config.rb
+   require 'fortitude-sass'
+   ```
+
+   And then `compass install fortitude`
+
+### Bower <a id="bower"></a>
+
+1. `bower install fortitude-sass`
+
+## Example
+
 if you want you can check out our style guide to see how we're using certain fortitude components.
 
 https://hired.com/library

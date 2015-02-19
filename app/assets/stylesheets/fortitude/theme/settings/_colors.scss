@@ -1,3 +1,14 @@
+///*------------------------------------*\
+//    #THEME_COLORS
+//\*------------------------------------*/
+
+// fortitude-color-intents allows you to specify variations
+// on colors. Fortitude will apply these variations to 
+// blocks and elements that specify color.
+
+// For example, if you add light-red to color intents,
+// Fortitude will produce a .flashbar--light-red class.
+
 $primary-color: #1CAFC9 !default;
 $success-color: #18D985 !default;
 $info-color   : #4DDBC4 !default;

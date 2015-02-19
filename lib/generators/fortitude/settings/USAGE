@@ -1,0 +1,10 @@
+Description:
+    Copies Fortitude settings files into your app, so you can customize the framework's look and feel.
+
+Example:
+    rails generate fortitude:settings
+
+    This will create:
+        app/assets/stylesheets/fortitude/settings/_settings.scss
+        app/assets/stylesheets/fortitude/theme/settings/_settings.scss
+        app/assets/stylesheets/fortitude/theme/settings/_colors.scss

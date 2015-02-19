@@ -6,7 +6,7 @@
     "app/assets/stylesheets/fortitude/tools/_functions.scss",
     "app/assets/stylesheets/fortitude/tools/_mixins.scss",
     "app/assets/stylesheets/fortitude/settings/_defaults.scss",
-    "app/assets/stylesheets/_fortitude.scss"
+    "app/assets/stylesheets/fortitude.scss"
   ],
   "ignore": [
     "bin",
@@ -20,8 +20,8 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "Gruntfile.js",
+    "sass_specs"
   ],
   "authors": [
     "Aaron Reisman <aaron@hired.com>"

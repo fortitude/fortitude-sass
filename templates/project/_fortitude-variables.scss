@@ -1,0 +1,56 @@
+// ------------------------------------
+//     #DEFAULTS
+// ------------------------------------
+
+// /**
+//  * High-level base settings.
+//  * 1. Make sure to change the breakpoints in blocks/_container.scss
+//  *    if you change $fortitude-breakpoints.
+//  */
+
+// $fortitude-app-id:                  fortitude !default;
+// $fortitude-base-font-size:          1.2rem !default;
+// $fortitude-base-line-height:        2rem !default;
+// $fortitude-base-color:              #333 !default;
+// $fortitude-base-background-color:   #fff !default;
+// $fortitude-class-breakpoints:       (
+//                                      xs: null,
+//                                      sm: 768px,
+//                                      md: 992px,
+//                                      lg: 1200px
+//                                     ) !default; /* [1] */
+// $fortitude-breakpoints:             (
+//                                       xs: (max-width: 767px),
+//                                       sm: (min-width: 768px, max-width: 991px),
+//                                       md: (min-width: 992px, max-width: 1199px),
+//                                       lg: (min-width: 1200px)
+//                                     ) !default;  /* [1] */
+
+// Namespace.
+// 
+// Would you like Fortitude’ classes to be prepended with a namespace? If so,
+// define it here.
+// $fortitude-namespace:               null !default;
+
+// These variables are framework variables, sourced from variables defined
+// above. Feel free to use these variables throughout your project, but do not
+// modify or reassign them.
+
+// $fortitude-base-spacing-unit:           $fortitude-base-line-height;
+// $fortitude-base-spacing-unit--small:    round($fortitude-base-line-height / 2);
+// $fortitude-base-spacing-unit--large:    round($fortitude-base-line-height * 2);
+// $fortitude-base-rem-font-size:          0.625rem;
+
+
+// ------------------------------------
+//    #THEME_DEFAULTS
+//------------------------------------
+
+// Misc settings related to your theme (rather than the grid or layout system)
+// should go here. To set colors, check out _colors.scss
+
+// $navigationbar-height: 6rem !default;
+// $fortitude-responsive-font-sizes: (alpha: 5.5rem, beta: 3.0rem, gamma: 2.4rem, delta: 1.8rem, epsilon: 1.4rem, zeta: 1.0rem) !default;
+// $fortitude-responsive-line-height-unit-total: 3 !default;
+// $fortitude-base-font-size: 1.6rem !default;
+// $fortitude-enable-layout--large: true !default;
