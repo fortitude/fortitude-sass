@@ -1,17 +1,16 @@
-@include fortitude-breakpoint-classes {
-    ##{$fortitude-app-id} &-text-left {
-        text-align: left;
+@include fortitude-utility-class {
+  @include fortitude-breakpoint-classes {
+    &-text-left {
+      text-align: left;
     }
-
-    ##{$fortitude-app-id} &-text-center {
-        text-align: center;
+    &-text-center {
+      text-align: center;
     }
-
-    ##{$fortitude-app-id} &-text-right {
-        text-align: right;
+    &-text-right {
+      text-align: right;
     }
-
-    ##{$fortitude-app-id} &-text-justify {
-        text-align: justify;
+    &-text-justify {
+      text-align: justify;
     }
+  }
 }

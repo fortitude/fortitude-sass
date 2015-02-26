@@ -1,55 +1,7 @@
-/*------------------------------------*\
-    #CONTAINER
-\*------------------------------------*/
-
-$fortitude-container-breakpoints:   (xs: 100%,
-                                     sm: 72rem + $fortitude-base-spacing-unit,
-                                     md: 94rem + $fortitude-base-spacing-unit,
-                                     lg: 114rem + $fortitude-base-spacing-unit) !default;
-
-
-
-
-
-// Here we set a variable assuming that `box-sizing: border-box;` is not set
-// globally. If it has been previously been defined, the following variable will
-// be overriden and will be set to `true`.
-$fortitude-global-border-box: false !default;
-
-@mixin fortitude-container {
-    @include fortitude-clearfix;
-
-    margin-right: auto;
-    margin-left: auto;
-    @each $alias, $breakpoint in $fortitude-breakpoints {
-        $query: fortitude-query($breakpoint);
-        // if there is no media query.
-        @if not $query {
-            width: map-get($fortitude-container-breakpoints, $alias);
-        }
-        // if there is a media query.
-        @else {
-            @media #{$query} {
-                width: map-get($fortitude-container-breakpoints, $alias);
-            }
-        }
-    }
-
-    @if $fortitude-global-border-box == false {
-        box-sizing: border-box; /* [10] */
-    }
-}
-
-@mixin fortitude-container--fixed-top {
-    z-index: 2;
-    position: fixed;
-    top: 0;
-}
-
 .#{$fortitude-namespace}container {
-    @include fortitude-container;
+  @include fortitude-container;
 }
 
 .#{$fortitude-namespace}container--fixed-top {
-    @include fortitude-container--fixed-top;
+  @include fortitude-container--fixed-top;
 }

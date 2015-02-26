@@ -1,6 +1,0 @@
-@each $intent, $rules in $fortitude-color-intents {
-  .flashbar--#{$intent} {
-    background-color: map_get($rules, background-color);
-    color: if(lightness(map_get($rules, background-color)) < 75%, $gray-lightest-color, $gray-darkest-color);
-  }
-}
