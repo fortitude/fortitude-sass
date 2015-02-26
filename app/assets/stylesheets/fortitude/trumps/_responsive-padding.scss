@@ -1,65 +1,48 @@
 $fortitude-responsive-padding-unit-total: 10 !default;
 
-@include fortitude-breakpoint-classes {
-    @for $i from 0 through $fortitude-responsive-padding-unit-total {
-        ##{$fortitude-app-id} &-ph#{$i} {
-            padding: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
-
-        ##{$fortitude-app-id} &-p#{$i} {
-            padding: $fortitude-base-spacing-unit * $i;
-        }
-
-        ##{$fortitude-app-id} &-ptbh#{$i} {
-            padding-top: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-            padding-bottom: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
-
-        ##{$fortitude-app-id} &-ptb#{$i} {
-            padding-top: $fortitude-base-spacing-unit * $i;
-            padding-bottom: $fortitude-base-spacing-unit * $i;
-        }
-
-        ##{$fortitude-app-id} &-prlh#{$i} {
-            padding-right: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-            padding-left: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
-
-        ##{$fortitude-app-id} &-prl#{$i} {
-            padding-right: $fortitude-base-spacing-unit * $i;
-            padding-left: $fortitude-base-spacing-unit * $i;
-        }
-
-        ##{$fortitude-app-id} &-plh#{$i} {
-            padding-left: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
-
-        ##{$fortitude-app-id} &-pl#{$i} {
-            padding-left: $fortitude-base-spacing-unit * $i;
-        }
-
-        ##{$fortitude-app-id} &-pbh#{$i} {
-            padding-bottom: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
-
-        ##{$fortitude-app-id} &-pb#{$i} {
-            padding-bottom: $fortitude-base-spacing-unit * $i;
-        }
-
-        ##{$fortitude-app-id} &-prh#{$i} {
-            padding-right: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
-
-        ##{$fortitude-app-id} &-pr#{$i} {
-            padding-right: $fortitude-base-spacing-unit * $i;
-        }
-
-        ##{$fortitude-app-id} &-pth#{$i} {
-            padding-top: $fortitude-base-spacing-unit * $i + halve($fortitude-base-spacing-unit);
-        }
-
-        ##{$fortitude-app-id} &-pt#{$i} {
-            padding-top: $fortitude-base-spacing-unit * $i;
-        }
+@include fortitude-utility-class {
+  @include fortitude-breakpoint-classes {
+    @for $fortitude-index from 0 through $fortitude-responsive-padding-unit-total {
+      &-pt#{$fortitude-index},
+      &-p#{$fortitude-index},
+      &-ptb#{$fortitude-index} {
+        padding-top: $fortitude-base-spacing-unit * $fortitude-index;
+      }
+      &-pth#{$fortitude-index},
+      &-ph#{$fortitude-index},
+      &-ptbh#{$fortitude-index} {
+        padding-top: $fortitude-base-spacing-unit * $fortitude-index + halve($fortitude-base-spacing-unit);
+      }
+      &-pr#{$fortitude-index},
+      &-p#{$fortitude-index},
+      &-prl#{$fortitude-index} {
+        padding-right: $fortitude-base-spacing-unit * $fortitude-index;
+      }
+      &-prh#{$fortitude-index},
+      &-ph#{$fortitude-index},
+      &-prlh#{$fortitude-index} {
+        padding-right: $fortitude-base-spacing-unit * $fortitude-index + halve($fortitude-base-spacing-unit);
+      }
+      &-pb#{$fortitude-index},
+      &-p#{$fortitude-index},
+      &-ptb#{$fortitude-index} {
+        padding-bottom: $fortitude-base-spacing-unit * $fortitude-index;
+      }
+      &-pbh#{$fortitude-index},
+      &-ph#{$fortitude-index},
+      &-ptbh#{$fortitude-index} {
+        padding-bottom: $fortitude-base-spacing-unit * $fortitude-index + halve($fortitude-base-spacing-unit);
+      }
+      &-pl#{$fortitude-index},
+      &-p#{$fortitude-index},
+      &-prl#{$fortitude-index} {
+        padding-left: $fortitude-base-spacing-unit * $fortitude-index;
+      }
+      &-plh#{$fortitude-index},
+      &-ph#{$fortitude-index},
+      &-prlh#{$fortitude-index} {
+        padding-left: $fortitude-base-spacing-unit * $fortitude-index + halve($fortitude-base-spacing-unit);
+      }
     }
+  }
 }

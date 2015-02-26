@@ -1,13 +1,15 @@
 $fortitude-responsive-height-total: 12 !default;
 
 @mixin fortitude-height($fortitude-index) {
-    min-height: $fortitude-base-spacing-unit * $fortitude-index;
+  min-height: $fortitude-base-spacing-unit * $fortitude-index;
 }
 
-@for $i from 1 through $fortitude-responsive-height-total {
+@include fortitude-utility-class {
+  @for $fortitude-index from 1 through $fortitude-responsive-height-total {
     @include fortitude-breakpoint-classes {
-        ##{$fortitude-app-id} &-#{$i} {
-            @include fortitude-height($i);
-        }
+      &-#{$fortitude-index} {
+        @include fortitude-height($fortitude-index);
+      }
     }
+  }
 }

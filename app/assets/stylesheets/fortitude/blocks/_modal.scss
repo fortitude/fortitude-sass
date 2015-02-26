@@ -1,4 +1,4 @@
-.modal {
+.#{$fortitude-namespace}modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -13,7 +13,7 @@
   overflow-scrolling: touch;
 }
 
-.modal__content {
+.#{$fortitude-namespace}modal__content {
   position: relative;
   width: auto;
   margin: halve($fortitude-base-spacing-unit);

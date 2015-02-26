@@ -1,288 +1,102 @@
-/*------------------------------------*\
-    #LAYOUT
-\*------------------------------------*/
-
-/**
- * The Fortitude layout system uses `box-sizing: border-box;` and
- * `display: inline-block;` to create an extremely powerful, flexible
- * alternative to the traditional grid system. Combine the layout items with
- * the widths found in `trumps.widths`.
- */
-
-// Predefine the variables below in order to alter and enable specific features.
-$fortitude-layout-gutter:           $fortitude-base-spacing-unit !default;
-$fortitude-layout-gutter--small:    halve($fortitude-layout-gutter) !default;
-$fortitude-layout-gutter--large:    double($fortitude-layout-gutter) !default;
-
-$fortitude-enable-layout--small:    false !default;
-$fortitude-enable-layout--large:    false !default;
-$fortitude-enable-layout--flush:    false !default;
-$fortitude-enable-layout--rev:      false !default;
-$fortitude-enable-layout--middle:   false !default;
-$fortitude-enable-layout--bottom:   false !default;
-$fortitude-enable-layout--right:    false !default;
-$fortitude-enable-layout--center:   false !default;
-
-
-
-
-
-// Here we set a variable assuming that `box-sizing: border-box;` is not set
-// globally. If it has been previously been defined, the following variable will
-// be overriden and will be set to `true`.
-$fortitude-global-border-box: false !default;
-
-
-
-
-
-@mixin fortitude-layout($extension: null) {
-    list-style: none;
-    display: block;
-    margin:  0;
-    padding: 0;
-    margin-left: -$fortitude-layout-gutter;
-}
-
-@mixin fortitude-layout__item($extension: null) {
-    /**
-     * 1. Cause columns to stack side-by-side.
-     * 2. Space columns apart.
-     * 3. Align columns to the tops of each other.
-     * 4. Full-width unless told to behave otherwise.
-     * 5. Required to combine fluid widths and fixed gutters.
-     */
-    display: inline-block; /* [1] */
-    padding-left: $fortitude-layout-gutter; /* [2] */
-    vertical-align: top; /* [3] */
-    width: 100%; /* [4] */
-    position: relative;
-
-    @if $fortitude-global-border-box == false {
-        box-sizing: border-box; /* [5] */
-    }
-}
-
-@mixin fortitude-layout--small {
-    margin-left: -($fortitude-layout-gutter--small);
-}
-
-@mixin fortitude-layout--small__item {
-    padding-left: $fortitude-layout-gutter--small;
-}
-
-@mixin fortitude-layout--large {
-    margin-left: -($fortitude-layout-gutter--large);
-}
-
-@mixin fortitude-layout--large__item {
-    padding-left: $fortitude-layout-gutter--large;
-}
-
-@mixin fortitude-layout--flush {
-    margin-left: 0;
-}
-
-@mixin fortitude-layout--flush__item {
-    padding-left: 0;
-}
-
-@mixin fortitude-layout--rev {
-    direction: rtl;
-    text-align: left;
-}
-
-@mixin fortitude-layout--rev__item {
-    direction: ltr;
-    text-align: left;
-}
-
-@mixin fortitude-layout--middle__item {
-    vertical-align: middle;
-}
-
-@mixin fortitude-layout--bottom__item {
-    vertical-align: bottom;
-}
-
-@mixin fortitude-layout--right {
-    text-align: right;
-}
-
-@mixin fortitude-layout--right__item {
-    text-align: left;
-}
-
-@mixin fortitude-layout--center {
-    text-align: center;
-}
-
-@mixin fortitude-layout--center__item {
-    text-align: left;
-}
-
-/**
- * Begin a layout group.
- */
-
 .#{$fortitude-namespace}layout {
-    @include fortitude-layout;
+  @include fortitude-layout;
 }
 
-    .#{$fortitude-namespace}layout__item {
-        @include fortitude-layout__item;
-    }
-
-
-
-
-
-@if ($fortitude-enable-layout--small == true) {
-
-    /**
-     * Layouts with small gutters.
-     */
-
-    .#{$fortitude-namespace}layout--small {
-        @include fortitude-layout--small;
-        > .#{$fortitude-namespace}layout__item {
-            @include fortitude-layout--small__item;
-        }
-
-    }
-
+.#{$fortitude-namespace}layout__item {
+  @include fortitude-layout__item;
 }
 
-@if ($fortitude-enable-layout--large == true) {
-
-    /**
-     * Layouts with large gutters.
-     */
-
-    .#{$fortitude-namespace}layout--large {
-        @include fortitude-layout--large;
-
-        > .#{$fortitude-namespace}layout__item {
-            @include fortitude-layout--large__item;
-        }
-
+@if $fortitude-enable-layout--small == true {
+  /**
+   * Layouts with small gutters.
+  **/
+  .#{$fortitude-namespace}layout--small {
+    @include fortitude-layout--small;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout--small__item;
     }
-
+  }
 }
 
-
-
-
-
-@if ($fortitude-enable-layout--flush == true) {
-
-    /**
-     * Layouts with no gutters.
-     */
-
-    .#{$fortitude-namespace}layout--flush {
-        @include fortitude-layout--flush;
-
-        > .#{$fortitude-namespace}layout__item {
-            @include fortitude-layout--flush__item;
-        }
-
+@if $fortitude-enable-layout--large == true {
+  /**
+   * Layouts with large gutters.
+  **/
+  .#{$fortitude-namespace}layout--large {
+    @include fortitude-layout--large;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout--large__item;
     }
-
+  }
 }
 
-
-
-
-
-@if ($fortitude-enable-layout--rev == true) {
-
-    /**
-     * Reversed rendered order of layout items, e.g. items 1, 2, 3, 4 in your
-     * markup will display in order 4, 3, 2, 1 on your page.
-     */
-
-    .#{$fortitude-namespace}layout--rev {
-        @include fortitude-layout--rev;
-
-        > .#{$fortitude-namespace}layout__item {
-            @include fortitude-layout--rev__item;
-        }
-
+@if $fortitude-enable-layout--flush == true {
+  /**
+   * Layouts with no gutters.
+  **/
+  .#{$fortitude-namespace}layout--flush {
+    @include fortitude-layout--flush;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout--flush__item;
     }
-
+  }
 }
 
-
-
-
-
-@if ($fortitude-enable-layout--middle == true) {
-
-    /**
-     * Align layout items to the vertical centers of each other.
-     */
-
-    .#{$fortitude-namespace}layout--middle {
-
-        > .#{$fortitude-namespace}layout__item {
-            @include fortitude-layout--middle__item;
-        }
-
+@if $fortitude-enable-layout--rev == true {
+  /**
+   * Reversed rendered order of layout items, e.g. items 1, 2, 3, 4 in your
+   * markup will display in order 4, 3, 2, 1 on your page.
+  **/
+  .#{$fortitude-namespace}layout--rev {
+    @include fortitude-layout--rev;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout--rev__item;
     }
-
+  }
 }
 
-@if ($fortitude-enable-layout--bottom == true) {
-
-    /**
-     * Align layout items to the vertical bottoms of each other.
-     */
-
-    .#{$fortitude-namespace}layout--bottom {
-
-        > .#{$fortitude-namespace}layout__item {
-            @include fortitude-layout--bottom__item;
-        }
-
+@if $fortitude-enable-layout--middle == true {
+  /**
+   * Align layout items to the vertical centers of each other.
+  **/
+  .#{$fortitude-namespace}layout--middle {
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout--middle__item;
     }
-
+  }
 }
 
-
-
-
-
-@if ($fortitude-enable-layout--right == true) {
-
-    /**
-     * Make the layout items fill up from the right hand side.
-     */
-
-    .#{$fortitude-namespace}layout--right {
-        @include fortitude-layout--right;
-
-        > .#{$fortitude-namespace}layout__item {
-            @include fortitude-layout--right__item;
-        }
-
+@if $fortitude-enable-layout--bottom == true {
+  /**
+   * Align layout items to the vertical bottoms of each other.
+  **/
+  .#{$fortitude-namespace}layout--bottom {
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout--bottom__item;
     }
-
+  }
 }
 
-@if ($fortitude-enable-layout--center == true) {
-
-    /**
-     * Make the layout items fill up from the center outward.
-     */
-
-    .#{$fortitude-namespace}layout--center {
-        @include fortitude-layout--center;
-
-        > .#{$fortitude-namespace}layout__item {
-            @include fortitude-layout--center__item;
-        }
-
+@if $fortitude-enable-layout--right == true {
+  /**
+   * Make the layout items fill up from the right hand side.
+  **/
+  .#{$fortitude-namespace}layout--right {
+    @include fortitude-layout--right;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout--right__item;
     }
+  }
+}
 
+@if $fortitude-enable-layout--center == true {
+  /**
+   * Make the layout items fill up from the center outward.
+  **/
+  .#{$fortitude-namespace}layout--center {
+    @include fortitude-layout--center;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout--center__item;
+    }
+  }
 }
