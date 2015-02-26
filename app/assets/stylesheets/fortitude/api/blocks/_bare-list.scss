@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    #BARE-LIST
+\*------------------------------------*/
+
+/**
+ * The bare-list object simply removes any indents and bullet points from lists.
+**/
+
+@mixin fortitude-bare-list {
+  list-style: none;
+}

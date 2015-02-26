@@ -1,0 +1,8 @@
+/*------------------------------------*\
+    #FLUID-CONTAINER
+\*------------------------------------*/
+
+@mixin fortitude-fluid-container {
+  @include fortitude-clearfix;
+  width: 100%;
+}

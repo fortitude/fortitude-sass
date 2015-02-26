@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    #list-navigation
+\*------------------------------------*/
+
+/**
+ * The list-navigation object simply removes any indents and bullet points from lists.
+ * and sets the list-navigation__link to `display: block;`
+**/
+
+@mixin fortitude-list-navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin fortitude-list-navigation__item {
+  display: block;
+}
+
+@mixin fortitude-list-navigation__link {
+  display: block;
+}

@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #BOX
+\*------------------------------------*/
+
+/**
+ * The box object simply boxes off content.
+**/
+// Predefine the variables below in order to alter and enable specific features.
+$fortitude-box-border-width: 0 !default;
+$fortitude-box-border-style: solid !default;
+$fortitude-box-border-radius--rounded: 0.2rem !default;
+
+@mixin fortitude-box {
+  /**
+   * 1. So we can apply the `.box` class to naturally-inline elements.
+   * 2. So we can style the border colors in our extensions.
+  **/
+  @include fortitude-clearfix;
+  display: block;
+  /* [1] */
+  border: $fortitude-box-border-width $fortitude-box-border-style transparent;
+  /* [2] */
+}
