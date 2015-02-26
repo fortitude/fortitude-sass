@@ -1,55 +1,52 @@
 $fortitude-navigationbar-height: 4rem !default;
 
-.navigationbar {
+.#{$fortitude-namespace}navigationbar {
   position: relative;
   line-height: $fortitude-navigationbar-height;
   min-height: $fortitude-navigationbar-height;
 }
 
-.navigationbar__header {
+.#{$fortitude-namespace}navigationbar__header {
   float: left;
 }
 
-.navigationbar__header__logo {
+.#{$fortitude-namespace}navigationbar__header__logo {
   display: inline-block;
   margin-top: -0.1rem;
   vertical-align: middle;
 }
 
-.navigationbar__toggle {
+.#{$fortitude-namespace}navigationbar__toggle {
   float: right;
-  > .icon {
+  > .#{$fortitude-namespace}icon {
     display: none;
   }
 }
 
-.navigationbar__toggle__helper {
+.#{$fortitude-namespace}navigationbar__toggle__helper {
   display: none;
 }
 
-.navigationbar__navigation {
+.#{$fortitude-namespace}navigationbar__navigation {
   margin-right: -1rem;
-
-  .fluid-container & {
+  .#{$fortitude-namespace}fluid-container & {
     margin-right: 0;
   }
 }
 
-.navigationbar__item {
+.#{$fortitude-namespace}navigationbar__item {
   display: inline-block;
   position: relative;
-
-  &:hover .navigationbar__dropdown {
+  &:hover .#{$fortitude-namespace}navigationbar__dropdown {
     display: block;
   }
-
   a {
     display: block;
     padding: 0 1rem;
   }
 }
 
-.navigationbar__dropdown {
+.#{$fortitude-namespace}navigationbar__dropdown {
   display: none;
   position: absolute;
   right: 0;
@@ -58,46 +55,37 @@ $fortitude-navigationbar-height: 4rem !default;
 }
 
 @include fortitude-breakpoint(xs, $fortitude-breakpoints) {
-  .navigationbar__header {
+  .#{$fortitude-namespace}navigationbar__header {
     float: none;
   }
-
-  .navigationbar__header__logo {
+  .#{$fortitude-namespace}navigationbar__header__logo {
     padding-left: 2rem;
   }
-
-  .navigationbar__toggle {
+  .#{$fortitude-namespace}navigationbar__toggle {
     float: none;
-
-    > .icon {
+    > .#{$fortitude-namespace}icon {
       display: inline-block;
     }
   }
-
-  .navigationbar__toggle__helper {
+  .#{$fortitude-namespace}navigationbar__toggle__helper {
     display: inline-block;
   }
-
-  .navigationbar__dropdown {
+  .#{$fortitude-namespace}navigationbar__dropdown {
     display: block;
     position: static;
   }
-
-  .navigationbar__item {
+  .#{$fortitude-namespace}navigationbar__item {
     display: block;
   }
-
-  .navigationbar__toggle {
+  .#{$fortitude-namespace}navigationbar__toggle {
     @include fortitude-clearfix;
     margin-top: -$fortitude-navigationbar-height;
-
-    > .icon {
+    > .#{$fortitude-namespace}icon {
       float: right;
       display: block;
     }
   }
-
-  .navigationbar__toggle__helper {
+  .#{$fortitude-namespace}navigationbar__toggle__helper {
     float: right;
     position: relative;
     outline: 0;
@@ -105,29 +93,24 @@ $fortitude-navigationbar-height: 4rem !default;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-
-    + .navigationbar__navigation {
+    + .#{$fortitude-namespace}navigationbar__navigation {
       display: none;
       position: absolute;
       top: 100%;
       width: 100%;
     }
-
-    &:checked + .navigationbar__navigation {
+    &:checked + .#{$fortitude-namespace}navigationbar__navigation {
       display: block;
     }
   }
-
-  .navigationbar__navigation {
+  .#{$fortitude-namespace}navigationbar__navigation {
     clear: both;
     margin-right: 0;
   }
-
-  .navigationbar__item {
-    + .navigationbar__item {
+  .#{$fortitude-namespace}navigationbar__item {
+    + .#{$fortitude-namespace}navigationbar__item {
       margin-top: -0.1rem;
     }
-
     a {
       display: block;
       padding: 0 2rem;

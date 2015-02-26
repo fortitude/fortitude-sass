@@ -3,17 +3,17 @@
 \*------------------------------------*/
 
 hr {
-    border-top: halve($fortitude-base-spacing-unit) - 0.1rem solid transparent;
-    border-bottom: 0.1rem solid;
-    border-right-color: transparent;
-    border-left-color: transparent;
+  border-top: (halve($fortitude-base-spacing-unit) - 0.1rem) solid transparent;
+  border-bottom: 0.1rem solid;
+  border-right-color: transparent;
+  border-left-color: transparent;
 }
 
 .hr--top {
-    border-top: 0.1rem solid;
-    border-bottom: halve($fortitude-base-spacing-unit) - 0.1rem solid transparent;
+  border-top: 0.1rem solid;
+  border-bottom: (halve($fortitude-base-spacing-unit) - 0.1rem) solid transparent;
 }
 
 .hr--dashed {
-    border-style: dashed;
+  border-style: dashed;
 }

@@ -1,10 +1,11 @@
 *swp
 *gem
-.sass-cache/
-/fortitude/
-demo/
-tmp/
+.sass-cache
+fortitude
+demo
+tmp
 tags
 .idea
 *results.css
-bower_components/
+bower_components
+node_modules

@@ -1,7 +1,7 @@
 $fortitude-responsive-column-total: 12 !default;
 
 @mixin fortitude-column($fortitude-index) {
-    width: percentage($fortitude-index / $fortitude-responsive-column-total);
+  width: percentage($fortitude-index / $fortitude-responsive-column-total);
 }
 
 @mixin fortitude-column-offset($fortitude-index) {
@@ -16,22 +16,21 @@ $fortitude-responsive-column-total: 12 !default;
   right: percentage($fortitude-index / $fortitude-responsive-column-total);
 }
 
-@include fortitude-breakpoint-classes {
-    @for $i from 0 through $fortitude-responsive-column-total {
-        ##{$fortitude-app-id} &-#{$i}of#{$fortitude-responsive-column-total} {
-            @include fortitude-column($i);
-        }
-
-        ##{$fortitude-app-id} &-offset#{$i}of#{$fortitude-responsive-column-total} {
-            @include fortitude-column-offset($i);
-        }
-
-        ##{$fortitude-app-id} &-push#{$i}of#{$fortitude-responsive-column-total} {
-            @include fortitude-column-push($i);
-        }
-
-        ##{$fortitude-app-id} &-pull#{$i}of#{$fortitude-responsive-column-total} {
-            @include fortitude-column-pull($i);
-        }
+@include fortitude-utility-class {
+  @include fortitude-breakpoint-classes {
+    @for $fortitude-index from 0 through $fortitude-responsive-column-total {
+      &-#{$fortitude-index}of#{$fortitude-responsive-column-total} {
+        @include fortitude-column($fortitude-index);
+      }
+      &-offset#{$fortitude-index}of#{$fortitude-responsive-column-total} {
+        @include fortitude-column-offset($fortitude-index);
+      }
+      &-push#{$fortitude-index}of#{$fortitude-responsive-column-total} {
+        @include fortitude-column-push($fortitude-index);
+      }
+      &-pull#{$fortitude-index}of#{$fortitude-responsive-column-total} {
+        @include fortitude-column-pull($fortitude-index);
+      }
     }
+  }
 }
