@@ -1,21 +1,3 @@
-/*------------------------------------*\
-    #FLASHBAR
-\*------------------------------------*/
-
-/**
- * A simple flashbar object.
- */
-
-@mixin fortitude-flashbar {
-    @include fortitude-clearfix;
-    position: relative;
-}
-
-@mixin fortitude-flashbar__close {
-    position: absolute;
-    right: halve($fortitude-base-spacing-unit);
-}
-
 .#{$fortitude-namespace}flashbar {
   @include fortitude-flashbar;
 }

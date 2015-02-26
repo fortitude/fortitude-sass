@@ -1,7 +1,0 @@
-@each $intent, $rules in $fortitude-color-intents {
-  .button--#{$intent} {
-    @each $property, $value in $rules {
-      #{$property}: $value;
-    }
-  }
-}

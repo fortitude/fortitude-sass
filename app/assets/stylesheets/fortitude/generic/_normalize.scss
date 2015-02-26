@@ -158,13 +158,11 @@ input {
     }
   }
   &[type="search"] {
-
-    @if ($fortitude-global-border-box == false) {
+    @if $fortitude-global-border-box == false {
       -webkit-appearance: textfield;
       -moz-box-sizing: content-box;
       box-sizing: content-box;
     }
-
     &::-webkit-search-cancel-button, &::-webkit-search-decoration {
       -webkit-appearance: none;
     }

@@ -1,224 +1,43 @@
-/*------------------------------------*\
-    #BUTTON
-\*------------------------------------*/
-
-/**
- * A simple button object.
- */
-
-// Predefine the variables below in order to alter and enable specific features.
-$fortitude-button-border-width:              0 !default;
-$fortitude-button-border-style:              solid !default;
-$fortitude-button-border-radius:             0.2rem !default;
-
-$fortitude-button-height:                    $fortitude-base-spacing-unit + 1.6rem !default;
-$fortitude-button-horizontal-padding:        fortitude-block-padding($fortitude-button-height, $fortitude-button-border-width) * 2 !default;
-$fortitude-button-height--small:             $fortitude-base-spacing-unit + 1.0rem !default;
-$fortitude-button-horizontal-padding--small: fortitude-block-padding($fortitude-button-height--small, $fortitude-button-border-width) * 2 !default;
-$fortitude-button-height--large:             double($fortitude-base-spacing-unit) + 2.0rem !default;
-$fortitude-button-horizontal-padding--large: fortitude-block-padding($fortitude-button-height--large, $fortitude-button-border-width) * 2 !default;
-
-$fortitude-enable-button--small:             false !default;
-$fortitude-enable-button--large:             false !default;
-$fortitude-enable-button--full:              false !default;
-$fortitude-enable-button--pill:              false !default;
-
-
-
-
-
-// Here we set a variable assuming that `box-sizing: border-box;` is not set
-// globally. If it has been previously been defined, the following variable will
-// be overriden and will be set to `true`.
-$fortitude-global-border-box: false !default;
-
-
-
-
-@mixin fortitude-button($extension: null) {
-    /**
-     * 1. Allow us to style box model properties.
-     * 2. Line different sized buttons up a little nicer.
-     * 3. Make buttons inherit font styles (often necessary when styling `input`s as
-     *    buttons).
-     * 4. Reset/normalize some styles.
-     * 5. Force all button-styled elements to appear clickable.
-     * 6. Fixes odd inner spacing in IE7.
-     * 7. Subtract the border size from the padding value so that buttons do not
-     *    grow larger as we add borders.
-     * 8. Set badge text to nowrap.
-     * 9. set position: relative in case if button has a `button__target`
-     *    the position of the target will be inside of the button.
-     * 10. Required to combine fluid widths and fixed gutters.
-     */
-    background-color: transparent;
-    border: $fortitude-button-border-width $fortitude-button-border-style transparent;
-    display: inline-block; /* [1] */
-    vertical-align: middle; /* [2] */
-    font: inherit; /* [3] */
-    font-size: $fortitude-base-font-size;
-    text-align: center; /* [4] */
-    cursor: pointer; /* [5] */
-    overflow: visible; /* [6] */
-    white-space: nowrap; /* [8] */
-    position: relative; /* [9] */
-
-    @if ($extension == small) {
-        @include fortitude-button--small;
-    } @else if ($extension == large) {
-        @include fortitude-button--large;
-    } @else {
-        margin: fortitude-block-margin($fortitude-button-height, $fortitude-button-border-width) 0; /* [4] */
-        padding: fortitude-block-padding($fortitude-button-height, $fortitude-button-border-width) $fortitude-button-horizontal-padding; /* [7] */
-    }
-
-    @if ($extension == pill) {
-        @include fortitude-button--pill;
-    } @else if($fortitude-button-border-radius != 0) {
-        border-radius: $fortitude-button-border-radius;
-    }
-
-    @if ($extension == full) {
-        @include fortitude-button--full;
-    }
-
-    @if $fortitude-global-border-box == false {
-        box-sizing: border-box; /* [10] */
-    }
-
-    &,
-    &:hover,
-    &:active,
-    &:focus,
-    &:visited {
-        text-decoration: none; /* [4] */
-    }
-
-    &::-moz-focus-inner {
-        /**
-         * Fix a Firefox bug whereby `input type="submit"` gains 0.2rem extra padding.
-         */
-        border:  0;
-        padding: 0;
-    }
-}
-
-@mixin fortitude-button--small {
-    /**
-     * 1. Reset/normalize some styles.
-     * 2. Subtract the border size from the padding value so that buttons do not
-     *    grow larger as we add borders.
-     */
-    margin: fortitude-block-margin($fortitude-button-height--small, $fortitude-button-border-width) 0; /* [1] */
-    padding: fortitude-block-padding($fortitude-button-height--small, $fortitude-button-border-width) $fortitude-button-horizontal-padding--small; /* [2] */
-}
-
-@mixin fortitude-button--large {
-    /**
-     * 1. Reset/normalize some styles.
-     * 2. Subtract the border size from the padding value so that buttons do not
-     *    grow larger as we add borders.
-     */
-    margin: fortitude-block-margin($fortitude-button-height--large, $fortitude-button-border-width) 0; /* [1] */
-    padding: fortitude-block-padding($fortitude-button-height--large, $fortitude-button-border-width) $fortitude-button-horizontal-padding--large; /* [2] */
-}
-
-@mixin fortitude-button--full {
-    width: 100%;
-
-    @if $fortitude-global-border-box == false {
-        /**
-         * Remove paddings so that widths and paddings don’t conflict.
-         */
-        padding-right: 0;
-        padding-left:  0;
-    }
-}
-
-@mixin fortitude-button--pill {
-    /**
-     * 1. Overly-large value to ensure the radius rounds the whole end of the
-     *    button.
-     */
-    border-radius: 10rem; /* [1] */
-}
-
-@mixin fortitude-button__target {
-    position: absolute;
-    opacity: 0;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-}
-
 .#{$fortitude-namespace}button {
-    @include fortitude-button;
+  @include fortitude-button;
 }
 
 .#{$fortitude-namespace}button__target {
-    @include fortitude-button__target;
+  @include fortitude-button__target;
 }
 
-
-
-
-
-@if ($fortitude-enable-button--small == true) {
-
-    /**
-     * Small buttons.
-     */
-
-    .#{$fortitude-namespace}button--small {
-        @include fortitude-button--small;
-    }
-
+@if $fortitude-enable-button--small == true {
+  /**
+   * Small buttons.
+  **/
+  .#{$fortitude-namespace}button--small {
+    @include fortitude-button--small;
+  }
 }
 
-@if ($fortitude-enable-button--large == true) {
-
-    /**
-     * Large buttons.
-     */
-
-    .#{$fortitude-namespace}button--large {
-        @include fortitude-button--large;
-    }
+@if $fortitude-enable-button--large == true {
+  /**
+   * Large buttons.
+  **/
+  .#{$fortitude-namespace}button--large {
+    @include fortitude-button--large;
+  }
 }
 
-
-
-
-
-@if ($fortitude-enable-button--full == true) {
-
-    /**
-     * Full-width buttons.
-     */
-
-    .#{$fortitude-namespace}button--full {
-        @include fortitude-button--full;
-    }
-
+@if $fortitude-enable-button--full == true {
+  /**
+   * Full-width buttons.
+  **/
+  .#{$fortitude-namespace}button--full {
+    @include fortitude-button--full;
+  }
 }
 
-
-
-
-
-@if ($fortitude-enable-button--pill == true) {
-
-    /**
-     * Round-ended buttons.
-     */
-
-    .#{$fortitude-namespace}button--pill {
-        @include fortitude-button--pill;
-    }
-
+@if $fortitude-enable-button--pill == true {
+  /**
+   * Round-ended buttons.
+  **/
+  .#{$fortitude-namespace}button--pill {
+    @include fortitude-button--pill;
+  }
 }
