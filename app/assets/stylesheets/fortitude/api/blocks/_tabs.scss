@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    #TABS
+\*------------------------------------*/
+
+@mixin fortitude-tabs__target {
+  display: none;
+}
+
+@mixin fortitude-tabs__target--is-active {
+  display: block;
+}
