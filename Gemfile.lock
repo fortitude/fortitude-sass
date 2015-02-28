@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fortitude-sass (0.5.3)
+    fortitude-sass (0.5.4)
       autoprefixer-rails
       sass (~> 3.3)
       therubyracer
