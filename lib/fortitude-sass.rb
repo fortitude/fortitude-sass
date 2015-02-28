@@ -8,6 +8,10 @@ unless defined?(Sass)
   require 'sass'
 end
 
+unless defined?(AutoprefixerRails)
+  require 'autoprefixer-rails'
+end
+
 module Fortitude
   if defined?(Rails) && defined?(Rails::Engine)
     class Engine < ::Rails::Engine
