@@ -1,36 +1,18 @@
 $fortitude-responsive-column-total: 12 !default;
 
-@mixin fortitude-column($fortitude-index) {
-  width: percentage($fortitude-index / $fortitude-responsive-column-total);
-}
-
-@mixin fortitude-column-offset($fortitude-index) {
-  margin-left: percentage($fortitude-index / $fortitude-responsive-column-total);
-}
-
-@mixin fortitude-column-push($fortitude-index) {
-  left: percentage($fortitude-index / $fortitude-responsive-column-total);
-}
-
-@mixin fortitude-column-pull($fortitude-index) {
-  right: percentage($fortitude-index / $fortitude-responsive-column-total);
-}
-
-@include fortitude-utility-class {
-  @include fortitude-breakpoint-classes {
-    @for $fortitude-index from 0 through $fortitude-responsive-column-total {
-      &-#{$fortitude-index}of#{$fortitude-responsive-column-total} {
-        @include fortitude-column($fortitude-index);
-      }
-      &-offset#{$fortitude-index}of#{$fortitude-responsive-column-total} {
-        @include fortitude-column-offset($fortitude-index);
-      }
-      &-push#{$fortitude-index}of#{$fortitude-responsive-column-total} {
-        @include fortitude-column-push($fortitude-index);
-      }
-      &-pull#{$fortitude-index}of#{$fortitude-responsive-column-total} {
-        @include fortitude-column-pull($fortitude-index);
-      }
+@include fortitude-breakpoint-classes {
+  @for $fortitude-index from 0 through $fortitude-responsive-column-total {
+    &-#{$fortitude-index}of#{$fortitude-responsive-column-total} {
+      width: percentage($fortitude-index / $fortitude-responsive-column-total) !important;
+    }
+    &-offset#{$fortitude-index}of#{$fortitude-responsive-column-total} {
+      margin-left: percentage($fortitude-index / $fortitude-responsive-column-total) !important;
+    }
+    &-push#{$fortitude-index}of#{$fortitude-responsive-column-total} {
+      right: percentage($fortitude-index / $fortitude-responsive-column-total) !important;
+    }
+    &-pull#{$fortitude-index}of#{$fortitude-responsive-column-total} {
+      left: percentage($fortitude-index / $fortitude-responsive-column-total) !important;
     }
   }
 }

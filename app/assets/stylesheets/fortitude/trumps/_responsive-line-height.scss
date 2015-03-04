@@ -1,14 +1,12 @@
 $fortitude-responsive-line-height-unit-total: 2 !default;
 
-@include fortitude-utility-class {
-  @include fortitude-breakpoint-classes {
-    @for $fortitude-index from 0 through $fortitude-responsive-line-height-unit-total {
-      &-inset#{$fortitude-index} {
-        line-height: $fortitude-base-line-height * $fortitude-index;
-      }
-      &-inseth#{$fortitude-index} {
-        line-height: $fortitude-base-line-height * $fortitude-index + halve($fortitude-base-line-height);
-      }
+@include fortitude-breakpoint-classes {
+  @for $fortitude-index from 0 through $fortitude-responsive-line-height-unit-total {
+    &-inset#{$fortitude-index} {
+      line-height: $fortitude-base-line-height * $fortitude-index !important;
+    }
+    &-inseth#{$fortitude-index} {
+      line-height: $fortitude-base-line-height * $fortitude-index + halve($fortitude-base-line-height) !important;
     }
   }
 }

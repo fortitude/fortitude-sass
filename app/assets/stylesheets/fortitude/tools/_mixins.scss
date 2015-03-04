@@ -53,9 +53,3 @@ $fortitude-enable-classes: false !default;
     clear: both;
   }
 }
-
-@mixin fortitude-utility-class {
-  ##{$fortitude-app-id} {
-    @content;
-  }
-}

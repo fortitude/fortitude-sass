@@ -1,15 +1,9 @@
 $fortitude-responsive-font-sizes: (alpha: 3.6rem, beta: 3rem, gamma: 2.4rem, delta: 1.8rem, epsilon: 1.4rem, zeta: 1rem) !default;
 
-@mixin fortitude-font-size-alias($fortitude-alias, $fortitude-line-height: false) {
-  @include fortitude-font-size(map-get($fortitude-responsive-font-sizes, $fortitude-alias), $fortitude-line-height);
-}
-
-@include fortitude-utility-class {
-  @include fortitude-breakpoint-classes {
-    @each $fortitude-alias, $fortitude-size in $fortitude-responsive-font-sizes {
-      &-#{$fortitude-alias} {
-        @include fortitude-font-size-alias($fortitude-alias);
-      }
+@include fortitude-breakpoint-classes {
+  @each $fortitude-alias, $fortitude-size in $fortitude-responsive-font-sizes {
+    &-#{$fortitude-alias} {
+      font-size: map-get($fortitude-responsive-font-sizes, $fortitude-alias) !important;
     }
   }
 }

@@ -1,28 +1,26 @@
 $fortitude-responsive-border-unit-total: 1 !default;
 
-@include fortitude-utility-class {
-  @include fortitude-breakpoint-classes {
-    @for $fortitude-index from 0 through $fortitude-responsive-border-unit-total {
-      &-bt#{$fortitude-index},
-      &-b#{$fortitude-index},
-      &-btb#{$fortitude-index} {
-        border-top-width: $fortitude-index * 0.1rem;
-      }
-      &-br#{$fortitude-index},
-      &-b#{$fortitude-index},
-      &-brl#{$fortitude-index} {
-        border-right-width: $fortitude-index * 0.1rem;
-      }
-      &-bb#{$fortitude-index},
-      &-b#{$fortitude-index},
-      &-btb#{$fortitude-index} {
-        border-bottom-width: $fortitude-index * 0.1rem;
-      }
-      &-bl#{$fortitude-index},
-      &-b#{$fortitude-index},
-      &-brl#{$fortitude-index} {
-        border-left-width: $fortitude-index * 0.1rem;
-      }
+@include fortitude-breakpoint-classes {
+  @for $fortitude-index from 0 through $fortitude-responsive-border-unit-total {
+    &-bt#{$fortitude-index},
+    &-b#{$fortitude-index},
+    &-btb#{$fortitude-index} {
+      border-top-width: $fortitude-index * 0.1rem !important;
+    }
+    &-br#{$fortitude-index},
+    &-b#{$fortitude-index},
+    &-brl#{$fortitude-index} {
+      border-right-width: $fortitude-index * 0.1rem !important;
+    }
+    &-bb#{$fortitude-index},
+    &-b#{$fortitude-index},
+    &-btb#{$fortitude-index} {
+      border-bottom-width: $fortitude-index * 0.1rem !important;
+    }
+    &-bl#{$fortitude-index},
+    &-b#{$fortitude-index},
+    &-brl#{$fortitude-index} {
+      border-left-width: $fortitude-index * 0.1rem !important;
     }
   }
 }

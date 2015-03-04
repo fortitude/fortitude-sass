@@ -1,6 +1,6 @@
-##{$fortitude-app-id}.html--is-locked {
-  overflow: hidden;
+.html--is-locked {
+  overflow: hidden !important;
   body {
-    overflow: hidden;
+    overflow: hidden !important;
   }
 }

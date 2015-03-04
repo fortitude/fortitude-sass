@@ -1,13 +1,11 @@
-@include fortitude-utility-class {
-  @include fortitude-breakpoint-classes {
-    &-float-left {
-      float: left;
-    }
-    &-float-right {
-      float: right;
-    }
-    &-float-none {
-      float: none;
-    }
+@include fortitude-breakpoint-classes {
+  &-float-left {
+    float: left !important;
+  }
+  &-float-right {
+    float: right !important;
+  }
+  &-float-none {
+    float: none !important;
   }
 }
