@@ -7,16 +7,16 @@
  * and sets the list-navigation__link to `display: block;`
 **/
 
-@mixin fortitude-list-navigation {
+@mixin fortitude-list-navigation($extensions: ()) {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-@mixin fortitude-list-navigation__item {
+@mixin fortitude-list-navigation__item($extensions: ()) {
   display: block;
 }
 
-@mixin fortitude-list-navigation__link {
+@mixin fortitude-list-navigation__link($extensions: ()) {
   display: block;
 }

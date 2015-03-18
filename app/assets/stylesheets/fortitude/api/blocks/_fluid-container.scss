@@ -2,7 +2,7 @@
     #FLUID-CONTAINER
 \*------------------------------------*/
 
-@mixin fortitude-fluid-container {
+@mixin fortitude-fluid-container($extensions: ()) {
   @include fortitude-clearfix;
   width: 100%;
 }

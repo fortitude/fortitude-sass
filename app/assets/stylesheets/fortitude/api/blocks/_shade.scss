@@ -2,17 +2,11 @@
     #SHADE
 \*------------------------------------*/
 
-$fortitude-shade-background-color: rgba(0, 0, 0, 0.3) !default;
-$fortitude-shade-transition-speed: 0.3s !default;
-
-@mixin fortitude-shade {
+@mixin fortitude-shade($extensions: ()) {
   display: none;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  @if $fortitude-shade-background-color {
-    background-color: $fortitude-shade-background-color;
-  }
 }

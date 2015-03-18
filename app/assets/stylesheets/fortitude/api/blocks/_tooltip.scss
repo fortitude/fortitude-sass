@@ -14,9 +14,21 @@ $fortitude-tooltip-padding-vertical: $fortitude-tooltip-padding !default;
 $fortitude-tooltip-padding-horizontal: $fortitude-tooltip-padding !default;
 $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-tooltip-padding * 2 !default;
 
-@mixin fortitude-tooltip {
+@mixin fortitude-tooltip($extensions: ()) {
+  $is-top: fortitude-contains($extensions, top);
+  $is-right: fortitude-contains($extensions, right);
+  $is-bottom: fortitude-contains($extensions, bottom);
+  $is-left: fortitude-contains($extensions, left);
+
   position: relative;
   cursor: pointer;
+
+  &:hover::before,
+  &:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+
   &::before,
   &::after {
     position: absolute;
@@ -26,17 +38,14 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
     transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out, transform 0.15s cubic-bezier(0.71, 1.7, 0.77, 1.24);
     pointer-events: none;
   }
-  &:hover::before,
-  &:hover::after {
-    visibility: visible;
-    opacity: 1;
-  }
+
   &::before {
     z-index: 1001;
     border: $fortitude-tooltip-arrow-size solid transparent;
     background: transparent;
     content: "";
   }
+
   &::after {
     z-index: 1000;
     padding: $fortitude-tooltip-padding-vertical $fortitude-tooltip-padding-horizontal;
@@ -48,36 +57,57 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
     font-size: $fortitude-tooltip-font-size;
     line-height: $fortitude-tooltip-line-height;
   }
+
+  @if $is-top {
+    @include fortitude-tooltip--top;
+  } @else if $is-right {
+    @include fortitude-tooltip--right;
+  } @else if $is-bottom {
+    @include fortitude-tooltip--bottom;
+  } @else if $is-left {
+    @include fortitude-tooltip--left;
+  }
 }
 
 @mixin fortitude-tooltip--top {
-  &::before,
-  &::after {
-    bottom: 100%;
-    left: 50%;
-  }
-  &::before {
-    margin-left: -$fortitude-tooltip-arrow-size;
-    margin-bottom: -($fortitude-tooltip-arrow-size * 2);
-    border-top-color: $fortitude-tooltip-background-color;
-  }
-  &::after {
-    margin-left: -($fortitude-tooltip-width / 2);
-  }
   &:hover::before,
   &:hover::after,
   &:focus::before,
   &:focus::after {
     transform: translateY(-($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size));
   }
+
+  &::before,
+  &::after {
+    bottom: 100%;
+    left: 50%;
+  }
+
+  &::before {
+    margin-left: -$fortitude-tooltip-arrow-size;
+    margin-bottom: -($fortitude-tooltip-arrow-size * 2);
+    border-top-color: $fortitude-tooltip-background-color;
+  }
+
+  &::after {
+    margin-left: -($fortitude-tooltip-width / 2);
+  }
 }
 
 @mixin fortitude-tooltip--right {
+  &:hover::before,
+  &:hover::after,
+  &:focus::before,
+  &:focus::after {
+    transform: translateX($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size);
+  }
+
   &::before,
   &::after {
     bottom: 50%;
     left: 100%;
   }
+
   &::before {
     top: $fortitude-tooltip-padding-vertical - ($fortitude-tooltip-arrow-size / 2 + $fortitude-tooltip-padding-vertical / 2);
     margin-bottom: 0;
@@ -85,49 +115,55 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
     border-top-color: transparent;
     border-right-color: $fortitude-tooltip-background-color;
   }
+
   &::after {
     margin-left: 0;
     margin-bottom: -($fortitude-tooltip-padding-vertical + 0.7rem);
   }
-  &:hover::before,
-  &:hover::after,
-  &:focus::before,
-  &:focus::after {
-    transform: translateX($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size);
-  }
 }
 
 @mixin fortitude-tooltip--bottom {
-  &::before,
-  &::after {
-    top: 100%;
-    bottom: auto;
-    left: 50%;
-  }
-  &::before {
-    margin-top: -($fortitude-tooltip-arrow-size * 2);
-    margin-bottom: 0;
-    border-top-color: transparent;
-    border-bottom-color: $fortitude-tooltip-background-color;
-  }
-  &::after {
-    margin-left: -($fortitude-tooltip-width / 2);
-  }
   &:hover::before,
   &:hover::after,
   &:focus::before,
   &:focus::after {
     transform: translateY($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size);
   }
+
+  &::before,
+  &::after {
+    top: 100%;
+    bottom: auto;
+    left: 50%;
+  }
+
+  &::before {
+    margin-top: -($fortitude-tooltip-arrow-size * 2);
+    margin-bottom: 0;
+    border-top-color: transparent;
+    border-bottom-color: $fortitude-tooltip-background-color;
+  }
+
+  &::after {
+    margin-left: -($fortitude-tooltip-width / 2);
+  }
 }
 
 @mixin fortitude-tooltip--left {
+  &:hover::before,
+  &:hover::after,
+  &:focus::before,
+  &:focus::after {
+    transform: translateX(-($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size));
+  }
+
   &::before,
   &::after {
     right: 100%;
     bottom: 50%;
     left: auto;
   }
+
   &::before {
     top: $fortitude-tooltip-padding-vertical - ($fortitude-tooltip-arrow-size / 2 + $fortitude-tooltip-padding-vertical / 2);
     margin-left: 0;
@@ -136,14 +172,9 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
     border-top-color: transparent;
     border-left-color: $fortitude-tooltip-background-color;
   }
+
   &::after {
     margin-left: 0;
     margin-bottom: -($fortitude-tooltip-padding-vertical + 0.7rem);
-  }
-  &:hover::before,
-  &:hover::after,
-  &:focus::before,
-  &:focus::after {
-    transform: translateX(-($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size));
   }
 }

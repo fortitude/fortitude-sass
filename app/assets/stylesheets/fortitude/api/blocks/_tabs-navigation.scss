@@ -2,44 +2,29 @@
     #TABS NAVIGATION
 \*------------------------------------*/
 
-@mixin fortitude-tabs-navigation {
-  /**
-   * A simple abstraction for making equal-width navigation tabs.
-   *
-   * 1. Reset any residual styles (most likely from lists).
-   * 2. Tables for layout!
-  **/
+@mixin fortitude-tabs-navigation($extensions: ()) {
+  $is-fixed: fortitude-contains($extensions, fixed);
+
   margin: 0;
-  /* [1] */
   padding: 0;
-  /* [1] */
   list-style: none;
-  /* [1] */
   display: table;
-  /* [2] */
   text-align: center;
+
+  @if $is-fixed {
+    @include fortitude-tabs-navigation--fixed;
+  }
 }
 
 @mixin fortitude-tabs-navigation--fixed {
-  /**
-   * 1. Force all `table-cell` children to have equal widths.
-   * 2. Force the object to be the full width of its parent. Combined with [2],
-   *    this makes the object behave in a quasi-`display: block;` manner.
-  **/
   table-layout: fixed;
-  /* [1] */
   width: 100%;
-  /* [2] */
 }
 
-@mixin fortitude-tabs-navigation__item {
-  /**
-   * 1. Tables for layout!
-  **/
+@mixin fortitude-tabs-navigation__item($extensions: ()) {
   display: table-cell;
-  /* [1] */
 }
 
-@mixin fortitude-tabs-navigation__link {
+@mixin fortitude-tabs-navigation__link($extensions: ()) {
   display: block;
 }

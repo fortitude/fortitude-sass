@@ -6,12 +6,12 @@
  * A simple flashbar object.
 **/
 
-@mixin fortitude-flashbar {
+@mixin fortitude-flashbar($extensions: ()) {
   @include fortitude-clearfix;
   position: relative;
 }
 
-@mixin fortitude-flashbar__close {
+@mixin fortitude-flashbar__close($extensions: ()) {
   position: absolute;
   right: halve($fortitude-base-spacing-unit);
 }

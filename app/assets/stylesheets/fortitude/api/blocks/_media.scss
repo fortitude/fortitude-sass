@@ -2,12 +2,6 @@
     #MEDIA
 \*------------------------------------*/
 
-/**
- * Place any image- and text-like content side-by-side, as per:
- * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
-**/
-
-// Predefine the variables below in order to alter and enable specific features.
 $fortitude-media-gutter: $fortitude-base-spacing-unit !default;
 $fortitude-media-gutter--small: halve($fortitude-media-gutter) !default;
 $fortitude-media-gutter--large: double($fortitude-media-gutter) !default;
@@ -19,68 +13,116 @@ $fortitude-enable-media--flush: false !default;
 $fortitude-enable-media--responsive: false !default;
 $fortitude-media-collapse-at: 720px !default;
 
-@mixin fortitude-media {
+@mixin fortitude-media($extensions: ()) {
   @include fortitude-clearfix;
   display: block;
 }
 
-@mixin fortitude-media__object {
+@mixin fortitude-media__object($extensions: ()) {
+  $is-flush:      fortitude-contains($extensions, flush);
+  $is-small:      fortitude-contains($extensions, small);
+  $is-large:      fortitude-contains($extensions, large);
+  $is-rev:        fortitude-contains($extensions, rev);
+  $is-responsive: fortitude-contains($extensions, responsive);
+
   float: left;
-  margin-right: $fortitude-media-gutter;
-  > img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+  @if $is-rev {
+    @include fortitude-media__object--rev;
+
+    @if $is-flush {
+      @include fortitude-media__object--rev--flush;
+    } @else if $is-small {
+      @include fortitude-media__object--rev--small;
+    } @else if $is-large {
+      @include fortitude-media__object--rev--large;
+    }
+  }
+
+  @if $is-responsive {
+    @include fortitude-media__object--responsive;
+
+    @if $is-flush {
+      @include fortitude-media__object--responsive--flush;
+    } @else if $is-small {
+      @include fortitude-media__object--responsive--small;
+    } @else if $is-large {
+      @include fortitude-media__object--responsive--large;
+    }
+  }
+
+  @if not $is-responsive or not $is-flush {
+    @if $is-flush {
+      @include fortitude-media__object--flush;
+    } @else if $is-small {
+      @include fortitude-media__object--small;
+    } @else if $is-large {
+      @include fortitude-media__object--large;
+    } @else {
+      margin-right: $fortitude-media-gutter;
+    }
   }
 }
 
-@mixin fortitude-media__body {
-  overflow: hidden;
-  display: block;
+@mixin fortitude-media__object--flush {
+  margin-right: 0;
 }
 
-@mixin fortitude-media--small__object {
+@mixin fortitude-media__object--small {
   margin-right: $fortitude-media-gutter--small;
 }
 
-@mixin fortitude-media--small--rev__object {
-  margin-right: 0;
-  margin-left: $fortitude-media-gutter--small;
-}
-
-@mixin fortitude-media--large__object {
+@mixin fortitude-media__object--large {
   margin-right: $fortitude-media-gutter--large;
 }
 
-@mixin fortitude-media--large--rev__object {
-  margin-right: 0;
-  margin-left: $fortitude-media-gutter--large;
-}
-
-@mixin fortitude-media--rev__object {
+@mixin fortitude-media__object--rev {
   float: right;
   margin-right: 0;
   margin-left: $fortitude-media-gutter;
 }
 
-@mixin fortitude-media--flush__object {
+@mixin fortitude-media__object--rev--flush {
   margin-right: 0;
   margin-left: 0;
 }
 
-@mixin fortitude-media--responsive__object {
+@mixin fortitude-media__object--rev--small {
+  margin-right: 0;
+  margin-left: $fortitude-media-gutter--small;
+}
+
+@mixin fortitude-media__object--rev--large {
+  margin-right: 0;
+  margin-left: $fortitude-media-gutter--large;
+}
+
+@mixin fortitude-media__object--responsive {
   float: none;
   margin-right: 0;
   margin-bottom: $fortitude-media-gutter;
   margin-left: 0;
 }
 
-@mixin fortitude-media--responsive--small__object {
+@mixin fortitude-media__object--responsive--small {
   margin-right: 0;
+  margin-bottom: $fortitude-media-gutter--small;
   margin-left: 0;
 }
 
-@mixin fortitude-media--responsive--large__object {
+@mixin fortitude-media__object--responsive--large {
   margin-right: 0;
+  margin-bottom: $fortitude-media-gutter--large;
   margin-left: 0;
+}
+
+@mixin fortitude-media__object__content($extensions: ()) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin fortitude-media__body($extensions: ()) {
+  overflow: hidden;
+  display: block;
 }

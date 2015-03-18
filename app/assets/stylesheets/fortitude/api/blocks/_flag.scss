@@ -1,17 +1,10 @@
-/*------------------------------------*\
-    #FLAG
-\*------------------------------------*/
+$fortitude-flag-gutter--default: $fortitude-base-spacing-unit !default;
 
-/**
- * The flag object is a design pattern similar to the media object, however it
- * utilises `display: table[-cell];` to give us control over the vertical
- * alignments of the text and image. csswizardry.com/2013/05/the-flag-object
-**/
+$fortitude-flag-gutter--small: halve($fortitude-flag-gutter--default) !default;
 
-// Predefine the variables below in order to alter and enable specific features.
-$fortitude-flag-gutter: $fortitude-base-spacing-unit !default;
-$fortitude-flag-gutter--small: halve($fortitude-flag-gutter) !default;
-$fortitude-flag-gutter--large: double($fortitude-flag-gutter) !default;
+$fortitude-flag-gutter--large: double($fortitude-flag-gutter--default) !default;
+
+$fortitude-flag-collapse-at--responsive: 720px !default;
 
 $fortitude-enable-flag--small: false !default;
 $fortitude-enable-flag--large: false !default;
@@ -20,179 +13,113 @@ $fortitude-enable-flag--flush: false !default;
 $fortitude-enable-flag--top: false !default;
 $fortitude-enable-flag--bottom: false !default;
 $fortitude-enable-flag--responsive: false !default;
-$fortitude-flag-collapse-at: 720px !default;
 
-@mixin fortitude-flag {
-  /**
-   * 1. Allows us to control vertical alignments
-   * 2. Force the object to be the full width of its parent. Combined with [1],
-   *    this makes the object behave in a quasi-`display: block;` manner.
-  **/
+@mixin fortitude-flag($extensions: ()) {
   display: table;
-  /* [1] */
   width: 100%;
-  /* [2] */
 }
 
-@mixin fortitude-flag__object {
-  /**
-   * 1. Default to aligning content to their middles.
-  **/
-  display: table-cell;
-  vertical-align: middle;
-  /* [1] */
-  padding-right: $fortitude-flag-gutter;
-  > img {
+@mixin fortitude-flag--rev {
+  direction: rtl;
+}
+
+@mixin fortitude-flag--responsive {
+  @media screen and (max-width: $fortitude-flag-collapse-at) {
+    @if $fortitude-enable-flag--rev == true {
+      direction: ltr;
+
+      @content;
+    }
+
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: none;
   }
 }
 
-@mixin fortitude-flag__body {
-  /**
-   * The container for the main content of the flag object.
-   *
-   * 1. Forces the `.flag__body` to take up all remaining space.
-   * 2. Default to aligning content to their middles.
-  **/
+@mixin fortitude-flag__object($extensions: ()) {
   display: table-cell;
-  width: 100%;
-  /* [1] */
   vertical-align: middle;
-  /* [2] */
+  padding-right: $fortitude-flag-gutter--default;
 }
 
-@mixin fortitude-flag--small__object {
+@mixin fortitude-flag__object--top {
+  vertical-align: top;
+}
+
+@mixin fortitude-flag__object--bottom {
+  vertical-align: bottom;
+}
+
+@mixin fortitude-flag__object--flush {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@mixin fortitude-flag__object--small {
   padding-right: $fortitude-flag-gutter--small;
 }
 
-@mixin fortitude-flag--small--rev__object {
+@mixin fortitude-flag__object--large {
+  padding-right: $fortitude-flag-gutter--large;
+}
+
+@mixin fortitude-flag__object--rev {
+  direction: ltr;
+  padding-right: 0;
+  padding-left: $fortitude-flag-gutter--default;
+}
+
+@mixin fortitude-flag__object--rev--small {
   padding-right: 0;
   padding-left: $fortitude-flag-gutter--small;
 }
 
-@mixin fortitude-flag--large__object {
-  padding-right: $fortitude-flag-gutter--large;
-}
-
-@mixin fortitude-flag--large--rev__object {
+@mixin fortitude-flag__object--rev--large {
   padding-right: 0;
   padding-left: $fortitude-flag-gutter--large;
 }
 
-@mixin fortitude-flag--rev {
-  /**
-   * 1. Swap the rendered direction of the object…
-  **/
-  direction: rtl;
-  /* [1] */
-}
-
-@mixin fortitude-flag--rev__object {
-  /**
-   * 1. Swap the rendered direction of the object…
-   * 2. …and reset it.
-   * 3. Reassign margins to the correct sides.
-  **/
-  direction: ltr;
-  /* [2] */
-  padding-right: 0;
-  /* [3] */
-  padding-left: $fortitude-flag-gutter;
-  /* [3] */
-}
-
-@mixin fortitude-flag--rev__body {
-  /**
-   * 2. …and reset it.
-  **/
-  direction: ltr;
-  /* [2] */
-}
-
-@mixin fortitude-flag--flush__object {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-@mixin fortitude-flag--top__object {
-  vertical-align: top;
-}
-
-@mixin fortitude-flag--top__body {
-  vertical-align: top;
-}
-
-@mixin fortitude-flag--bottom__object {
-  vertical-align: bottom;
-}
-
-@mixin fortitude-flag--bottom__body {
-  vertical-align: bottom;
-}
-
-@mixin fortitude-flag--responsive {
-  /**
-   * Responsive flag objects.
-   *
-   * There is a very pragmatic, simple implementation of a responsive flag
-   * object, which simply places the text-content beneath the image-content.
-   *
-   * We use a `max-width` media query because:
-   *
-   * a) it is the least verbose method in terms of amount of code required.
-   * b) the flag object’s default state is image-next-to-text, so its stacked
-   *    state is the exception, rather than the rule.
-  **/
-  @media screen and (max-width: $fortitude-flag-collapse-at) {
-    @if $fortitude-enable-flag--rev == true {
-      /**
-       * Disable reversal of content because there is no concept of
-       * ‘reversed’ in a stacked layout.
-      **/
-      direction: ltr;
-    }
-    display: block;
-    @content;
-  }
-}
-
-@mixin fortitude-flag--responsive__object {
-  /**
-   * Rework the spacings on regular flag objects.
-  **/
+@mixin fortitude-flag__object--responsive {
   display: block;
   padding-right: 0;
   padding-left: 0;
-  margin-bottom: $fortitude-flag-gutter;
+  margin-bottom: $fortitude-flag-gutter--default;
 }
 
-@mixin fortitude-flag--responsive__body {
+@mixin fortitude-flag__object--responsive--small {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@mixin fortitude-flag__object--responsive--large {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@mixin fortitude-flag__object__content($extensions: ()) {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: none;
 }
 
-@mixin fortitude-flag--responsive--small__object {
-  /**
-   * Small responsive flags.
-   *
-   * Take a little more heavy-handed approach to reworking
-   * spacings on flags that are also small flags in their regular
-   * state.
-  **/
-  padding-right: 0;
-  padding-left: 0;
+@mixin fortitude-flag__body($extensions: ()) {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
 }
 
-@mixin fortitude-flag--responsive--large__object {
-  /**
-   * Large responsive flags.
-   *
-   * Take a little more heavy-handed approach to reworking
-   * spacings on flags that are also large flags in their regular
-   * state.
-  **/
-  padding-right: 0;
-  padding-left: 0;
+@mixin fortitude-flag__body--top {
+  vertical-align: top;
+}
+
+@mixin fortitude-flag__body--bottom {
+  vertical-align: bottom;
+}
+
+@mixin fortitude-flag__body--rev {
+  direction: ltr;
+}
+
+@mixin fortitude-flag__body--responsive {
+  display: block;
 }

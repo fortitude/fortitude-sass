@@ -26,11 +26,14 @@
   @include fortitude-color-input;
 }
 
-.#{$fortitude-namespace}input {
-  &--full {
-    @include fortitude-input--full;
-  }
-  &--pill {
-    @include fortitude-input--pill;
-  }
+.#{$fortitude-namespace}input__target {
+    @include fortitude-input__target;
+}
+
+.#{$fortitude-namespace}input--full {
+  @include fortitude-input--full;
+}
+
+.#{$fortitude-namespace}input--pill {
+  @include fortitude-input--pill;
 }

@@ -13,7 +13,7 @@
   .#{$fortitude-namespace}layout--small {
     @include fortitude-layout--small;
     > .#{$fortitude-namespace}layout__item {
-      @include fortitude-layout--small__item;
+      @include fortitude-layout__item--small;
     }
   }
 }
@@ -25,7 +25,7 @@
   .#{$fortitude-namespace}layout--large {
     @include fortitude-layout--large;
     > .#{$fortitude-namespace}layout__item {
-      @include fortitude-layout--large__item;
+      @include fortitude-layout__item--large;
     }
   }
 }
@@ -37,7 +37,7 @@
   .#{$fortitude-namespace}layout--flush {
     @include fortitude-layout--flush;
     > .#{$fortitude-namespace}layout__item {
-      @include fortitude-layout--flush__item;
+      @include fortitude-layout__item--flush;
     }
   }
 }
@@ -50,7 +50,7 @@
   .#{$fortitude-namespace}layout--rev {
     @include fortitude-layout--rev;
     > .#{$fortitude-namespace}layout__item {
-      @include fortitude-layout--rev__item;
+      @include fortitude-layout__item--rev;
     }
   }
 }
@@ -61,7 +61,7 @@
   **/
   .#{$fortitude-namespace}layout--middle {
     > .#{$fortitude-namespace}layout__item {
-      @include fortitude-layout--middle__item;
+      @include fortitude-layout__item--middle;
     }
   }
 }
@@ -72,7 +72,7 @@
   **/
   .#{$fortitude-namespace}layout--bottom {
     > .#{$fortitude-namespace}layout__item {
-      @include fortitude-layout--bottom__item;
+      @include fortitude-layout__item--bottom;
     }
   }
 }
@@ -84,7 +84,7 @@
   .#{$fortitude-namespace}layout--right {
     @include fortitude-layout--right;
     > .#{$fortitude-namespace}layout__item {
-      @include fortitude-layout--right__item;
+      @include fortitude-layout__item--right;
     }
   }
 }
@@ -96,7 +96,7 @@
   .#{$fortitude-namespace}layout--center {
     @include fortitude-layout--center;
     > .#{$fortitude-namespace}layout__item {
-      @include fortitude-layout--center__item;
+      @include fortitude-layout__item--center;
     }
   }
 }

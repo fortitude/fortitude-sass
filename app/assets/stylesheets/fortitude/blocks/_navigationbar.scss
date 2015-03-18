@@ -18,6 +18,7 @@ $fortitude-navigationbar-height: 4rem !default;
 
 .#{$fortitude-namespace}navigationbar__toggle {
   float: right;
+
   > .#{$fortitude-namespace}icon {
     display: none;
   }
@@ -29,6 +30,7 @@ $fortitude-navigationbar-height: 4rem !default;
 
 .#{$fortitude-namespace}navigationbar__navigation {
   margin-right: -1rem;
+
   .#{$fortitude-namespace}fluid-container & {
     margin-right: 0;
   }
@@ -37,9 +39,11 @@ $fortitude-navigationbar-height: 4rem !default;
 .#{$fortitude-namespace}navigationbar__item {
   display: inline-block;
   position: relative;
+
   &:hover .#{$fortitude-namespace}navigationbar__dropdown {
     display: block;
   }
+
   a {
     display: block;
     padding: 0 1rem;
@@ -58,33 +62,45 @@ $fortitude-navigationbar-height: 4rem !default;
   .#{$fortitude-namespace}navigationbar__header {
     float: none;
   }
+
   .#{$fortitude-namespace}navigationbar__header__logo {
     padding-left: 2rem;
   }
+
   .#{$fortitude-namespace}navigationbar__toggle {
     float: none;
+
     > .#{$fortitude-namespace}icon {
       display: inline-block;
     }
   }
+
   .#{$fortitude-namespace}navigationbar__toggle__helper {
     display: inline-block;
   }
+
   .#{$fortitude-namespace}navigationbar__dropdown {
+    @include fortitude-bare-list;
+
     display: block;
     position: static;
   }
+
   .#{$fortitude-namespace}navigationbar__item {
     display: block;
   }
+
   .#{$fortitude-namespace}navigationbar__toggle {
     @include fortitude-clearfix;
+
     margin-top: -$fortitude-navigationbar-height;
+
     > .#{$fortitude-namespace}icon {
       float: right;
       display: block;
     }
   }
+
   .#{$fortitude-namespace}navigationbar__toggle__helper {
     float: right;
     position: relative;
@@ -93,24 +109,30 @@ $fortitude-navigationbar-height: 4rem !default;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
     + .#{$fortitude-namespace}navigationbar__navigation {
       display: none;
       position: absolute;
       top: 100%;
       width: 100%;
     }
+
     &:checked + .#{$fortitude-namespace}navigationbar__navigation {
       display: block;
     }
   }
+
   .#{$fortitude-namespace}navigationbar__navigation {
+    @include fortitude-bare-list;
     clear: both;
     margin-right: 0;
   }
+
   .#{$fortitude-namespace}navigationbar__item {
     + .#{$fortitude-namespace}navigationbar__item {
       margin-top: -0.1rem;
     }
+
     a {
       display: block;
       padding: 0 2rem;

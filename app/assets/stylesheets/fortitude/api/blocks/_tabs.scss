@@ -2,8 +2,14 @@
     #TABS
 \*------------------------------------*/
 
-@mixin fortitude-tabs__target {
-  display: none;
+@mixin fortitude-tabs__target($extensions: ()) {
+  $is-active: fortitude-contains($extensions, active);
+
+  @if $is-active {
+    @include fortitude-tabs__target--is-active;
+  } @else {
+    display: none;
+  }
 }
 
 @mixin fortitude-tabs__target--is-active {

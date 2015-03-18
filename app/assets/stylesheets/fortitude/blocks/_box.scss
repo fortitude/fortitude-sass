@@ -1,7 +1,3 @@
-@mixin fortitude-box--rounded {
-  border-radius: $fortitude-box-border-radius--rounded;
-}
-
 .#{$fortitude-namespace}box {
   @include fortitude-box;
 }

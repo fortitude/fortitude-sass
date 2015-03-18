@@ -6,6 +6,12 @@
   @include fortitude-media__object;
 }
 
+.#{$fortitude-namespace}media__object > img,
+.#{$fortitude-namespace}media__object > video {
+  @include fortitude-media__object__content;
+}
+
+
 .#{$fortitude-namespace}media__body {
   @include fortitude-media__body;
 }
@@ -16,17 +22,7 @@
   **/
   .#{$fortitude-namespace}media--small {
     > .#{$fortitude-namespace}media__object {
-      @include fortitude-media--small__object;
-    }
-    @if $fortitude-enable-media--rev == true {
-      /**
-       * Small reversed media objects.
-      **/
-      &.#{$fortitude-namespace}media--rev {
-        > .#{$fortitude-namespace}media__object {
-          @include fortitude-media--small--rev__object;
-        }
-      }
+      @include fortitude-media__object--small;
     }
   }
 }
@@ -37,17 +33,7 @@
   **/
   .#{$fortitude-namespace}media--large {
     > .#{$fortitude-namespace}media__object {
-      @include fortitude-media--large__object;
-    }
-    @if $fortitude-enable-media--rev == true {
-      /**
-       * Large reversed media objects.
-      **/
-      &.#{$fortitude-namespace}media--rev {
-        > .#{$fortitude-namespace}media__object {
-          @include fortitude-media--large--rev__object;
-        }
-      }
+      @include fortitude-media__object--large;
     }
   }
 }
@@ -58,7 +44,30 @@
   **/
   .#{$fortitude-namespace}media--rev {
     > .#{$fortitude-namespace}media__object {
-      @include fortitude-media--rev__object;
+      @include fortitude-media__object--rev;
+    }
+  }
+
+  @if $fortitude-enable-media--small == true {
+    /**
+     * Reversed small media objects.
+    **/
+
+    &.#{$fortitude-namespace}media--small {
+      > .#{$fortitude-namespace}media__object {
+        @include fortitude-media__object--rev--small;
+      }
+    }
+  }
+
+  @if $fortitude-enable-media--large == true {
+    /**
+     * Large reversed media objects.
+    **/
+    &.#{$fortitude-namespace}media--large {
+      > .#{$fortitude-namespace}media__object {
+        @include fortitude-media__object--rev--large;
+      }
     }
   }
 }
@@ -69,7 +78,7 @@
   **/
   .#{$fortitude-namespace}media--flush {
     > .#{$fortitude-namespace}media__object {
-      @include fortitude-media--flush__object;
+      @include fortitude-media__object--flush;
     }
   }
 }
@@ -93,7 +102,7 @@
        * Rework the spacings on regular media objects.
       **/
       > .#{$fortitude-namespace}media__object {
-        @include fortitude-media--responsive__object;
+        @include fortitude-media__object--responsive;
       }
       @if $fortitude-enable-media--small == true {
         /**
@@ -105,7 +114,7 @@
         **/
         &.#{$fortitude-namespace}media--small {
           > .#{$fortitude-namespace}media__object {
-            @include fortitude-media--responsive--small__object;
+            @include fortitude-media__object--responsive--small;
           }
         }
       }
@@ -119,7 +128,7 @@
         **/
         &.#{$fortitude-namespace}media--large {
           > .#{$fortitude-namespace}media__object {
-            @include fortitude-media--responsive--large__object;
+            @include fortitude-media__object--responsive--large;
           }
         }
       }

@@ -2,96 +2,74 @@
     #BADGE
 \*------------------------------------*/
 
-/**
- * A simple badge object.
-**/
-
-// Predefine the variables below in order to alter and enable specific features.
-$fortitude-badge-height: $fortitude-base-spacing-unit * 1.3 !default;
-$fortitude-badge-height--small: $fortitude-base-spacing-unit !default;
-$fortitude-badge-height--large: double($fortitude-base-spacing-unit) !default;
+$fortitude-badge-border-radius: 0 !default;
+$fortitude-badge-border-style: solid !default;
+$fortitude-badge-border-width: 0 !default;
 $fortitude-badge-font-size: $fortitude-base-font-size !default;
 
-$fortitude-badge-border-width: 0 !default;
-$fortitude-badge-border-style: solid !default;
-$fortitude-badge-border-radius: 0 !default;
+$fortitude-badge-height--default: $fortitude-base-spacing-unit * 1.3 !default;
+$fortitude-badge-horizontal-padding--default: 1rem !default;
+
+$fortitude-badge-height--small: $fortitude-base-spacing-unit !default;
+$fortitude-badge-horizontal-padding--small: 0.5rem !default;
+
+$fortitude-badge-height--large: double($fortitude-base-spacing-unit) !default;
+$fortitude-badge-horizontal-padding--large: 2rem !default;
 
 $fortitude-enable-badge--small: false !default;
 $fortitude-enable-badge--large: false !default;
 $fortitude-enable-badge--pill: false !default;
 
-@mixin fortitude-badge($fortitude-extension: null) {
-  /**
-   * 1. Allow us to style box model properties.
-   * 2. Line different sized badges up a little nicer.
-   * 3. Make badges inherit font styles (often necessary when styling `input`s as
-   *    badges).
-   * 4. Reset/normalize some styles.
-   * 5. Fixes odd inner spacing in IE7.
-   * 6. Subtract the border size from the padding value so that badges do not
-   *    grow larger as we add borders.
-   * 7. Set badge text to nowrap.
-  **/
+@mixin fortitude-badge($extensions: ()) {
+  $is-small: fortitude-contains($extensions, small);
+  $is-large: fortitude-contains($extensions, large);
+  $is-pill: fortitude-contains($extensions, pill);
+
   border: $fortitude-badge-border-width $fortitude-badge-border-style transparent;
   display: inline-block;
-  /* [1] */
   vertical-align: middle;
-  /* [2] */
   font: inherit;
-  /* [3] */
   background-color: transparent;
-  /* [4] */
   text-align: center;
-  /* [4] */
   font-size: $fortitude-badge-font-size;
-  height: $fortitude-badge-height;
+  height: $fortitude-badge-height--default;
   overflow: visible;
-  /* [5] */
   white-space: nowrap;
-  /* [7] */
-  line-height: $fortitude-base-line-height;
-  @if $fortitude-extension == small {
+
+  @if $is-small {
     @include fortitude-badge--small;
-  }
-  @else if $fortitude-extension == large {
+  } @else if $is-large {
     @include fortitude-badge--large;
+  } @else {
+    margin: fortitude-block-margin($fortitude-badge-height--default, $fortitude-badge-border-width) 0;
+    padding: fortitude-block-padding($fortitude-badge-height--default, $fortitude-badge-border-width) $fortitude-badge-horizontal-padding--default;
   }
-  @else {
-    margin: fortitude-block-margin($fortitude-badge-height, $fortitude-badge-border-width) 0;
-    /* [4] */
-    padding: fortitude-block-padding($fortitude-badge-height, $fortitude-badge-border-width) quarter($fortitude-base-spacing-unit);
-    /* [6] */
+
+  @if not $is-large {
+    line-height: $fortitude-base-line-height;
   }
-  @if $fortitude-extension == pill {
+  
+  @if $is-pill {
     @include fortitude-badge--pill;
-  }
-  @else if $fortitude-badge-border-radius != 0 {
+  } @else if $fortitude-badge-border-radius != 0 {
     border-radius: $fortitude-badge-border-radius;
   }
 }
 
 @mixin fortitude-badge--small {
   margin: fortitude-block-margin($fortitude-badge-height--small, $fortitude-badge-border-width) 0;
-  /* [4] */
-  padding: fortitude-block-padding($fortitude-badge-height--small, $fortitude-badge-border-width) quarter($fortitude-base-spacing-unit);
-  /* [6] */
+  padding: fortitude-block-padding($fortitude-badge-height--small, $fortitude-badge-border-width) $fortitude-badge-horizontal-padding--small;
 }
 
 @mixin fortitude-badge--large {
   margin: fortitude-block-margin($fortitude-badge-height--large, $fortitude-badge-border-width) 0;
-  /* [4] */
-  padding: fortitude-block-padding($fortitude-badge-height--large, $fortitude-badge-border-width) quarter($fortitude-base-spacing-unit);
-  /* [6] */
+  padding: fortitude-block-padding($fortitude-badge-height--large, $fortitude-badge-border-width) $fortitude-badge-horizontal-padding--large;
+
   @if $fortitude-block-height > $fortitude-block-line-height {
     line-height: ceil($fortitude-block-height / $fortitude-block-line-height) * $fortitude-block-line-height;
   }
 }
 
 @mixin fortitude-badge--pill {
-  /**
-   * 1. Overly-large value to ensure the radius rounds the whole end of the
-   *    badge.
-  **/
-  border-radius: 10rem;
-  /* [1] */
+  border-radius: 100rem;
 }

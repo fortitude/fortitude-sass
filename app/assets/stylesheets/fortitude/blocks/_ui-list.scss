@@ -12,7 +12,7 @@
   **/
   .#{$fortitude-namespace}ui-list--small {
     > .#{$fortitude-namespace}ui-list__item {
-      @include fortitude-ui-list--small__item;
+      @include fortitude-ui-list__item--small;
     }
   }
 }
@@ -23,7 +23,7 @@
   **/
   .#{$fortitude-namespace}ui-list--large {
     > .#{$fortitude-namespace}ui-list__item {
-      @include fortitude-ui-list--large__item;
+      @include fortitude-ui-list__item--large;
     }
   }
 }

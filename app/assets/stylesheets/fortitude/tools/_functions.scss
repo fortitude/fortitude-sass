@@ -110,3 +110,7 @@
     @return null;
   }
 }
+
+@function fortitude-contains($fortitude-list, $fortitude-value) {
+  @return (false == index($fortitude-list, $fortitude-value));
+}
