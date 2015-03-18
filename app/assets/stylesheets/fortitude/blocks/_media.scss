@@ -96,7 +96,7 @@
    * b) the media object’s default state is image-next-to-text, so its stacked
    *    state is the exception, rather than the rule.
   **/
-  @media screen and (max-width: $fortitude-media-collapse-at) {
+  @include fortitude-breakpoint("(max-width: #{$fortitude-media-collapse-at})") {
     .#{$fortitude-namespace}media--responsive {
       /**
        * Rework the spacings on regular media objects.

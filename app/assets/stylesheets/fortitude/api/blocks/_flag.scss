@@ -24,7 +24,7 @@ $fortitude-enable-flag--responsive: false !default;
 }
 
 @mixin fortitude-flag--responsive {
-  @media screen and (max-width: $fortitude-flag-collapse-at) {
+  @include fortitude-breakpoint("(max-width: #{$fortitude-flag-collapse-at})") {
     @if $fortitude-enable-flag--rev == true {
       direction: ltr;
 

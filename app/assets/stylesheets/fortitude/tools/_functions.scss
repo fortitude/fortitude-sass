@@ -13,104 +13,92 @@
 //     padding: halve(3.2px);
 // }
 //
-@function quarter($fortitude-value) {
-  @return $fortitude-value / 4;
+@function quarter($value) {
+  @return $value / 4;
 }
 
-@function halve($fortitude-value) {
-  @return $fortitude-value / 2;
+@function halve($value) {
+  @return $value / 2;
 }
 
-@function double($fortitude-value) {
-  @return $fortitude-value * 2;
+@function double($value) {
+  @return $value * 2;
 }
 
-@function quadruple($fortitude-value) {
-  @return $fortitude-value * 4;
+@function quadruple($value) {
+  @return $value * 4;
 }
 
-@function fortitude-strip-unit($fortitude-value) {
-  @return $fortitude-value / ($fortitude-value * 0 + 1);
+@function fortitude-contains($list, $value) {
+  @return (false == index($list, $value));
 }
 
-@function fortitude-px-to-rem($fortitude-value) {
-  @return fortitude-strip-unit($fortitude-value) * 0.1rem;
+@function fortitude-strip-unit($value) {
+  @return $value / ($value * 0 + 1);
 }
 
-@function fortitude-rem-to-px($fortitude-value) {
-  @return fortitude-strip-unit($fortitude-value) * 10px;
+@function fortitude-strip-unit-if-zero($value) {
+  @return if(fortitude-strip-unit($value) == 0, 0, $value);
 }
 
-@function fortitude-block-spacing-unit-height($fortitude-block-height, $fortitude-block-spacing-unit: $fortitude-base-spacing-unit) {
-  $fortitude-value: ceil($fortitude-block-height / $fortitude-block-spacing-unit) * $fortitude-block-spacing-unit;
-  @return $fortitude-value;
+@function fortitude-px-to-rem($value) {
+  @return fortitude-strip-unit($value) * 0.1rem;
 }
 
-@function fortitude-block-spacing-unit-delta($fortitude-block-height, $fortitude-block-spacing-unit: $fortitude-base-spacing-unit) {
-  $fortitude-block-spacing-unit-height: fortitude-block-spacing-unit-height($fortitude-block-height, $fortitude-block-spacing-unit);
-  $fortitude-value: halve($fortitude-block-spacing-unit-height - $fortitude-block-height);
-  // normalize value 0rem to 0.
-  @if fortitude-strip-unit($fortitude-value) == 0 {
-    $fortitude-value: 0;
+@function fortitude-rem-to-px($value) {
+  @return fortitude-strip-unit($value) * 10px;
+}
+
+@function fortitude-block-spacing-unit-height($block-height, $block-spacing-unit: $fortitude-base-spacing-unit) {
+  $value: ceil($block-height / $block-spacing-unit) * $block-spacing-unit;
+  @return fortitude-strip-unit-if-zero($value);
+}
+
+@function fortitude-block-spacing-unit-delta($block-height, $block-spacing-unit: $fortitude-base-spacing-unit) {
+  $block-spacing-unit-height: fortitude-block-spacing-unit-height($block-height, $block-spacing-unit);
+  $value: halve($block-spacing-unit-height - $block-height);
+  @return fortitude-strip-unit-if-zero($value);
+}
+
+@function fortitude-block-negitive-padding($block-height, $block-border-width: 0rem, $block-spacing-unit: $fortitude-base-spacing-unit) {
+  $value: halve($block-height - $block-spacing-unit - double($block-border-width));
+  @return fortitude-strip-unit-if-zero($value);
+}
+
+@function fortitude-block-margin($block-height, $block-border-width: 0rem, $block-spacing-unit: $fortitude-base-spacing-unit) {
+  $block-spacing-unit-height: fortitude-block-spacing-unit-height($block-height, $block-spacing-unit);
+  $value: halve($block-spacing-unit-height - $block-height);
+
+  @if $value < 0 {
+    $value: fortitude-block-negitive-padding($block-height, $block-border-width, $block-spacing-unit) + fortitude-block-spacing-unit-delta($block-height, $block-spacing-unit);
   }
-  @return $fortitude-value;
+
+  @return fortitude-strip-unit-if-zero($value);
 }
 
-@function fortitude-block-negitive-padding($fortitude-block-height, $fortitude-block-border-width: 0rem, $fortitude-block-spacing-unit: $fortitude-base-spacing-unit) {
-  $fortitude-value: halve($fortitude-block-height - $fortitude-block-spacing-unit - double($fortitude-block-border-width));
-  // normalize value 0rem to 0.
-  @if $fortitude-value > 0 {
-    $fortitude-value: 0;
-  }
-  @return $fortitude-value;
+@function fortitude-block-padding($block-height, $block-border-width: 0rem, $block-line-height: $fortitude-base-line-height) {
+  $value: halve($block-height - $block-line-height - double($block-border-width));
+  @return fortitude-strip-unit-if-zero($value);
 }
 
-@function fortitude-block-margin($fortitude-block-height, $fortitude-block-border-width: 0rem, $fortitude-block-spacing-unit: $fortitude-base-spacing-unit) {
-  $fortitude-block-spacing-unit-height: fortitude-block-spacing-unit-height($fortitude-block-height, $fortitude-block-spacing-unit);
-  $fortitude-value: halve($fortitude-block-spacing-unit-height - $fortitude-block-height);
-  @if $fortitude-value < 0 {
-    $fortitude-value: fortitude-block-negitive-padding($fortitude-block-height, $fortitude-block-border-width, $fortitude-block-spacing-unit) + fortitude-block-spacing-unit-delta($fortitude-block-height, $fortitude-block-spacing-unit);
-  }
-  // normalize value 0rem to 0.
-  @if fortitude-strip-unit($fortitude-value) == 0 {
-    $fortitude-value: 0;
-  }
-  @return $fortitude-value;
-}
-
-@function fortitude-block-padding($fortitude-block-height, $fortitude-block-border-width: 0rem, $fortitude-block-line-height: $fortitude-base-line-height) {
-  $fortitude-value: halve($fortitude-block-height - $fortitude-block-line-height - double($fortitude-block-border-width));
-  // normalize value 0rem to 0.
-  @if $fortitude-value <= 0 {
-    $fortitude-value: 0;
-  }
-  @return $fortitude-value;
-}
-
-@function fortitude-map-to-query($fortitude-map) {
-  $fortitude-query: "";
-  @for $fortitude-index from 1 through length($fortitude-map) {
-    $fortitude-query-part: "(#{nth(nth($fortitude-map, $fortitude-index), 1)}:#{nth(nth($fortitude-map, $fortitude-index), 2)})";
-    @if $fortitude-index != length($fortitude-map) {
-      $fortitude-query-part: str-insert($fortitude-query-part, " and ", str-length($fortitude-query-part) + 1);
+@function fortitude-map-to-query($map) {
+  $query: "";
+  @for $index from 1 through length($map) {
+    $query-part: "(#{nth(nth($map, $index), 1)}:#{nth(nth($map, $index), 2)})";
+    @if $index != length($map) {
+      $query-part: str-insert($query-part, " and ", str-length($query-part) + 1);
     }
-    $fortitude-query: str-insert($fortitude-query, $fortitude-query-part, str-length($fortitude-query) + 1);
+    $query: str-insert($query, $query-part, str-length($query) + 1);
   }
-  @return $fortitude-query;
+  @return $query;
 }
 
-@function fortitude-query($fortitude-object) {
-  @if type-of($fortitude-object) == map {
-    @return fortitude-map-to-query($fortitude-object);
-  }
-  @else if type-of($fortitude-object) == number {
-    @return fortitude-map-to-query((min-width: $fortitude-object));
-  }
-  @else {
+@function fortitude-query($object) {
+  @if type-of($object) == map {
+    @return fortitude-map-to-query($object);
+  } @else if type-of($object) == number {
+    @return fortitude-map-to-query((min-width: $object));
+  } @else {
     @return null;
   }
-}
-
-@function fortitude-contains($fortitude-list, $fortitude-value) {
-  @return (false == index($fortitude-list, $fortitude-value));
 }

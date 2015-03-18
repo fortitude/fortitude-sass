@@ -1,26 +1,31 @@
 $fortitude-responsive-border-unit-total: 1 !default;
 
 @include fortitude-breakpoint-classes {
-  @for $fortitude-index from 0 through $fortitude-responsive-border-unit-total {
-    &-bt#{$fortitude-index},
-    &-b#{$fortitude-index},
-    &-btb#{$fortitude-index} {
-      border-top-width: $fortitude-index * 0.1rem !important;
+  @for $index from 0 through $fortitude-responsive-border-unit-total {
+    $value: fortitude-strip-unit-if-zero($index * 0.1rem) !important;
+
+    &-bt#{$index},
+    &-b#{$index},
+    &-btb#{$index} {
+      border-top-width: $value;
     }
-    &-br#{$fortitude-index},
-    &-b#{$fortitude-index},
-    &-brl#{$fortitude-index} {
-      border-right-width: $fortitude-index * 0.1rem !important;
+
+    &-br#{$index},
+    &-b#{$index},
+    &-brl#{$index} {
+      border-right-width: $value;
     }
-    &-bb#{$fortitude-index},
-    &-b#{$fortitude-index},
-    &-btb#{$fortitude-index} {
-      border-bottom-width: $fortitude-index * 0.1rem !important;
+
+    &-bb#{$index},
+    &-b#{$index},
+    &-btb#{$index} {
+      border-bottom-width: $value;
     }
-    &-bl#{$fortitude-index},
-    &-b#{$fortitude-index},
-    &-brl#{$fortitude-index} {
-      border-left-width: $fortitude-index * 0.1rem !important;
+
+    &-bl#{$index},
+    &-b#{$index},
+    &-brl#{$index} {
+      border-left-width: $value;
     }
   }
 }

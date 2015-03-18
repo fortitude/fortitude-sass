@@ -1,9 +1,11 @@
 $fortitude-responsive-font-sizes: (alpha: 3.6rem, beta: 3rem, gamma: 2.4rem, delta: 1.8rem, epsilon: 1.4rem, zeta: 1rem) !default;
 
 @include fortitude-breakpoint-classes {
-  @each $fortitude-alias, $fortitude-size in $fortitude-responsive-font-sizes {
-    &-#{$fortitude-alias} {
-      font-size: map-get($fortitude-responsive-font-sizes, $fortitude-alias) !important;
+  @each $alias, $size in $fortitude-responsive-font-sizes {
+    $value: map-get($fortitude-responsive-font-sizes, $alias) !important;
+
+    &-#{$alias} {
+      font-size: $value;
     }
   }
 }

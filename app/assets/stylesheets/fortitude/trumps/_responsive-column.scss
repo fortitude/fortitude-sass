@@ -1,21 +1,23 @@
 $fortitude-responsive-column-total: 12 !default;
 
 @include fortitude-breakpoint-classes {
-  @for $fortitude-index from 0 through $fortitude-responsive-column-total {
-    &-#{$fortitude-index}of#{$fortitude-responsive-column-total} {
-      width: percentage($fortitude-index / $fortitude-responsive-column-total) !important;
+  @for $index from 0 through $fortitude-responsive-column-total {
+    $value: percentage($index / $fortitude-responsive-column-total) !important;
+
+    &-#{$index}of#{$fortitude-responsive-column-total} {
+      width: $value;
     }
 
-    &-offset#{$fortitude-index}of#{$fortitude-responsive-column-total} {
-      margin-left: percentage($fortitude-index / $fortitude-responsive-column-total) !important;
+    &-offset#{$index}of#{$fortitude-responsive-column-total} {
+      margin-left: $value;
     }
 
-    &-push#{$fortitude-index}of#{$fortitude-responsive-column-total} {
-      left: percentage($fortitude-index / $fortitude-responsive-column-total) !important;
+    &-push#{$index}of#{$fortitude-responsive-column-total} {
+      left: $value;
     }
 
-    &-pull#{$fortitude-index}of#{$fortitude-responsive-column-total} {
-      right: percentage($fortitude-index / $fortitude-responsive-column-total) !important;
+    &-pull#{$index}of#{$fortitude-responsive-column-total} {
+      right: $value;
     }
   }
 }

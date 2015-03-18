@@ -1,46 +1,56 @@
 $fortitude-responsive-padding-unit-total: 10 !default;
 
 @include fortitude-breakpoint-classes {
-  @for $fortitude-index from 0 through $fortitude-responsive-padding-unit-total {
-    &-pt#{$fortitude-index},
-    &-p#{$fortitude-index},
-    &-ptb#{$fortitude-index} {
-      padding-top: $fortitude-base-spacing-unit * $fortitude-index !important;
+  @for $index from 0 through $fortitude-responsive-padding-unit-total {
+    $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index) !important;
+    $value-and-half: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index + halve($fortitude-base-spacing-unit)) !important;
+
+    &-pt#{$index},
+    &-p#{$index},
+    &-ptb#{$index} {
+      padding-top: $value;
     }
-    &-pth#{$fortitude-index},
-    &-ph#{$fortitude-index},
-    &-ptbh#{$fortitude-index} {
-      padding-top: $fortitude-base-spacing-unit * $fortitude-index + halve($fortitude-base-spacing-unit) !important;
+
+    &-pth#{$index},
+    &-ph#{$index},
+    &-ptbh#{$index} {
+      padding-top: $value-and-half;
     }
-    &-pr#{$fortitude-index},
-    &-p#{$fortitude-index},
-    &-prl#{$fortitude-index} {
-      padding-right: $fortitude-base-spacing-unit * $fortitude-index !important;
+
+    &-pr#{$index},
+    &-p#{$index},
+    &-prl#{$index} {
+      padding-right: $value;
     }
-    &-prh#{$fortitude-index},
-    &-ph#{$fortitude-index},
-    &-prlh#{$fortitude-index} {
-      padding-right: $fortitude-base-spacing-unit * $fortitude-index + halve($fortitude-base-spacing-unit) !important;
+
+    &-prh#{$index},
+    &-ph#{$index},
+    &-prlh#{$index} {
+      padding-right: $value-and-half;
     }
-    &-pb#{$fortitude-index},
-    &-p#{$fortitude-index},
-    &-ptb#{$fortitude-index} {
-      padding-bottom: $fortitude-base-spacing-unit * $fortitude-index !important;
+
+    &-pb#{$index},
+    &-p#{$index},
+    &-ptb#{$index} {
+      padding-bottom: $value;
     }
-    &-pbh#{$fortitude-index},
-    &-ph#{$fortitude-index},
-    &-ptbh#{$fortitude-index} {
-      padding-bottom: $fortitude-base-spacing-unit * $fortitude-index + halve($fortitude-base-spacing-unit) !important;
+
+    &-pbh#{$index},
+    &-ph#{$index},
+    &-ptbh#{$index} {
+      padding-bottom: $value-and-half;
     }
-    &-pl#{$fortitude-index},
-    &-p#{$fortitude-index},
-    &-prl#{$fortitude-index} {
-      padding-left: $fortitude-base-spacing-unit * $fortitude-index !important;
+
+    &-pl#{$index},
+    &-p#{$index},
+    &-prl#{$index} {
+      padding-left: $value;
     }
-    &-plh#{$fortitude-index},
-    &-ph#{$fortitude-index},
-    &-prlh#{$fortitude-index} {
-      padding-left: $fortitude-base-spacing-unit * $fortitude-index + halve($fortitude-base-spacing-unit) !important;
+
+    &-plh#{$index},
+    &-ph#{$index},
+    &-prlh#{$index} {
+      padding-left: $value-and-half;
     }
   }
 }

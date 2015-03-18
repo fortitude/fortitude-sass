@@ -17,16 +17,9 @@ $fortitude-global-border-box: false !default;
   margin-right: auto;
   margin-left: auto;
 
-  @each $fortitude-alias, $fortitude-breakpoint in $fortitude-breakpoints {
-    $fortitude-query: fortitude-query($fortitude-breakpoint);
-
-    @if not $fortitude-query {
-      width: map-get($fortitude-container-breakpoints, $fortitude-alias);
-    }
-    @else {
-      @media #{$fortitude-query} {
-        width: map-get($fortitude-container-breakpoints, $fortitude-alias);
-      }
+  @each $alias, $breakpoint in $fortitude-breakpoints {
+    @include fortitude-breakpoint($alias) {
+      width: map-get($fortitude-container-breakpoints, $alias);
     }
   }
 

@@ -8,41 +8,41 @@
 // Predefine the variables below in order to alter and enable specific features.
 $fortitude-enable-classes: false !default;
 
-@mixin fortitude-breakpoint($fortitude-alias, $fortitude-breakpoints: $fortitude-class-breakpoints) {
-  $fortitude-query: fortitude-query(map-get($fortitude-breakpoints, $fortitude-alias));
-  // if there is no media query.
-  @if not $fortitude-query {
-    @content;
-  }
-  @else {
-    // if there is a media query.
-    @media #{$fortitude-query} {
+@mixin fortitude-breakpoint($alias, $breakpoints: $fortitude-class-breakpoints) {
+  $query: fortitude-query(map-get($breakpoints, $alias));
+
+  // if there is a key in the breakpoints map
+  @if map-has-key($breakpoints, $alias) {
+    // and there is no media query.
+    @if $query == null {
+      @content;
+    } @else {
+      // and there is a media query.
+      @media #{$query} {
+        @content;
+      }
+    }
+  } @else {
+    @media #{$alias} {
       @content;
     }
   }
 }
 
-@mixin fortitude-breakpoint-classes($fortitude-breakpoints: $fortitude-class-breakpoints) {
-  @each $fortitude-alias, $fortitude-breakpoint in $fortitude-breakpoints {
-    $fortitude-query: fortitude-query($fortitude-breakpoint);
-    .#{$fortitude-alias} {
-      // if there is no media query.
-      @if not $fortitude-query {
+@mixin fortitude-breakpoint-classes($breakpoints: $fortitude-class-breakpoints) {
+  @each $alias, $_ in $breakpoints {
+    .#{$alias} {
+      @include fortitude-breakpoint($alias) {
         @content;
-      }
-      @else {
-        @media #{$fortitude-query} {
-          @content;
-        }
       }
     }
   }
 }
 
-@mixin fortitude-font-size($fortitude-font-size, $fortitude-line-height: true) {
-  font-size: $fortitude-font-size;
-  @if $fortitude-line-height == true {
-    line-height: ceil($fortitude-font-size / $fortitude-base-line-height) * $fortitude-base-line-height;
+@mixin fortitude-font-size($font-size, $line-height: true, $line-height: $fortitude-base-line-height) {
+  font-size: $font-size;
+  @if $line-height == true {
+    line-height: ceil($font-size / $line-height) * $line-height;
   }
 }
 
