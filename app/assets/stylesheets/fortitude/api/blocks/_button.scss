@@ -55,6 +55,8 @@ $fortitude-global-border-box: false !default;
 
   @if $is-pill {
     @include fortitude-button--pill;
+  } @else if $fortitude-button-border-radius != 0 {
+    border-radius: $fortitude-button-border-radius;
   }
 
   @if $fortitude-global-border-box == false {
