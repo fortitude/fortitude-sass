@@ -22,7 +22,13 @@
 }
 
 @mixin fortitude-tabs-navigation__item($extensions: ()) {
-  display: table-cell;
+  $is-active: fortitude-contains($extensions, active);
+
+  @if $is-active {
+    display: table-cell;  
+  } @else {
+    display: none;
+  }
 }
 
 @mixin fortitude-tabs-navigation__link($extensions: ()) {

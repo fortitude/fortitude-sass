@@ -2,8 +2,8 @@
   'use strict';
 
   $.screenLock = function(locking) {
-    var $html = $('html');
-    var $body = $('body');
+    var $html = $('html'),
+        $body = $('body');
 
     if (locking) {
       $html.addClass('html--is-locked');

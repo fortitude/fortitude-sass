@@ -3,3 +3,8 @@ $fortitude-enable-shade: true;
 .#{$fortitude-namespace}shade {
   @include fortitude-shade;
 }
+
+.#{$fortitude-namespace}shade--is-active {
+  $extensions: ('active': true);
+  @include fortitude-shade($extensions);
+}

@@ -3,7 +3,13 @@
 \*------------------------------------*/
 
 @mixin fortitude-shade($extensions: ()) {
-  display: none;
+  $active: map-get($extensions, 'active');
+  
+  @if($active){
+    display: block;
+  } @else {
+    display: none;
+  }
   position: fixed;
   top: 0;
   right: 0;
