@@ -1,32 +1,32 @@
 (function($){
   'use strict';
 
-  $(document).on('select.ft.tabs', function(event){
-    var activeClass = 'tabs-navigation__item--is-active',
-        tabIdentifier = $this.data('ft-tabs'),
-        $this = $(this);
+  var itemActive = 'tabs-navigation__item--is-active',
+      targetActive = 'tabs__target--is-active',
+      tabItem = '.tabs-navigation__item[data-ft-tab]';
 
-    event.preventDefault();
+  var selectTab = function($element){
+    var $target = $.ftGetTarget($element, 'ftTab'),
+        $siblings, activeClass;
 
-    if($this.hasClass(activeClass)){
-      $this.trigger('deselect.ft.tabs');
-      $this.removeClass(activeClass);
-    } else {
-      $this.trigger('select.ft.tabs');
-      $(document).find('[data-ft-tabs=' + tabIdentifier + ']').each(function(){
-        $(this).trigger('deselect.ft.tabs');
-        $(this).removeClass(activeClass);
-      });
-      $this.addClass(activeClass);
-    }
+    $target.addClass(targetActive);
+    $element.siblings().each(function(){
+      var $this = $(this),
+          $otherTarget = $.ftGetTarget($this, 'ftTab');
+      
+      $this.removeClass(itemActive);
+      $otherTarget.removeClass(targetActive);
+    });
     
-    return false;
+    $element.addClass(itemActive);
+  };
+
+  $(document).on('select.ft.tab', tabItem, function(event){
+    selectTab($(this));
   });
 
-  $(document).on('click', '[data-ft-tabs]', function(event){
-    event.preventDefault();
-    $(this).trigger('select.ft.tabs');
-    return false;
+  $(document).on('click', tabItem, function(){
+    $(this).trigger('select.ft.tab');
   });
 
 })(jQuery);

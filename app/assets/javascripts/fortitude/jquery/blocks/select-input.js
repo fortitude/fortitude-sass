@@ -6,24 +6,31 @@
   var setClassName = function() {
     var $this = $(this),
         className = $this.find(':selected').attr('class') || "",
-        data = $this.data('ft-select') || {};
-
+        data = $this.data('ftSelect') || {};
+    
     if (className !== data.previousClass) {
       $this.
         addClass(className).
         removeClass(data.previousClass).
-        data('ft-select', $.merge({previousClass: className}, data));
+        data('ftSelect', $.merge({previousClass: className}, data));
     }
+  };
 
+  var setupSelectInputs = function(){
+    $document
+      .find('.select-input')
+      .data('ftSelect', {previousClass: ""})
+      .each(setClassName);
   };
 
   $document.on('change.ft.select', 'select:not([multiple])', setClassName);
 
   $document.on('DOMContentLoaded', function() {
-    $document
-      .find('select')
-      .data('ft-select', {previousClass: ""})
-      .each(setClassName);
+    setupSelectInputs();
+  });
+
+  $document.on('setup.ft.select', function(){
+    setupSelectInputs();
   });
 
   setTimeout(function() {
