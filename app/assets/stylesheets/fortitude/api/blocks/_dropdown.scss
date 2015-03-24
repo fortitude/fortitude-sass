@@ -13,10 +13,6 @@
   top: 100%;  
 }
 
-@mixin foritude-dropdown__icon {
-  display: block;
-}
-
 @mixin fortitude-dropdown__text--is-checked {
   display: none;
 }
@@ -33,7 +29,7 @@
   height: 100%;
   outline: 0;
   opacity: 0;
-  @include appearance(none);
+  @include fortitude-appearance(none);
 
   &:checked ~ .dropdown__navigation {
     display: block;
@@ -45,9 +41,5 @@
 
   &:checked ~ .dropdown__text--is-checked {
     display: block;
-  }
-
-  &:hover ~ .hover-link {
-    // color: $brand-blue-dark;
   }
 }

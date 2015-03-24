@@ -25,10 +25,14 @@
   $is-active: fortitude-contains($extensions, active);
 
   @if $is-active {
-    display: table-cell;  
+    @include fortitude-tabs-navigation__item--is-active;
   } @else {
     display: none;
   }
+}
+
+@mixin fortitude-tabs-navigation__item--is-active($extensions: ()){
+  display: table-cell;
 }
 
 @mixin fortitude-tabs-navigation__link($extensions: ()) {

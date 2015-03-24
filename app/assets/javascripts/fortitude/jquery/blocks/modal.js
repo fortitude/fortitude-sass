@@ -1,61 +1,48 @@
 (function($) {
-    'use strict';
+  'use strict';
 
-    $(document).on('open.ft.modal', function(event) {
-      
-      var $this = $(this);
-      var $target = $($this.data('ft-modal'));
-
-      $.screenLock(true);
-      $('.shade').trigger('open.ft.shade');
-      $('.container--fixed-top').css({
-        paddingRight: $.measureScrollBar
-      });
-
-      $target.show().addClass('fadeIn').waitForAnimation().then( function(){
-        $target
-          .removeClass('fadeIn')
-          .trigger('opened.ft.modal')
-          .attr('data-ft-modal-open', true);
-      });
-
-      return false;
+  $(document).on('open.ft.modal', '.modal', function(event) {
+    var $this = $(this);
+    
+    $.screenLock(true);
+    $('.shade').trigger('open.ft.shade');
+    $('.container--fixed-top').css({
+      paddingRight: $.measureScrollBar()
     });
+    $this.addClass('modal--is-active');
+  });
 
-    $(document).on('close.ft.modal', function(event) {
-      var $this = $(this);
-      
-      event.preventDefault();
-      $.screenLock(false);
-
-      $this
-        .addClass('fadeOut')
-        .data('ft-modal-open', false)
-        .waitForAnimation()
-        .then(function(){
-          $.screenLock(false);
-          $('.container--fixed-top').css({
-            paddingRight: $.measureScrollBar
-          });
-          $this
-            .hide()
-            .removeClass('fadeOut')
-            .trigger('closed.ft.modal');
-        });
-
-      return false;
+  $(document).on('close.ft.modal', '.modal', function(event) {
+    var $this = $(this);
+    
+    $.screenLock(false);
+    $('.shade').trigger('close.ft.shade');
+    $('.container--fixed-top').css({
+      paddingRight: $.measureScrollBar()
     });
+    $this.removeClass('modal--is-active');
+  });
 
-    $(document).on('click', '[data-ft-modal]', function(){
-      $(this).trigger('open.ft.modal');
-    });
+  $(document).on('click', '[data-ft-modal]', function(){
+    var targetId = $(this).data('ftModal'),
+        $target;
+    
+    if(!targetId.match(/^#/)) { targetId = '#' + targetId; }
+    $target = $(targetId);
+    $target.trigger('open.ft.modal');
+  });
 
-    $(document).on('click', '[data-ft-modal-close]', function(){
-      $(this).trigger('close.ft.modal');
-    });
+  $(document).on('click', '[data-ft-modal-close]', function(){
+    var targetId = $(this).data('ftModalClose'),
+        $target;
+    
+    if(!targetId.match(/^#/)) { targetId = '#' + targetId; }
+    $target = $(targetId);
+    $target.trigger('close.ft.modal');
+  });
 
-    $(document).on('click', '.shade', function(){
-      $('[data-ft-modal-open=true]').trigger('close.ft.modal');
-    });
+  $(document).on('click', '.shade', function(){
+    $('.modal--is-active').trigger('close.ft.modal');
+  });
 
 })(jQuery);

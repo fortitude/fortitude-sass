@@ -1,15 +1,12 @@
 (function($) {
     'use strict';
 
-    $(document).on('close.ft.flashbar', '.flashbar__close', function(event) {
-      var $target = $(this).closest('.flashbar');
-      event.preventDefault();
-      $target.remove();
-      return false;
+    $(document).on('close.ft.flashbar', '.flashbar', function(event) {
+      $(this).remove();
     });
 
     $(document).on('click', '.flashbar__close', function(event){
-      $(this).trigger('close.ft.flashbar');
+      $(this).closest('.flashbar').trigger('close.ft.flashbar');
     });
 
 })(jQuery);

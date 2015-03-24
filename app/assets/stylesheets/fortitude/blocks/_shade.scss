@@ -5,6 +5,6 @@ $fortitude-enable-shade: true;
 }
 
 .#{$fortitude-namespace}shade--is-active {
-  $extensions: ('active': true);
-  @include fortitude-shade($extensions);
+  @include fortitude-shade--is-active;
 }
+

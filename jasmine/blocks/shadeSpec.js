@@ -7,7 +7,6 @@
     beforeEach(function(){
       loadFixtures('shadeFixture.html');
       $shade = $('.shade');
-      $shade.attr('id', 'FUCKING-SHADE');
     });
 
     it("is not immediately visible", function(){

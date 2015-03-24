@@ -5,8 +5,7 @@
   }
 
   @include it("should be display: block when active"){
-    $extensions = map(active: true);
-    @include fortitude-shade($extensions);
+    @include fortitude-shade--is-active;
     @include should( expect(display) ), to( equal(block) );
   }
 }

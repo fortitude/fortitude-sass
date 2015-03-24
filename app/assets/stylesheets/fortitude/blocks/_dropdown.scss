@@ -6,10 +6,6 @@
   @include fortitude-dropdown__navigation; 
 }
 
-.#{$fortitude-namespace}dropdown__icon {
-  @include fortitude-dropdown__icon;
-}
-
 .#{$fortitude-namespace}dropdown__text--is-checked {
   @include fortitude-dropdown__text--is-checked;
 }
