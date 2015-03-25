@@ -9,16 +9,34 @@
     var $target = $.ftGetTarget($element, 'ftTab'),
         $siblings, activeClass;
 
-    $target.addClass(targetActive);
     $element.siblings().each(function(){
       var $this = $(this),
           $otherTarget = $.ftGetTarget($this, 'ftTab');
-      
-      $this.removeClass(itemActive);
-      $otherTarget.removeClass(targetActive);
+
+      $this.ftTransitionWith({
+        dataAttr: 'ftHideClass',
+        removeClass: itemActive,
+        endEvent: 'deselected.ft.tab'
+      });
+
+      $otherTarget.ftTransitionWith({
+        dataAttr: 'ftHideClass',
+        removeClass: targetActive,
+        endEvent: 'closed.ft.tabtarget'
+      });
     });
-    
-    $element.addClass(itemActive);
+
+    $element.ftTransitionWith({
+      dataAttr: 'ftShowClass',
+      addClass: itemActive,
+      endEvent: 'opened.ft.tab'
+    });
+
+    return $target.ftTransitionWith({
+      dataAttr: 'ftShowClass',
+      addClass: targetActive,
+      endEvent: 'opened.ft.tabtarget'
+    });
   };
 
   $(document).on('select.ft.tab', tabItem, function(event){

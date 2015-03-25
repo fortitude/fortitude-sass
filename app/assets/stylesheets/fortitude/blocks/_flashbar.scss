@@ -4,6 +4,10 @@ $fortitude-enable-flashbar: true;
   @include fortitude-flashbar;
 }
 
+.#{$fortitude-namespace}flashbar--closed {
+  @include fortitude-flashbar--closed;
+}
+
 .#{$fortitude-namespace}flashbar__close {
   @include fortitude-flashbar__close;
 }

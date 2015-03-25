@@ -5,7 +5,7 @@
     var contentVal = 'width=device-width,' +
           'initial-scale=1,' +
           'maximum-scale=',
-        $viewport, $input, contentVal;
+        $viewport, $input;
     
     beforeEach(function(){
       loadFixtures('viewportFixture.html');

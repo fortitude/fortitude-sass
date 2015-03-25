@@ -1,9 +1,9 @@
 (function($){
   'use strict';
-  
+
   describe(".navigationbar", function(){
     var $navbar, $shade;
-    
+
     beforeEach(function(){
       loadFixtures('navigationbarFixture.html');
       $navbar = $('.navigationbar');
@@ -14,15 +14,21 @@
       expect($shade).not.toBeVisible();
     });
 
-    it('opens the shade when toggle helper checked', function(){
+    it('opens the shade when toggle helper checked', function(done){
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      expect($shade).toBeVisible();
+      $shade.on('opened.ft.shade', function(){
+        expect($shade).toBeVisible();
+        done();
+      });
     });
 
-    it('closes the shade when toggle helper unchecked', function(){
+    it('closes the shade when toggle helper unchecked', function(done){
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      expect($shade).not.toBeVisible();
+      $shade.on('closed.ft.shade', function(){
+        expect($shade).not.toBeVisible();
+        done();
+      });
     });
   });
 })(jQuery);

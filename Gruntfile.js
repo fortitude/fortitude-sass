@@ -2,14 +2,15 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    
+
     app: {
       scss:       'app/assets/stylesheets',
       js:         'app/assets/javascripts',
       img:        'app/assets/images',
       dist:       'dist',
       tmp:        'tmp',
-      sass_specs: 'sass_specs'
+      sass_specs: 'sass_specs',
+      jasmine:    'jasmine'
     },
 
     bower: {
@@ -25,12 +26,12 @@ module.exports = function(grunt) {
       },
       test: {
         expand: true,
-        cwd: 'jasmine',
+        cwd: '<%= app.jasmine %>',
         src: '**/*.html',
         dest: '<%= app.tmp %>'
       }
     },
-    
+
     sass: {
       dist: {
         options: {
@@ -145,19 +146,23 @@ module.exports = function(grunt) {
 
     jshint: {
       all:  ['<%= app.js %>/**/*.js'],
-      test: ['<%= app.tmp %>/<%= pkg.name %>.js']
+      test: ['<%= app.tmp %>/<%= pkg.name %>.js', '<%= app.jasmine %>/**/*.js']
     },
 
     jasmine: {
       fortitude: {
         src: 'app/assets/javascripts/**/*.js',
         options: {
-          specs: 'jasmine/**/*Spec.js',
-          helpers: 'jasmine/**/*Helper.js',
-          styles: '<%= app.tmp %>/<%= pkg.name %>.css',
+          specs: '<%= app.jasmine %>/**/*Spec.js',
+          helpers: '<%= app.jasmine %>/**/*Helper.js',
+          styles: [
+            '<%= app.tmp %>/<%= pkg.name %>.css',
+            '<%= app.jasmine %>/fixtures/animations.css'
+          ],
           vendor: [
             'node_modules/jquery/dist/jquery.js',
-            'node_modules/jasmine-jquery/lib/jasmine-jquery.js'
+            'node_modules/jasmine-jquery/lib/jasmine-jquery.js',
+            'node_modules/lodash/index.js'
           ],
           outfile: '<%= app.tmp %>/SpecRunner.html',
           keepRunner: true
