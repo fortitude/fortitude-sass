@@ -1,0 +1,11 @@
+$fortitude-enable-box: false !default;
+
+@if $fortitude-enable-box {
+  @each $intent, $rules in $fortitude-box-intents {
+    .box--#{$intent} {
+      @each $property, $value in $rules {
+        #{$property}: $value;
+      }
+    }
+  }
+}

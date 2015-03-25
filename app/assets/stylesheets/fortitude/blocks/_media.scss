@@ -1,3 +1,5 @@
+$fortitude-enable-media: true;
+
 .#{$fortitude-namespace}media {
   @include fortitude-media;
 }

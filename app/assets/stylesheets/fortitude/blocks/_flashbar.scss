@@ -1,3 +1,5 @@
+$fortitude-enable-flashbar: true;
+
 .#{$fortitude-namespace}flashbar {
   @include fortitude-flashbar;
 }

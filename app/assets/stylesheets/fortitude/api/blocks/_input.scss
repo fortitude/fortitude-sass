@@ -7,7 +7,7 @@ $fortitude-field-input-border-color: #a9a9a9 !default;
 $fortitude-field-input-border-radius: 0.2rem !default;
 $fortitude-field-input-border-style: solid !default;
 $fortitude-field-input-border-width: 0.1rem !default;
-$fortitude-field-input-height: double($fortitude-base-spacing-unit) !default;
+$fortitude-field-input-height: fortitude-double($fortitude-base-spacing-unit) !default;
 $fortitude-field-input-placeholder-color: #a9a9a9 !default;
 
 $fortitude-text-input-background-color: $fortitude-field-input-background-color !default;
@@ -348,7 +348,6 @@ $fortitude-global-border-box: false !default;
   border-radius: 0;
   padding: 0;
   margin: 0;
-  outline: 0;
   position: absolute;
   top: 0;
   right: 0;
@@ -359,4 +358,8 @@ $fortitude-global-border-box: false !default;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
+
+  &:focus {
+    outline: 0;
+  }
 }

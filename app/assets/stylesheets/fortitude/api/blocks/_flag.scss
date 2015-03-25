@@ -1,8 +1,8 @@
 $fortitude-flag-gutter--default: $fortitude-base-spacing-unit !default;
 
-$fortitude-flag-gutter--small: halve($fortitude-flag-gutter--default) !default;
+$fortitude-flag-gutter--small: fortitude-halve($fortitude-flag-gutter--default) !default;
 
-$fortitude-flag-gutter--large: double($fortitude-flag-gutter--default) !default;
+$fortitude-flag-gutter--large: fortitude-double($fortitude-flag-gutter--default) !default;
 
 $fortitude-flag-collapse-at--responsive: 720px !default;
 

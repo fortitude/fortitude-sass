@@ -1,0 +1,21 @@
+.text-extra-light { font-weight: 200; }
+.text-light { font-weight: 300; }
+.text-normal { font-weight: 400; }
+
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend .text-extra-light;
+}
+
+strong {
+  @extend .text-normal;
+}
+
+.link {
+  color: map-get(map-get($fortitude-button-intents, primary), background-color);
+}

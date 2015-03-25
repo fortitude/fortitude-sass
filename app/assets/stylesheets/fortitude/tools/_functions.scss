@@ -10,22 +10,31 @@
 // Halve and double numbers, returning rounded integers. E.g.:
 //
 // .foo {
-//     padding: halve(3.2px);
+//     padding: fortitude-halve(3.2px);
 // }
 //
-@function quarter($value) {
+
+@function fortitude-tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+
+@function fortitude-shade($color, $percent){
+  @return mix(black, $color, $percent);
+}
+
+@function fortitude-quarter($value) {
   @return $value / 4;
 }
 
-@function halve($value) {
+@function fortitude-halve($value) {
   @return $value / 2;
 }
 
-@function double($value) {
+@function fortitude-double($value) {
   @return $value * 2;
 }
 
-@function quadruple($value) {
+@function fortitude-quadruple($value) {
   @return $value * 4;
 }
 
@@ -41,12 +50,12 @@
   @return if(fortitude-strip-unit($value) == 0, 0, $value);
 }
 
-@function fortitude-px-to-rem($value) {
-  @return fortitude-strip-unit($value) * 0.1rem;
+@function fortitude-px-to-rem($value, $conversion-unit: 0.1rem) {
+  @return fortitude-strip-unit($value) * $conversion-unit;
 }
 
-@function fortitude-rem-to-px($value) {
-  @return fortitude-strip-unit($value) * 10px;
+@function fortitude-rem-to-px($value, $conversion-unit: 10px) {
+  @return fortitude-strip-unit($value) * $conversion-unit;
 }
 
 @function fortitude-block-spacing-unit-height($block-height, $block-spacing-unit: $fortitude-base-spacing-unit) {
@@ -56,18 +65,18 @@
 
 @function fortitude-block-spacing-unit-delta($block-height, $block-spacing-unit: $fortitude-base-spacing-unit) {
   $block-spacing-unit-height: fortitude-block-spacing-unit-height($block-height, $block-spacing-unit);
-  $value: halve($block-spacing-unit-height - $block-height);
+  $value: fortitude-halve($block-spacing-unit-height - $block-height);
   @return fortitude-strip-unit-if-zero($value);
 }
 
 @function fortitude-block-negitive-padding($block-height, $block-border-width: 0rem, $block-spacing-unit: $fortitude-base-spacing-unit) {
-  $value: halve($block-height - $block-spacing-unit - double($block-border-width));
+  $value: fortitude-halve($block-height - $block-spacing-unit - fortitude-double($block-border-width));
   @return fortitude-strip-unit-if-zero($value);
 }
 
 @function fortitude-block-margin($block-height, $block-border-width: 0rem, $block-spacing-unit: $fortitude-base-spacing-unit) {
   $block-spacing-unit-height: fortitude-block-spacing-unit-height($block-height, $block-spacing-unit);
-  $value: halve($block-spacing-unit-height - $block-height);
+  $value: fortitude-halve($block-spacing-unit-height - $block-height);
 
   @if $value < 0 {
     $value: fortitude-block-negitive-padding($block-height, $block-border-width, $block-spacing-unit) + fortitude-block-spacing-unit-delta($block-height, $block-spacing-unit);
@@ -77,7 +86,7 @@
 }
 
 @function fortitude-block-padding($block-height, $block-border-width: 0rem, $block-line-height: $fortitude-base-line-height) {
-  $value: halve($block-height - $block-line-height - double($block-border-width));
+  $value: fortitude-halve($block-height - $block-line-height - fortitude-double($block-border-width));
   @return fortitude-strip-unit-if-zero($value);
 }
 

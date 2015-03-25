@@ -3,8 +3,8 @@
 \*------------------------------------*/
 
 $fortitude-layout-gutter--default: $fortitude-base-spacing-unit !default;
-$fortitude-layout-gutter--small: halve($fortitude-layout-gutter--default) !default;
-$fortitude-layout-gutter--large: double($fortitude-layout-gutter--default) !default;
+$fortitude-layout-gutter--small: fortitude-halve($fortitude-layout-gutter--default) !default;
+$fortitude-layout-gutter--large: fortitude-double($fortitude-layout-gutter--default) !default;
 
 $fortitude-enable-layout--small: false !default;
 $fortitude-enable-layout--large: false !default;

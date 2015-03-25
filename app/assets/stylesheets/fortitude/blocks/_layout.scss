@@ -1,3 +1,5 @@
+$fortitude-enable-layout: true;
+
 .#{$fortitude-namespace}layout {
   @include fortitude-layout;
 }

@@ -1,3 +1,5 @@
+$fortitude-enable-tabs-navigation: true;
+
 .#{$fortitude-namespace}tabs-navigation {
   @include fortitude-tabs-navigation;
 }

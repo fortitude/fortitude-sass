@@ -3,8 +3,8 @@
 \*------------------------------------*/
 
 $fortitude-media-gutter: $fortitude-base-spacing-unit !default;
-$fortitude-media-gutter--small: halve($fortitude-media-gutter) !default;
-$fortitude-media-gutter--large: double($fortitude-media-gutter) !default;
+$fortitude-media-gutter--small: fortitude-halve($fortitude-media-gutter) !default;
+$fortitude-media-gutter--large: fortitude-double($fortitude-media-gutter) !default;
 
 $fortitude-enable-media--small: false !default;
 $fortitude-enable-media--large: false !default;

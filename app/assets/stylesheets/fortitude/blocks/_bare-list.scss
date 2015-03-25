@@ -1,3 +1,5 @@
+$fortitude-enable-bare-list: true;
+
 .#{$fortitude-namespace}bare-list {
   @include fortitude-bare-list;
 }

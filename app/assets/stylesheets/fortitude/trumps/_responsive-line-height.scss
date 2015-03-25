@@ -3,7 +3,7 @@ $fortitude-responsive-line-height-unit-total: 2 !default;
 @include fortitude-breakpoint-classes {
   @for $index from 0 through $fortitude-responsive-line-height-unit-total {
     $value: fortitude-strip-unit-if-zero($fortitude-base-line-height * $index) !important;
-    $value-and-half: fortitude-strip-unit-if-zero($fortitude-base-line-height * $index + halve($fortitude-base-line-height)) !important;
+    $value-and-half: fortitude-strip-unit-if-zero($fortitude-base-line-height * $index + fortitude-halve($fortitude-base-line-height)) !important;
 
     &-inset#{$index} {
       line-height: $value;

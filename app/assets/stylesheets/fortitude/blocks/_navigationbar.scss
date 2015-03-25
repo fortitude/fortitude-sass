@@ -1,4 +1,4 @@
-$fortitude-navigationbar-height: 4rem !default;
+$fortitude-enable-navigationbar: true;
 
 .#{$fortitude-namespace}navigationbar {
   position: relative;
@@ -104,11 +104,14 @@ $fortitude-navigationbar-height: 4rem !default;
   .#{$fortitude-namespace}navigationbar__toggle__helper {
     float: right;
     position: relative;
-    outline: 0;
     opacity: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
+    &:focus {
+      outline: 0;
+    }
 
     + .#{$fortitude-namespace}navigationbar__navigation {
       display: none;

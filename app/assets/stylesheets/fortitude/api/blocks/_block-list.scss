@@ -4,9 +4,9 @@
 
 $fortitude-block-list-padding--default: $fortitude-base-spacing-unit !default;
 
-$fortitude-block-list-padding--small: halve($fortitude-block-list-padding--default) !default;
+$fortitude-block-list-padding--small: fortitude-halve($fortitude-block-list-padding--default) !default;
 
-$fortitude-block-list-padding--large: double($fortitude-block-list-padding--default) !default;
+$fortitude-block-list-padding--large: fortitude-double($fortitude-block-list-padding--default) !default;
 
 $fortitude-enable-block-list--small: false !default;
 $fortitude-enable-block-list--large: false !default;

@@ -1,3 +1,5 @@
+$fortitude-enable-wings: true;
+
 .#{$fortitude-namespace}wings {
   display: table;
   width: 100%;
@@ -8,7 +10,7 @@
   vertical-align: middle;
   white-space: nowrap;
   width: 0.1rem;
-  padding: 0 double($fortitude-base-spacing-unit);
+  padding: 0 fortitude-double($fortitude-base-spacing-unit);
 }
 
 .#{$fortitude-namespace}wings__wing {

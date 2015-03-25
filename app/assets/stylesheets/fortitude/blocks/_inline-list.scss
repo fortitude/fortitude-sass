@@ -1,3 +1,5 @@
+$fortitude-enable-inline-list: true;
+
 .#{$fortitude-namespace}inline-list {
   @include fortitude-inline-list;
 }

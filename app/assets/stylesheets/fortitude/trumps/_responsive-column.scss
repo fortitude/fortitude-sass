@@ -2,7 +2,7 @@ $fortitude-responsive-column-total: 12 !default;
 
 @include fortitude-breakpoint-classes {
   @for $index from 0 through $fortitude-responsive-column-total {
-    $value: percentage($index / $fortitude-responsive-column-total) !important;
+    $value: fortitude-strip-unit-if-zero(percentage($index / $fortitude-responsive-column-total)) !important;
 
     &-#{$index}of#{$fortitude-responsive-column-total} {
       width: $value;

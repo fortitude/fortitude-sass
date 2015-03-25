@@ -1,9 +1,4 @@
-/*------------------------------------*\
-    #TABLES
-\*------------------------------------*/
-
-// Predefine the variables below in order to alter and enable specific features.
-$fortitude-enable-table--fixed: false !default;
+$fortitude-enable-table: true;
 
 .#{$fortitude-namespace}table,
 %#{$fortitude-namespace}table {

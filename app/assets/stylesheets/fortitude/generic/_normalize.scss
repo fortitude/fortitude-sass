@@ -8,11 +8,25 @@ body {
   margin: 0;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
   display: block;
 }
 
-audio, canvas, progress, video {
+audio,
+canvas,
+progress,
+video {
   display: inline-block;
   vertical-align: baseline;
 }
@@ -22,14 +36,16 @@ audio:not([controls]) {
   height: 0;
 }
 
-[hidden], template {
+[hidden],
+template {
   display: none;
 }
 
 a {
   background: transparent;
-  &:active, &:hover {
-    outline: 0;
+
+  &:focus {
+    outline: none;
   }
 }
 
@@ -37,7 +53,8 @@ abbr[title] {
   border-bottom: 1px dotted;
 }
 
-b, strong {
+b,
+strong {
   font-weight: bold;
 }
 
@@ -100,12 +117,19 @@ pre {
   overflow: auto;
 }
 
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
 
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
   color: inherit;
   font: inherit;
   margin: 0;
@@ -120,19 +144,26 @@ select {
   text-transform: none;
 }
 
-button, html input[type="button"] {
+button,
+html input[type="button"] {
+  -moz-appearance: button;
   -webkit-appearance: button;
+  appearance: button;
   cursor: pointer;
 }
 
 input {
-  &[type="reset"], &[type="submit"] {
+  &[type="reset"],
+  &[type="submit"] {
+    -moz-appearance: button;
     -webkit-appearance: button;
+    appearance: button;
     cursor: pointer;
   }
 }
 
-button[disabled], html input[disabled] {
+button[disabled],
+html input[disabled] {
   cursor: default;
 }
 
@@ -147,23 +178,28 @@ input {
     padding: 0;
   }
   line-height: normal;
-  &[type="checkbox"], &[type="radio"] {
+  &[type="checkbox"],
+  &[type="radio"] {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0;
   }
   &[type="number"] {
-    &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
       height: auto;
     }
   }
   &[type="search"] {
     @if $fortitude-global-border-box == false {
+      -moz-appearance: textfield;
       -webkit-appearance: textfield;
+      appearance: textfield;
       -moz-box-sizing: content-box;
       box-sizing: content-box;
     }
-    &::-webkit-search-cancel-button, &::-webkit-search-decoration {
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration {
       -webkit-appearance: none;
     }
   }
@@ -193,6 +229,7 @@ table {
   border-spacing: 0;
 }
 
-td, th {
+td,
+th {
   padding: 0;
 }

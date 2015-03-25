@@ -1,3 +1,5 @@
+$fortitude-enable-input: true;
+
 .#{$fortitude-namespace}checkbox-input {
   @include fortitude-checkbox-input;
 }

@@ -1,3 +1,5 @@
+$fortitude-enable-ui-list: true;
+
 .#{$fortitude-namespace}ui-list {
   @include fortitude-ui-list;
 }

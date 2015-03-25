@@ -12,7 +12,7 @@ $fortitude-button-horizontal-padding--default: fortitude-block-padding($fortitud
 $fortitude-button-height--small: $fortitude-base-spacing-unit + 1rem !default;
 $fortitude-button-horizontal-padding--small: fortitude-block-padding($fortitude-button-height--small, $fortitude-button-border-width) * 2 !default;
 
-$fortitude-button-height--large: double($fortitude-base-spacing-unit) + 2rem !default;
+$fortitude-button-height--large: fortitude-double($fortitude-base-spacing-unit) + 2rem !default;
 $fortitude-button-horizontal-padding--large: fortitude-block-padding($fortitude-button-height--large, $fortitude-button-border-width) * 2 !default;
 
 $fortitude-enable-button--small: false !default;
