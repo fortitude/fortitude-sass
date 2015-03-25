@@ -13,7 +13,7 @@ $fortitude-badge-horizontal-padding--default: 1rem !default;
 $fortitude-badge-height--small: $fortitude-base-spacing-unit !default;
 $fortitude-badge-horizontal-padding--small: 0.5rem !default;
 
-$fortitude-badge-height--large: double($fortitude-base-spacing-unit) !default;
+$fortitude-badge-height--large: fortitude-double($fortitude-base-spacing-unit) !default;
 $fortitude-badge-horizontal-padding--large: 2rem !default;
 
 $fortitude-enable-badge--small: false !default;

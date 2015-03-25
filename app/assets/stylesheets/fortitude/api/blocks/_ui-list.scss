@@ -3,8 +3,8 @@
 \*------------------------------------*/
 
 $fortitude-ui-list-padding--default: $fortitude-base-spacing-unit !default;
-$fortitude-ui-list-padding--small: halve($fortitude-ui-list-padding--default) !default;
-$fortitude-ui-list-padding--large: double($fortitude-ui-list-padding--default) !default;
+$fortitude-ui-list-padding--small: fortitude-halve($fortitude-ui-list-padding--default) !default;
+$fortitude-ui-list-padding--large: fortitude-double($fortitude-ui-list-padding--default) !default;
 $fortitude-ui-list-border-width: 0.1rem !default;
 $fortitude-ui-list-border-style: solid !default;
 $fortitude-ui-list-border-color: #ccc !default;

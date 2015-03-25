@@ -6,7 +6,6 @@
 // working with it, can make use of.
 
 // Predefine the variables below in order to alter and enable specific features.
-$fortitude-enable-classes: false !default;
 
 @mixin fortitude-breakpoint($alias, $breakpoints: $fortitude-class-breakpoints) {
   $query: fortitude-query(map-get($breakpoints, $alias));
@@ -39,9 +38,9 @@ $fortitude-enable-classes: false !default;
   }
 }
 
-@mixin fortitude-font-size($font-size, $line-height: true, $line-height: $fortitude-base-line-height) {
+@mixin fortitude-font-size($font-size, $enable-line-height: true, $line-height: $fortitude-base-line-height) {
   font-size: $font-size;
-  @if $line-height == true {
+  @if $enable-line-height == true {
     line-height: ceil($font-size / $line-height) * $line-height;
   }
 }
