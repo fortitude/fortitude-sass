@@ -28,21 +28,32 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
+          style: 'compact',
+          bundleExec: true,
+          sourcemap: 'none'
+        },
+        files: {
+          '<%= app.dist %>/<%= pkg.name %>.css':       '<%= app.scss %>/fortitude.scss',
+          '<%= app.dist %>/<%= pkg.name %>-theme.css': '<%= app.scss %>/fortitude/theme.scss'
+        },
+      },
+      min: {
+        options: {
           style: 'compressed',
           bundleExec: true,
           sourcemap: 'none'
         },
         files: {
-          '<%= app.tmp %>/<%= pkg.name %>.css.min':       '<%= app.scss %>/fortitude.scss',
-          '<%= app.tmp %>/<%= pkg.name %>-theme.css.min': '<%= app.scss %>/fortitude/theme.scss'
+          '<%= app.dist %>/<%= pkg.name %>.min.css':       '<%= app.scss %>/fortitude.scss',
+          '<%= app.dist %>/<%= pkg.name %>-theme.min.css': '<%= app.scss %>/fortitude/theme.scss'
         }
       },
       test: {
         options: {
-          style: 'expanded',
+          style: 'compact',
           loadPath: [
-            '<%= app.scss %>',
-            'node_modules/bootcamp/dist'
+          '<%= app.scss %>',
+          'node_modules/bootcamp/dist'
           ],
           bundleExec: true,
           sourcemap: 'none'
@@ -57,12 +68,12 @@ module.exports = function(grunt) {
 
     autoprefixer: {
       options: {
-        browsers: ['last 2 versions', 'ie 8', 'ie 9']
+        browsers: ['last 2 versions', 'ie 9']
       },
       dist: {
         expand: true,
         flatten: true,
-        src: '<%= app.tmp %>/*.css',
+        src: '<%= app.dist %>/*.css',
         dest: '<%= app.dist %>/'
       },
       test: {
@@ -76,24 +87,20 @@ module.exports = function(grunt) {
     csslint: {
       test: {
         options: {
-          'import':                     2,
-          'ids':                        false,
-          'zero-units':                 false,
-          'fallback-colors':            false,
-          'box-sizing':                 false,
-          'vendor-prefixes':            false,
-          'compatible-vendor-prefixes': false,
-          'universal-selector':         false,
-          'box-model':                  false,
           'adjoining-classes':          false,
-          'unique-headings':            false,
-          'unqualified-attributes':     false,
-          'font-sizes':                 false,
-          'overqualified-elements':     false,
-          'font-sizes':                 false,
+          'box-model':                  false,
+          'box-sizing':                 false,
+          'compatible-vendor-prefixes': false,
+          'fallback-colors':            false,
           'floats':                     false,
+          'font-sizes':                 false,
+          'important':                  false,
+          'known-properties':           false,
           'outline-none':               false,
-          'known-properties':           false
+          'overqualified-elements':     false,
+          'unique-headings':            false,
+          'universal-selector':         false,
+          'unqualified-attributes':     false
         },
         src: ['<%= app.tmp %>/<%= pkg.name %>.css', '<%= app.tmp %>/<%= pkg.name %>-theme.css']
       }
@@ -110,11 +117,11 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: ['<%= app.js %>/**/*.js'],
-        dest: '<%= app.tmp %>/<%= pkg.name %>.js', 
+        dest: '<%= app.dist %>/<%= pkg.name %>.js',
       },
       test: {
         src: ['<%= app.js %>/**/*.js'],
-        dest: '<%= app.tmp %>/<%= pkg.name %>.js',         
+        dest: '<%= app.tmp %>/<%= pkg.name %>.js',
       }
     },
 
@@ -139,9 +146,9 @@ module.exports = function(grunt) {
     clean: ['tmp']
   });
 
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+grunt.loadNpmTasks('grunt-bower-task');
+grunt.loadNpmTasks('grunt-contrib-clean');
+grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Sass resources
   grunt.loadNpmTasks('grunt-contrib-sass');
@@ -159,7 +166,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test-js',  ['jshint:all', 'concat:test', 'jshint:test', 'uglify:test']);
 
   grunt.registerTask('test',  ['test-css', 'test-js', 'clean']);
-  grunt.registerTask('build',  ['sass:dist', 'autoprefixer:dist', 'concat:dist', 'uglify:dist', 'copy:dist']);
+  grunt.registerTask('build',  ['sass:dist', 'sass:min', 'autoprefixer:dist', 'concat:dist', 'uglify:dist', 'copy:dist']);
 
   grunt.registerTask('default', ['test']);
 
