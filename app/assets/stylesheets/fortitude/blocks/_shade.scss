@@ -1,3 +1,5 @@
+$fortitude-enable-shade: true;
+
 .#{$fortitude-namespace}shade {
   @include fortitude-shade;
 }

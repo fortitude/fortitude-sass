@@ -1,0 +1,15 @@
+$fortitude-enable-wings: false !default;
+
+@if $fortitude-enable-wings {
+  @each $intent, $rules in $fortitude-wings-intents {
+    .wings--#{$intent} {
+      .wings__wing {
+        &::before {
+          @each $property, $value in $rules {
+            #{$property}: $value;
+          }
+        }
+      }
+    }
+  }
+}

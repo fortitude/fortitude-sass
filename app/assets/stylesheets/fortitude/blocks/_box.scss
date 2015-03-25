@@ -1,3 +1,5 @@
+$fortitude-enable-box: true;
+
 .#{$fortitude-namespace}box {
   @include fortitude-box;
 }

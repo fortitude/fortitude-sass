@@ -1,0 +1,25 @@
+$fortitude-enable-button: false !default;
+
+@if $fortitude-enable-button {
+  @each $intent, $state in $fortitude-button-intents {
+    .button--#{$intent} {
+      @each $name, $rules in $state {
+        $selector: null;
+
+        @if $name == "initial" {
+          $selector: "&";
+        } @else if $name == "disabled" {
+          $selector: "&[#{$name}]";
+        } @else {
+          $selector: "&:#{$name}";
+        }
+
+        #{$selector} {
+          @each $property, $value in $rules {
+            #{$property}: $value;
+          }
+        }
+      }
+    }
+  }
+}

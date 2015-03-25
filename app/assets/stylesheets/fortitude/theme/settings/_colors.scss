@@ -1,0 +1,309 @@
+$gray-darkest-color : #373942 !default;
+$gray-darker-color  : #54565E !default;
+$gray-dark-color    : #87898E !default;
+$gray-color         : #CFCFD1 !default;
+$gray-light-color   : #E7E7E8 !default;
+$gray-lighter-color : #FCFCFC !default;
+$gray-lightest-color: #FFFFFF !default;
+
+$primary-color: #1CAFC9 !default;
+$success-color: #18D985 !default;
+$info-color   : #4DDBC4 !default;
+$warning-color: #E9CB0A !default;
+$danger-color : #DE1843 !default;
+$inverse-color: $gray-darkest-color !default;
+
+$fortitude-badge-intents: (
+  "default": (
+    "background-color": $gray-lightest-color,
+    "border-color": $gray-lightest-color,
+    "color": $gray-darkest-color
+  ),
+  "primary": (
+    "background-color": $primary-color,
+    "border-color": $primary-color,
+    "color": $gray-lightest-color
+  ),
+  "success": (
+    "background-color": $success-color,
+    "border-color": $success-color,
+    "color": $gray-lightest-color
+  ),
+  "info": (
+    "background-color": $info-color,
+    "border-color": $info-color,
+    "color": $gray-lightest-color
+  ),
+  "warning": (
+    "background-color": $warning-color,
+    "border-color": $warning-color,
+    "color": $gray-lightest-color
+  ),
+  "danger": (
+    "background-color": $danger-color,
+    "border-color": $danger-color,
+    "color": $gray-lightest-color
+  ),
+  "inverse": (
+    "background-color": $gray-darkest-color,
+    "border-color": $gray-darker-color,
+    "color": $gray-lightest-color
+  )
+) !default;
+
+$fortitude-box-intents: (
+  "default": (
+    "background-color": $gray-lightest-color,
+    "border-color": $gray-lightest-color,
+    "color": $gray-darkest-color
+  ),
+  "primary": (
+    "background-color": $primary-color,
+    "border-color": $primary-color,
+    "color": $gray-lightest-color
+  ),
+  "success": (
+    "background-color": $success-color,
+    "border-color": $success-color,
+    "color": $gray-lightest-color
+  ),
+  "info": (
+    "background-color": $info-color,
+    "border-color": $info-color,
+    "color": $gray-lightest-color
+  ),
+  "warning": (
+    "background-color": $warning-color,
+    "border-color": $warning-color,
+    "color": $gray-lightest-color
+  ),
+  "danger": (
+    "background-color": $danger-color,
+    "border-color": $danger-color,
+    "color": $gray-lightest-color
+  ),
+  "inverse": (
+    "background-color": $gray-darkest-color,
+    "border-color": $gray-darker-color,
+    "color": $gray-lightest-color
+  )
+) !default;
+
+$fortitude-button-intents: (
+  "default": (
+    "initial": (
+      "background-color": $gray-lightest-color,
+      "border-color": $gray-lightest-color,
+      "color": $gray-darkest-color
+    ),
+    "hover": (
+      "background-color": fortitude-tint($gray-lightest-color, 20%),
+      "border-color": fortitude-tint($gray-lightest-color, 20%),
+      "color": $gray-darkest-color
+    ),
+    "active": (
+      "background-color": fortitude-shade($gray-lightest-color, 20%),
+      "border-color": fortitude-shade($gray-lightest-color, 20%),
+      "color": $gray-darkest-color
+    ),
+    "disabled": (
+      "background-color": $gray-lightest-color,
+      "border-color": $gray-darkest-color,
+      "color": $gray-darkest-color
+    )
+  ),
+  "primary": (
+    "initial": (
+      "background-color": $primary-color,
+      "border-color": $primary-color,
+      "color": $gray-lightest-color
+    ),
+    "hover": (
+      "background-color": fortitude-tint($primary-color, 20%),
+      "border-color": fortitude-tint($primary-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "active": (
+      "background-color": fortitude-shade($primary-color, 20%),
+      "border-color": fortitude-shade($primary-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "disabled": (
+      "background-color": $gray-lightest-color,
+      "border-color": $primary-color,
+      "color": $primary-color,
+    )
+  ),
+  "success": (
+    "initial": (
+      "background-color": $success-color,
+      "border-color": $success-color,
+      "color": $gray-lightest-color
+    ),
+    "hover": (
+      "background-color": fortitude-tint($success-color, 20%),
+      "border-color": fortitude-tint($success-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "active": (
+      "background-color": fortitude-shade($success-color, 20%),
+      "border-color": fortitude-shade($success-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "disabled": (
+      "background-color": $gray-lightest-color,
+      "border-color": $success-color,
+      "color": $success-color,
+    )
+  ),
+  "info": (
+    "initial": (
+      "background-color": $info-color,
+      "border-color": $info-color,
+      "color": $gray-lightest-color
+    ),
+    "hover": (
+      "background-color": fortitude-tint($info-color, 20%),
+      "border-color": fortitude-tint($info-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "active": (
+      "background-color": fortitude-shade($info-color, 20%),
+      "border-color": fortitude-shade($info-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "disabled": (
+      "background-color": $gray-lightest-color,
+      "border-color": $info-color,
+      "color": $info-color,
+    )
+  ),
+  "warning": (
+    "initial": (
+      "background-color": $warning-color,
+      "border-color": $warning-color,
+      "color": $gray-lightest-color
+    ),
+    "hover": (
+      "background-color": fortitude-tint($warning-color, 20%),
+      "border-color": fortitude-tint($warning-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "active": (
+      "background-color": fortitude-shade($warning-color, 20%),
+      "border-color": fortitude-shade($warning-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "disabled": (
+      "background-color": $gray-lightest-color,
+      "border-color": $warning-color,
+      "color": $warning-color,
+    )
+  ),
+  "danger": (
+    "initial": (
+      "background-color": $danger-color,
+      "border-color": $danger-color,
+      "color": $gray-lightest-color
+    ),
+    "hover": (
+      "background-color": fortitude-tint($danger-color, 20%),
+      "border-color": fortitude-tint($danger-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "active": (
+      "background-color": fortitude-shade($danger-color, 20%),
+      "border-color": fortitude-shade($danger-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "disabled": (
+      "background-color": $gray-lightest-color,
+      "border-color": $danger-color,
+      "color": $danger-color,
+    )
+  ),
+  "inverse": (
+    "initial": (
+      "background-color": $inverse-color,
+      "border-color": $inverse-color,
+      "color": $gray-lightest-color
+    ),
+    "hover": (
+      "background-color": fortitude-tint($inverse-color, 20%),
+      "border-color": fortitude-tint($inverse-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "active": (
+      "background-color": fortitude-shade($inverse-color, 20%),
+      "border-color": fortitude-shade($inverse-color, 20%),
+      "color": $gray-lightest-color
+    ),
+    "disabled": (
+      "background-color": $gray-lightest-color,
+      "border-color": $inverse-color,
+      "color": $inverse-color,
+    )
+  )
+) !default;
+
+$fortitude-flashbar-intents: (
+  "default": (
+    "background-color": $gray-lightest-color,
+    "border-color": $gray-lightest-color,
+    "color": $gray-darkest-color
+  ),
+  "primary": (
+    "background-color": $primary-color,
+    "border-color": $primary-color,
+    "color": $gray-lightest-color
+  ),
+  "success": (
+    "background-color": $success-color,
+    "border-color": $success-color,
+    "color": $gray-lightest-color
+  ),
+  "info": (
+    "background-color": $info-color,
+    "border-color": $info-color,
+    "color": $gray-lightest-color
+  ),
+  "warning": (
+    "background-color": $warning-color,
+    "border-color": $warning-color,
+    "color": $gray-lightest-color
+  ),
+  "danger": (
+    "background-color": $danger-color,
+    "border-color": $danger-color,
+    "color": $gray-lightest-color
+  ),
+  "inverse": (
+    "background-color": $gray-darkest-color,
+    "border-color": $gray-darker-color,
+    "color": $gray-lightest-color
+  )
+) !default;
+
+$fortitude-wings-intents: (
+  "default": (
+    "background-color": $gray-lightest-color
+  ),
+  "primary": (
+    "background-color": $primary-color
+  ),
+  "success": (
+    "background-color": $success-color
+  ),
+  "info": (
+    "background-color": $info-color
+  ),
+  "warning": (
+    "background-color": $warning-color
+  ),
+  "danger": (
+    "background-color": $danger-color
+  ),
+  "inverse": (
+    "background-color": $gray-darkest-color
+  )
+) !default;

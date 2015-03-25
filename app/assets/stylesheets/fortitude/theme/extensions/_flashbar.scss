@@ -1,0 +1,15 @@
+$fortitude-enable-flashbar: false !default;
+
+@if $fortitude-enable-flashbar {
+  @each $intent, $rules in $fortitude-flashbar-intents {
+    .flashbar--#{$intent} {
+      @each $property, $value in $rules {
+        #{$property}: $value;
+      }
+
+      > .flashbar__close {
+        color: map-get($rules, color);
+      }
+    }
+  }
+}

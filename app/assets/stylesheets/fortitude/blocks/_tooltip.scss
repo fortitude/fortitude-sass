@@ -1,3 +1,5 @@
+$fortitude-enable-tooltip: true;
+
 .#{$fortitude-namespace}tooltip {
   @include fortitude-tooltip;
 }

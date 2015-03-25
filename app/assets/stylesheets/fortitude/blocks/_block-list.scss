@@ -1,3 +1,5 @@
+$fortitude-enable-block-list: true;
+
 .#{$fortitude-namespace}block-list {
   @include fortitude-block-list;
 }
