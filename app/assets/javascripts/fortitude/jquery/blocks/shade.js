@@ -12,15 +12,11 @@
   });
 
   $(document).on('click', '.shade--is-active', function(event) {
-    event.preventDefault();
     $(this).trigger('close.ft.shade');
-    return false;
   });
 
   $(document).on('click', '[data-ft-shade]', function(event) {
-    event.preventDefault();
     $('.shade').trigger('open.ft.shade');
-    return false;
   });
 
 })(jQuery);

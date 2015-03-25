@@ -2,17 +2,14 @@
   'use strict';
 
   // zoom fix on input elements
-  var $viewport = $('meta[name="viewport"]');
-  
   $(document).on('focus blur', ':input', function(event) {
-    var scale = 1;
+    var $viewport = $('meta[name="viewport"]'),
+        scale = 1;
     
     if(event.type === 'focusout' ||
        event.type === 'blur'){
       
       scale = 5;
-    } else {
-      scale = 1;
     }
     
     $viewport.attr('content', 

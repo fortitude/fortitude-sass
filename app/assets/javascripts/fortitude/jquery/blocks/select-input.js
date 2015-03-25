@@ -9,10 +9,10 @@
         data = $this.data('ftSelect') || {};
     
     if (className !== data.previousClass) {
-      $this.
-        addClass(className).
-        removeClass(data.previousClass).
-        data('ftSelect', $.merge({previousClass: className}, data));
+      $this
+        .addClass(className)
+        .removeClass(data.previousClass)
+        .data('ftSelect', $.merge({previousClass: className}, data));
     }
   };
 

@@ -5,6 +5,10 @@
     var $html = $('html'),
         $body = $('body');
 
+    if(typeof(locking) === 'undefined'){
+      locking = true;
+    }
+    
     if (locking) {
       $html.addClass('html--is-locked');
       $body.css({paddingRight: $.measureScrollBar()});

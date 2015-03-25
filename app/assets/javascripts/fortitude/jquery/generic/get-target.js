@@ -1,6 +1,8 @@
 (function($){
   $.ftGetTarget = function($element, field){
-    var targetId = $element.data(field);
+    field = field || 'ft-target';
+    
+    var targetId = $element.data(field) || '';
     
     if( !targetId.match(/^#/) ){
       targetId = '#' + targetId;

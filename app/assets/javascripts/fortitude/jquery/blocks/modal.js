@@ -24,20 +24,12 @@
   });
 
   $(document).on('click', '[data-ft-modal]', function(){
-    var targetId = $(this).data('ftModal'),
-        $target;
-    
-    if(!targetId.match(/^#/)) { targetId = '#' + targetId; }
-    $target = $(targetId);
+    var $target = $.ftGetTarget($(this), 'ftModal');
     $target.trigger('open.ft.modal');
   });
 
   $(document).on('click', '[data-ft-modal-close]', function(){
-    var targetId = $(this).data('ftModalClose'),
-        $target;
-    
-    if(!targetId.match(/^#/)) { targetId = '#' + targetId; }
-    $target = $(targetId);
+    var $target = $.ftGetTarget($(this), 'ftModalClose');
     $target.trigger('close.ft.modal');
   });
 
