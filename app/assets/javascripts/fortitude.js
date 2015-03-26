@@ -1,1 +1,1 @@
-//= require_tree fortitude
+//= require_tree ./fortitude
