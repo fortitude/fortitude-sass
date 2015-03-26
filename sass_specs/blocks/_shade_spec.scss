@@ -1,0 +1,11 @@
+@include describe("Shade mixin") {
+  @include it("should be display: none by default"){
+    @include fortitude-shade;
+    @include should( expect(display) ), to( equal(none) );
+  }
+
+  @include it("should be display: block when active"){
+    @include fortitude-shade--is-active;
+    @include should( expect(display) ), to( equal(block) );
+  }
+}

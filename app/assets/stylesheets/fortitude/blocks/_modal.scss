@@ -1,26 +1,13 @@
 $fortitude-enable-modal: true;
 
 .#{$fortitude-namespace}modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 3;
-  display: none;
-  overflow: hidden;
-  overflow-y: auto;
+  @include fortitude-modal;
+}
 
-  @if $fortitude-enable-vendor-optimizations {
-    -webkit-overflow-scrolling: touch;
-    -moz-overflow-scrolling: touch;
-    overflow-scrolling: touch;
-  }
+.#{$fortitude-namespace}modal--is-active {
+  @include fortitude-modal--is-active;
 }
 
 .#{$fortitude-namespace}modal__content {
-  position: relative;
-  width: auto;
-  margin: fortitude-halve($fortitude-base-spacing-unit);
-  // set width in extending class
+  @include fortitude-modal__content;
 }

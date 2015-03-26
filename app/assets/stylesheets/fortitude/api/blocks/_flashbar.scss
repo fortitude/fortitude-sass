@@ -16,6 +16,10 @@ $fortitude-flashbar__close-text-decoration: none !default;
   position: relative;
 }
 
+@mixin fortitude-flashbar--closed($extensions: ()) {
+  display: none;
+}
+
 @mixin fortitude-flashbar__close($extensions: ()) {
   position: absolute;
   right: fortitude-halve($fortitude-base-spacing-unit);

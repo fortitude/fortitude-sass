@@ -12,6 +12,10 @@ $fortitude-enable-tabs-navigation: true;
   @include fortitude-tabs-navigation__item;
 }
 
+.#{$fortitude-namespace}tabs-navigation__item--is-active {
+  @include fortitude-tabs-navigation__item--is-active;
+}
+
 .#{$fortitude-namespace}tabs-navigation__link {
   @include fortitude-tabs-navigation__link;
 }

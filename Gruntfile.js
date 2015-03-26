@@ -2,14 +2,15 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    
+
     app: {
       scss:       'app/assets/stylesheets',
       js:         'app/assets/javascripts',
       img:        'app/assets/images',
       dist:       'dist',
       tmp:        'tmp',
-      sass_specs: 'sass_specs'
+      sass_specs: 'sass_specs',
+      jasmine:    'jasmine'
     },
 
     bower: {
@@ -22,9 +23,15 @@ module.exports = function(grunt) {
         cwd:  '<%= app.img %>',
         src:  '**/*.png',
         dest: '<%= app.dist %>/'
+      },
+      test: {
+        expand: true,
+        cwd: '<%= app.jasmine %>',
+        src: '**/*.html',
+        dest: '<%= app.tmp %>'
       }
     },
-    
+
     sass: {
       dist: {
         options: {
@@ -60,8 +67,7 @@ module.exports = function(grunt) {
         },
         files: {
           '<%= app.tmp %>/results.css':               '<%= app.sass_specs %>/tests.scss',
-          '<%= app.tmp %>/<%= pkg.name %>.css':       '<%= app.scss %>/fortitude.scss',
-          '<%= app.tmp %>/<%= pkg.name %>-theme.css': '<%= app.scss %>/fortitude/theme.scss'
+          '<%= app.tmp %>/<%= pkg.name %>.css':       '<%= app.scss %>/fortitude.scss'
         }
       }
     },
@@ -102,7 +108,7 @@ module.exports = function(grunt) {
           'universal-selector':         false,
           'unqualified-attributes':     false
         },
-        src: ['<%= app.tmp %>/<%= pkg.name %>.css', '<%= app.tmp %>/<%= pkg.name %>-theme.css']
+        src: ['<%= app.tmp %>/<%= pkg.name %>.css']
       }
     },
 
@@ -140,7 +146,28 @@ module.exports = function(grunt) {
 
     jshint: {
       all:  ['<%= app.js %>/**/*.js'],
-      test: ['<%= app.tmp %>/<%= pkg.name %>.js']
+      test: ['<%= app.tmp %>/<%= pkg.name %>.js', '<%= app.jasmine %>/**/*.js']
+    },
+
+    jasmine: {
+      fortitude: {
+        src: 'app/assets/javascripts/**/*.js',
+        options: {
+          specs: '<%= app.jasmine %>/**/*Spec.js',
+          helpers: '<%= app.jasmine %>/**/*Helper.js',
+          styles: [
+            '<%= app.tmp %>/<%= pkg.name %>.css',
+            '<%= app.jasmine %>/fixtures/animations.css'
+          ],
+          vendor: [
+            'node_modules/jquery/dist/jquery.js',
+            'node_modules/jasmine-jquery/lib/jasmine-jquery.js',
+            'node_modules/lodash/index.js'
+          ],
+          outfile: '<%= app.tmp %>/SpecRunner.html',
+          keepRunner: true
+        }
+      }
     },
 
     clean: ['tmp']
@@ -160,15 +187,16 @@ grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   grunt.registerTask('setup', ['bower']);
-  grunt.registerTask('test-css',  ['sass:test', 'autoprefixer:test', 'bootcamp:test', 'csslint:test']);
-  grunt.registerTask('test-js',  ['jshint:all', 'concat:test', 'jshint:test', 'uglify:test']);
+  grunt.registerTask('test-css',  ['build:test', 'bootcamp:test', 'csslint:test']);
+  grunt.registerTask('test-js',  ['build:test', 'jshint:all', 'concat:test', 'jshint:test', 'uglify:test', 'jasmine']);
 
   grunt.registerTask('test',  ['test-css', 'test-js', 'clean']);
+  grunt.registerTask('build:test',  ['sass:test', 'autoprefixer:test', 'copy:test']);
   grunt.registerTask('build',  ['sass:dist', 'sass:min', 'autoprefixer:dist', 'concat:dist', 'uglify:dist', 'copy:dist']);
 
   grunt.registerTask('default', ['test']);
-
 
 };

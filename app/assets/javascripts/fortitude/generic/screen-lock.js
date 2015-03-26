@@ -2,9 +2,13 @@
   'use strict';
 
   $.screenLock = function(locking) {
-    var $html = $('html');
-    var $body = $('body');
+    var $html = $('html'),
+        $body = $('body');
 
+    if(typeof(locking) === 'undefined'){
+      locking = true;
+    }
+    
     if (locking) {
       $html.addClass('html--is-locked');
       $body.css({paddingRight: $.measureScrollBar()});
