@@ -9,3 +9,4 @@ tags
 bower_components
 node_modules
 dist
+.grunt/
