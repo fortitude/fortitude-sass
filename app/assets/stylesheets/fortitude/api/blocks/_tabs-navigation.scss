@@ -22,17 +22,10 @@
 }
 
 @mixin fortitude-tabs-navigation__item($extensions: ()) {
-  $is-active: fortitude-contains($extensions, active);
-
-  @if $is-active {
-    @include fortitude-tabs-navigation__item--is-active;
-  } @else {
-    display: none;
-  }
+  display: table-cell;
 }
 
 @mixin fortitude-tabs-navigation__item--is-active($extensions: ()){
-  display: table-cell;
 }
 
 @mixin fortitude-tabs-navigation__link($extensions: ()) {
