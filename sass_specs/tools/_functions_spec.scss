@@ -1,51 +1,159 @@
-@include describe("fortitude-tint") {
-  @include it("returns a lighter version of the original color") {
-    @include should(expect(fortitude-tint(black, 10%)), to(equal(#191919)));
-  }
-}
+@include describe("functions") {
+  $base-spacing-unit: 2rem;
 
-@include describe("fortitude-shade") {
-  @include it("returns a darker version of the original color") {
-    @include should(expect(fortitude-shade(white, 10%)), to(equal(#e5e5e5)));
+  @include describe("fortitude-quarter") {
+    @include it("returns a quarter of the original value") {
+      @include should(expect(fortitude-quarter(20)), to(equal(5)));
+    }
   }
-}
 
-@include describe("fortitude-quarter") {
-  @include it("returns a quarter of the original value") {
-    @include should(expect(fortitude-quarter(20)), to(equal(5)));
+  @include describe("fortitude-halve") {
+    @include it("returns halve the original value") {
+      @include should(expect(fortitude-halve(20)), to(equal(10)));
+    }
   }
-}
 
-@include describe("fortitude-halve") {
-  @include it("returns halve the original value") {
-    @include should(expect(fortitude-halve(20)), to(equal(10)));
+  @include describe("fortitude-double") {
+    @include it("returns double the original value") {
+      @include should(expect(fortitude-double(10)), to(equal(20)));
+    }
   }
-}
 
-@include describe("fortitude-halve") {
-  @include it("returns double the original value") {
-    @include should(expect(fortitude-double(10)), to(equal(20)));
+  @include describe("fortitude-quadruple") {
+    @include it("returns quadruple the original value") {
+      @include should(expect(fortitude-quadruple(10)), to(equal(40)));
+    }
   }
-}
 
-@include describe("fortitude-strip-unit") {
-  @include it("returns a unitless version of the original value") {
-    @include should(expect(fortitude-strip-unit(4rem)), to(equal(4)));
+  @include describe("fortitude-strip-unit") {
+    @include it("returns a unitless version of the original value") {
+      @include should(expect(fortitude-strip-unit(4rem)), to(equal(4)));
+    }
   }
-}
 
-@include describe("fortitude-px-to-rem") {
-  @include it("returns a px value of the original rem value") {
-    $conversion-unit: 0.1rem; // is optional
-    @include should(expect(fortitude-px-to-rem(10px, $conversion-unit)), to(equal(1rem)));
-    @include should(expect(fortitude-px-to-rem(10px)), to(equal(1rem)));
+  @include describe("fortitude-strip-unit-if-zero") {
+    @include it("returns a unitless version of the original value if it is zero") {
+      @include should(expect(fortitude-strip-unit-if-zero(4rem)), to(equal(4rem)));
+      @include should(expect(fortitude-strip-unit-if-zero(0rem)), to(equal(0)));
+      @include should(expect(fortitude-strip-unit-if-zero(0rem)), to(equal(0)));
+      @include should(expect(fortitude-strip-unit-if-zero(0.0rem)), to(equal(0)));
+    }
   }
-}
 
-@include describe("fortitude-rem-to-px") {
-  @include it("returns a rem value of the original px value") {
-    $conversion-unit: 5px; // is optional
-    @include should(expect(fortitude-rem-to-px(2rem, $conversion-unit)), to(equal(10px)));
-    @include should(expect(fortitude-rem-to-px(2rem)), to(equal(20px)));
+  @include describe("fortitude-px-to-rem") {
+    $base: 16; // is optional
+
+    @include it("returns a px value of the original rem value") {
+      @include should(expect(fortitude-px-to-rem(10px)), to(equal(1rem)));
+      @include should(expect(fortitude-px-to-rem(10px, $base)), to(equal(0.625rem)));
+      @include should(expect(fortitude-px-to-rem(1px)), to(equal(0.1rem)));
+      @include should(expect(fortitude-px-to-rem(1px, $base)), to(equal(0.0625rem)));
+    }
+  }
+
+  @include describe("fortitude-rem-to-px") {
+    $base: 16; // is optional
+
+    @include it("returns a rem value of the original px value") {
+      @include should(expect(fortitude-rem-to-px(1rem)), to(equal(10px)));
+      @include should(expect(fortitude-rem-to-px(1rem, $base)), to(equal(16px)));
+      @include should(expect(fortitude-rem-to-px(0.1rem)), to(equal(1px)));
+      @include should(expect(fortitude-rem-to-px(0.1rem, $base)), to(equal(1.6px)));
+    }
+  }
+
+  @include describe("fortitude-tint") {
+    @include it("returns a lighter version of the original color") {
+      @include should(expect(fortitude-tint(black, 10%)), to(equal(#191919)));
+    }
+  }
+
+  @include describe("fortitude-shade") {
+    @include it("returns a darker version of the original color") {
+      @include should(expect(fortitude-shade(white, 10%)), to(equal(#e5e5e5)));
+    }
+  }
+
+  @include describe("fortitude-contains") {
+    $list: (a b c);
+
+    @include it("returns true if the list contains the key") {
+      @include should(expect(fortitude-contains($list, a)), to(equal(true)));
+    }
+
+    @include it("returns false if the list does not contain the key") {
+      @include should(expect(fortitude-contains($list, d)), to(equal(false)));
+    }
+  }
+
+  @include describe("fortitude-map-to-query") {
+    $query-map: (screen: true, min-width: 768px, max-width: 991px);
+
+    @include it("returns a string version of the query map") {
+      @include should(expect(fortitude-map-to-query($query-map)), to(equal("screen and (min-width: 768px) and (max-width: 991px)")));
+    }
+  }
+
+  @include describe("fortitude-query") {
+    $query-map: (screen: true, min-width: 768px, max-width: 991px);
+    $query-number: 768px;
+    $query-null: null;
+
+    @include it("returns a string version of the map") {
+      @include should(expect(fortitude-query($query-map)), to(equal("screen and (min-width: 768px) and (max-width: 991px)")));
+    }
+
+    @include it("returns a string version of the query number as a min-width") {
+      @include should(expect(fortitude-query($query-number)), to(equal("(min-width: 768px)")));
+    }
+
+    @include it("returns null if anything else") {
+      @include should(expect(fortitude-query($query-null)), to(equal(null)));
+    }
+  }
+
+  @include describe("fortitude-block-spacing-unit-height") {
+    $block-height: 2.4rem;
+
+    @include it("returns vertical rhythm height needed for block") {
+      @include should(expect(fortitude-block-spacing-unit-height($block-height)), to(equal(fortitude-double($base-spacing-unit))));
+    }
+  }
+
+  @include describe("fortitude-block-spacing-unit-delta") {
+    $block-height: 2.4rem;
+    @include it("returns the delta between the actual height of the block and the block-base-spacing-unit-height") {
+      @include should(expect(fortitude-block-spacing-unit-delta($block-height)), to(equal(fortitude-double($base-spacing-unit) - $block-height)));
+    }
+  }
+
+  @include describe("fortitude-block-negitive-padding") {
+    $block-height: 1.8rem;
+    $block-border-width: 0.2rem;
+    $block-negitive-padding: $block-height - $base-spacing-unit - fortitude-double($block-border-width);
+
+    @include it("returns the negitive padding of a block") {
+      @include should(expect(fortitude-block-negitive-padding($block-height, $block-border-width)), to(equal(fortitude-halve($block-negitive-padding))));
+    }
+  }
+
+  @include describe("fortitude-block-margin") {
+    $block-height: 2.4rem;
+    $block-border-width: 0.2rem;
+    $block-margin: fortitude-double($base-spacing-unit) - $block-height;
+
+    @include it("returns the margin of a block") {
+      @include should(expect(fortitude-block-margin($block-height, $block-border-width)), to(equal(fortitude-halve($block-margin))));
+    }
+  }
+
+  @include describe("fortitude-block-padding") {
+    $block-height: 2.4rem;
+    $block-border-width: 0.2rem;
+    $block-padding: $block-height - $base-spacing-unit - fortitude-double($block-border-width);
+
+    @include it("returns the padding for the given block") {
+      @include should(expect(fortitude-block-padding($block-height, $block-border-width)), to(equal(fortitude-halve($block-padding))));
+    }
   }
 }
