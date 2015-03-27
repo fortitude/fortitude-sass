@@ -14,8 +14,10 @@
  * 3. Ensure the page always fills at least the entire height of the viewport.
 **/
 html {
-  font-size: fortitude-rem-to-px($fortitude-base-rem-font-size);
+  font-size: $fortitude-base-rem-font-size;
   /* [1] */
+  background-color: $fortitude-base-background-color;
+  color: $fortitude-base-color;
   overflow-y: scroll;
   /* [2] */
   min-height: 100%;
@@ -24,8 +26,7 @@ html {
 }
 
 body {
-  font-size: $fortitude-base-font-size;
-  line-height: $fortitude-base-line-height;
+  @include fortitude-font-size($fortitude-base-font-size, true);
 }
 
 .clearfix {
