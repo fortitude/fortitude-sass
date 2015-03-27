@@ -33,8 +33,6 @@
     setupSelectInputs();
   });
 
-  setTimeout(function() {
-    $(document).find('.select-input').trigger('change.ft.select');
-  }, 0);
+  setTimeout(setupSelectInputs, 0);
 
 })(jQuery);
