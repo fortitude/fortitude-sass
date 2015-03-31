@@ -8,13 +8,13 @@ $fortitude-badge-border-width: 0 !default;
 $fortitude-badge-font-size: $fortitude-base-font-size !default;
 
 $fortitude-badge-height--default: $fortitude-base-spacing-unit * 1.3 !default;
-$fortitude-badge-horizontal-padding--default: 1rem !default;
+$fortitude-badge-horizontal-padding--default: 10px !default;
 
 $fortitude-badge-height--small: $fortitude-base-spacing-unit !default;
-$fortitude-badge-horizontal-padding--small: 0.5rem !default;
+$fortitude-badge-horizontal-padding--small: 5px !default;
 
 $fortitude-badge-height--large: fortitude-double($fortitude-base-spacing-unit) !default;
-$fortitude-badge-horizontal-padding--large: 2rem !default;
+$fortitude-badge-horizontal-padding--large: 20px !default;
 
 $fortitude-enable-badge--small: false !default;
 $fortitude-enable-badge--large: false !default;
@@ -48,7 +48,7 @@ $fortitude-enable-badge--pill: false !default;
   @if not $is-large {
     line-height: $fortitude-base-line-height;
   }
-  
+
   @if $is-pill {
     @include fortitude-badge--pill;
   } @else if $fortitude-badge-border-radius != 0 {
@@ -65,11 +65,11 @@ $fortitude-enable-badge--pill: false !default;
   margin: fortitude-block-margin($fortitude-badge-height--large, $fortitude-badge-border-width) 0;
   padding: fortitude-block-padding($fortitude-badge-height--large, $fortitude-badge-border-width) $fortitude-badge-horizontal-padding--large;
 
-  @if $fortitude-block-height > $fortitude-block-line-height {
-    line-height: ceil($fortitude-block-height / $fortitude-block-line-height) * $fortitude-block-line-height;
+  @if $fortitude-block-height > $fortitude-block-spacing-unit {
+    line-height: ceil($fortitude-block-height / $fortitude-block-spacing-unit) * $fortitude-block-spacing-unit;
   }
 }
 
 @mixin fortitude-badge--pill {
-  border-radius: 100rem;
+  border-radius: 1000px;
 }

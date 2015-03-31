@@ -2,11 +2,11 @@ $fortitude-enable-navigationbar: false !default;
 
 @if $fortitude-enable-navigationbar {
   .navigationbar--default {
-    $navigationbar__toggle__icon-width: 2.2rem;
-    $navigationbar__toggle__icon-height: 2.2rem;
+    $navigationbar__toggle__icon-width: 22px;
+    $navigationbar__toggle__icon-height: 22px;
 
     background-color: $gray-lightest-color;
-    border-bottom: 0.1rem solid $gray-light-color;
+    border-bottom: 1px solid $gray-light-color;
     text-transform: uppercase;
 
     .navigationbar__header__logo {

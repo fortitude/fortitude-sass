@@ -3,15 +3,15 @@
 \*------------------------------------*/
 
 hr {
-  border-top: (fortitude-halve($fortitude-base-spacing-unit) - 0.1rem) solid transparent;
-  border-bottom: 0.1rem solid;
+  border-top: (fortitude-halve($fortitude-base-spacing-unit) - 1px) solid transparent;
+  border-bottom: 1px solid;
   border-right-color: transparent;
   border-left-color: transparent;
 }
 
 .hr--top {
-  border-top: 0.1rem solid;
-  border-bottom: (fortitude-halve($fortitude-base-spacing-unit) - 0.1rem) solid transparent;
+  border-top: 1px solid;
+  border-bottom: (fortitude-halve($fortitude-base-spacing-unit) - 1px) solid transparent;
 }
 
 .hr--dashed {

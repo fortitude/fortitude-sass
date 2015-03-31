@@ -2,17 +2,17 @@
     #TOOLTIP
 \*------------------------------------*/
 
-$fortitude-tooltip-width: 18rem !default;
-$fortitude-tooltip-border-radius: 0.2rem !default;
-$fortitude-tooltip-arrow-size: 0.6rem !default;
+$fortitude-tooltip-width: 180px !default;
+$fortitude-tooltip-border-radius: 2px !default;
+$fortitude-tooltip-arrow-size: 6px !default;
 $fortitude-tooltip-color: #ffffff !default;
 $fortitude-tooltip-background-color: rgba(30, 30, 30, 0.9) !default;
-$fortitude-tooltip-padding: 0.8rem !default;
+$fortitude-tooltip-padding: 8px !default;
 $fortitude-tooltip-font-size: 1rem !default;
 $fortitude-tooltip-line-height: 1.4rem !default;
 $fortitude-tooltip-padding-vertical: $fortitude-tooltip-padding !default;
 $fortitude-tooltip-padding-horizontal: $fortitude-tooltip-padding !default;
-$fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-tooltip-padding * 2 !default;
+$fortitude-tooltip-min-height: fortitude-rem-to-px($fortitude-tooltip-line-height) + $fortitude-tooltip-padding * 2 !default;
 
 @mixin fortitude-tooltip($extensions: ()) {
   $is-top: fortitude-contains($extensions, top);
@@ -118,7 +118,7 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
 
   &::after {
     margin-left: 0;
-    margin-bottom: -($fortitude-tooltip-padding-vertical + 0.7rem);
+    margin-bottom: -($fortitude-tooltip-padding-vertical + 7px);
   }
 }
 
@@ -175,6 +175,6 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
 
   &::after {
     margin-left: 0;
-    margin-bottom: -($fortitude-tooltip-padding-vertical + 0.7rem);
+    margin-bottom: -($fortitude-tooltip-padding-vertical + 7px);
   }
 }

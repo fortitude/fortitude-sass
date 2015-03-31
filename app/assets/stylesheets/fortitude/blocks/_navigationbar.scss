@@ -2,7 +2,7 @@ $fortitude-enable-navigationbar: true;
 
 .#{$fortitude-namespace}navigationbar {
   position: relative;
-  line-height: $fortitude-navigationbar-height;
+  line-height: fortitude-px-to-rem($fortitude-navigationbar-height);
   min-height: $fortitude-navigationbar-height;
 }
 
@@ -12,7 +12,7 @@ $fortitude-enable-navigationbar: true;
 
 .#{$fortitude-namespace}navigationbar__header__logo {
   display: inline-block;
-  margin-top: -0.1rem;
+  margin-top: -1px;
   vertical-align: middle;
 }
 
@@ -29,7 +29,7 @@ $fortitude-enable-navigationbar: true;
 }
 
 .#{$fortitude-namespace}navigationbar__navigation {
-  margin-right: -1rem;
+  margin-right: -10px;
 
   .#{$fortitude-namespace}fluid-container & {
     margin-right: 0;
@@ -46,7 +46,7 @@ $fortitude-enable-navigationbar: true;
 
   a {
     display: block;
-    padding: 0 1rem;
+    padding: 0 10px;
   }
 }
 
@@ -64,7 +64,7 @@ $fortitude-enable-navigationbar: true;
   }
 
   .#{$fortitude-namespace}navigationbar__header__logo {
-    padding-left: 2rem;
+    padding-left: 20px;
   }
 
   .#{$fortitude-namespace}navigationbar__toggle {
@@ -133,12 +133,12 @@ $fortitude-enable-navigationbar: true;
 
   .#{$fortitude-namespace}navigationbar__item {
     + .#{$fortitude-namespace}navigationbar__item {
-      margin-top: -0.1rem;
+      margin-top: -1px;
     }
 
     a {
       display: block;
-      padding: 0 2rem;
+      padding: 0 20px;
     }
   }
 }
