@@ -28,6 +28,16 @@
   }
 }
 
+@mixin fortitude-breakpoints($breakpoints: $fortitude-class-breakpoints) {
+  @each $alias, $_ in $breakpoints {
+    #{$alias} {
+      @include fortitude-breakpoint($alias) {
+        @content;
+      }
+    }
+  }
+}
+
 @mixin fortitude-breakpoint-classes($breakpoints: $fortitude-class-breakpoints) {
   @each $alias, $_ in $breakpoints {
     .#{$alias} {

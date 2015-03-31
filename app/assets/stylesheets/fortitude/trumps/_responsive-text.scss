@@ -1,17 +1,37 @@
-@include fortitude-breakpoint-classes {
-  &-text-left {
-    text-align: left !important;
-  }
+@include fortitude-breakpoints {
+  $alias: &;
 
-  &-text-center {
-    text-align: center !important;
-  }
+  @at-root {
+    %#{$alias}-text-left {
+      text-align: left;
+    }
 
-  &-text-right {
-    text-align: right !important;
-  }
+    .#{$alias}-text-left {
+      text-align: left !important;
+    }
 
-  &-text-justify {
-    text-align: justify !important;
+    %#{$alias}-text-center {
+      text-align: center;
+    }
+
+    .#{$alias}-text-center {
+      text-align: center !important;
+    }
+
+    %#{$alias}-text-right {
+      text-align: right;
+    }
+
+    .#{$alias}-text-right {
+      text-align: right !important;
+    }
+
+    %#{$alias}-text-justify {
+      text-align: justify;
+    }
+
+    .#{$alias}-text-justify {
+      text-align: justify !important;
+    }
   }
 }

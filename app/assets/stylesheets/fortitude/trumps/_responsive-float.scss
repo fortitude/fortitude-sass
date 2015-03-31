@@ -1,13 +1,17 @@
-@include fortitude-breakpoint-classes {
-  &-float-left {
-    float: left !important;
-  }
+@include fortitude-breakpoints {
+  $alias: &;
 
-  &-float-right {
-    float: right !important;
-  }
+  @at-root {
+    .#{$alias}-float-left {
+      float: left !important;
+    }
 
-  &-float-none {
-    float: none !important;
+    .#{$alias}-float-right {
+      float: right !important;
+    }
+
+    .#{$alias}-float-none {
+      float: none !important;
+    }
   }
 }

@@ -1,33 +1,37 @@
-@include fortitude-breakpoint-classes {
-  &-none {
-    display: none !important;
-  }
+@include fortitude-breakpoints {
+  $alias: &;
 
-  &-inline {
-    display: inline !important;
-  }
+  @at-root {
+    .#{$alias}-none {
+      display: none !important;
+    }
 
-  &-inline-block {
-    display: inline-block !important;
-  }
+    .#{$alias}-inline {
+      display: inline !important;
+    }
 
-  &-block {
-    display: block !important;
-  }
+    .#{$alias}-inline-block {
+      display: inline-block !important;
+    }
 
-  &-table {
-    display: table !important;
-  }
+    .#{$alias}-block {
+      display: block !important;
+    }
 
-  &-table-cell {
-    display: table-cell !important;
-  }
+    .#{$alias}-table {
+      display: table !important;
+    }
 
-  &-table-column {
-    display: table-column !important;
-  }
+    .#{$alias}-table-cell {
+      display: table-cell !important;
+    }
 
-  &-inherit {
-    display: inherit !important;
+    .#{$alias}-table-column {
+      display: table-column !important;
+    }
+
+    .#{$alias}-inherit {
+      display: inherit !important;
+    }
   }
 }

@@ -1,56 +1,72 @@
 $fortitude-responsive-padding-unit-total: 10 !default;
 
-@include fortitude-breakpoint-classes {
-  @for $index from 0 through $fortitude-responsive-padding-unit-total {
-    $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index) !important;
-    $value-and-half: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index + fortitude-halve($fortitude-base-spacing-unit)) !important;
+@include fortitude-breakpoints {
+  $alias: &;
 
-    &-pt#{$index},
-    &-p#{$index},
-    &-ptb#{$index} {
-      padding-top: $value;
-    }
+  @at-root {
+    @for $index from 0 through $fortitude-responsive-padding-unit-total {
+      $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index);
+      $value-and-half: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index + fortitude-halve($fortitude-base-spacing-unit));
 
-    &-pth#{$index},
-    &-ph#{$index},
-    &-ptbh#{$index} {
-      padding-top: $value-and-half;
-    }
+      .#{$alias}-pt#{$index},
+      .#{$alias}-p#{$index},
+      .#{$alias}-ptb#{$index} {
+        padding-top: $value !important;
+      }
 
-    &-pr#{$index},
-    &-p#{$index},
-    &-prl#{$index} {
-      padding-right: $value;
-    }
+      .#{$alias}-pth#{$index},
+      .#{$alias}-ph#{$index},
+      .#{$alias}-ptbh#{$index} {
+        padding-top: $value-and-half !important;
+      }
 
-    &-prh#{$index},
-    &-ph#{$index},
-    &-prlh#{$index} {
-      padding-right: $value-and-half;
-    }
+      .#{$alias}-pr#{$index},
+      .#{$alias}-p#{$index},
+      .#{$alias}-prl#{$index} {
+        padding-right: $value !important;
+      }
 
-    &-pb#{$index},
-    &-p#{$index},
-    &-ptb#{$index} {
-      padding-bottom: $value;
-    }
+      .#{$alias}-prh#{$index},
+      .#{$alias}-ph#{$index},
+      .#{$alias}-prlh#{$index} {
+        padding-right: $value-and-half !important;
+      }
 
-    &-pbh#{$index},
-    &-ph#{$index},
-    &-ptbh#{$index} {
-      padding-bottom: $value-and-half;
-    }
+      .#{$alias}-pb#{$index},
+      .#{$alias}-p#{$index},
+      .#{$alias}-ptb#{$index} {
+        padding-bottom: $value !important;
+      }
 
-    &-pl#{$index},
-    &-p#{$index},
-    &-prl#{$index} {
-      padding-left: $value;
-    }
+      .#{$alias}-pbh#{$index},
+      .#{$alias}-ph#{$index},
+      .#{$alias}-ptbh#{$index} {
+        padding-bottom: $value-and-half !important;
+      }
 
-    &-plh#{$index},
-    &-ph#{$index},
-    &-prlh#{$index} {
-      padding-left: $value-and-half;
+      .#{$alias}-pl#{$index},
+      .#{$alias}-p#{$index},
+      .#{$alias}-prl#{$index} {
+        padding-left: $value !important;
+      }
+
+      .#{$alias}-plh#{$index},
+      .#{$alias}-ph#{$index},
+      .#{$alias}-prlh#{$index} {
+        padding-left: $value-and-half !important;
+      }
     }
   }
+}
+
+.tester {
+  @extend .xs-p1;
+}
+
+.tester2 {
+  @extend .xs-p1;
+}
+
+.tester3 {
+  @extend .xs-p1;
 }

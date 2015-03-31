@@ -1,23 +1,27 @@
 $fortitude-responsive-column-total: 12 !default;
 
-@include fortitude-breakpoint-classes {
-  @for $index from 0 through $fortitude-responsive-column-total {
-    $value: fortitude-strip-unit-if-zero(percentage($index / $fortitude-responsive-column-total)) !important;
+@include fortitude-breakpoints {
+  $alias: &;
 
-    &-#{$index}of#{$fortitude-responsive-column-total} {
-      width: $value;
-    }
+  @at-root {
+    @for $index from 0 through $fortitude-responsive-column-total {
+      $value: fortitude-strip-unit-if-zero(percentage($index / $fortitude-responsive-column-total)) !important;
 
-    &-offset#{$index}of#{$fortitude-responsive-column-total} {
-      margin-left: $value;
-    }
+      .#{$alias}-#{$index}of#{$fortitude-responsive-column-total} {
+        width: $value;
+      }
 
-    &-push#{$index}of#{$fortitude-responsive-column-total} {
-      left: $value;
-    }
+      .#{$alias}-offset#{$index}of#{$fortitude-responsive-column-total} {
+        margin-left: $value;
+      }
 
-    &-pull#{$index}of#{$fortitude-responsive-column-total} {
-      right: $value;
+      .#{$alias}-push#{$index}of#{$fortitude-responsive-column-total} {
+        left: $value;
+      }
+
+      .#{$alias}-pull#{$index}of#{$fortitude-responsive-column-total} {
+        right: $value;
+      }
     }
   }
 }

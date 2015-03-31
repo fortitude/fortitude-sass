@@ -1,31 +1,35 @@
 $fortitude-responsive-border-unit-total: 1 !default;
 
-@include fortitude-breakpoint-classes {
-  @for $index from 0 through $fortitude-responsive-border-unit-total {
-    $value: fortitude-strip-unit-if-zero($index * 0.1rem) !important;
+@include fortitude-breakpoints {
+  $alias: &;
 
-    &-bt#{$index},
-    &-b#{$index},
-    &-btb#{$index} {
-      border-top-width: $value;
-    }
+  @at-root {
+    @for $index from 0 through $fortitude-responsive-border-unit-total {
+      $value: fortitude-strip-unit-if-zero($index * 0.1rem);
 
-    &-br#{$index},
-    &-b#{$index},
-    &-brl#{$index} {
-      border-right-width: $value;
-    }
+      .#{$alias}-bt#{$index},
+      .#{$alias}-b#{$index},
+      .#{$alias}-btb#{$index} {
+        border-top-width: $value !important;
+      }
 
-    &-bb#{$index},
-    &-b#{$index},
-    &-btb#{$index} {
-      border-bottom-width: $value;
-    }
+      .#{$alias}-br#{$index},
+      .#{$alias}-b#{$index},
+      .#{$alias}-brl#{$index} {
+        border-right-width: $value !important;
+      }
 
-    &-bl#{$index},
-    &-b#{$index},
-    &-brl#{$index} {
-      border-left-width: $value;
+      .#{$alias}-bb#{$index},
+      .#{$alias}-b#{$index},
+      .#{$alias}-btb#{$index} {
+        border-bottom-width: $value !important;
+      }
+
+      .#{$alias}-bl#{$index},
+      .#{$alias}-b#{$index},
+      .#{$alias}-brl#{$index} {
+        border-left-width: $value !important;
+      }
     }
   }
 }
