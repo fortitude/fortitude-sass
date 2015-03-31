@@ -9,7 +9,7 @@ $fortitude-enable-wings: true;
   display: table-cell;
   vertical-align: middle;
   white-space: nowrap;
-  width: 0.1rem;
+  width: 1px;
   padding: 0 fortitude-double($fortitude-base-spacing-unit);
 }
 
@@ -22,8 +22,8 @@ $fortitude-enable-wings: true;
     content: '';
     vertical-align: middle;
     position: absolute;
-    height: 0.5rem;
-    top: -0.1rem;
+    height: 5px;
+    top: -1px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -34,7 +34,7 @@ $fortitude-enable-wings: true;
 .#{$fortitude-namespace}wings--thin {
   .#{$fortitude-namespace}wings__wing {
     &::before {
-      height: 0.1rem;
+      height: 1px;
     }
   }
 }

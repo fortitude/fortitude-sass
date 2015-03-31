@@ -2,17 +2,17 @@
     #BUTTON
 \*------------------------------------*/
 
-$fortitude-button-border-radius: 0.2rem !default;
+$fortitude-button-border-radius: 2px !default;
 $fortitude-button-border-style: solid !default;
 $fortitude-button-border-width: 0 !default;
 
-$fortitude-button-height--default: $fortitude-base-spacing-unit + 1.6rem !default;
+$fortitude-button-height--default: $fortitude-base-spacing-unit + 16px !default;
 $fortitude-button-horizontal-padding--default: fortitude-block-padding($fortitude-button-height--default, $fortitude-button-border-width) * 2 !default;
 
-$fortitude-button-height--small: $fortitude-base-spacing-unit + 1rem !default;
+$fortitude-button-height--small: $fortitude-base-spacing-unit + 10px !default;
 $fortitude-button-horizontal-padding--small: fortitude-block-padding($fortitude-button-height--small, $fortitude-button-border-width) * 2 !default;
 
-$fortitude-button-height--large: fortitude-double($fortitude-base-spacing-unit) + 2rem !default;
+$fortitude-button-height--large: fortitude-double($fortitude-base-spacing-unit) + 20px !default;
 $fortitude-button-horizontal-padding--large: fortitude-block-padding($fortitude-button-height--large, $fortitude-button-border-width) * 2 !default;
 
 $fortitude-enable-button--small: false !default;
@@ -97,7 +97,7 @@ $fortitude-global-border-box: false !default;
 }
 
 @mixin fortitude-button--pill {
-  border-radius: 10rem;
+  border-radius: 1000px;
 }
 
 @mixin fortitude-button__target($extensions: ()) {

@@ -34,7 +34,7 @@ $fortitude-namespace: null !default;
 // above. Feel free to use these variables throughout your project, but do not
 // modify or reassign them.
 
-$fortitude-base-spacing-unit: $fortitude-base-line-height;
-$fortitude-base-spacing-unit--small: round($fortitude-base-line-height / 2);
-$fortitude-base-spacing-unit--large: round($fortitude-base-line-height * 2);
+$fortitude-base-spacing-unit: ($fortitude-base-line-height / ($fortitude-base-line-height * 0 + 1)) * 10px;
+$fortitude-base-spacing-unit--small: round($fortitude-base-spacing-unit / 2);
+$fortitude-base-spacing-unit--large: round($fortitude-base-spacing-unit * 2);
 $fortitude-base-rem-font-size: 0.625rem;

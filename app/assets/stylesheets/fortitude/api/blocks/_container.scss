@@ -4,9 +4,9 @@
 
 $fortitude-container-breakpoints: (
   xs: 100%,
-  sm: 72rem + $fortitude-base-spacing-unit,
-  md: 94rem + $fortitude-base-spacing-unit,
-  lg: 114rem + $fortitude-base-spacing-unit
+  sm: 720px + $fortitude-base-spacing-unit,
+  md: 940px + $fortitude-base-spacing-unit,
+  lg: 1140px + $fortitude-base-spacing-unit
 ) !default;
 
 $fortitude-global-border-box: false !default;

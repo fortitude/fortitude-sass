@@ -69,12 +69,12 @@
   @return fortitude-strip-unit-if-zero($value);
 }
 
-@function fortitude-block-negitive-padding($block-height, $block-border-width: 0rem, $block-spacing-unit: $fortitude-base-spacing-unit) {
+@function fortitude-block-negitive-padding($block-height, $block-border-width: 0, $block-spacing-unit: $fortitude-base-spacing-unit) {
   $value: fortitude-halve($block-height - $block-spacing-unit - fortitude-double($block-border-width));
   @return fortitude-strip-unit-if-zero($value);
 }
 
-@function fortitude-block-margin($block-height, $block-border-width: 0rem, $block-spacing-unit: $fortitude-base-spacing-unit) {
+@function fortitude-block-margin($block-height, $block-border-width: 0, $block-spacing-unit: $fortitude-base-spacing-unit) {
   $block-spacing-unit-height: fortitude-block-spacing-unit-height($block-height, $block-spacing-unit);
   $value: fortitude-halve($block-spacing-unit-height - $block-height);
 
@@ -85,8 +85,8 @@
   @return fortitude-strip-unit-if-zero($value);
 }
 
-@function fortitude-block-padding($block-height, $block-border-width: 0rem, $block-line-height: $fortitude-base-line-height) {
-  $value: fortitude-halve($block-height - $block-line-height - fortitude-double($block-border-width));
+@function fortitude-block-padding($block-height, $block-border-width: 0, $block-spacing-unit: $fortitude-base-spacing-unit) {
+  $value: fortitude-halve($block-height - $block-spacing-unit - fortitude-double($block-border-width));
   @return fortitude-strip-unit-if-zero($value);
 }
 

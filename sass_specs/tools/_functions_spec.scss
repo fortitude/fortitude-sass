@@ -30,7 +30,7 @@
 
 @include describe("fortitude-strip-unit") {
   @include it("returns a unitless version of the original value") {
-    @include should(expect(fortitude-strip-unit(4rem)), to(equal(4)));
+    @include should(expect(fortitude-strip-unit(4px)), to(equal(4)));
   }
 }
 

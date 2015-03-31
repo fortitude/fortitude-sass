@@ -2,7 +2,7 @@ $fortitude-responsive-border-unit-total: 1 !default;
 
 @include fortitude-breakpoint-classes {
   @for $index from 0 through $fortitude-responsive-border-unit-total {
-    $value: fortitude-strip-unit-if-zero($index * 0.1rem) !important;
+    $value: fortitude-strip-unit-if-zero($index * 1px) !important;
 
     &-bt#{$index},
     &-b#{$index},

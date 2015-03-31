@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fortitude-sass (0.7.1)
+    fortitude-sass (0.8.0)
       autoprefixer-rails
       execjs
       sass (~> 3.3)
@@ -10,7 +10,7 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    autoprefixer-rails (5.1.7.1)
+    autoprefixer-rails (5.1.8)
       execjs
       json
     execjs (2.4.0)
