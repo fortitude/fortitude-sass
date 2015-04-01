@@ -7,7 +7,7 @@
     var $this = $(this),
         className = $this.find(':selected').attr('class') || "",
         data = $this.data('ftSelect') || {};
-    
+
     if (className !== data.previousClass) {
       $this
         .addClass(className)
@@ -18,7 +18,7 @@
 
   var setupSelectInputs = function(){
     $document
-      .find('.select-input')
+      .find('[ft-select]')
       .data('ftSelect', {previousClass: ""})
       .each(setClassName);
   };

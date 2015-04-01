@@ -14,7 +14,7 @@
     });
 
     it("is visible after event trigger", function(done){
-      $('[data-ft-shade]').trigger('click');
+      $('[ft-shade-open]').trigger('click');
       $shade.on('opened.ft.shade', function(){
         expect($shade).toHaveClass('shade--is-active');
         expect($shade).toBeVisible();

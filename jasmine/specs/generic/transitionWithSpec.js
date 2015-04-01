@@ -12,7 +12,7 @@
 
     it('hides using ft-hide-class', function(done){
       $transition.ftTransitionWith({
-        dataAttr: 'ftHideClass',
+        attr: 'ft-hide',
         addClass: 'transparent',
         removeClass: 'showing',
         endEvent: 'hidden.ft.transition'
@@ -33,7 +33,7 @@
       $transition.addClass('tiny');
 
       $transition.ftTransitionWith({
-        dataAttr: 'ftShowClass',
+        attr: 'ft-show',
         addClass: 'transparent',
         removeClass: 'showing',
         endEvent: 'shown.ft.transition'
@@ -52,14 +52,14 @@
 
     it('handles race conditions', function(done){
       $transition.ftTransitionWith({
-        dataAttr: 'ftHideClass',
+        attr: 'ft-hide',
         addClass: 'hidden',
         removeClass: 'showing',
         endEvent: 'hidden.ft.transition'
       });
 
       $transition.ftTransitionWith({
-        dataAttr: 'ftShowClass',
+        attr: 'ft-show',
         addClass: 'shown',
         removeClass: 'hidden',
         endEvent: 'shown.ft.transition'

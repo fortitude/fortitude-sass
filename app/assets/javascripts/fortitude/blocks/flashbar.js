@@ -1,24 +1,24 @@
 (function($) {
   'use strict';
-  
-  $(document).on('close.ft.flashbar', '.flashbar', function(event) {
+
+  $(document).on('close.ft.flashbar', '[ft-flashbar], [data-ft-flashbar]', function(event) {
     $(this).ftTransitionWith({
-      dataAttr: 'ftHideClass',
+      attr: 'ft-hide',
       addClass: 'flashbar--closed',
       endEvent: 'closed.ft.flashbar'
     });
   });
 
-  $(document).on('open.ft.flashbar', '.flashbar', function(event){
+  $(document).on('open.ft.flashbar', '[ft-flashbar], [data-ft-flashbar]', function(event){
     $(this).ftTransitionWith({
-      dataAttr: 'ftShowClass',
+      attr: 'ft-show',
       removeClass: 'flashbar--closed',
       endEvent: 'opened.ft.flashbar'
     });
   });
 
-  $(document).on('click', '.flashbar__close', function(event){
-    $(this).closest('.flashbar').trigger('close.ft.flashbar');
+  $(document).on('click', '[ft-flashbar-close], [data-ft-flashbar-close]', function(event){
+    $(this).closest('[ft-flashbar], [data-ft-flashbar]').trigger('close.ft.flashbar');
   });
 
 })(jQuery);

@@ -1,49 +1,49 @@
 (function($) {
   'use strict';
 
-  $(document).on('open.ft.modal', '.modal', function(event) {
+  $(document).on('open.ft.modal', '[ft-modal], [data-ft-modal]', function(event) {
     var $this = $(this);
 
     $.screenLock(true);
-    $('.shade').trigger('open.ft.shade');
+    $('[ft-shade], [data-ft-shade]').trigger('open.ft.shade');
     $('.container--fixed-top').css({
       paddingRight: $.measureScrollBar()
     });
 
     $this.ftTransitionWith({
-      dataAttr: 'ftShowClass',
+      attr: 'ft-show',
       addClass: 'modal--is-active',
       endEvent: 'opened.ft.modal'
     });
   });
 
-  $(document).on('close.ft.modal', '.modal', function(event) {
+  $(document).on('close.ft.modal', '[ft-modal], [data-ft-modal]', function(event) {
     var $this = $(this);
 
     $.screenLock(false);
-    $('.shade').trigger('close.ft.shade');
+    $('[ft-shade], [data-ft-shade]').trigger('close.ft.shade');
     $('.container--fixed-top').css({
       paddingRight: $.measureScrollBar()
     });
 
     $this.ftTransitionWith({
-      dataAttr: 'ftHideClass',
+      attr: 'ft-hide',
       removeClass: 'modal--is-active',
       endEvent: 'closed.ft.modal'
     });
   });
 
-  $(document).on('click', '[data-ft-modal]', function(){
-    var $target = $.ftGetTarget($(this), 'ftModal');
+  $(document).on('click', '[ft-modal-open], [data-ft-modal-open]', function(){
+    var $target = $.ftGetTarget($(this), 'ft-modal-open');
     $target.trigger('open.ft.modal');
   });
 
-  $(document).on('click', '[data-ft-modal-close]', function(){
-    var $target = $.ftGetTarget($(this), 'ftModalClose');
+  $(document).on('click', '[ft-modal-close], [data-ft-modal-close]', function(){
+    var $target = $.ftGetTarget($(this), 'ft-modal-close');
     $target.trigger('close.ft.modal');
   });
 
-  $(document).on('click', '.shade', function(){
+  $(document).on('click', '[ft-shade], [data-ft-shade]', function(){
     $('.modal--is-active').trigger('close.ft.modal');
   });
 

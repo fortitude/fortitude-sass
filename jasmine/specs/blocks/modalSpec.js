@@ -2,13 +2,13 @@
   'use strict';
 
   describe(".modal", function(){
-    var $modal, $animatedModal, $button, $animateButton, $shade, $closeButton;
+    var $modal, $button, $shade, $closeButton;
 
     beforeEach(function(){
       loadFixtures('modalFixture.html');
       $modal = $('#example-modal');
-      $button = $('button[data-ft-modal="example-modal"]');
-      $closeButton = $('button[data-ft-modal-close]');
+      $button = $('button[ft-modal-open="example-modal"]');
+      $closeButton = $('button[ft-modal-close]');
       $shade = $('.shade');
     });
 
@@ -17,7 +17,7 @@
       expect($modal).not.toBeVisible();
     });
 
-    it('shows modal on data-ft-modal click', function(done){
+    it('shows modal on ft-modal-open click', function(done){
       $button.trigger('click');
       _.multiCallback([
         ['opened.ft.shade', $shade],
@@ -29,7 +29,7 @@
       });
     });
 
-    it('hides modal on data-ft-modal-close click', function(done){
+    it('hides modal on ft-modal-close click', function(done){
       $modal.trigger('open.ft.modal');
       $modal.on('opened.ft.modal', function(){
         $closeButton.trigger('click');
