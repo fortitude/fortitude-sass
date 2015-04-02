@@ -1,0 +1,11 @@
+$fortitude-enable-container: true;
+
+.#{$fortitude-namespace}container {
+  @include fortitude-container;
+}
+
+@if $fortitude-enable-container--fixed-top == true {
+  .#{$fortitude-namespace}container--fixed-top {
+    @include fortitude-container--fixed-top;
+  }
+}

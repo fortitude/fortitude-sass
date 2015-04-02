@@ -1,0 +1,11 @@
+$fortitude-enable-box: true;
+
+.#{$fortitude-namespace}box {
+  @include fortitude-box;
+}
+
+@if $fortitude-enable-box--rounded == true {
+  .#{$fortitude-namespace}box--rounded {
+    @include fortitude-box--rounded;
+  }
+}

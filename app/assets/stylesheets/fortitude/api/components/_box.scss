@@ -4,8 +4,9 @@
 
 $fortitude-box-border-style: solid !default;
 $fortitude-box-border-width: 0 !default;
-
 $fortitude-box-border-radius--rounded: 0.2rem !default;
+
+$fortitude-enable-box--rounded: false !default;
 
 @mixin fortitude-box($extensions: ()) {
   $is-rounded: fortitude-contains($extensions, rounded);

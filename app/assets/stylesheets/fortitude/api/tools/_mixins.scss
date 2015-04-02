@@ -55,8 +55,6 @@
 
 @mixin fortitude-appearance($appearance){
   -webkit-appearance: $appearance;
-  -moz-appearance: $appearance;
-  -ms-appearance: $appearance;
-  -o-appearance: $appearance;
-  appearance: $appearance;
+     -moz-appearance: $appearance;
+          appearance: $appearance;
 }
