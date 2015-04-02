@@ -1,7 +1,7 @@
 @import "bootcamp";
 @import "fortitude/settings/defaults";
-@import "fortitude/tools/functions";
+@import "fortitude/api/tools/functions";
 
 @include runner-start;
-@import "tools/functions_spec";
+@import "api/tools/_functions_spec";
 @include runner-end;

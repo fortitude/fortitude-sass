@@ -4,6 +4,8 @@ $fortitude-enable-box: true;
   @include fortitude-box;
 }
 
-.#{$fortitude-namespace}box--rounded {
-  @include fortitude-box--rounded;
+@if $fortitude-enable-box--rounded == true {
+  .#{$fortitude-namespace}box--rounded {
+    @include fortitude-box--rounded;
+  }
 }

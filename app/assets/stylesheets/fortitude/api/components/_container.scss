@@ -11,6 +11,8 @@ $fortitude-container-breakpoints: (
 
 $fortitude-global-border-box: false !default;
 
+$fortitude-enable-container--fixed-top: false !default;
+
 @mixin fortitude-container($extensions: ()) {
   @include fortitude-clearfix;
 

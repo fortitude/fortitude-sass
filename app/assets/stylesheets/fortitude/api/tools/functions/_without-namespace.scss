@@ -1,0 +1,71 @@
+@function tint($args...) {
+  @return fortitude-tint($args...);
+}
+
+@function shade($args...) {
+  @return fortitude-shade($args...);
+}
+
+@function quarter($args...) {
+  @return fortitude-quarter($args...);
+}
+
+@function halve($args...) {
+  @return fortitude-halve($args...);
+}
+
+@function double($args...) {
+  @return fortitude-double($args...);
+}
+
+@function quadruple($args...) {
+  @return fortitude-quadruple($args...);
+}
+
+@function contains($args...) {
+  @return fortitude-contains($args...);
+}
+
+@function strip-unit($args...) {
+  @return fortitude-strip-unit($args...);
+}
+
+@function strip-unit-if-zero($args...) {
+  @return fortitude-strip-unit-if-zero($args...);
+}
+
+@function px-to-rem($args...) {
+  @return fortitude-px-to-rem($args...);
+}
+
+@function rem-to-px($args...) {
+  @return fortitude-rem-to-px($args...);
+}
+
+@function block-spacing-unit-height($args...) {
+  @return fortitude-block-spacing-unit-height($args...);
+}
+
+@function block-spacing-unit-delta($args...) {
+  @return fortitude-block-spacing-unit-delta($args...);
+}
+
+@function block-negitive-padding($args...) {
+  @return fortitude-block-negitive-padding($args...);
+}
+
+@function block-margin($args...) {
+  @return fortitude-block-margin($args...);
+}
+
+@function block-padding($args...) {
+  @return fortitude-block-padding($args...);
+}
+
+@function map-to-query($args...) {
+  @return fortitude-map-to-query($args...);
+}
+
+@function query($args...) {
+  @return fortitude-query($args...);
+}

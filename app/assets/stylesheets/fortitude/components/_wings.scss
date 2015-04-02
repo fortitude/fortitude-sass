@@ -1,5 +1,3 @@
-$fortitude-enable-wings: true;
-
 .#{$fortitude-namespace}wings {
   display: table;
   width: 100%;
@@ -31,14 +29,12 @@ $fortitude-enable-wings: true;
   }
 }
 
-.#{$fortitude-namespace}wings--thin {
-  .#{$fortitude-namespace}wings__wing {
-    &::before {
-      height: 0.1rem;
+@if $fortitude-enable-wings--thin == true {
+  .#{$fortitude-namespace}wings--thin {
+    .#{$fortitude-namespace}wings__wing {
+      &::before {
+        height: 0.1rem;
+      }
     }
   }
-}
-
-.#{$fortitude-namespace}wings__target--narrow {
-  padding: 0 $fortitude-base-spacing-unit;
 }

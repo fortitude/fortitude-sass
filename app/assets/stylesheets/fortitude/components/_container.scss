@@ -4,6 +4,8 @@ $fortitude-enable-container: true;
   @include fortitude-container;
 }
 
-.#{$fortitude-namespace}container--fixed-top {
-  @include fortitude-container--fixed-top;
+@if $fortitude-enable-container--fixed-top == true {
+  .#{$fortitude-namespace}container--fixed-top {
+    @include fortitude-container--fixed-top;
+  }
 }
