@@ -48,27 +48,27 @@ $fortitude-enable-media: true;
     > .#{$fortitude-namespace}media__object {
       @include fortitude-media__object--rev;
     }
-  }
 
-  @if $fortitude-enable-media--small == true {
-    /**
-     * Reversed small media objects.
-    **/
+    @if $fortitude-enable-media--small == true {
+      /**
+       * Reversed small media objects.
+      **/
 
-    &.#{$fortitude-namespace}media--small {
-      > .#{$fortitude-namespace}media__object {
-        @include fortitude-media__object--rev--small;
+      &.#{$fortitude-namespace}media--small {
+        > .#{$fortitude-namespace}media__object {
+          @include fortitude-media__object--rev--small;
+        }
       }
     }
-  }
 
-  @if $fortitude-enable-media--large == true {
-    /**
-     * Large reversed media objects.
-    **/
-    &.#{$fortitude-namespace}media--large {
-      > .#{$fortitude-namespace}media__object {
-        @include fortitude-media__object--rev--large;
+    @if $fortitude-enable-media--large == true {
+      /**
+       * Large reversed media objects.
+      **/
+      &.#{$fortitude-namespace}media--large {
+        > .#{$fortitude-namespace}media__object {
+          @include fortitude-media__object--rev--large;
+        }
       }
     }
   }

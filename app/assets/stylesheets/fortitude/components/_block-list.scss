@@ -14,7 +14,7 @@ $fortitude-enable-block-list: true;
   **/
   .#{$fortitude-namespace}block-list--small {
     > .#{$fortitude-namespace}block-list__item {
-      @include fortitude-block-list--small__item;
+      @include fortitude-block-list__item--small;
     }
   }
 }
@@ -25,7 +25,7 @@ $fortitude-enable-block-list: true;
   **/
   .#{$fortitude-namespace}block-list--large {
     > .#{$fortitude-namespace}block-list__item {
-      @include fortitude-block-list--large__item;
+      @include fortitude-block-list__item--large;
     }
   }
 }

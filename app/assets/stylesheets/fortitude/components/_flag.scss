@@ -143,7 +143,7 @@ $fortitude-enable-flag: true;
       @if $fortitude-enable-flag--large == true {
         &.#{$fortitude-namespace}flag--large {
           > .#{$fortitude-namespace}flag__object {
-            @include fortitude-flag--responsive--large__object;
+            @include fortitude-flag__object--responsive--large;
           }
         }
       }
