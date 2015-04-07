@@ -3,37 +3,37 @@
 
   var itemActive = 'tabs-navigation__item--is-active',
       targetActive = 'tabs__target--is-active',
-      tabItem = '.tabs-navigation__item[data-ft-tab]';
+      tabItem = '[ft-tab], [data-ft-tab]';
 
   var selectTab = function($element){
-    var $target = $.ftGetTarget($element, 'ftTab'),
+    var $target = $.ftGetTarget($element, 'ft-tab'),
         $siblings, activeClass;
 
     $element.siblings().each(function(){
       var $this = $(this),
-          $otherTarget = $.ftGetTarget($this, 'ftTab');
+          $otherTarget = $.ftGetTarget($this, 'ft-tab');
 
       $this.ftTransitionWith({
-        dataAttr: 'ftHideClass',
+        attr: 'ft-hide',
         removeClass: itemActive,
         endEvent: 'deselected.ft.tab'
       });
 
       $otherTarget.ftTransitionWith({
-        dataAttr: 'ftHideClass',
+        attr: 'ft-hide',
         removeClass: targetActive,
         endEvent: 'closed.ft.tabtarget'
       });
     });
 
     $element.ftTransitionWith({
-      dataAttr: 'ftShowClass',
+      attr: 'ft-show',
       addClass: itemActive,
       endEvent: 'opened.ft.tab'
     });
 
     return $target.ftTransitionWith({
-      dataAttr: 'ftShowClass',
+      attr: 'ft-show',
       addClass: targetActive,
       endEvent: 'opened.ft.tabtarget'
     });

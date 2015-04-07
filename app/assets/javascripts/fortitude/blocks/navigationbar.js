@@ -1,11 +1,11 @@
 (function($) {
   'use strict';
 
-  $(document).on('change', '.navigationbar__toggle__helper', function(){
+  $(document).on('change', '[ft-navigationbar-toggle], [data-ft-navigationbar-toggle]', function(){
     if($(this).prop('checked')){
-      $('.shade').trigger('open.ft.shade');
+      $('[ft-shade]').trigger('open.ft.shade');
     } else {
-      $('.shade').trigger('close.ft.shade');
+      $('[ft-shade]').trigger('close.ft.shade');
     }
   });
 })(jQuery);
