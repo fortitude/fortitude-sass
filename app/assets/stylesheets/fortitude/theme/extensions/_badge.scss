@@ -1,3 +1,37 @@
+/*doc
+---
+title: Badge Extensions
+parent: badge
+name: badge-extensions
+category: Objects
+---
+Class           | Description
+--------------- | -----------------
+badge--small    | A small badge
+badge--large    | A large badge
+badge--pill     | A pill badge
+badge--default  | A basic badge
+badge--primary  | A badge for primary information
+badge--success  | A badge for success information
+badge--info     | A badge for sidenote information
+badge--warning  | A badge for warning information
+badge--danger   | A badge for destructive information
+badge--inverse  | A basic badge
+
+```html_example
+<strong class="badge badge--small badge--default">Small</strong>
+<strong class="badge badge--large badge--default">Large</strong>
+<strong class="badge badge--pill badge--default">Pill</strong>
+<strong class="badge badge--default">Default</strong>
+<strong class="badge badge--primary">Primary</strong>
+<strong class="badge badge--success">Success</strong>
+<strong class="badge badge--info">Info</strong>
+<strong class="badge badge--warning">Warning</strong>
+<strong class="badge badge--danger">Danger</strong>
+<strong class="badge badge--inverse">Inverse</strong>
+```
+*/
+
 $fortitude-enable-badge: false !default;
 
 @if $fortitude-enable-badge {

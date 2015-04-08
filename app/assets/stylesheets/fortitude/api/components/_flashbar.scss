@@ -8,11 +8,17 @@
 
 $fortitude-flashbar-border-style: solid !default;
 $fortitude-flashbar-border-width: 0 !default;
+$fortitude-flashbar-padding-vertical: fortitude-halve($fortitude-base-spacing-unit);
+$fortitude-flashbar-padding-horizontal: fortitude-halve($fortitude-base-spacing-unit);
+$fortitude-flashbar-padding: $fortitude-flashbar-padding-vertical $fortitude-flashbar-padding-horizontal;
+
 $fortitude-flashbar__close-text-decoration: none !default;
+$fortitude-flashbar__close-font-size: 1.8rem;
 
 @mixin fortitude-flashbar($extensions: ()) {
   @include fortitude-clearfix;
   border: $fortitude-flashbar-border-width $fortitude-flashbar-border-style transparent;
+  padding: $fortitude-flashbar-padding;
   position: relative;
 }
 
@@ -24,4 +30,5 @@ $fortitude-flashbar__close-text-decoration: none !default;
   position: absolute;
   right: fortitude-halve($fortitude-base-spacing-unit);
   text-decoration: $fortitude-flashbar__close-text-decoration;
+  font-size: $fortitude-flashbar__close-font-size;
 }

@@ -3,9 +3,11 @@
 \*------------------------------------*/
 
 @mixin fortitude-inline-list($extensions: ()) {
-  display: inline;
+  margin:  0;
+  padding: 0;
+  list-style: none;
 }
 
 @mixin fortitude-inline-list__item($extensions: ()) {
-  display: inline;
+  display: inline-block;
 }

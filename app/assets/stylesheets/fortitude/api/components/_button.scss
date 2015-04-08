@@ -4,7 +4,7 @@
 
 $fortitude-button-border-radius: 0.2rem !default;
 $fortitude-button-border-style: solid !default;
-$fortitude-button-border-width: 0 !default;
+$fortitude-button-border-width: 0.1rem !default;
 
 $fortitude-button-height--default: $fortitude-base-spacing-unit + 1.6rem !default;
 $fortitude-button-horizontal-padding--default: fortitude-block-padding($fortitude-button-height--default, $fortitude-button-border-width) * 2 !default;

@@ -1,3 +1,12 @@
+/*doc
+---
+title: Modal
+name: modal
+category: Objects
+---
+The `modal` object is used to make users focus on a specific piece of content.
+*/
+
 $fortitude-enable-modal: true;
 
 .#{$fortitude-namespace}modal {

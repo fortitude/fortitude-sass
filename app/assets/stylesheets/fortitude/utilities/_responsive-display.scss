@@ -1,3 +1,14 @@
+/*doc
+---
+title: Responsive Display
+name: responsive-display
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how an elements is displayed.
+Example: `sm-none` will only hide the element at the `sm` breakpoint and up.
+
+*/
+
 @include fortitude-breakpoint-classes {
   &-none {
     display: none !important;

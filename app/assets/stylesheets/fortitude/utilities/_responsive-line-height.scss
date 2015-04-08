@@ -1,3 +1,14 @@
+/*doc
+---
+title: Responsive Line Height
+name: responsive-line-height
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `line-height`.
+Example: `sm-inset2` will only set the line-height to `4rem` or `40px` on the element at the `sm` breakpoint and up.
+
+*/
+
 $fortitude-responsive-line-height-unit-total: 2 !default;
 
 @include fortitude-breakpoint-classes {

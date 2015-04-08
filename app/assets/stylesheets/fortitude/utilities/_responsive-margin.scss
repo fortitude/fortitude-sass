@@ -1,3 +1,31 @@
+/*doc
+---
+title: Responsive Margin
+name: responsive-margin
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `margin`.
+Example: `sm-mb2` will only set the bottom margin to `4rem` or `40px` on the element at the `sm` breakpoint and up.
+
+
+Class                                    | Description
+---------------------------------------- | -----------
+`xs`, `sm`, `md`, `lg`                   | breakpoints
+`m`, `mtb`, `mrl`, `mt`, `mr`, `mb` `ml` | `margin` &mdash; `t = top`, `r = right`, `b = bottom`, `l = left`
+(0-8)                                    | amount of spacing
+
+```html_example
+<pre class="xs-mtbh1">
+  margin-top: 2rem
+  margin-bottom: 2rem
+  all screen sizes
+</pre>
+<pre class="sm-mrl1 md-mrl2 lg-mrl3">
+  margin for larger screens
+</pre>
+```
+*/
+
 $fortitude-responsive-margin-unit-total: 10 !default;
 $fortitude-responsive-negative-margin-unit-total: 10 !default;
 

@@ -1,3 +1,65 @@
+/*doc
+---
+title: Wings Extensions
+parent: wings
+name: wings-extensions
+category: Objects
+---
+Class           | Description
+--------------- | -----------------
+wings--default  | A basic wings
+wings--primary  | A wings for primary information
+wings--success  | A wings for success information
+wings--info     | A wings for sidenote information
+wings--warning  | A wings for warning information
+wings--danger   | A wings for destructive information
+wings--inverse  | A basic wings
+
+```html_example
+<div class="wings wings--default">
+  <div class="wings__wing"></div>
+  <h3 class="wings__text xs-prl2">Default</h3>
+  <div class="wings__wing"></div>
+</div>
+
+<div class="wings wings--primary">
+  <div class="wings__wing"></div>
+  <h3 class="wings__text xs-prl2">Primary</h3>
+  <div class="wings__wing"></div>
+</div>
+
+<div class="wings wings--success">
+  <div class="wings__wing"></div>
+  <h3 class="wings__text xs-prl2">Success</h3>
+  <div class="wings__wing"></div>
+</div>
+
+<div class="wings wings--info">
+  <div class="wings__wing"></div>
+  <h3 class="wings__text xs-prl2">Info</h3>
+  <div class="wings__wing"></div>
+</div>
+
+<div class="wings wings--warning">
+  <div class="wings__wing"></div>
+  <h3 class="wings__text xs-prl2">Warning</h3>
+  <div class="wings__wing"></div>
+</div>
+
+<div class="wings wings--danger">
+  <div class="wings__wing"></div>
+  <h3 class="wings__text xs-prl2">Danger</h3>
+  <div class="wings__wing"></div>
+</div>
+
+<div class="wings wings--inverse">
+  <div class="wings__wing"></div>
+  <h3 class="wings__text xs-prl2">Inverse</h3>
+  <div class="wings__wing"></div>
+</div>
+```
+*/
+
 $fortitude-enable-wings: false !default;
 
 @if $fortitude-enable-wings {

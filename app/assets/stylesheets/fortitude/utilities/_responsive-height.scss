@@ -1,3 +1,14 @@
+/*doc
+---
+title: Responsive Height
+name: responsive-height
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how what the elements `min-height` is.
+Example: `sm-2` will only set the height to `4rem` or `40px` on the element at the `sm` breakpoint and up.
+
+*/
+
 $fortitude-responsive-height-total: 12 !default;
 
 @for $index from 1 through $fortitude-responsive-height-total {

@@ -1,3 +1,21 @@
+/*doc
+---
+title: Responsive Text Alignment
+name: responsive-text-align
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `text-align` property.
+Example: `sm-text-center` will only set the elements text to center at the `sm` breakpoint and up.
+
+```html_example
+<div class="xs-text-left">Text Align Left</div>
+<div class="xs-text-center">Text Align Center</div>
+<div class="xs-text-right">Text Align Right</div>
+<div class="xs-text-justify">Text Align Justify</div>
+```
+
+*/
+
 @include fortitude-breakpoint-classes {
   &-text-left {
     text-align: left !important;

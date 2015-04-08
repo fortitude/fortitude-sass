@@ -1,3 +1,14 @@
+/*doc
+---
+title: Html screen lock
+name: html--is-locked
+category: Utilities
+---
+Used to make the contents of a webpage unscrollable.
+This is ideal when presenting content in a modal or similar UX patterns.
+
+*/
+
 .html--is-locked {
   overflow: hidden !important;
 

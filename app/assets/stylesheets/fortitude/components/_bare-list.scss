@@ -1,3 +1,12 @@
+/*doc
+---
+title: Bare List
+name: bare-list
+category: Objects
+---
+Bare Lists are unstyled lists.
+*/
+
 $fortitude-enable-bare-list: true;
 
 .#{$fortitude-namespace}bare-list {

@@ -1,3 +1,37 @@
+/*doc
+---
+title: Button Extensions
+parent: button
+name: button-extensions
+category: Objects
+---
+Class            | Description
+---------------- | -----------------
+button--small    | A small button
+button--large    | A large button
+button--default  | A basic button
+button--primary  | A button for primary information
+button--success  | A button for success information
+button--info     | A button for sidenote information
+button--warning  | A button for warning information
+button--danger   | A button for destructive information
+button--inverse  | A basic button
+
+```html_example
+<button class="button button--small button--default">Small</button>
+<button class="button button--large button--default">Large</button>
+<button class="button button--rounded button--default">Rounded</button>
+<button class="button button--pill button--default">Pill</button>
+<button class="button button--default">Default</button>
+<button class="button button--primary">Primary</button>
+<button class="button button--success">Success</button>
+<button class="button button--info">Info</button>
+<button class="button button--warning">Warning</button>
+<button class="button button--danger">Danger</button>
+<button class="button button--inverse">Inverse</button>
+```
+*/
+
 $fortitude-enable-button: false !default;
 
 @if $fortitude-enable-button {

@@ -1,3 +1,134 @@
+/*doc
+---
+title: Layout
+name: layout
+category: Structure
+---
+Used for content that needs a grid default gutter width is `2rem` or `20px`
+
+Class           | Description
+--------------- | -----------------
+.layout         | Layout items are aligned to the vertical tops of each other
+.layout--middle | Layout items are aligned to the vertical centers of each other
+.layout--bottom | Layout items are aligned to the vertical bottoms of each other
+.layout--small  | Layout items have small gutters
+.layout--large  | Layout items have large gutters
+.layout--flush  | Layout items have no gutters
+.layout--rev    | Layout items are rendered in reverse order
+.layout--center | Layout items are rendered from the center outward
+.layout--right  | Layout items are rendered from the right hand side
+
+```html_example
+<div class="layout xs-mb1">
+  <div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--primary">1 of 12</div>
+  </div>
+</div>
+
+<div class="layout xs-mb1">
+  <div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div>
+</div>
+
+<!-- layout middle -->
+<div class="layout layout--middle xs-mb1">
+  <div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--primary xs-2">6 of 12</div>
+  </div>
+</div>
+
+<!-- layout bottom -->
+<div class="layout layout--bottom xs-mb1">
+  <div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div>
+</div>
+
+<!-- layout flush -->
+<div class="layout layout--flush xs-mb1">
+  <div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div>
+</div>
+
+<!-- layout small -->
+<div class="layout layout--small xs-mb1">
+  <div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div>
+</div>
+
+<!-- layout large -->
+<div class="layout layout--large xs-mb1">
+  <div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div>
+</div>
+
+<!-- layout rev -->
+<div class="layout layout--rev xs-mb1">
+  <div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--primary">6 of 12</div>
+  </div>
+</div>
+
+<!-- layout center -->
+<div class="layout layout--center xs-mb1">
+  <div class="layout__item md-4of12">
+    <div class="box box--primary">4 of 12</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--primary">4 of 12</div>
+  </div>
+</div>
+
+<!-- layout right -->
+<div class="layout layout--right xs-mb1">
+  <div class="layout__item md-4of12">
+    <div class="box box--primary">4 of 12</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--primary">6 of 12</div>
+  </div>
+</div>
+```
+*/
+
 $fortitude-enable-layout: true;
 
 .#{$fortitude-namespace}layout {

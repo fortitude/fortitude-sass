@@ -1,14 +1,22 @@
+/*doc
+---
+title: Wings
+name: wings
+category: Objects
+---
+The `wings` object is used to render text in between two horizontal lines.
+*/
+
 .#{$fortitude-namespace}wings {
   display: table;
   width: 100%;
 }
 
-.#{$fortitude-namespace}wings__target {
+.#{$fortitude-namespace}wings__text {
   display: table-cell;
   vertical-align: middle;
   white-space: nowrap;
-  width: 0.1rem;
-  padding: 0 fortitude-double($fortitude-base-spacing-unit);
+  width: 1%;
 }
 
 .#{$fortitude-namespace}wings__wing {
@@ -16,11 +24,12 @@
   display: inline-block;
   height: 100%;
   width: 100%;
+
   &::before {
     content: '';
     vertical-align: middle;
     position: absolute;
-    height: 0.5rem;
+    height: 0.1rem;
     top: -0.1rem;
     left: 0;
     right: 0;

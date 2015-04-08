@@ -1,3 +1,40 @@
+/*doc
+---
+title: Modal
+name: js-modal
+category: Javascript
+---
+Modals are used to block the user from doing any other actions except inside of a focused area of content.
+
+
+```html_example
+<div class="modal">
+  <div class="modal__content">
+    <div class="box box--default xs-p1">
+      <h1 class="xs-mb1">Hello World</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!</p>
+    </div>
+  </div>
+</div>
+```
+
+```js_example
+$(document).on('open.ft.modal', '.modal', function() {
+  // do some work
+});
+```
+
+Below are some events you can listen to:
+
+method             | description
+------------------ | -----------------------
+`open.ft.modal`    | The modal is about to show
+`opened.ft.modal`  | The modal is shown
+`close.ft.modal`   | The modal is about to hide
+`closed.ft.modal`  | The modal is hidden
+*/
+
+
 (function($) {
   'use strict';
 

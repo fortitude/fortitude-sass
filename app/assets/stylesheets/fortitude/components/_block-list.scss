@@ -1,3 +1,12 @@
+/*doc
+---
+title: Block List
+name: block-list
+category: Objects
+---
+The Block List object creates blocky list items out of a `ul` or `ol`.
+*/
+
 $fortitude-enable-block-list: true;
 
 .#{$fortitude-namespace}block-list {

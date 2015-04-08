@@ -1,0 +1,53 @@
+/*doc
+---
+title: Text Extensions
+parent: text
+name: text-extensions
+category: Utilities
+---
+Class               | Description
+------------------- | -----------------
+text--gray-darkest  | This is the darkest gray text
+text--gray-darker   | This is the darker gray text
+text--gray-dark     | This is the dark gray text
+text--gray          | This is the gray text
+text--gray-light    | This is the light gray text
+text--gray-lighter  | This is the lighter gray text
+text--gray-lightest | This is the lightest gray text
+text--default  | default information
+text--primary  | primary information
+text--success  | success information
+text--info     | sidenote information
+text--warning  | warning information
+text--danger   | destructive information
+text--inverse  | default information
+
+```html_example
+<span class="text--gray-darkest">Darkest Gray</span>
+<span class="text--gray-darker">Darker Gray</span>
+<span class="text--gray-dark">Dark Gray</span>
+<span class="text--gray">Gray</span>
+<span class="text--gray-light">Light Gray</span>
+<span class="text--gray-lighter">Lighter Gray</span>
+<span class="text--gray-lightest">Lightest Gray</span>
+<span class="text--default">Default</span>
+<span class="text--primary">Primary</span>
+<span class="text--success">Success</span>
+<span class="text--info">Info</span>
+<span class="text--warning">Warning</span>
+<span class="text--danger">Danger</span>
+<span class="text--inverse">Inverse</span>
+```
+*/
+
+@each $key, $value in $fortitude-grays {
+  .text--#{$key} {
+    color: $value;
+  }
+}
+
+@each $key, $value in $fortitude-color-intents {
+  .text--#{$key} {
+    color: $value;
+  }
+}

@@ -1,3 +1,105 @@
+/*doc
+---
+title: Inputs
+name: inputs
+category: Objects
+---
+The `input` object is used for forms
+
+```html_example
+<div class="field xs-mb1">
+  <label>
+    Checkbox Input
+    <input class="checkbox-input" type="checkbox" />
+  </label>
+</div>
+
+<div class="field xs-mb1">
+  <label>
+    Radio Input
+    <input class="radio-input" type="radio" />
+  </label>
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Text Input
+  </label>
+  <input class="text-input" type="text" />
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Textarea Input
+  </label>
+  <textarea class="textarea-input"></textarea>
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Select Input
+  </label>
+  <select class="select-input">
+    <option class="placeholder">Select One</option>
+  </select>
+</div>
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Range Input
+  </label>
+  <input class="range-input" type="range" />
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Color Input
+  </label>
+  <input class="color-input" type="color" />
+</div>
+```
+
+<h2 class="styleguide">Full Width Input</h2>
+If you need a full width input there is the `input--full` class that can be applied to any input.
+
+```html_example
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Text Input
+  </label>
+  <input class="text-input input--full" type="text" />
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Textarea Input
+  </label>
+  <textarea class="textarea-input input--full"></textarea>
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Select Input
+  </label>
+  <select class="select-input input--full">
+    <option class="placeholder">Select One</option>
+  </select>
+</div>
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Range Input
+  </label>
+  <input class="range-input input--full" type="range" />
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Color Input
+  </label>
+  <input class="color-input input--full" type="color" />
+</div>
+```
+*/
+
 $fortitude-enable-input: true;
 
 .#{$fortitude-namespace}checkbox-input {

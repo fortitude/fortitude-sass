@@ -1,3 +1,60 @@
+/*doc
+---
+title: Flashbar Extensions
+parent: flashbar
+name: flashbar-extensions
+category: Objects
+---
+
+Class              | Description
+------------------ | -----------------
+flashbar--default  | This is a basic flashbar
+flashbar--primary  | This is a flashbar for primary information
+flashbar--success  | This is a flashbar for success information
+flashbar--info     | This is a flashbar for sidenote information
+flashbar--warning  | This is a flashbar for warning information
+flashbar--danger   | This is a flashbar for destructive information
+
+```html_example
+<div class="flashbar flashbar--default">
+  <a href="javascript: void 0;" class="flashbar__close">&times;</a>
+  <div class="fluid-container">
+    Default
+  </div>
+</div>
+<div class="flashbar flashbar--primary">
+  <a href="javascript: void 0;" class="flashbar__close">&times;</a>
+  <div class="fluid-container">
+    Primary
+  </div>
+</div>
+<div class="flashbar flashbar--success">
+  <a href="javascript: void 0;" class="flashbar__close">&times;</a>
+  <div class="fluid-container">
+    Success
+  </div>
+</div>
+<div class="flashbar flashbar--info">
+  <a href="javascript: void 0;" class="flashbar__close">&times;</a>
+  <div class="fluid-container">
+    Info
+  </div>
+</div>
+<div class="flashbar flashbar--warning">
+  <a href="javascript: void 0;" class="flashbar__close">&times;</a>
+  <div class="fluid-container">
+    Warning
+  </div>
+</div>
+<div class="flashbar flashbar--danger">
+  <a href="javascript: void 0;" class="flashbar__close">&times;</a>
+  <div class="fluid-container">
+    Danger
+  </div>
+</div>
+```
+*/
+
 $fortitude-enable-flashbar: false !default;
 
 @if $fortitude-enable-flashbar {

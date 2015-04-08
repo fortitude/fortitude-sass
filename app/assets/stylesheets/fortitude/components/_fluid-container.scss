@@ -1,3 +1,22 @@
+/*doc
+---
+title: Fluid Container
+parent: container
+name: fluid-container
+category: Structure
+---
+
+Class             | Description
+----------------- | -----------------
+.fluid-container  | A full width container, spanning the entire width of your viewport.
+
+```html_example
+<div class="fluid-container">
+  ...
+</div>
+```
+*/
+
 $fortitude-enable-fluid-container: true;
 
 .#{$fortitude-namespace}fluid-container {

@@ -1,3 +1,30 @@
+/*doc
+---
+title: Media
+name: media
+category: Structure
+---
+The `media` object is an image or video on one side, with descriptive content on another side.
+The content area can contain any other objects. In most cases, it contains text, but we could put lists, grids, or even other media objects inside.
+
+default gutter size is `2rem` or `20px`
+
+If you need to align your content in the middle or the bottom of itself then consider using a [flag object][flag].
+
+Class              | Description
+------------------ | -----------------
+.media             | Media object has default gutters
+.media--flush      | Media object has no gutters
+.media--small      | Media object has small gutters
+.media--large      | Media object has large gutters
+.media--rev        | Media object and media body are reversed
+.xs-media          | Media object and media body are collapsed on all screen sizes
+.sm-media          | Media object and media body are collapsed on small screens and up
+.md-media          | Media object and media body are collapsed on medium screens and up
+.lg-media          | Media object and media body are collapsed only on large screens
+
+*/
+
 $fortitude-enable-media: true;
 
 .#{$fortitude-namespace}media {

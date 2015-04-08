@@ -1,16 +1,52 @@
+/*doc
+---
+title: Table
+name: table
+category: Objects
+---
+The `table` object is a set of simple extending classes that should be applied to table elements.
+
+Class           | Description
+--------------- | -----------------
+table--full     | make table full width
+table--fixed    | make all columns equal widths
+
+
+```html_example
+<table class="table--full table--fixed" border="1">
+  <thead>
+    <tr>
+      <th>Column 1</th>
+      <th>Column 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Column 1</td>
+      <td>Column 2</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
 $fortitude-enable-table: true;
 
-.#{$fortitude-namespace}table,
-%#{$fortitude-namespace}table {
-  width: 100%;
+@if $fortitude-enable-table--full == true {
+  /**
+   * Force tables to be 100% width.
+  **/
+  .#{$fortitude-namespace}table--full {
+    width: 100%;
+  }
 }
 
 @if $fortitude-enable-table--fixed == true {
   /**
    * Force tables into having equal-width columns.
   **/
-  .#{$fortitude-namespace}table--fixed,
-  %#{$fortitude-namespace}table--fixed {
+  .#{$fortitude-namespace}table--fixed {
     table-layout: fixed;
   }
 }

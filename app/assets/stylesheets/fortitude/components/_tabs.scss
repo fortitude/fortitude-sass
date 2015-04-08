@@ -1,3 +1,12 @@
+/*doc
+---
+title: Tabs
+name: tabs
+category: Objects
+---
+The `tabs` object is used to encapsulate content in individual tabs.
+*/
+
 $fortitude-enable-tabs: true;
 
 .#{$fortitude-namespace}tabs__target {

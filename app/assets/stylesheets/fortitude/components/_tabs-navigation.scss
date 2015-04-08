@@ -1,3 +1,12 @@
+/*doc
+---
+title: Tabs Navigation
+name: tabs-navigation
+category: Objects
+---
+The `tabs-navigation` object is used for horizontal tab navigations.
+*/
+
 $fortitude-enable-tabs-navigation: true;
 
 .#{$fortitude-namespace}tabs-navigation {

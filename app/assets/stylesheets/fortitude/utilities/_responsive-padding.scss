@@ -1,3 +1,30 @@
+/*doc
+---
+title: Responsive Padding
+name: responsive-padding
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `padding`.
+Example: `sm-ptb2` will only set the bottom and top padding to `4rem` or `40px` on the element at the `sm` breakpoint and up.
+
+Class                                    | Description
+---------------------------------------- | -----------
+`xs`, `sm`, `md`, `lg`                   | breakpoints
+`p`, `ptb`, `prl`, `pt`, `pr`, `pb` `pl` | `padding` &mdash; `t = top`, `r = right`, `b = bottom`, `l = left`
+(0-8)                                    | amount of spacing
+
+```html_example
+<pre class="xs-ptbh1">
+  padding-top: 2rem
+  padding-bottom: 2rem
+  all screen sizes
+</pre>
+<pre class="sm-mrl1 md-prl2 lg-prl3">
+  padding for larger screens
+</pre>
+```
+*/
+
 $fortitude-responsive-padding-unit-total: 10 !default;
 
 @include fortitude-breakpoint-classes {

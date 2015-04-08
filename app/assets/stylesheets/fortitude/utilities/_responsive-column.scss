@@ -1,3 +1,14 @@
+/*doc
+---
+title: Responsive Widths
+name: responsive-widths
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how an elements width.
+Example: `sm-6of12` will only apply a width of 50% to the element at the `sm` breakpoint and up.
+
+*/
+
 $fortitude-responsive-column-total: 12 !default;
 
 @include fortitude-breakpoint-classes {

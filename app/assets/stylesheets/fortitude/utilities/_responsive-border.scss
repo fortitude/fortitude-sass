@@ -1,3 +1,14 @@
+/*doc
+---
+title: Responsive Borders
+name: responsive-borders
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how an elements borders.
+Example: `sm-b1` will only apply a 0.1rem border-width to the element at the `sm` breakpoint and up.
+
+*/
+
 $fortitude-responsive-border-unit-total: 1 !default;
 
 @include fortitude-breakpoint-classes {

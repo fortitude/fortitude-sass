@@ -1,9 +1,18 @@
+/*doc
+---
+title: Dropdown
+name: dropdown
+category: Objects
+---
+The `dropdown` is used to hide content or navigation behind a clickable element
+*/
+
 .#{$fortitude-namespace}dropdown {
   @include fortitude-dropdown;
 }
 
 .#{$fortitude-namespace}dropdown__navigation {
-  @include fortitude-dropdown__navigation; 
+  @include fortitude-dropdown__navigation;
 }
 
 .#{$fortitude-namespace}dropdown__text--is-checked {

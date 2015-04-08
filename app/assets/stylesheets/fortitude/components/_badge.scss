@@ -1,3 +1,12 @@
+/*doc
+---
+title: Badge
+name: badge
+category: Objects
+---
+Badges are a way to display a small amount of text or an image within a nicely formatted box.
+*/
+
 $fortitude-enable-badge: true;
 
 .#{$fortitude-namespace}badge {

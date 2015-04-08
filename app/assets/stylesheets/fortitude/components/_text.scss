@@ -1,25 +1,51 @@
+/*doc
+---
+title: Text
+name: text
+category: Utilities
+---
+
+Class               | Description
+------------------- | -----------------
+text--italic        | Italic text
+text--underline     | This is the darker gray text
+text--line-through  | This is the dark gray text
+text--lowercase     | This is the gray text
+text--uppercase     | This is the light gray text
+text--capitalize    | This is the lighter gray text
+
+```html_example
+<span class="text--italic">Italic</span>
+<span class="text--underline">Underline</span>
+<span class="text--line-through">Line through</span>
+<span class="text--lowercase">Lowercase</span>
+<span class="text--uppercase">Uppercase</span>
+<span class="text--capitalize">Capitalize</span>
+```
+*/
+
 $fortitude-enable-text: true;
 
-.#{$fortitude-namespace}text-italic {
+.#{$fortitude-namespace}text--italic {
   font-style: italic;
 }
 
-.#{$fortitude-namespace}text-underline {
+.#{$fortitude-namespace}text--underline {
   text-decoration: underline;
 }
 
-.#{$fortitude-namespace}text-line-through {
+.#{$fortitude-namespace}text--line-through {
   text-decoration: line-through;
 }
 
-.#{$fortitude-namespace}text-lowercase {
+.#{$fortitude-namespace}text--lowercase {
   text-transform: lowercase;
 }
 
-.#{$fortitude-namespace}text-uppercase {
+.#{$fortitude-namespace}text--uppercase {
   text-transform: uppercase;
 }
 
-.#{$fortitude-namespace}text-capitalize {
+.#{$fortitude-namespace}text--capitalize {
   text-transform: capitalize;
 }

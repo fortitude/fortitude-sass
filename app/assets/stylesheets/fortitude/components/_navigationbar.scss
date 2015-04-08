@@ -1,3 +1,12 @@
+/*doc
+---
+title: Navigationbar
+name: navigationbar
+category: Objects
+---
+The `navigationbar` object is used for the main navigation of a website.
+*/
+
 $fortitude-enable-navigationbar: true;
 
 .#{$fortitude-namespace}navigationbar {
