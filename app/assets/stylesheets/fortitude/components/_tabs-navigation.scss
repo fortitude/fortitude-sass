@@ -5,6 +5,42 @@ name: tabs-navigation
 category: Objects
 ---
 The `tabs-navigation` object is used for horizontal tab navigations.
+
+### Default
+```html_example
+<ul class="tabs-navigation">
+  <li class="tabs-navigation__item">
+    <a href="javascript: void(0);" class="tabs-navigation__link">One</a>
+  </li>
+  <li class="tabs-navigation__item">
+    <a href="javascript: void(0);" class="tabs-navigation__link">Two</a>
+  </li>
+  <li class="tabs-navigation__item">
+    <a href="javascript: void(0);" class="tabs-navigation__link">Three</a>
+  </li>
+  <li class="tabs-navigation__item">
+    <a href="javascript: void(0);" class="tabs-navigation__link">Four</a>
+  </li>
+</ul>
+```
+
+### Fixed
+```html_example
+<ul class="tabs-navigation tabs-navigation--fixed">
+  <li class="tabs-navigation__item">
+    <a href="javascript: void(0);" class="tabs-navigation__link">One</a>
+  </li>
+  <li class="tabs-navigation__item">
+    <a href="javascript: void(0);" class="tabs-navigation__link">Two</a>
+  </li>
+  <li class="tabs-navigation__item">
+    <a href="javascript: void(0);" class="tabs-navigation__link">Three</a>
+  </li>
+  <li class="tabs-navigation__item">
+    <a href="javascript: void(0);" class="tabs-navigation__link">Four</a>
+  </li>
+</ul>
+```
 */
 
 $fortitude-enable-tabs-navigation: true;

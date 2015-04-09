@@ -13,7 +13,7 @@ $fortitude-enable-box: true;
   @include fortitude-box;
 }
 
-@if $fortitude-enable-box--rounded == true {
+@if $fortitude-enable-box--rounded {
   .#{$fortitude-namespace}box--rounded {
     @include fortitude-box--rounded;
   }

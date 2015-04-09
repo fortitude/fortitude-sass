@@ -2,69 +2,46 @@
     #INPUT
 \*------------------------------------*/
 
-$fortitude-field-input-background-color: white !default;
-$fortitude-field-input-border-color: #a9a9a9 !default;
 $fortitude-field-input-border-radius: 0.2rem !default;
 $fortitude-field-input-border-style: solid !default;
 $fortitude-field-input-border-width: 0.1rem !default;
-$fortitude-field-input-height: fortitude-double($fortitude-base-spacing-unit) !default;
-$fortitude-field-input-placeholder-color: #a9a9a9 !default;
+$fortitude-field-input-height: 4rem !default;
 
-$fortitude-text-input-background-color: $fortitude-field-input-background-color !default;
-$fortitude-text-input-border-color: $fortitude-field-input-border-color !default;
 $fortitude-text-input-border-radius: $fortitude-field-input-border-radius !default;
 $fortitude-text-input-border-style: $fortitude-field-input-border-style !default;
 $fortitude-text-input-border-width: $fortitude-field-input-border-width !default;
 $fortitude-text-input-height: $fortitude-field-input-height !default;
-$fortitude-text-input-placeholder-color: $fortitude-field-input-placeholder-color !default;
 
-$fortitude-textarea-input-background-color: $fortitude-field-input-background-color !default;
-$fortitude-textarea-input-border-color: $fortitude-field-input-border-color !default;
 $fortitude-textarea-input-border-radius: $fortitude-field-input-border-radius !default;
 $fortitude-textarea-input-border-style: $fortitude-field-input-border-style !default;
 $fortitude-textarea-input-border-width: $fortitude-field-input-border-width !default;
 $fortitude-textarea-input-height: $fortitude-field-input-height !default;
-$fortitude-textarea-input-placeholder-color: $fortitude-field-input-placeholder-color !default;
 
-$fortitude-select-input-background-color: $fortitude-field-input-background-color !default;
-$fortitude-select-input-border-color: $fortitude-field-input-border-color !default;
 $fortitude-select-input-border-radius: $fortitude-field-input-border-radius !default;
 $fortitude-select-input-border-style: $fortitude-field-input-border-style !default;
 $fortitude-select-input-border-width: $fortitude-field-input-border-width !default;
 $fortitude-select-input-height: $fortitude-field-input-height !default;
-$fortitude-select-input-placeholder-color: $fortitude-field-input-placeholder-color !default;
 
-$fortitude-color-input-background-color: $fortitude-field-input-background-color !default;
-$fortitude-color-input-border-color: $fortitude-field-input-border-color !default;
 $fortitude-color-input-border-radius: $fortitude-field-input-border-radius !default;
 $fortitude-color-input-border-style: $fortitude-field-input-border-style !default;
 $fortitude-color-input-border-width: $fortitude-field-input-border-width !default;
 $fortitude-color-input-height: $fortitude-field-input-height !default;
-$fortitude-color-input-placeholder-color: $fortitude-field-input-placeholder-color !default;
 
-$fortitude-range-input-background-color: false !default;
-$fortitude-range-input-border-color: $fortitude-field-input-border-color !default;
 $fortitude-range-input-border-radius: $fortitude-field-input-border-radius !default;
 $fortitude-range-input-border-style: $fortitude-field-input-border-style !default;
 $fortitude-range-input-border-width: 0 !default;
 $fortitude-range-input-height: $fortitude-field-input-height !default;
 
-$fortitude-switch-input-background-color: false !default;
-$fortitude-switch-input-border-color: #a9a9a9 !default;
 $fortitude-switch-input-border-radius: 0.2rem !default;
 $fortitude-switch-input-border-style: solid !default;
 $fortitude-switch-input-border-width: 0.1rem !default;
-$fortitude-switch-input-size: $fortitude-base-spacing-unit - 0.4rem !default;
+$fortitude-switch-input-size: 1.6rem !default;
 
-$fortitude-checkbox-input-background-color: $fortitude-switch-input-background-color !default;
-$fortitude-checkbox-input-border-color: $fortitude-switch-input-border-color !default;
 $fortitude-checkbox-input-border-radius: $fortitude-switch-input-border-radius !default;
 $fortitude-checkbox-input-border-style: $fortitude-switch-input-border-style !default;
 $fortitude-checkbox-input-border-width: $fortitude-switch-input-border-width !default;
 $fortitude-checkbox-input-size: $fortitude-switch-input-size !default;
 
-$fortitude-radio-input-background-color: $fortitude-switch-input-background-color !default;
-$fortitude-radio-input-border-color: $fortitude-switch-input-border-color !default;
 $fortitude-radio-input-border-radius: 10rem !default;
 $fortitude-radio-input-border-style: $fortitude-switch-input-border-style !default;
 $fortitude-radio-input-border-width: $fortitude-switch-input-border-width !default;
@@ -95,35 +72,19 @@ $fortitude-global-border-box: false !default;
   $is-pill: fortitude-contains($extensions, pill);
 
   @include fortitude-input($extensions);
-
+  border: fortitude-strip-unit-if-zero($fortitude-text-input-border-width) $fortitude-text-input-border-style transparent;
   height: $fortitude-text-input-height;
-  margin: fortitude-block-margin($fortitude-text-input-height, $fortitude-text-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-block-padding($fortitude-text-input-height, $fortitude-text-input-border-width, $fortitude-base-line-height);
-
-  @if $fortitude-text-input-border-width != 0 {
-    border: $fortitude-text-input-border-width $fortitude-text-input-border-style $fortitude-text-input-border-color;
-  } @else {
-    border: 0;
-  }
+  margin: fortitude-component-margin($fortitude-text-input-height, $fortitude-text-input-border-width, $fortitude-base-line-height) 0;
+  padding: fortitude-component-padding($fortitude-text-input-height, $fortitude-text-input-border-width, $fortitude-base-line-height);
 
   @if $is-pill {
     @include fortitude-input--pill;
-  } @else if $fortitude-text-input-border-radius != 0 {
-    border-radius: $fortitude-text-input-border-radius;
   } @else {
-    border-radius: 0;
-  }
-
-  @if $fortitude-text-input-background-color {
-    background-color: $fortitude-text-input-background-color;
+    border-radius: fortitude-strip-unit-if-zero($fortitude-text-input-border-radius);
   }
 
   @if $is-full {
     @include fortitude-input--full;
-  }
-
-  &::placeholder {
-    color: $fortitude-text-input-placeholder-color;
   }
 }
 
@@ -132,35 +93,19 @@ $fortitude-global-border-box: false !default;
   $is-pill: fortitude-contains($extensions, pill);
 
   @include fortitude-input($extensions);
-
+  border: fortitude-strip-unit-if-zero($fortitude-textarea-input-border-width) $fortitude-textarea-input-border-style transparent;
   min-height: $fortitude-textarea-input-height;
-  margin: fortitude-block-margin($fortitude-textarea-input-height, $fortitude-textarea-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-block-padding($fortitude-textarea-input-height, $fortitude-textarea-input-border-width, $fortitude-base-line-height);
-
-  @if $fortitude-textarea-input-border-width != 0 {
-    border: $fortitude-textarea-input-border-width $fortitude-textarea-input-border-style $fortitude-textarea-input-border-color;
-  } @else {
-    border: 0;
-  }
+  margin: fortitude-component-margin($fortitude-textarea-input-height, $fortitude-textarea-input-border-width, $fortitude-base-line-height) 0;
+  padding: fortitude-component-padding($fortitude-textarea-input-height, $fortitude-textarea-input-border-width, $fortitude-base-line-height);
 
   @if $is-pill {
     @include fortitude-input--pill;
-  } @else if $fortitude-textarea-input-border-radius != 0 {
-    border-radius: $fortitude-textarea-input-border-radius;
   } @else {
-    border-radius: 0;
-  }
-
-  @if $fortitude-textarea-input-background-color {
-    background-color: $fortitude-textarea-input-background-color;
+    border-radius: fortitude-strip-unit-if-zero($fortitude-textarea-input-border-radius);
   }
 
   @if $is-full {
     @include fortitude-input--full;
-  }
-
-  &::placeholder {
-    color: $fortitude-textarea-input-placeholder-color;
   }
 }
 
@@ -169,35 +114,19 @@ $fortitude-global-border-box: false !default;
   $is-pill: fortitude-contains($extensions, pill);
 
   @include fortitude-input($extensions);
-
+  border: fortitude-strip-unit-if-zero($fortitude-select-input-border-width) $fortitude-select-input-border-style transparent;
   height: $fortitude-select-input-height;
-  margin: fortitude-block-margin($fortitude-select-input-height, $fortitude-select-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-block-padding($fortitude-select-input-height, $fortitude-select-input-border-width, $fortitude-base-line-height);
-
-  @if $fortitude-select-input-border-width != 0 {
-    border: $fortitude-select-input-border-width $fortitude-select-input-border-style $fortitude-select-input-border-color;
-  } @else {
-    border: 0;
-  }
+  margin: fortitude-component-margin($fortitude-select-input-height, $fortitude-select-input-border-width, $fortitude-base-line-height) 0;
+  padding: fortitude-component-padding($fortitude-select-input-height, $fortitude-select-input-border-width, $fortitude-base-line-height);
 
   @if $is-pill {
     @include fortitude-input--pill;
-  } @else if $fortitude-select-input-border-radius != 0 {
-    border-radius: $fortitude-select-input-border-radius;
   } @else {
-    border-radius: 0;
-  }
-
-  @if $fortitude-select-input-background-color {
-    background-color: $fortitude-select-input-background-color;
+    border-radius: fortitude-strip-unit-if-zero($fortitude-select-input-border-radius);
   }
 
   @if $is-full {
     @include fortitude-input--full;
-  }
-
-  &.placeholder {
-    color: $fortitude-select-input-placeholder-color;
   }
 
   &[multiple] {
@@ -209,28 +138,16 @@ $fortitude-global-border-box: false !default;
   $is-pill: fortitude-contains($extensions, pill);
 
   @include fortitude-input($extensions);
-
+  border: fortitude-strip-unit-if-zero($fortitude-checkbox-input-border-width) $fortitude-checkbox-input-border-style transparent;
   width: $fortitude-checkbox-input-size;
   height: $fortitude-checkbox-input-size;
-  margin: fortitude-block-margin($fortitude-checkbox-input-size + 0.2rem, $fortitude-checkbox-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-block-padding($fortitude-checkbox-input-size, $fortitude-checkbox-input-border-width, $fortitude-base-line-height);
-
-  @if $fortitude-checkbox-input-border-width != 0 {
-    border: $fortitude-checkbox-input-border-width $fortitude-checkbox-input-border-style $fortitude-checkbox-input-border-color;
-  } @else {
-    border: 0;
-  }
+  margin: fortitude-component-margin($fortitude-checkbox-input-size + 0.2rem, $fortitude-checkbox-input-border-width, $fortitude-base-line-height) 0;
+  padding: fortitude-component-padding($fortitude-checkbox-input-size, $fortitude-checkbox-input-border-width, $fortitude-base-line-height);
 
   @if $is-pill {
     @include fortitude-input--pill;
-  } @else if $fortitude-checkbox-input-border-radius != 0 {
-    border-radius: $fortitude-checkbox-input-border-radius;
   } @else {
-    border-radius: 0;
-  }
-
-  @if $fortitude-checkbox-input-background-color {
-    background-color: $fortitude-checkbox-input-background-color;
+    border-radius: fortitude-strip-unit-if-zero($fortitude-checkbox-input-border-radius);
   }
 }
 
@@ -238,28 +155,16 @@ $fortitude-global-border-box: false !default;
   $is-pill: fortitude-contains($extensions, pill);
 
   @include fortitude-input($extensions);
-
+  border: fortitude-strip-unit-if-zero($fortitude-radio-input-border-width) $fortitude-radio-input-border-style transparent;
   width: $fortitude-radio-input-size;
   height: $fortitude-radio-input-size;
-  margin: fortitude-block-margin($fortitude-radio-input-size + 0.4rem, $fortitude-radio-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-block-padding($fortitude-radio-input-size, $fortitude-radio-input-border-width, $fortitude-base-line-height);
-
-  @if $fortitude-radio-input-border-width != 0 {
-    border: $fortitude-radio-input-border-width $fortitude-radio-input-border-style $fortitude-radio-input-border-color;
-  } @else {
-    border: 0;
-  }
+  margin: fortitude-component-margin($fortitude-radio-input-size + 0.4rem, $fortitude-radio-input-border-width, $fortitude-base-line-height) 0;
+  padding: fortitude-component-padding($fortitude-radio-input-size, $fortitude-radio-input-border-width, $fortitude-base-line-height);
 
   @if $is-pill {
     @include fortitude-input--pill;
-  } @else if $fortitude-radio-input-border-radius != 0 {
-    border-radius: $fortitude-radio-input-border-radius;
   } @else {
-    border-radius: 0;
-  }
-
-  @if $fortitude-radio-input-background-color {
-    background-color: $fortitude-radio-input-background-color;
+    border-radius: fortitude-strip-unit-if-zero($fortitude-radio-input-border-radius);
   }
 }
 
@@ -268,27 +173,15 @@ $fortitude-global-border-box: false !default;
   $is-pill: fortitude-contains($extensions, pill);
 
   @include fortitude-input($extensions);
-
+  border: fortitude-strip-unit-if-zero($fortitude-range-input-border-width) $fortitude-range-input-border-style transparent;
   height: $fortitude-range-input-height;
-  margin: fortitude-block-margin($fortitude-range-input-height, $fortitude-range-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-block-padding($fortitude-range-input-height, $fortitude-range-input-border-width, $fortitude-base-line-height) 0;
-
-  @if $fortitude-range-input-border-width != 0 {
-    border: $fortitude-range-input-border-width $fortitude-range-input-border-style $fortitude-range-input-border-color;
-  } @else {
-    border: 0;
-  }
+  margin: fortitude-component-margin($fortitude-range-input-height, $fortitude-range-input-border-width, $fortitude-base-line-height) 0;
+  padding: fortitude-component-padding($fortitude-range-input-height, $fortitude-range-input-border-width, $fortitude-base-line-height) 0;
 
   @if $is-pill {
     @include fortitude-input--pill;
-  } @else if $fortitude-range-input-border-radius != 0 {
-    border-radius: $fortitude-range-input-border-radius;
   } @else {
-    border-radius: 0;
-  }
-
-  @if $fortitude-range-input-background-color {
-    background-color: $fortitude-range-input-background-color;
+    border-radius: fortitude-strip-unit-if-zero($fortitude-range-input-border-radius);
   }
 
   @if $is-full {
@@ -301,35 +194,19 @@ $fortitude-global-border-box: false !default;
   $is-pill: fortitude-contains($extensions, pill);
 
   @include fortitude-input($extensions);
-
+  border: fortitude-strip-unit-if-zero($fortitude-color-input-border-width) $fortitude-color-input-border-style transparent;
   height: $fortitude-color-input-height;
-  margin: fortitude-block-margin($fortitude-color-input-height, $fortitude-color-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-block-padding($fortitude-color-input-height, $fortitude-color-input-border-width, $fortitude-base-line-height);
-
-  @if $fortitude-color-input-border-width != 0 {
-    border: $fortitude-color-input-border-width $fortitude-color-input-border-style $fortitude-color-input-border-color;
-  } @else {
-    border: 0;
-  }
+  margin: fortitude-component-margin($fortitude-color-input-height, $fortitude-color-input-border-width, $fortitude-base-line-height) 0;
+  padding: fortitude-component-padding($fortitude-color-input-height, $fortitude-color-input-border-width, $fortitude-base-line-height);
 
   @if $is-pill {
     @include fortitude-input--pill;
-  } @else if $fortitude-color-input-border-radius != 0 {
-    border-radius: $fortitude-color-input-border-radius;
   } @else {
-    border-radius: 0;
-  }
-
-  @if $fortitude-color-input-background-color {
-    background-color: $fortitude-color-input-background-color;
+    border-radius: fortitude-strip-unit-if-zero($fortitude-color-input-border-radius);
   }
 
   @if $is-full {
     @include fortitude-input--full;
-  }
-
-  &::placeholder {
-    color: $fortitude-color-input-placeholder-color;
   }
 }
 
@@ -342,7 +219,9 @@ $fortitude-global-border-box: false !default;
 }
 
 
-@mixin fortitude-input__target {
+@mixin fortitude-input__element {
+  @include fortitude-appearance(none);
+
   background-color: transparent;
   border: 0;
   border-radius: 0;
@@ -355,11 +234,4 @@ $fortitude-global-border-box: false !default;
   left: 0;
   width: 100%;
   height: 100%;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-
-  &:focus {
-    outline: 0;
-  }
 }

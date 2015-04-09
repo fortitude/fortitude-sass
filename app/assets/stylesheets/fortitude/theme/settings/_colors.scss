@@ -1,31 +1,29 @@
-@import "fortitude/api/tools/functions";
-@import "fortitude/api/tools/mixins";
 // color palette
 
 $fortitude-colors: (
-  "gray-darkest":  #373942,
-  "gray-darker":   #54565E,
-  "gray-dark":     #87898E,
-  "gray":          #CFCFD1,
-  "gray-light":    #E7E7E8,
-  "gray-lighter":  #FCFCFC,
-  "gray-lightest": #FFFFFF,
-  "blue":          #1CAFC9,
+  "black":         #2D2D2E,
+  "gray-darker":   #59595C,
+  "gray-dark":     #6F6F72,
+  "gray":          #C8C8CE,
+  "gray-light":    #E2E2E8,
+  "gray-lighter":  #F9F9FA,
+  "white":         #FFFFFF,
+  "blue":          #1E84E4,
   "green":         #18D985,
-  "teal":          #4DDBC4,
-  "orange":        #E9CB0A,
-  "red":           #DE1843
+  "teal":          #67E5C8,
+  "yellow":        #F1D730,
+  "red":           #EB474C
 ) !default;
 
 $fortitude-grays: (
-  "gray-darkest":  #373942,
-  "gray-darker":   #54565E,
-  "gray-dark":     #87898E,
-  "gray":          #CFCFD1,
-  "gray-light":    #E7E7E8,
-  "gray-lighter":  #FCFCFC,
-  "gray-lightest": #FFFFFF,
-);
+  "black":         map-get($fortitude-colors, "black"),
+  "gray-darker":   map-get($fortitude-colors, "gray-darker"),
+  "gray-dark":     map-get($fortitude-colors, "gray-dark"),
+  "gray":          map-get($fortitude-colors, "gray"),
+  "gray-light":    map-get($fortitude-colors, "gray-light"),
+  "gray-lighter":  map-get($fortitude-colors, "gray-lighter"),
+  "white":         map-get($fortitude-colors, "white")
+) !default;
 
 // semantic color names
 
@@ -33,130 +31,130 @@ $fortitude-color-intents: (
   "primary": map-get($fortitude-colors, "blue"),
   "success": map-get($fortitude-colors, "green"),
   "info":    map-get($fortitude-colors, "teal"),
-  "warning": map-get($fortitude-colors, "orange"),
+  "warning": map-get($fortitude-colors, "yellow"),
   "danger":  map-get($fortitude-colors, "red"),
-  "inverse": map-get($fortitude-colors, "gray-darkest")
+  "inverse": map-get($fortitude-colors, "black")
 ) !default;
 
 // intent color names
 
 $fortitude-badge-intents: (
   "default": (
-    "background-color": map-get($fortitude-colors, "gray-lightest"),
-    "border-color": map-get($fortitude-colors, "gray-lightest"),
-    "color": map-get($fortitude-colors, "gray-darkest")
+    "background-color": map-get($fortitude-colors, "gray-lighter"),
+    "border-color": map-get($fortitude-colors, "gray-lighter"),
+    "color": map-get($fortitude-colors, "black")
   ),
   "primary": (
     "background-color": map-get($fortitude-color-intents, "primary"),
     "border-color": map-get($fortitude-color-intents, "primary"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "success": (
     "background-color": map-get($fortitude-color-intents, "success"),
     "border-color": map-get($fortitude-color-intents, "success"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "info": (
     "background-color": map-get($fortitude-color-intents, "info"),
     "border-color": map-get($fortitude-color-intents, "info"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "warning": (
     "background-color": map-get($fortitude-color-intents, "warning"),
     "border-color": map-get($fortitude-color-intents, "warning"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "danger": (
     "background-color": map-get($fortitude-color-intents, "danger"),
     "border-color": map-get($fortitude-color-intents, "danger"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "inverse": (
-    "background-color": map-get($fortitude-colors, "gray-darkest"),
+    "background-color": map-get($fortitude-colors, "black"),
     "border-color": map-get($fortitude-colors, "gray-darker"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   )
 ) !default;
 
 $fortitude-box-intents: (
   "default": (
-    "background-color": map-get($fortitude-colors, "gray-lightest"),
-    "border-color": map-get($fortitude-colors, "gray-lightest"),
-    "color": map-get($fortitude-colors, "gray-darkest")
+    "background-color": map-get($fortitude-colors, "gray-lighter"),
+    "border-color": map-get($fortitude-colors, "gray-lighter"),
+    "color": map-get($fortitude-colors, "black")
   ),
   "primary": (
     "background-color": map-get($fortitude-color-intents, "primary"),
     "border-color": map-get($fortitude-color-intents, "primary"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "success": (
     "background-color": map-get($fortitude-color-intents, "success"),
     "border-color": map-get($fortitude-color-intents, "success"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "info": (
     "background-color": map-get($fortitude-color-intents, "info"),
     "border-color": map-get($fortitude-color-intents, "info"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "warning": (
     "background-color": map-get($fortitude-color-intents, "warning"),
     "border-color": map-get($fortitude-color-intents, "warning"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "danger": (
     "background-color": map-get($fortitude-color-intents, "danger"),
     "border-color": map-get($fortitude-color-intents, "danger"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "inverse": (
     "background-color": map-get($fortitude-color-intents, "inverse"),
     "border-color": map-get($fortitude-colors, "gray-darker"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   )
 ) !default;
 
 $fortitude-button-intents: (
   "default": (
     "initial": (
-      "background-color": map-get($fortitude-colors, "gray-lightest"),
-      "border-color": map-get($fortitude-colors, "gray-lightest"),
-      "color": map-get($fortitude-colors, "gray-darkest")
+      "background-color": map-get($fortitude-colors, "gray-lighter"),
+      "border-color": map-get($fortitude-colors, "gray-lighter"),
+      "color": map-get($fortitude-colors, "black")
     ),
     "hover": (
-      "background-color": fortitude-tint(map-get($fortitude-colors, "gray-lightest"), 20%),
-      "border-color": fortitude-tint(map-get($fortitude-colors, "gray-lightest"), 20%),
-      "color": map-get($fortitude-colors, "gray-darkest")
+      "background-color": map-get($fortitude-colors, "white"),
+      "border-color": map-get($fortitude-colors, "white"),
+      "color": map-get($fortitude-colors, "black")
     ),
     "active": (
-      "background-color": fortitude-shade(map-get($fortitude-colors, "gray-lightest"), 20%),
-      "border-color": fortitude-shade(map-get($fortitude-colors, "gray-lightest"), 20%),
-      "color": map-get($fortitude-colors, "gray-darkest")
+      "background-color": map-get($fortitude-colors, "gray-light"),
+      "border-color": map-get($fortitude-colors, "gray-light"),
+      "color": map-get($fortitude-colors, "black")
     ),
     "disabled": (
-      "background-color": map-get($fortitude-colors, "gray-lightest"),
-      "border-color": map-get($fortitude-colors, "gray-darkest"),
-      "color": map-get($fortitude-colors, "gray-darkest")
+      "background-color": map-get($fortitude-colors, "gray-lighter"),
+      "border-color": map-get($fortitude-colors, "black"),
+      "color": map-get($fortitude-colors, "black")
     )
   ),
   "primary": (
     "initial": (
       "background-color": map-get($fortitude-color-intents, "primary"),
       "border-color": map-get($fortitude-color-intents, "primary"),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "hover": (
       "background-color": fortitude-tint(map-get($fortitude-color-intents, "primary"), 20%),
       "border-color": fortitude-tint(map-get($fortitude-color-intents, "primary"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "active": (
       "background-color": fortitude-shade(map-get($fortitude-color-intents, "primary"), 20%),
       "border-color": fortitude-shade(map-get($fortitude-color-intents, "primary"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "disabled": (
-      "background-color": map-get($fortitude-colors, "gray-lightest"),
+      "background-color": map-get($fortitude-colors, "white"),
       "border-color": map-get($fortitude-color-intents, "primary"),
       "color": map-get($fortitude-color-intents, "primary"),
     )
@@ -165,20 +163,20 @@ $fortitude-button-intents: (
     "initial": (
       "background-color": map-get($fortitude-color-intents, "success"),
       "border-color": map-get($fortitude-color-intents, "success"),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "hover": (
       "background-color": fortitude-tint(map-get($fortitude-color-intents, "success"), 20%),
       "border-color": fortitude-tint(map-get($fortitude-color-intents, "success"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "active": (
       "background-color": fortitude-shade(map-get($fortitude-color-intents, "success"), 20%),
       "border-color": fortitude-shade(map-get($fortitude-color-intents, "success"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "disabled": (
-      "background-color": map-get($fortitude-colors, "gray-lightest"),
+      "background-color": map-get($fortitude-colors, "white"),
       "border-color": map-get($fortitude-color-intents, "success"),
       "color": map-get($fortitude-color-intents, "success"),
     )
@@ -187,20 +185,20 @@ $fortitude-button-intents: (
     "initial": (
       "background-color": map-get($fortitude-color-intents, "info"),
       "border-color": map-get($fortitude-color-intents, "info"),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "hover": (
       "background-color": fortitude-tint(map-get($fortitude-color-intents, "info"), 20%),
       "border-color": fortitude-tint(map-get($fortitude-color-intents, "info"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "active": (
       "background-color": fortitude-shade(map-get($fortitude-color-intents, "info"), 20%),
       "border-color": fortitude-shade(map-get($fortitude-color-intents, "info"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "disabled": (
-      "background-color": map-get($fortitude-colors, "gray-lightest"),
+      "background-color": map-get($fortitude-colors, "white"),
       "border-color": map-get($fortitude-color-intents, "info"),
       "color": map-get($fortitude-color-intents, "info"),
     )
@@ -209,20 +207,20 @@ $fortitude-button-intents: (
     "initial": (
       "background-color": map-get($fortitude-color-intents, "warning"),
       "border-color": map-get($fortitude-color-intents, "warning"),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "hover": (
       "background-color": fortitude-tint(map-get($fortitude-color-intents, "warning"), 20%),
       "border-color": fortitude-tint(map-get($fortitude-color-intents, "warning"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "active": (
       "background-color": fortitude-shade(map-get($fortitude-color-intents, "warning"), 20%),
       "border-color": fortitude-shade(map-get($fortitude-color-intents, "warning"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "disabled": (
-      "background-color": map-get($fortitude-colors, "gray-lightest"),
+      "background-color": map-get($fortitude-colors, "white"),
       "border-color": map-get($fortitude-color-intents, "warning"),
       "color": map-get($fortitude-color-intents, "warning"),
     )
@@ -231,20 +229,20 @@ $fortitude-button-intents: (
     "initial": (
       "background-color": map-get($fortitude-color-intents, "danger"),
       "border-color": map-get($fortitude-color-intents, "danger"),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "hover": (
       "background-color": fortitude-tint(map-get($fortitude-color-intents, "danger"), 20%),
       "border-color": fortitude-tint(map-get($fortitude-color-intents, "danger"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "active": (
       "background-color": fortitude-shade(map-get($fortitude-color-intents, "danger"), 20%),
       "border-color": fortitude-shade(map-get($fortitude-color-intents, "danger"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "disabled": (
-      "background-color": map-get($fortitude-colors, "gray-lightest"),
+      "background-color": map-get($fortitude-colors, "white"),
       "border-color": map-get($fortitude-color-intents, "danger"),
       "color": map-get($fortitude-color-intents, "danger"),
     )
@@ -253,20 +251,20 @@ $fortitude-button-intents: (
     "initial": (
       "background-color": map-get($fortitude-color-intents, "inverse"),
       "border-color": map-get($fortitude-color-intents, "inverse"),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "hover": (
       "background-color": fortitude-tint(map-get($fortitude-color-intents, "inverse"), 20%),
       "border-color": fortitude-tint(map-get($fortitude-color-intents, "inverse"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "active": (
       "background-color": fortitude-shade(map-get($fortitude-color-intents, "inverse"), 20%),
       "border-color": fortitude-shade(map-get($fortitude-color-intents, "inverse"), 20%),
-      "color": map-get($fortitude-colors, "gray-lightest")
+      "color": map-get($fortitude-colors, "white")
     ),
     "disabled": (
-      "background-color": map-get($fortitude-colors, "gray-lightest"),
+      "background-color": map-get($fortitude-colors, "white"),
       "border-color": map-get($fortitude-color-intents, "inverse"),
       "color": map-get($fortitude-color-intents, "inverse"),
     )
@@ -275,45 +273,45 @@ $fortitude-button-intents: (
 
 $fortitude-flashbar-intents: (
   "default": (
-    "background-color": map-get($fortitude-colors, "gray-lightest"),
-    "border-color": map-get($fortitude-colors, "gray-lightest"),
-    "color": map-get($fortitude-colors, "gray-darkest")
+    "background-color": map-get($fortitude-colors, "gray-lighter"),
+    "border-color": map-get($fortitude-colors, "gray-lighter"),
+    "color": map-get($fortitude-colors, "black")
   ),
   "primary": (
     "background-color": map-get($fortitude-color-intents, "primary"),
     "border-color": map-get($fortitude-color-intents, "primary"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "success": (
     "background-color": map-get($fortitude-color-intents, "success"),
     "border-color": map-get($fortitude-color-intents, "success"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "info": (
     "background-color": map-get($fortitude-color-intents, "info"),
     "border-color": map-get($fortitude-color-intents, "info"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "warning": (
     "background-color": map-get($fortitude-color-intents, "warning"),
     "border-color": map-get($fortitude-color-intents, "warning"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "danger": (
     "background-color": map-get($fortitude-color-intents, "danger"),
     "border-color": map-get($fortitude-color-intents, "danger"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   ),
   "inverse": (
-    "background-color": map-get($fortitude-colors, "gray-darkest"),
+    "background-color": map-get($fortitude-colors, "black"),
     "border-color": map-get($fortitude-colors, "gray-darker"),
-    "color": map-get($fortitude-colors, "gray-lightest")
+    "color": map-get($fortitude-colors, "white")
   )
 ) !default;
 
 $fortitude-wings-intents: (
   "default": (
-    "background-color": map-get($fortitude-colors, "gray-lightest")
+    "background-color": map-get($fortitude-colors, "gray-lighter")
   ),
   "primary": (
     "background-color": map-get($fortitude-color-intents, "primary")

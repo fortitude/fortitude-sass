@@ -1,6 +1,6 @@
 /*doc
 ---
-title: Button Extensions
+title: Extensions
 parent: button
 name: button-extensions
 category: Objects
@@ -20,7 +20,6 @@ button--inverse  | A basic button
 ```html_example
 <button class="button button--small button--default">Small</button>
 <button class="button button--large button--default">Large</button>
-<button class="button button--rounded button--default">Rounded</button>
 <button class="button button--pill button--default">Pill</button>
 <button class="button button--default">Default</button>
 <button class="button button--primary">Primary</button>
@@ -44,6 +43,8 @@ $fortitude-enable-button: false !default;
           $selector: "&";
         } @else if $name == "disabled" {
           $selector: "&[#{$name}]";
+        } @else if $name == "hover" {
+          $selector: "&:hover, &:focus";
         } @else {
           $selector: "&:#{$name}";
         }

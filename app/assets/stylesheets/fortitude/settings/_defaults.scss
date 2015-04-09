@@ -12,7 +12,9 @@
  *    if you change $fortitude-breakpoints.
 **/
 
-$fortitude-base-font-size: 1.4rem !default;
+$fortitude-base-spacing-unit: 1rem;
+$fortitude-base-font-size: 1.6rem !default;
+$fortitude-base-font-ratio: 1.25  !default;
 $fortitude-base-line-height: 2rem !default;
 $fortitude-base-color: #333 !default;
 $fortitude-base-background-color: #fff !default;
@@ -34,7 +36,6 @@ $fortitude-namespace: null !default;
 // above. Feel free to use these variables throughout your project, but do not
 // modify or reassign them.
 
-$fortitude-base-spacing-unit: $fortitude-base-line-height;
-$fortitude-base-spacing-unit--small: round($fortitude-base-line-height / 2);
-$fortitude-base-spacing-unit--large: round($fortitude-base-line-height * 2);
+$fortitude-base-spacing-unit--small: round($fortitude-base-spacing-unit / 2);
+$fortitude-base-spacing-unit--large: round($fortitude-base-spacing-unit * 2);
 $fortitude-base-rem-font-size: 0.625rem;

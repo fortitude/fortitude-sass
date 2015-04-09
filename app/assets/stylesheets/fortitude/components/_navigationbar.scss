@@ -1,12 +1,3 @@
-/*doc
----
-title: Navigationbar
-name: navigationbar
-category: Objects
----
-The `navigationbar` object is used for the main navigation of a website.
-*/
-
 $fortitude-enable-navigationbar: true;
 
 .#{$fortitude-namespace}navigationbar {
@@ -19,36 +10,39 @@ $fortitude-enable-navigationbar: true;
   float: left;
 }
 
-.#{$fortitude-namespace}navigationbar__header__logo {
+.#{$fortitude-namespace}navigationbar__logo {
   display: inline-block;
-  margin-top: -0.1rem;
-  vertical-align: middle;
+  padding-left: 1rem;
+  vertical-align: top;
 }
 
-.#{$fortitude-namespace}navigationbar__toggle {
+.#{$fortitude-namespace}navigationbar__nav {
   float: right;
 
 }
 
-.#{$fortitude-namespace}navigationbar__toggle__element {
+.#{$fortitude-namespace}navigationbar__label {
   display: none;
 }
 
-.#{$fortitude-namespace}navigationbar__toggle__helper {
+.#{$fortitude-namespace}navigationbar__toggle {
   display: none;
 }
 
-.#{$fortitude-namespace}navigationbar__navigation {
-  margin-right: -1rem;
-
-  .#{$fortitude-namespace}fluid-container & {
-    margin-right: 0;
-  }
+.#{$fortitude-namespace}navigationbar__list {
+  margin: 0;
+  padding: 0 1rem 0 0;
+  list-style: none;
 }
 
 .#{$fortitude-namespace}navigationbar__item {
   display: inline-block;
   position: relative;
+  vertical-align: top;
+
+  + .#{$fortitude-namespace}navigationbar__item {
+    margin-left: 1rem;
+  }
 
   &:hover .#{$fortitude-namespace}navigationbar__dropdown {
     display: block;
@@ -56,110 +50,89 @@ $fortitude-enable-navigationbar: true;
 
   a {
     display: block;
-    padding: 0 1rem;
   }
 }
 
 .#{$fortitude-namespace}navigationbar__dropdown {
   display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   position: absolute;
   right: 0;
-  list-style: none;
   z-index: 1;
+
+  > li {
+    white-space: nowrap;
+    padding: 0 1rem;
+  }
 }
 
-@include fortitude-breakpoint(xs, $fortitude-breakpoints) {
+@include fortitude-breakpoint("xs", $fortitude-breakpoints) {
   .#{$fortitude-namespace}navigationbar__header {
     float: none;
   }
 
-  .#{$fortitude-namespace}navigationbar__header__logo {
-    padding-left: 2rem;
-  }
-
-  .#{$fortitude-namespace}navigationbar__toggle {
-    float: none;
-
-  }
-
-  .#{$fortitude-namespace}navigationbar__toggle__element {
-    display: inline-block;
-  }
-
-  .#{$fortitude-namespace}navigationbar__toggle__helper {
-    display: inline-block;
-  }
-
-  .#{$fortitude-namespace}navigationbar__dropdown {
-    @include fortitude-bare-list;
-
-    display: block;
-    position: static;
-  }
-
-  .#{$fortitude-namespace}navigationbar__item {
-    display: block;
-  }
-
-  .#{$fortitude-namespace}navigationbar__toggle {
+  .#{$fortitude-namespace}navigationbar__nav {
     @include fortitude-clearfix;
-
+    float: none;
     margin-top: -$fortitude-navigationbar-height;
   }
 
-  .#{$fortitude-namespace}navigationbar__toggle__element {
+  .#{$fortitude-namespace}navigationbar__label {
+    display: block;
     float: right;
     width: $fortitude-navigationbar-height;
     height: $fortitude-navigationbar-height;
     text-align: center;
 
     > * {
-      vertical-align: middle;
       display: inline-block;
+      vertical-align: middle;
     }
   }
 
-  .#{$fortitude-namespace}navigationbar__toggle__helper {
-    float: right;
-    position: relative;
-    opacity: 0;
+  .#{$fortitude-namespace}navigationbar__toggle {
     -webkit-appearance: none;
-    -moz-appearance: none;
+    -moz-appearance: window;
     appearance: none;
-    width: $fortitude-navigationbar-height;
+    background: transparent;
+    border: 0;
+    display: inline-block;
     height: $fortitude-navigationbar-height;
-    margin-right: -($fortitude-navigationbar-height);
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: top;
+    width: $fortitude-navigationbar-height;
+  }
 
-    &:focus {
-      outline: 0;
-    }
+  .#{$fortitude-namespace}navigationbar__list {
+    clear: both;
+    display: none;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
 
-    + .#{$fortitude-namespace}navigationbar__navigation {
-      display: none;
-      position: absolute;
-      top: 100%;
-      width: 100%;
-    }
-
-    &:checked + .#{$fortitude-namespace}navigationbar__navigation {
+    :checked ~ & {
       display: block;
     }
   }
 
-  .#{$fortitude-namespace}navigationbar__navigation {
-    @include fortitude-bare-list;
-    clear: both;
-    margin-right: 0;
+  .#{$fortitude-namespace}navigationbar__dropdown {
+    display: block;
+    position: relative;
   }
 
   .#{$fortitude-namespace}navigationbar__item {
-    + .#{$fortitude-namespace}navigationbar__item {
-      margin-top: -0.1rem;
-    }
+    display: block;
+    margin-left: 1rem;
 
     a {
       display: block;
-      padding: 0 2rem;
     }
   }
 }

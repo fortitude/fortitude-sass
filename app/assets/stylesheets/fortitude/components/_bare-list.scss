@@ -5,6 +5,15 @@ name: bare-list
 category: Objects
 ---
 Bare Lists are unstyled lists.
+
+```html_example
+<ul class="bare-list">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+  <li>Four</li>
+</ul>
+```
 */
 
 $fortitude-enable-bare-list: true;

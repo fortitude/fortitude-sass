@@ -1,12 +1,3 @@
-/*doc
----
-title: Shade
-name: shade
-category: Javascript
----
-The `shade` object is used to dim the entire website use cases might be to allow the users focus to be on a specific element like navigation or a modal.
-*/
-
 $fortitude-enable-shade: true;
 
 .#{$fortitude-namespace}shade {

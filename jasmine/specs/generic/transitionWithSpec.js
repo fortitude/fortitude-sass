@@ -12,7 +12,7 @@
 
     it('hides using ft-hide-class', function(done){
       $transition.ftTransitionWith({
-        attr: 'ft-hide',
+        attr: 'ft-hide-class',
         addClass: 'transparent',
         removeClass: 'showing',
         endEvent: 'hidden.ft.transition'
@@ -33,7 +33,7 @@
       $transition.addClass('tiny');
 
       $transition.ftTransitionWith({
-        attr: 'ft-show',
+        attr: 'ft-show-class',
         addClass: 'transparent',
         removeClass: 'showing',
         endEvent: 'shown.ft.transition'
@@ -52,14 +52,14 @@
 
     it('handles race conditions', function(done){
       $transition.ftTransitionWith({
-        attr: 'ft-hide',
+        attr: 'ft-hide-class',
         addClass: 'hidden',
         removeClass: 'showing',
         endEvent: 'hidden.ft.transition'
       });
 
       $transition.ftTransitionWith({
-        attr: 'ft-show',
+        attr: 'ft-show-class',
         addClass: 'shown',
         removeClass: 'hidden',
         endEvent: 'shown.ft.transition'
@@ -91,7 +91,7 @@
 
     it('hides using data-ft-hide-class', function(done){
       $transition.ftTransitionWith({
-        attr: 'ft-hide',
+        attr: 'ft-hide-class',
         addClass: 'transparent',
         removeClass: 'showing',
         endEvent: 'hidden.ft.transition'
@@ -112,7 +112,7 @@
       $transition.addClass('tiny');
 
       $transition.ftTransitionWith({
-        attr: 'ft-show',
+        attr: 'ft-show-class',
         addClass: 'transparent',
         removeClass: 'showing',
         endEvent: 'shown.ft.transition'
@@ -131,14 +131,14 @@
 
     it('handles race conditions', function(done){
       $transition.ftTransitionWith({
-        attr: 'ft-hide',
+        attr: 'ft-hide-class',
         addClass: 'hidden',
         removeClass: 'showing',
         endEvent: 'hidden.ft.transition'
       });
 
       $transition.ftTransitionWith({
-        attr: 'ft-show',
+        attr: 'ft-show-class',
         addClass: 'shown',
         removeClass: 'hidden',
         endEvent: 'shown.ft.transition'

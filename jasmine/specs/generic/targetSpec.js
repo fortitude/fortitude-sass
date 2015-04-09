@@ -1,11 +1,11 @@
 (function($){
   'use strict';
 
-  describe('$.ftGetTarget', function(){
+  describe('$.fn.ftTarget', function(){
     var $withPound, $withoutPound, $missingField, $target;
 
     beforeEach(function(){
-      loadFixtures('getTargetFixture.html');
+      loadFixtures('targetDataFixture.html');
       $withPound = $('#with-pound');
       $withoutPound = $('#without-pound');
       $missingField = $('#missing-field');
@@ -13,39 +13,39 @@
     });
 
     it('finds the target without pound sign', function(){
-      expect($.ftGetTarget($withPound, 'ft-example').is($target)).toEqual(true);
+      expect($withPound.ftTarget('ft-example').is($target)).toEqual(true);
     });
 
     it('finds the target with pound sign', function(){
-      expect($.ftGetTarget($withoutPound, 'ft-example').is($target)).toEqual(true);
+      expect($withoutPound.ftTarget('ft-example').is($target)).toEqual(true);
     });
 
     it('returns empty jQuery when field not found', function(){
-      expect($.ftGetTarget($missingField, 'ft-example').length).toEqual(0);
+      expect($missingField.ftTarget('ft-example').length).toEqual(0);
     });
   });
 
-  describe('$.ftGetTarget bare attributes', function(){
+  describe('$.fn.ftTarget bare attributes', function(){
     var $withPound, $withoutPound, $missingField, $target;
 
     beforeEach(function(){
-      loadFixtures('getTargetFixture.html');
-      $withPound = $('#bare-with-pound');
-      $withoutPound = $('#bare-without-pound');
+      loadFixtures('targetFixture.html');
+      $withPound = $('#with-pound');
+      $withoutPound = $('#without-pound');
       $missingField = $('#missing-field');
       $target = $('#target-id');
     });
 
     it('finds the target without pound sign', function(){
-      expect($.ftGetTarget($withPound, 'ft-example').is($target)).toEqual(true);
+      expect($withPound.ftTarget('ft-example').is($target)).toEqual(true);
     });
 
     it('finds the target with pound sign', function(){
-      expect($.ftGetTarget($withoutPound, 'ft-example').is($target)).toEqual(true);
+      expect($withoutPound.ftTarget('ft-example').is($target)).toEqual(true);
     });
 
     it('returns empty jQuery when field not found', function(){
-      expect($.ftGetTarget($missingField, 'ft-example').length).toEqual(0);
+      expect($missingField.ftTarget('ft-example').length).toEqual(0);
     });
   });
 

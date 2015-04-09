@@ -38,7 +38,7 @@ The `wings` object is used to render text in between two horizontal lines.
   }
 }
 
-@if $fortitude-enable-wings--thin == true {
+@if $fortitude-enable-wings--thin {
   .#{$fortitude-namespace}wings--thin {
     .#{$fortitude-namespace}wings__wing {
       &::before {

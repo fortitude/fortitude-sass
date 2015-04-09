@@ -9,10 +9,10 @@ The `tabs` object is used to encapsulate content in individual tabs.
 
 $fortitude-enable-tabs: true;
 
-.#{$fortitude-namespace}tabs__target {
-  @include fortitude-tabs__target;
+.#{$fortitude-namespace}tabs__content {
+  @include fortitude-tabs__content;
 }
 
-.#{$fortitude-namespace}tabs__target--is-active {
-  @include fortitude-tabs__target--is-active;
+.#{$fortitude-namespace}tabs__content--is-active {
+  @include fortitude-tabs__content--is-active;
 }

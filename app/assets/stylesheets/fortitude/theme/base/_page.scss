@@ -1,0 +1,7 @@
+// :focus {
+//   outline: map-get($fortitude-colors, "blue") auto 5px;
+// }
+
+body {
+  color: map-get($fortitude-colors, "black");
+}

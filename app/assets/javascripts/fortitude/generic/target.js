@@ -1,5 +1,6 @@
-(function($){
-  $.ftGetTarget = function($element, field){
+(function($) {
+  $.fn.ftTarget = function(field) {
+    $element = $(this);
     field = field || 'ft-target';
 
     var targetId = $element.attr(field) || $element.attr('data-' + field) || '';

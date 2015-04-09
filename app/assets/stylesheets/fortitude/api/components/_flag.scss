@@ -1,4 +1,4 @@
-$fortitude-flag-gutter--default: $fortitude-base-spacing-unit !default;
+$fortitude-flag-gutter--default: 2rem !default;
 
 $fortitude-flag-gutter--small: fortitude-halve($fortitude-flag-gutter--default) !default;
 
@@ -25,7 +25,7 @@ $fortitude-enable-flag--responsive: false !default;
 
 @mixin fortitude-flag--responsive {
   @include fortitude-breakpoint("(max-width: #{$fortitude-flag-collapse-at--responsive})") {
-    @if $fortitude-enable-flag--rev == true {
+    @if $fortitude-enable-flag--rev {
       direction: ltr;
 
       @content;

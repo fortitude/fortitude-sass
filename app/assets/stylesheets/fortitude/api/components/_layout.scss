@@ -2,20 +2,20 @@
     #LAYOUT
 \*------------------------------------*/
 
-$fortitude-layout-gutter--default: $fortitude-base-spacing-unit !default;
-$fortitude-layout-gutter--small: fortitude-halve($fortitude-layout-gutter--default) !default;
-$fortitude-layout-gutter--large: fortitude-double($fortitude-layout-gutter--default) !default;
+$fortitude-layout-gutter--default: 2rem !default;
+$fortitude-layout-gutter--small:   fortitude-halve($fortitude-layout-gutter--default) !default;
+$fortitude-layout-gutter--large:   fortitude-double($fortitude-layout-gutter--default) !default;
 
-$fortitude-enable-layout--small: false !default;
-$fortitude-enable-layout--large: false !default;
-$fortitude-enable-layout--flush: false !default;
-$fortitude-enable-layout--rev: false !default;
-$fortitude-enable-layout--middle: false !default;
-$fortitude-enable-layout--bottom: false !default;
-$fortitude-enable-layout--right: false !default;
-$fortitude-enable-layout--center: false !default;
+$fortitude-enable-layout--small:   false !default;
+$fortitude-enable-layout--large:   false !default;
+$fortitude-enable-layout--flush:   false !default;
+$fortitude-enable-layout--rev:     false !default;
+$fortitude-enable-layout--middle:  false !default;
+$fortitude-enable-layout--bottom:  false !default;
+$fortitude-enable-layout--right:   false !default;
+$fortitude-enable-layout--center:  false !default;
 
-$fortitude-global-border-box: false !default;
+$fortitude-global-border-box:      false !default;
 
 @mixin fortitude-layout($extensions: ()) {
   $is-flush:  fortitude-contains($extensions, flush);
@@ -91,7 +91,7 @@ $fortitude-global-border-box: false !default;
   display: inline-block;
   width: 100%;
   position: relative;
-  
+
   @if $is-middle {
     @include fortitude-layout__item--middle;
   } @else if $is-bottom {

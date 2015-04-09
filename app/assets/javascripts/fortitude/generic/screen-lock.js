@@ -3,18 +3,21 @@
 
   $.screenLock = function(locking) {
     var $html = $('html'),
-        $body = $('body');
+        $body = $('body'),
+        $fixedTopComponents = $('.container--fixed-top > *');
 
     if(typeof(locking) === 'undefined'){
       locking = true;
     }
-    
+
     if (locking) {
       $html.addClass('html--is-locked');
       $body.css({paddingRight: $.measureScrollBar()});
+      $fixedTopComponents.css({paddingRight: $.measureScrollBar()});
     } else {
       $html.removeClass('html--is-locked');
       $body.css({paddingRight: ''});
+      $fixedTopComponents.css({paddingRight: ''});
     }
   };
 

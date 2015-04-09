@@ -23,6 +23,67 @@ Class              | Description
 .md-media          | Media object and media body are collapsed on medium screens and up
 .lg-media          | Media object and media body are collapsed only on large screens
 
+### Default
+Mouse over the tiles to see how the elements react depending on their size.
+
+```html_example
+<div class="media">
+  <div class="media__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="media__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Flush
+```html_example
+<div class="media media--flush">
+  <div class="media__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="media__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Small
+```html_example
+<div class="media media--small">
+  <div class="media__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="media__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Large
+```html_example
+<div class="media media--large">
+  <div class="media__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="media__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Reverse
+```html_example
+<div class="media media--rev">
+  <div class="media__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="media__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
 */
 
 $fortitude-enable-media: true;
@@ -45,7 +106,7 @@ $fortitude-enable-media: true;
   @include fortitude-media__body;
 }
 
-@if $fortitude-enable-media--small == true {
+@if $fortitude-enable-media--small {
   /**
    * Small media objects.
   **/
@@ -56,7 +117,7 @@ $fortitude-enable-media: true;
   }
 }
 
-@if $fortitude-enable-media--large == true {
+@if $fortitude-enable-media--large {
   /**
    * Large media objects.
   **/
@@ -67,7 +128,7 @@ $fortitude-enable-media: true;
   }
 }
 
-@if $fortitude-enable-media--rev == true {
+@if $fortitude-enable-media--rev {
   /**
    * Reversed image location (right instead of left). Extends `.media`.
   **/
@@ -76,7 +137,7 @@ $fortitude-enable-media: true;
       @include fortitude-media__object--rev;
     }
 
-    @if $fortitude-enable-media--small == true {
+    @if $fortitude-enable-media--small {
       /**
        * Reversed small media objects.
       **/
@@ -88,7 +149,7 @@ $fortitude-enable-media: true;
       }
     }
 
-    @if $fortitude-enable-media--large == true {
+    @if $fortitude-enable-media--large {
       /**
        * Large reversed media objects.
       **/
@@ -101,7 +162,7 @@ $fortitude-enable-media: true;
   }
 }
 
-@if $fortitude-enable-media--flush == true {
+@if $fortitude-enable-media--flush {
   /**
    * Flush media objects have no space between the image- and text-content.
   **/
@@ -112,7 +173,7 @@ $fortitude-enable-media: true;
   }
 }
 
-@if $fortitude-enable-media--responsive == true {
+@if $fortitude-enable-media--responsive {
   /**
    * Responsive media objects.
    *
@@ -133,7 +194,7 @@ $fortitude-enable-media: true;
       > .#{$fortitude-namespace}media__object {
         @include fortitude-media__object--responsive;
       }
-      @if $fortitude-enable-media--small == true {
+      @if $fortitude-enable-media--small {
         /**
          * Small responsive media objects.
          *
@@ -147,7 +208,7 @@ $fortitude-enable-media: true;
           }
         }
       }
-      @if $fortitude-enable-media--large == true {
+      @if $fortitude-enable-media--large {
         /**
          * Large responsive media objects.
          *

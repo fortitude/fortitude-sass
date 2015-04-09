@@ -2,16 +2,16 @@
     #TABS
 \*------------------------------------*/
 
-@mixin fortitude-tabs__target($extensions: ()) {
+@mixin fortitude-tabs__content($extensions: ()) {
   $is-active: fortitude-contains($extensions, active);
 
   @if $is-active {
-    @include fortitude-tabs__target--is-active;
+    @include fortitude-tabs__content--is-active;
   } @else {
     display: none;
   }
 }
 
-@mixin fortitude-tabs__target--is-active {
+@mixin fortitude-tabs__content--is-active {
   display: block;
 }

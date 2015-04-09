@@ -3,7 +3,7 @@
 
   describe('.tabs-navigation and .tabs', function(){
     var itemActive = 'tabs-navigation__item--is-active',
-        targetActive = 'tabs__target--is-active',
+        targetActive = 'tabs__content--is-active',
         $itemOne, $itemTwo, $targetOne, $targetTwo;
 
     beforeEach(function(){
@@ -63,7 +63,7 @@
 
   describe('.tabs-navigation and .tabs data attrs', function(){
     var itemActive = 'tabs-navigation__item--is-active',
-        targetActive = 'tabs__target--is-active',
+        targetActive = 'tabs__content--is-active',
         $itemOne, $itemTwo, $targetOne, $targetTwo;
 
     beforeEach(function(){

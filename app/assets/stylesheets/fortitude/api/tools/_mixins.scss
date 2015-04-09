@@ -40,7 +40,7 @@
 
 @mixin fortitude-font-size($font-size, $enable-line-height: true, $line-height: $fortitude-base-line-height) {
   font-size: $font-size;
-  @if $enable-line-height == true {
+  @if $enable-line-height {
     line-height: ceil($font-size / $line-height) * $line-height;
   }
 }
@@ -57,4 +57,47 @@
   -webkit-appearance: $appearance;
      -moz-appearance: $appearance;
           appearance: $appearance;
+}
+
+@mixin fortitude-table($component-height, $border-width, $border-style: "solid") {
+  border-style: unquote($border-style);
+  border-width: $border-width;
+
+  th,
+  td {
+    border-style: unquote($border-style);
+    border-width: $border-width;
+    line-height: $fortitude-base-line-height + $border-width;
+    padding: fortitude-component-padding($component-height, $border-width);
+  }
+
+  tbody tr:last-child td {
+    line-height: $fortitude-base-line-height;
+  }
+}
+
+@mixin fortitude-triangle($direction, $width, $color) {
+  $directions: (
+    "top": "bottom",
+    "right": "left",
+    "bottom": "top",
+    "left": "right"
+  );
+
+  $opposite-direction: map-get($directions, $direction);
+  @if $opposite-direction != null {
+    width: 0;
+    height: 0;
+
+    @each $dir, $opp in $directions {
+      @if $dir == $direction {
+        border-#{$opp}: $width solid $color;
+      } @else if $opp == $direction {
+        // don't render anything
+      } @else {
+        border-#{$dir}: $width solid transparent;
+      }
+    }
+
+  }
 }

@@ -21,6 +21,91 @@ Class             | Description
 .md-flag          | Flag object is collapsed at medium screens and up
 .lg-flag          | Flag object is collapsed at large screens
 
+### Default
+Mouse over the tiles to see how the elements react depending on their size.
+
+```html_example
+<div class="flag">
+  <div class="flag__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="flag__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Top
+```html_example
+<div class="flag flag--top">
+  <div class="flag__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="flag__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Bottom
+```html_example
+<div class="flag flag--bottom">
+  <div class="flag__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="flag__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Flush
+```html_example
+<div class="flag flag--flush">
+  <div class="flag__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="flag__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Small
+```html_example
+<div class="flag flag--small">
+  <div class="flag__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="flag__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Large
+```html_example
+<div class="flag flag--large">
+  <div class="flag__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="flag__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
+
+### Reverse
+```html_example
+<div class="flag flag--rev">
+  <div class="flag__object">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+  <div class="flag__body">
+    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+  </div>
+</div>
+```
 */
 
 $fortitude-enable-flag: true;
@@ -49,7 +134,7 @@ $fortitude-enable-flag: true;
   @include fortitude-flag__body;
 }
 
-@if $fortitude-enable-flag--top == true {
+@if $fortitude-enable-flag--top {
   /**
    * Vertically top aligned flag objects.
   **/
@@ -63,7 +148,7 @@ $fortitude-enable-flag: true;
   }
 }
 
-@if $fortitude-enable-flag--bottom == true {
+@if $fortitude-enable-flag--bottom {
   /**
    * Vertically bottom aligned flag objects.
   **/
@@ -77,7 +162,7 @@ $fortitude-enable-flag: true;
   }
 }
 
-@if $fortitude-enable-flag--flush == true {
+@if $fortitude-enable-flag--flush {
   /**
    * Flush flag objects have no space between the image- and text-content.
   **/
@@ -88,7 +173,7 @@ $fortitude-enable-flag: true;
   }
 }
 
-@if $fortitude-enable-flag--small == true {
+@if $fortitude-enable-flag--small {
   /**
    * Small flags.
   **/
@@ -99,7 +184,7 @@ $fortitude-enable-flag: true;
   }
 }
 
-@if $fortitude-enable-flag--large == true {
+@if $fortitude-enable-flag--large {
   /**
    * Large flags.
   **/
@@ -110,7 +195,7 @@ $fortitude-enable-flag: true;
   }
 }
 
-@if $fortitude-enable-flag--rev == true {
+@if $fortitude-enable-flag--rev {
   /**
    * Reversed flag objects have their image-content to the right, and text-content
    * to the left.
@@ -124,7 +209,7 @@ $fortitude-enable-flag: true;
       @include fortitude-flag__body--rev;
     }
 
-    @if $fortitude-enable-flag--small == true {
+    @if $fortitude-enable-flag--small {
       /**
        * Reversed Small flags.
       **/
@@ -135,7 +220,7 @@ $fortitude-enable-flag: true;
       }
     }
 
-    @if $fortitude-enable-flag--large == true {
+    @if $fortitude-enable-flag--large {
       /**
        * Large reversed flags.
       **/
@@ -149,7 +234,7 @@ $fortitude-enable-flag: true;
   }
 }
 
-@if $fortitude-enable-flag--responsive == true {
+@if $fortitude-enable-flag--responsive {
   .#{$fortitude-namespace}flag--responsive {
     @include fortitude-flag--responsive {
       > .#{$fortitude-namespace}flag__object {
@@ -158,14 +243,14 @@ $fortitude-enable-flag: true;
       > .#{$fortitude-namespace}flag__body {
         @include fortitude-flag__body--responsive;
       }
-      @if $fortitude-enable-flag--small == true {
+      @if $fortitude-enable-flag--small {
         &.#{$fortitude-namespace}flag--small {
           > .#{$fortitude-namespace}flag__object {
             @include fortitude-flag__object--responsive--small;
           }
         }
       }
-      @if $fortitude-enable-flag--large == true {
+      @if $fortitude-enable-flag--large {
         &.#{$fortitude-namespace}flag--large {
           > .#{$fortitude-namespace}flag__object {
             @include fortitude-flag__object--responsive--large;

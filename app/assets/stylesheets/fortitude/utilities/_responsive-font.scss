@@ -10,17 +10,17 @@ The responsive Helpers are optional, and can be used to modify the font-size at 
 You'll also notice there is a `xs-inset2` applied to the first 3 font-sizes, this is just setting the line-height to `4rem` or `40px` we do this so the text will fit nicely within the vertical rhythm grid.
 
 ```html_example
-<h1 class="xs-alpha xs-inset2">h1 3.6rem</h1>
+<h1 class="xs-alpha xs-inset2">h1 3.125rem</h1>
 <h2 class="xs-beta xs-inset2">h2 2.5rem</h2>
 <h3 class="xs-gamma xs-inset2">h3 2rem</h3>
-<h4 class="xs-delta">h4 1.8rem</h4>
-<h5 class="xs-epsilon">h5 1.4rem</h5>
-<h6 class="xs-zeta">h6 1rem</h6>
+<h4 class="xs-delta">h4 1.6rem</h4>
+<h5 class="xs-epsilon">h5 1.28rem</h5>
+<h6 class="xs-zeta">h6 1.024rem</h6>
 ```
 
 */
 
-$fortitude-responsive-font-sizes: (alpha: 3.6rem, beta: 3rem, gamma: 2.4rem, delta: 1.8rem, epsilon: $fortitude-base-font-size, zeta: 1rem) !default;
+$fortitude-responsive-font-sizes: (alpha: fortitude-font-scale(3), beta: fortitude-font-scale(2), gamma: fortitude-font-scale(1), delta: fortitude-font-scale(0), epsilon: fortitude-font-scale(-1), zeta: fortitude-font-scale(-2)) !default;
 
 @include fortitude-breakpoint-classes {
   @each $alias, $size in $fortitude-responsive-font-sizes {

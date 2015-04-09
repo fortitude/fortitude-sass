@@ -2,10 +2,6 @@
     #RESET
 \*------------------------------------*/
 
-/**
- * As well as using normalize.css, it is often advantageous to remove all
- * margins from certain elements.
-**/
 body,
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
@@ -17,10 +13,32 @@ hr, figure {
   padding: 0;
 }
 
-/**
- * Give a help cursor to elements that give extra info on `:hover`.
-**/
+html {
+  text-size-adjust: 100%;
+  overflow-y: scroll;
+  min-height: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 abbr[title],
 dfn[title] {
   cursor: help;
+}
+
+img { -ms-interpolation-mode: bicubic; }
+
+svg:not(:root) { overflow: hidden; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+pre {
+  overflow-x: auto;
+  @if $fortitude-enable-vendor-optimizations {
+    -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    -ms-overflow-scrolling: touch;
+  }
 }

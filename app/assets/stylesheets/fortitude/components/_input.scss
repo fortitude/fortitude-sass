@@ -10,14 +10,14 @@ The `input` object is used for forms
 <div class="field xs-mb1">
   <label>
     Checkbox Input
-    <input class="checkbox-input" type="checkbox" />
+    <input type="checkbox" class="checkbox-input" />
   </label>
 </div>
 
 <div class="field xs-mb1">
   <label>
     Radio Input
-    <input class="radio-input" type="radio" />
+    <input type="radio" class="radio-input" />
   </label>
 </div>
 
@@ -25,40 +25,44 @@ The `input` object is used for forms
   <label class="xs-block">
     Text Input
   </label>
-  <input class="text-input" type="text" />
+  <input type="text" class="text-input" placeholder="Placeholder" />
 </div>
 
 <div class="field xs-mb1">
   <label class="xs-block">
     Textarea Input
   </label>
-  <textarea class="textarea-input"></textarea>
+  <textarea class="textarea-input" placeholder="Placeholder"></textarea>
 </div>
 
 <div class="field xs-mb1">
   <label class="xs-block">
     Select Input
   </label>
-  <select class="select-input">
-    <option class="placeholder">Select One</option>
+  <select class="select-input" data-ft-select-input>
+    <option value="" class="placeholder">Select One</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+    <option value="4">Four</option>
   </select>
 </div>
 <div class="field xs-mb1">
   <label class="xs-block">
     Range Input
   </label>
-  <input class="range-input" type="range" />
+  <input type="range" class="range-input" />
 </div>
 
 <div class="field xs-mb1">
   <label class="xs-block">
     Color Input
   </label>
-  <input class="color-input" type="color" />
+  <input type="color" class="color-input" />
 </div>
 ```
 
-<h2 class="styleguide">Full Width Input</h2>
+## Full Width Input
 If you need a full width input there is the `input--full` class that can be applied to any input.
 
 ```html_example
@@ -66,36 +70,40 @@ If you need a full width input there is the `input--full` class that can be appl
   <label class="xs-block">
     Text Input
   </label>
-  <input class="text-input input--full" type="text" />
+  <input type="text" class="text-input input--full" placeholder="Placeholder" />
 </div>
 
 <div class="field xs-mb1">
   <label class="xs-block">
     Textarea Input
   </label>
-  <textarea class="textarea-input input--full"></textarea>
+  <textarea class="textarea-input input--full" placeholder="Placeholder"></textarea>
 </div>
 
 <div class="field xs-mb1">
   <label class="xs-block">
     Select Input
   </label>
-  <select class="select-input input--full">
-    <option class="placeholder">Select One</option>
+  <select class="select-input input--full" data-ft-select-input>
+    <option value="" class="placeholder">Select One</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+    <option value="4">Four</option>
   </select>
 </div>
 <div class="field xs-mb1">
   <label class="xs-block">
     Range Input
   </label>
-  <input class="range-input input--full" type="range" />
+  <input type="range" class="range-input input--full" />
 </div>
 
 <div class="field xs-mb1">
   <label class="xs-block">
     Color Input
   </label>
-  <input class="color-input input--full" type="color" />
+  <input type="color" class="color-input input--full" />
 </div>
 ```
 */
@@ -130,8 +138,8 @@ $fortitude-enable-input: true;
   @include fortitude-color-input;
 }
 
-.#{$fortitude-namespace}input__target {
-    @include fortitude-input__target;
+.#{$fortitude-namespace}input__element {
+    @include fortitude-input__element;
 }
 
 .#{$fortitude-namespace}input--full {

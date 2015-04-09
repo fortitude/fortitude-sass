@@ -24,7 +24,9 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
   cursor: pointer;
 
   &:hover::before,
-  &:hover::after {
+  &:hover::after,
+  &:focus::before,
+  &:focus::after {
     visibility: visible;
     opacity: 1;
   }
@@ -74,7 +76,7 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
   &:hover::after,
   &:focus::before,
   &:focus::after {
-    transform: translateY(-($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size));
+    transform: translateY(-(2rem / 4 + $fortitude-tooltip-arrow-size));
   }
 
   &::before,
@@ -99,7 +101,7 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
   &:hover::after,
   &:focus::before,
   &:focus::after {
-    transform: translateX($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size);
+    transform: translateX(2rem / 4 + $fortitude-tooltip-arrow-size);
   }
 
   &::before,
@@ -127,7 +129,7 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
   &:hover::after,
   &:focus::before,
   &:focus::after {
-    transform: translateY($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size);
+    transform: translateY(2rem / 4 + $fortitude-tooltip-arrow-size);
   }
 
   &::before,
@@ -154,7 +156,7 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
   &:hover::after,
   &:focus::before,
   &:focus::after {
-    transform: translateX(-($fortitude-base-spacing-unit / 4 + $fortitude-tooltip-arrow-size));
+    transform: translateX(-(2rem / 4 + $fortitude-tooltip-arrow-size));
   }
 
   &::before,

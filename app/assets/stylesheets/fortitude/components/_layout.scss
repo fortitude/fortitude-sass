@@ -18,112 +18,190 @@ Class           | Description
 .layout--center | Layout items are rendered from the center outward
 .layout--right  | Layout items are rendered from the right hand side
 
+## 12 Columns
+This fortitude theme uses a 12-column grid, and rows and columns can be represented with the `.layout` and `.layout__item` classes respectively.
+
 ```html_example
 <div class="layout xs-mb1">
   <div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div><div class="layout__item md-1of12">
-    <div class="box box--primary">1 of 12</div>
+    <div class="box box--styleguide">1 of 12</div>
   </div>
 </div>
 
 <div class="layout xs-mb1">
-  <div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div><div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div>
-</div>
-
-<!-- layout middle -->
-<div class="layout layout--middle xs-mb1">
-  <div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div><div class="layout__item md-6of12">
-    <div class="box box--primary xs-2">6 of 12</div>
-  </div>
-</div>
-
-<!-- layout bottom -->
-<div class="layout layout--bottom xs-mb1">
-  <div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div><div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div>
-</div>
-
-<!-- layout flush -->
-<div class="layout layout--flush xs-mb1">
-  <div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div><div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div>
-</div>
-
-<!-- layout small -->
-<div class="layout layout--small xs-mb1">
-  <div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div><div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div>
-</div>
-
-<!-- layout large -->
-<div class="layout layout--large xs-mb1">
-  <div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div><div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div>
-</div>
-
-<!-- layout rev -->
-<div class="layout layout--rev xs-mb1">
-  <div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div><div class="layout__item md-6of12">
-    <div class="box box--primary">6 of 12</div>
-  </div>
-</div>
-
-<!-- layout center -->
-<div class="layout layout--center xs-mb1">
-  <div class="layout__item md-4of12">
-    <div class="box box--primary">4 of 12</div>
+  <div class="layout__item md-8of12">
+    <div class="box box--styleguide">8 of 12</div>
   </div><div class="layout__item md-4of12">
-    <div class="box box--primary">4 of 12</div>
+    <div class="box box--styleguide">4 of 12</div>
   </div>
 </div>
 
-<!-- layout right -->
-<div class="layout layout--right xs-mb1">
+<div class="layout xs-mb1">
   <div class="layout__item md-4of12">
-    <div class="box box--primary">4 of 12</div>
+    <div class="box box--styleguide">4 of 12</div>
   </div><div class="layout__item md-4of12">
-    <div class="box box--primary">6 of 12</div>
+    <div class="box box--styleguide">4 of 12</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">4 of 12</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide">6 of 12</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">6 of 12</div>
+  </div>
+</div>
+```
+
+## Responsive Grid
+You can re-arrange content for different screen sizes using responsive width helpers. Resize your window and watch the columns in this example go from full-width at the `xs` size to 8 columns at `sm`, 6 columns at `md`, and 4 columns at `lg`.
+
+```html_example
+<div class="layout">
+  <div class="layout__item sm-8of12 md-6of12 lg-4of12">
+    <div class="box box--styleguide">sm-8of12 md-6of12 lg-4of12</div>
+  </div><div class="layout__item sm-4of12 md-6of12 lg-8of12">
+    <div class="box box--styleguide">sm-4of12 md-6of12 lg-8of12</div>
+  </div>
+</div>
+```
+
+## Gutter Size
+
+### Default
+```html_example
+<div class="layout">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">The default size</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">nothing special</div>
+  </div>
+</div>
+```
+
+### Small
+```html_example
+<div class="layout layout--small">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">these tiny gutters</div>
+  </div>
+</div>
+```
+
+### Large
+```html_example
+<div class="layout layout--large">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">these huge gutters</div>
+  </div>
+</div>
+```
+
+### Flush
+```html_example
+<div class="layout layout--flush">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">No</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">gutters</div>
+  </div>
+</div>
+```
+
+## Vertical Alignment
+
+### Default
+```html_example
+<div class="layout">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">No matter how tall this gets</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">This will still be at the top</div>
+  </div>
+</div>
+```
+
+### Middle
+```html_example
+<div class="layout layout--middle">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">No matter how tall this gets</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">This will still be in the middle</div>
+  </div>
+</div>
+```
+
+### Bottom
+```html_example
+<div class="layout layout--bottom">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">No matter how tall this gets</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">This will still be at the bottom</div>
+  </div>
+</div>
+```
+
+## Render Style
+
+### Reverse
+```html_example
+<div class="layout layout--rev">
+  <div class="layout__item md-4of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">These elements rendering in reverse order</div>
+  </div>
+</div>
+```
+
+### Center
+```html_example
+<div class="layout layout--center">
+  <div class="layout__item md-4of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">These elements rendering from the center</div>
+  </div>
+</div>
+```
+
+### Right
+```html_example
+<div class="layout layout--right">
+  <div class="layout__item md-4of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">These elements rendering from the right</div>
   </div>
 </div>
 ```
@@ -139,7 +217,7 @@ $fortitude-enable-layout: true;
   @include fortitude-layout__item;
 }
 
-@if $fortitude-enable-layout--small == true {
+@if $fortitude-enable-layout--small {
   /**
    * Layouts with small gutters.
   **/
@@ -151,7 +229,7 @@ $fortitude-enable-layout: true;
   }
 }
 
-@if $fortitude-enable-layout--large == true {
+@if $fortitude-enable-layout--large {
   /**
    * Layouts with large gutters.
   **/
@@ -163,7 +241,7 @@ $fortitude-enable-layout: true;
   }
 }
 
-@if $fortitude-enable-layout--flush == true {
+@if $fortitude-enable-layout--flush {
   /**
    * Layouts with no gutters.
   **/
@@ -175,7 +253,7 @@ $fortitude-enable-layout: true;
   }
 }
 
-@if $fortitude-enable-layout--rev == true {
+@if $fortitude-enable-layout--rev {
   /**
    * Reversed rendered order of layout items, e.g. items 1, 2, 3, 4 in your
    * markup will display in order 4, 3, 2, 1 on your page.
@@ -188,7 +266,7 @@ $fortitude-enable-layout: true;
   }
 }
 
-@if $fortitude-enable-layout--middle == true {
+@if $fortitude-enable-layout--middle {
   /**
    * Align layout items to the vertical centers of each other.
   **/
@@ -199,7 +277,7 @@ $fortitude-enable-layout: true;
   }
 }
 
-@if $fortitude-enable-layout--bottom == true {
+@if $fortitude-enable-layout--bottom {
   /**
    * Align layout items to the vertical bottoms of each other.
   **/
@@ -210,7 +288,7 @@ $fortitude-enable-layout: true;
   }
 }
 
-@if $fortitude-enable-layout--right == true {
+@if $fortitude-enable-layout--right {
   /**
    * Make the layout items fill up from the right hand side.
   **/
@@ -222,7 +300,7 @@ $fortitude-enable-layout: true;
   }
 }
 
-@if $fortitude-enable-layout--center == true {
+@if $fortitude-enable-layout--center {
   /**
    * Make the layout items fill up from the center outward.
   **/
