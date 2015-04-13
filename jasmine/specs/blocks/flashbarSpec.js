@@ -19,6 +19,7 @@
     });
   });
 
+  // make sure this is tested with both ft- and data-ft attrs
   describe(".flashbar data attrs", function(){
     var $flashbar;
 
