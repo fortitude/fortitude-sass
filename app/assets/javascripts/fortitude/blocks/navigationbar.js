@@ -3,9 +3,9 @@
 
   $(document).on('change', '[ft-navigationbar-toggle], [data-ft-navigationbar-toggle]', function(){
     if($(this).prop('checked')){
-      $('[ft-shade]').trigger('open.ft.shade');
+      $('[ft-shade], [data-ft-shade]').trigger('open.ft.shade');
     } else {
-      $('[ft-shade]').trigger('close.ft.shade');
+      $('[ft-shade], [data-ft-shade]').trigger('close.ft.shade');
     }
   });
 })(jQuery);
