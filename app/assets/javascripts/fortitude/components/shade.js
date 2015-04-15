@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Shade
-name: shade
+name: js-shade
 category: Javascript
 ---
 The `shade` object is used to dim the entire website use cases might be to allow the users focus to be on a specific element like navigation or a modal.

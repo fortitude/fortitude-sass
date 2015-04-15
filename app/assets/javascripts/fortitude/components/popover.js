@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Popover
-name: popover
+name: js-popover
 category: Javascript
 ---
 The `popover` is used to hide content or navigation behind a clickable element

@@ -32,18 +32,11 @@ $fortitude-responsive-negative-margin-unit-total: 10 !default;
 @include fortitude-breakpoint-classes {
   @for $index from 0 through $fortitude-responsive-margin-unit-total {
     $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index) !important;
-    $value-and-half: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index + fortitude-halve($fortitude-base-spacing-unit)) !important;
 
     &-mt#{$index},
     &-m#{$index},
     &-mtb#{$index} {
       margin-top: $value;
-    }
-
-    &-mth#{$index},
-    &-mh#{$index},
-    &-mtbh#{$index} {
-      margin-top: $value-and-half;
     }
 
     &-mr#{$index},
@@ -52,22 +45,10 @@ $fortitude-responsive-negative-margin-unit-total: 10 !default;
       margin-right: $value;
     }
 
-    &-mrh#{$index},
-    &-mh#{$index},
-    &-mrlh#{$index} {
-      margin-right: $value-and-half;
-    }
-
     &-mb#{$index},
     &-m#{$index},
     &-mtb#{$index} {
       margin-bottom: $value;
-    }
-
-    &-mbh#{$index},
-    &-mh#{$index},
-    &-mtbh#{$index} {
-      margin-bottom: $value-and-half;
     }
 
     &-ml#{$index},
@@ -76,27 +57,15 @@ $fortitude-responsive-negative-margin-unit-total: 10 !default;
       margin-left: $value;
     }
 
-    &-mlh#{$index},
-    &-mh#{$index},
-    &-mrlh#{$index} {
-      margin-left: $value-and-half;
-    }
   }
 
   @for $index from 0 through $fortitude-responsive-negative-margin-unit-total {
     $value: fortitude-strip-unit-if-zero(-($fortitude-base-spacing-unit * $index)) !important;
-    $value-and-half: fortitude-strip-unit-if-zero(-($fortitude-base-spacing-unit * $index + fortitude-halve($fortitude-base-spacing-unit))) !important;
 
     &-mt-#{$index},
     &-m-#{$index},
     &-mtb-#{$index} {
       margin-top: $value;
-    }
-
-    &-mth-#{$index},
-    &-mh-#{$index},
-    &-mtbh-#{$index} {
-      margin-top: $value-and-half;
     }
 
     &-mr-#{$index},
@@ -105,34 +74,16 @@ $fortitude-responsive-negative-margin-unit-total: 10 !default;
       margin-right: $value;
     }
 
-    &-mrh-#{$index},
-    &-mh-#{$index},
-    &-mrlh-#{$index} {
-      margin-right: $value-and-half;
-    }
-
     &-mb-#{$index},
     &-m-#{$index},
     &-mtb-#{$index} {
       margin-bottom: $value;
     }
 
-    &-mbh-#{$index},
-    &-mh-#{$index},
-    &-mtbh-#{$index} {
-      margin-bottom: $value-and-half;
-    }
-
     &-ml-#{$index},
     &-m-#{$index},
     &-mrl-#{$index} {
       margin-left: $value;
-    }
-
-    &-mlh-#{$index},
-    &-mh-#{$index},
-    &-mrlh-#{$index} {
-      margin-left: $value-and-half;
     }
   }
 

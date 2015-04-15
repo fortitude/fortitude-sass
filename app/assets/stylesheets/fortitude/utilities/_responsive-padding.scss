@@ -30,18 +30,11 @@ $fortitude-responsive-padding-unit-total: 10 !default;
 @include fortitude-breakpoint-classes {
   @for $index from 0 through $fortitude-responsive-padding-unit-total {
     $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index) !important;
-    $value-and-half: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index + fortitude-halve($fortitude-base-spacing-unit)) !important;
 
     &-pt#{$index},
     &-p#{$index},
     &-ptb#{$index} {
       padding-top: $value;
-    }
-
-    &-pth#{$index},
-    &-ph#{$index},
-    &-ptbh#{$index} {
-      padding-top: $value-and-half;
     }
 
     &-pr#{$index},
@@ -50,34 +43,16 @@ $fortitude-responsive-padding-unit-total: 10 !default;
       padding-right: $value;
     }
 
-    &-prh#{$index},
-    &-ph#{$index},
-    &-prlh#{$index} {
-      padding-right: $value-and-half;
-    }
-
     &-pb#{$index},
     &-p#{$index},
     &-ptb#{$index} {
       padding-bottom: $value;
     }
 
-    &-pbh#{$index},
-    &-ph#{$index},
-    &-ptbh#{$index} {
-      padding-bottom: $value-and-half;
-    }
-
     &-pl#{$index},
     &-p#{$index},
     &-prl#{$index} {
       padding-left: $value;
-    }
-
-    &-plh#{$index},
-    &-ph#{$index},
-    &-prlh#{$index} {
-      padding-left: $value-and-half;
     }
   }
 }

@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Flashbar
-name: flashbar
+name: js-flashbar
 category: Javascript
 ---
 Flashbars are used to inform a user of something after an action and can optionally be dismissed

@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Navigationbar
-name: navigationbar
+name: js-navigationbar
 category: Javascript
 ---
 The `navigationbar` object is used for the main navigation of a website.
