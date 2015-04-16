@@ -63,7 +63,7 @@ $(document).on('change.ft.select-input', '.select-input', function(event) {
 
   var setupSelectInputs = function(){
     $document
-      .find('[ft-select], [data-ft-select]')
+      .find('[ft-select-input], [data-ft-select-input]')
       .data('ftSelect', {previousClass: ""})
       .each(setClassName);
   };
@@ -78,6 +78,6 @@ $(document).on('change.ft.select-input', '.select-input', function(event) {
     setupSelectInputs();
   });
 
-  setTimeout(setupSelectInputs, 0);
+  setTimeout(setupSelectInputs, 1);
 
 })(jQuery);
