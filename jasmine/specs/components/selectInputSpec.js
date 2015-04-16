@@ -33,7 +33,7 @@
     var $select, $noPlaceholder;
 
     beforeEach(function(){
-      loadFixtures('selectInputFixture.html');
+      loadFixtures('selectInputDataFixture.html');
       $select = $('#select-with-placeholder');
       $noPlaceholder = $('#select-without-placeholder');
       $(document).trigger('setup.ft.select');

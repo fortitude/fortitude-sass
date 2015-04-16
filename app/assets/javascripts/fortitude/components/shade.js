@@ -4,7 +4,16 @@ title: Shade
 name: js-shade
 category: Javascript
 ---
-The `shade` object is used to dim the entire website use cases might be to allow the users focus to be on a specific element like navigation or a modal.
+The `shade` object is used to dim the entire website use cases might be to allow the users focus to be on a specific element like navigation or a modal. You can also open and close the shade using data- attributes, and the shade will automatically close when clicked on.
+
+<div class="note note--info">
+  <p class="styleguide">Shades don't need JavaScript by default, but if you want the shade to show and dismiss without an extra call to the server, then you'll want to use the JS Component</p>
+  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
+  <ul class="styleguide">
+    <li><code class="styleguide">data-ft-shade-open</code> on any element</li>
+    <li><code class="styleguide">data-ft-shade-close</code> on any element</li>
+  </ul>
+</div>
 
 Below are some events you can listen to:
 
@@ -20,6 +29,11 @@ $(document).on('open.ft.shade', '.shade', function(event) {
   // do some work
 });
 ```
+
+```html_example
+<button class="button button--default" data-ft-shade-open>Open Shade</button>
+```
+
 */
 
 (function($) {

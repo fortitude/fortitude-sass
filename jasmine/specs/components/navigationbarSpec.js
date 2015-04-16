@@ -18,6 +18,7 @@
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
       $shade.on('opened.ft.shade', function(){
         expect($shade).toBeVisible();
+        expect($('html')).toHaveClass('html--is-locked');
         done();
       });
     });
@@ -27,6 +28,7 @@
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
       $shade.on('closed.ft.shade', function(){
         expect($shade).not.toBeVisible();
+        expect($('html')).not.toHaveClass('html--is-locked');
         done();
       });
     });
@@ -49,6 +51,7 @@
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
       $shade.on('opened.ft.shade', function(){
         expect($shade).toBeVisible();
+        expect($('html')).toHaveClass('html--is-locked');
         done();
       });
     });
@@ -58,6 +61,7 @@
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
       $shade.on('closed.ft.shade', function(){
         expect($shade).not.toBeVisible();
+        expect($('html')).not.toHaveClass('html--is-locked');
         done();
       });
     });

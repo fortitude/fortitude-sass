@@ -70,8 +70,10 @@ $(document).on('open.ft.navigationbar', '.navigationbar', function(event) {
   $(document).on('change', '[ft-navigationbar-toggle], [data-ft-navigationbar-toggle]', function(){
     if($(this).prop('checked')){
       $('[ft-shade], [data-ft-shade]').trigger('open.ft.shade');
+      $.screenLock();
     } else {
       $('[ft-shade], [data-ft-shade]').trigger('close.ft.shade');
+      $.screenLock(false);
     }
   });
 })(jQuery);

@@ -63,7 +63,7 @@ $(document).on('change.ft.select-input', '.select-input', function(event) {
 
   var setupSelectInputs = function(){
     $document
-      .find('[ft-select]')
+      .find('[ft-select], [data-ft-select]')
       .data('ftSelect', {previousClass: ""})
       .each(setClassName);
   };

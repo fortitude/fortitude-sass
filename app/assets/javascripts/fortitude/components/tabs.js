@@ -38,8 +38,8 @@ $(document).on('show.ft.tabs', '.tabs', function(event, tabIndex) {
 ### Default
 
 ```html_example
-<nav class="tabs tabs--default" id="example-tabs" data-ft-tabs data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
-  <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default" data-ft-tabs-navigation="example-tabs">
+<nav class="tabs tabs--default" data-ft-tabs data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
+  <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default">
     <li class="tabs-navigation__item">
       <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 1</a>
     </li>
@@ -68,48 +68,74 @@ $(document).on('show.ft.tabs', '.tabs', function(event, tabIndex) {
 
   var itemActive = 'tabs-navigation__item--is-active',
       targetActive = 'tabs__content--is-active',
-      tabItem = '[ft-tab], [data-ft-tab]';
+      tabLink = '[ft-tabs-navigation-link], [data-ft-tabs-navigation-link]',
+      tabContent = '[ft-tabs-content], [data-ft-tabs-content]',
+      tabParent = '[ft-tabs], [data-ft-tabs]',
+      contentAttr = 'ft-tabs-navigation-link';
 
-  var selectTab = function($element){
-    var $target = $element.ftTarget('ft-tab'),
-        $siblings, activeClass;
+  var linkClicked = function($link){
+    var $parent = $link.closest(tabParent),
+        $content = $link.ftTarget(contentAttr),
+        $siblings, activeClass, index;
 
-    $element.siblings().each(function(){
+    if(!$content.length){
+      index = $parent.find(tabLink).index($link);
+      $content = $parent.find(tabContent).eq(index);
+    }
+
+    if(!$content.length){ return; }
+
+    $siblings = $parent.find(tabLink);
+
+    if(!$siblings.length) { return; }
+
+    $siblings.each(function(){
+      // $this is a sibling of $link
+      // so it will be another tabs-navigation__link
       var $this = $(this),
-          $otherTarget = $this.ftTarget('ft-tab');
+          $thisContent = $this.ftTarget(contentAttr);
 
+      if(!$thisContent.length){
+        index = $parent.find(tabLink).index($this);
+        $thisContent = $parent.find(tabContent).eq(index);
+      }
+
+      if(!$thisContent.length){ return; }
+
+      // return the link to closed state
       $this.ftTransitionWith({
         attr: 'ft-hide-class',
         removeClass: itemActive,
-        endEvent: 'deselected.ft.tab'
+        endEvent: 'closed.ft.tab'
       });
 
-      $otherTarget.ftTransitionWith({
+      // return the link's content to closed state
+      $thisContent.ftTransitionWith({
         attr: 'ft-hide-class',
         removeClass: targetActive,
         endEvent: 'closed.ft.tabtarget'
       });
     });
 
-    $element.ftTransitionWith({
+    $link.ftTransitionWith({
       attr: 'ft-show-class',
       addClass: itemActive,
       endEvent: 'opened.ft.tab'
     });
 
-    return $target.ftTransitionWith({
+    return $content.ftTransitionWith({
       attr: 'ft-show-class',
       addClass: targetActive,
       endEvent: 'opened.ft.tabtarget'
     });
   };
 
-  $(document).on('select.ft.tab', tabItem, function(event){
-    selectTab($(this));
+  $(document).on('open.ft.tab', tabLink, function(event){
+    linkClicked($(this));
   });
 
-  $(document).on('click', tabItem, function(){
-    $(this).trigger('select.ft.tab');
+  $(document).on('click', tabLink, function(){
+    $(this).trigger('open.ft.tab');
   });
 
 })(jQuery);
