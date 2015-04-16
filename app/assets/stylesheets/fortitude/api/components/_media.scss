@@ -28,89 +28,95 @@ $fortitude-media-collapse-at:        720px !default;
   float: left;
 
   @if $is-rev {
-    @include fortitude-media__object--rev;
+    @include fortitude-media--rev__object;
 
     @if $is-flush {
-      @include fortitude-media__object--rev--flush;
+      @include fortitude-media--rev--flush__object;
     } @else if $is-small {
-      @include fortitude-media__object--rev--small;
+      @include fortitude-media--rev--small__object;
     } @else if $is-large {
-      @include fortitude-media__object--rev--large;
+      @include fortitude-media--rev--large__object;
     }
   }
 
   @if $is-responsive {
-    @include fortitude-media__object--responsive;
+    @include fortitude-media--responsive__object;
 
     @if $is-flush {
-      @include fortitude-media__object--responsive--flush;
+      @include fortitude-media--responsive--flush__object;
     } @else if $is-small {
-      @include fortitude-media__object--responsive--small;
+      @include fortitude-media--responsive--small__object;
     } @else if $is-large {
-      @include fortitude-media__object--responsive--large;
+      @include fortitude-media--responsive--large__object;
     }
   }
 
   @if not $is-responsive or not $is-flush {
     @if $is-flush {
-      @include fortitude-media__object--flush;
+      @include fortitude-media--flush__object;
     } @else if $is-small {
-      @include fortitude-media__object--small;
+      @include fortitude-media--small__object;
     } @else if $is-large {
-      @include fortitude-media__object--large;
+      @include fortitude-media--large__object;
     } @else {
       margin-right: $fortitude-media-gutter;
     }
   }
 }
 
-@mixin fortitude-media__object--flush {
+@mixin fortitude-media--flush__object {
   margin-right: 0;
 }
 
-@mixin fortitude-media__object--small {
+@mixin fortitude-media--small__object {
   margin-right: $fortitude-media-gutter--small;
 }
 
-@mixin fortitude-media__object--large {
+@mixin fortitude-media--large__object {
   margin-right: $fortitude-media-gutter--large;
 }
 
-@mixin fortitude-media__object--rev {
+@mixin fortitude-media--rev__object {
   float: right;
   margin-right: 0;
   margin-left: $fortitude-media-gutter;
 }
 
-@mixin fortitude-media__object--rev--flush {
+@mixin fortitude-media--rev--flush__object {
   margin-right: 0;
   margin-left: 0;
 }
 
-@mixin fortitude-media__object--rev--small {
+@mixin fortitude-media--rev--small__object {
   margin-right: 0;
   margin-left: $fortitude-media-gutter--small;
 }
 
-@mixin fortitude-media__object--rev--large {
+@mixin fortitude-media--rev--large__object {
   margin-right: 0;
   margin-left: $fortitude-media-gutter--large;
 }
 
-@mixin fortitude-media__object--responsive {
+@mixin fortitude-media--responsive__object {
   float: none;
   margin-right: 0;
   margin-bottom: $fortitude-media-gutter;
   margin-left: 0;
 }
 
-@mixin fortitude-media__object--responsive--small {
+@mixin fortitude-media--responsive--flush__object {
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+@mixin fortitude-media--responsive--small__object {
   margin-right: 0;
   margin-bottom: $fortitude-media-gutter--small;
   margin-left: 0;
 }
 
-@mixin fortitude-media__object--responsive--large {
+@mixin fortitude-media--responsive--large__object {
   margin-right: 0;
   margin-bottom: $fortitude-media-gutter--large;
   margin-left: 0;

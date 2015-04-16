@@ -5,14 +5,14 @@ name: text
 category: Utilities
 ---
 
-Class               | Description
-------------------- | -----------------
-text--italic        | Italic text
-text--underline     | This is the darker gray text
-text--line-through  | This is the dark gray text
-text--lowercase     | This is the gray text
-text--uppercase     | This is the light gray text
-text--capitalize    | This is the lighter gray text
+Class                | Description
+-------------------- | -----------------
+`text--italic`       | Italic text
+`text--underline`    | Underline text
+`text--line-through` | Line through text
+`text--lowercase`    | Lowercase text
+`text--uppercase`    | Uppercase text
+`text--capitalize`   | Capitalized text
 
 ```html_example
 <span class="text--italic">Italic</span>
@@ -27,25 +27,25 @@ text--capitalize    | This is the lighter gray text
 $fortitude-enable-text: true;
 
 .#{$fortitude-namespace}text--italic {
-  font-style: italic;
+  font-style: italic !important;
 }
 
 .#{$fortitude-namespace}text--underline {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .#{$fortitude-namespace}text--line-through {
-  text-decoration: line-through;
+  text-decoration: line-through !important;
 }
 
 .#{$fortitude-namespace}text--lowercase {
-  text-transform: lowercase;
+  text-transform: lowercase !important;
 }
 
 .#{$fortitude-namespace}text--uppercase {
-  text-transform: uppercase;
+  text-transform: uppercase !important;
 }
 
 .#{$fortitude-namespace}text--capitalize {
-  text-transform: capitalize;
+  text-transform: capitalize !important;
 }

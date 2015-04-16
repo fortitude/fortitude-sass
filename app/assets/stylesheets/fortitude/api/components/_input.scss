@@ -74,8 +74,8 @@ $fortitude-global-border-box: false !default;
   @include fortitude-input($extensions);
   border: fortitude-strip-unit-if-zero($fortitude-text-input-border-width) $fortitude-text-input-border-style transparent;
   height: $fortitude-text-input-height;
-  margin: fortitude-component-margin($fortitude-text-input-height, $fortitude-text-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-component-padding($fortitude-text-input-height, $fortitude-text-input-border-width, $fortitude-base-line-height);
+  margin: fortitude-component-margin($fortitude-text-input-height, $fortitude-text-input-border-width) 0;
+  padding: fortitude-component-padding($fortitude-text-input-height, $fortitude-text-input-border-width);
 
   @if $is-pill {
     @include fortitude-input--pill;
@@ -95,8 +95,8 @@ $fortitude-global-border-box: false !default;
   @include fortitude-input($extensions);
   border: fortitude-strip-unit-if-zero($fortitude-textarea-input-border-width) $fortitude-textarea-input-border-style transparent;
   min-height: $fortitude-textarea-input-height;
-  margin: fortitude-component-margin($fortitude-textarea-input-height, $fortitude-textarea-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-component-padding($fortitude-textarea-input-height, $fortitude-textarea-input-border-width, $fortitude-base-line-height);
+  margin: fortitude-component-margin($fortitude-textarea-input-height, $fortitude-textarea-input-border-width) 0;
+  padding: fortitude-component-padding($fortitude-textarea-input-height, $fortitude-textarea-input-border-width);
 
   @if $is-pill {
     @include fortitude-input--pill;
@@ -116,8 +116,8 @@ $fortitude-global-border-box: false !default;
   @include fortitude-input($extensions);
   border: fortitude-strip-unit-if-zero($fortitude-select-input-border-width) $fortitude-select-input-border-style transparent;
   height: $fortitude-select-input-height;
-  margin: fortitude-component-margin($fortitude-select-input-height, $fortitude-select-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-component-padding($fortitude-select-input-height, $fortitude-select-input-border-width, $fortitude-base-line-height);
+  margin: fortitude-component-margin($fortitude-select-input-height, $fortitude-select-input-border-width) 0;
+  padding: fortitude-component-padding($fortitude-select-input-height, $fortitude-select-input-border-width);
 
   @if $is-pill {
     @include fortitude-input--pill;
@@ -141,8 +141,8 @@ $fortitude-global-border-box: false !default;
   border: fortitude-strip-unit-if-zero($fortitude-checkbox-input-border-width) $fortitude-checkbox-input-border-style transparent;
   width: $fortitude-checkbox-input-size;
   height: $fortitude-checkbox-input-size;
-  margin: fortitude-component-margin($fortitude-checkbox-input-size + 0.2rem, $fortitude-checkbox-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-component-padding($fortitude-checkbox-input-size, $fortitude-checkbox-input-border-width, $fortitude-base-line-height);
+  margin: fortitude-component-margin($fortitude-checkbox-input-size + 0.2rem, $fortitude-checkbox-input-border-width) 0;
+  padding: fortitude-component-padding($fortitude-checkbox-input-size, $fortitude-checkbox-input-border-width);
 
   @if $is-pill {
     @include fortitude-input--pill;
@@ -158,8 +158,8 @@ $fortitude-global-border-box: false !default;
   border: fortitude-strip-unit-if-zero($fortitude-radio-input-border-width) $fortitude-radio-input-border-style transparent;
   width: $fortitude-radio-input-size;
   height: $fortitude-radio-input-size;
-  margin: fortitude-component-margin($fortitude-radio-input-size + 0.4rem, $fortitude-radio-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-component-padding($fortitude-radio-input-size, $fortitude-radio-input-border-width, $fortitude-base-line-height);
+  margin: fortitude-component-margin($fortitude-radio-input-size + 0.4rem, $fortitude-radio-input-border-width) 0;
+  padding: fortitude-component-padding($fortitude-radio-input-size, $fortitude-radio-input-border-width);
 
   @if $is-pill {
     @include fortitude-input--pill;
@@ -175,8 +175,8 @@ $fortitude-global-border-box: false !default;
   @include fortitude-input($extensions);
   border: fortitude-strip-unit-if-zero($fortitude-range-input-border-width) $fortitude-range-input-border-style transparent;
   height: $fortitude-range-input-height;
-  margin: fortitude-component-margin($fortitude-range-input-height, $fortitude-range-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-component-padding($fortitude-range-input-height, $fortitude-range-input-border-width, $fortitude-base-line-height) 0;
+  margin: fortitude-component-margin($fortitude-range-input-height, $fortitude-range-input-border-width) 0;
+  padding: fortitude-component-padding($fortitude-range-input-height, $fortitude-range-input-border-width) 0;
 
   @if $is-pill {
     @include fortitude-input--pill;
@@ -196,8 +196,8 @@ $fortitude-global-border-box: false !default;
   @include fortitude-input($extensions);
   border: fortitude-strip-unit-if-zero($fortitude-color-input-border-width) $fortitude-color-input-border-style transparent;
   height: $fortitude-color-input-height;
-  margin: fortitude-component-margin($fortitude-color-input-height, $fortitude-color-input-border-width, $fortitude-base-line-height) 0;
-  padding: fortitude-component-padding($fortitude-color-input-height, $fortitude-color-input-border-width, $fortitude-base-line-height);
+  margin: fortitude-component-margin($fortitude-color-input-height, $fortitude-color-input-border-width) 0;
+  padding: fortitude-component-padding($fortitude-color-input-height, $fortitude-color-input-border-width);
 
   @if $is-pill {
     @include fortitude-input--pill;

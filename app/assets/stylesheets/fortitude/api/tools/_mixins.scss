@@ -40,6 +40,7 @@
 
 @mixin fortitude-font-size($font-size, $enable-line-height: true, $line-height: $fortitude-base-line-height) {
   font-size: $font-size;
+
   @if $enable-line-height {
     line-height: ceil($font-size / $line-height) * $line-height;
   }
@@ -67,12 +68,12 @@
   td {
     border-style: unquote($border-style);
     border-width: $border-width;
-    line-height: $fortitude-base-line-height + $border-width;
+    line-height: $fortitude-base-spacing-unit + $border-width;
     padding: fortitude-component-padding($component-height, $border-width);
   }
 
   tbody tr:last-child td {
-    line-height: $fortitude-base-line-height;
+    line-height: $fortitude-base-spacing-unit;
   }
 }
 
@@ -85,6 +86,7 @@
   );
 
   $opposite-direction: map-get($directions, $direction);
+
   @if $opposite-direction != null {
     width: 0;
     height: 0;

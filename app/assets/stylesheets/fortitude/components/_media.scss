@@ -96,8 +96,7 @@ $fortitude-enable-media: true;
   @include fortitude-media__object;
 }
 
-.#{$fortitude-namespace}media__object > img,
-.#{$fortitude-namespace}media__object > video {
+.#{$fortitude-namespace}media__object > * {
   @include fortitude-media__object__content;
 }
 
@@ -106,13 +105,24 @@ $fortitude-enable-media: true;
   @include fortitude-media__body;
 }
 
+@if $fortitude-enable-media--flush {
+  /**
+   * Flush media objects.
+  **/
+  .#{$fortitude-namespace}media--flush {
+    > .#{$fortitude-namespace}media__object {
+      @include fortitude-media--flush__object;
+    }
+  }
+}
+
 @if $fortitude-enable-media--small {
   /**
    * Small media objects.
   **/
   .#{$fortitude-namespace}media--small {
     > .#{$fortitude-namespace}media__object {
-      @include fortitude-media__object--small;
+      @include fortitude-media--small__object;
     }
   }
 }
@@ -123,7 +133,7 @@ $fortitude-enable-media: true;
   **/
   .#{$fortitude-namespace}media--large {
     > .#{$fortitude-namespace}media__object {
-      @include fortitude-media__object--large;
+      @include fortitude-media--large__object;
     }
   }
 }
@@ -134,7 +144,19 @@ $fortitude-enable-media: true;
   **/
   .#{$fortitude-namespace}media--rev {
     > .#{$fortitude-namespace}media__object {
-      @include fortitude-media__object--rev;
+      @include fortitude-media--rev__object;
+    }
+
+    @if $fortitude-enable-media--flush {
+      /**
+       * Reversed flush media objects.
+      **/
+
+      &.#{$fortitude-namespace}media--flush {
+        > .#{$fortitude-namespace}media__object {
+          @include fortitude-media--rev--flush__object;
+        }
+      }
     }
 
     @if $fortitude-enable-media--small {
@@ -144,7 +166,7 @@ $fortitude-enable-media: true;
 
       &.#{$fortitude-namespace}media--small {
         > .#{$fortitude-namespace}media__object {
-          @include fortitude-media__object--rev--small;
+          @include fortitude-media--rev--small__object;
         }
       }
     }
@@ -155,20 +177,9 @@ $fortitude-enable-media: true;
       **/
       &.#{$fortitude-namespace}media--large {
         > .#{$fortitude-namespace}media__object {
-          @include fortitude-media__object--rev--large;
+          @include fortitude-media--rev--large__object;
         }
       }
-    }
-  }
-}
-
-@if $fortitude-enable-media--flush {
-  /**
-   * Flush media objects have no space between the image- and text-content.
-  **/
-  .#{$fortitude-namespace}media--flush {
-    > .#{$fortitude-namespace}media__object {
-      @include fortitude-media__object--flush;
     }
   }
 }
@@ -192,8 +203,24 @@ $fortitude-enable-media: true;
        * Rework the spacings on regular media objects.
       **/
       > .#{$fortitude-namespace}media__object {
-        @include fortitude-media__object--responsive;
+        @include fortitude-media--responsive__object;
       }
+
+      @if $fortitude-enable-media--flush {
+        /**
+         * Small responsive media objects.
+         *
+         * Take a little more heavy-handed approach to reworking
+         * spacings on media objects that are also small media objects
+         * in their regular state.
+        **/
+        &.#{$fortitude-namespace}media--flush {
+          > .#{$fortitude-namespace}media__object {
+            @include fortitude-media--responsive--flush__object;
+          }
+        }
+      }
+
       @if $fortitude-enable-media--small {
         /**
          * Small responsive media objects.
@@ -204,10 +231,11 @@ $fortitude-enable-media: true;
         **/
         &.#{$fortitude-namespace}media--small {
           > .#{$fortitude-namespace}media__object {
-            @include fortitude-media__object--responsive--small;
+            @include fortitude-media--responsive--small__object;
           }
         }
       }
+
       @if $fortitude-enable-media--large {
         /**
          * Large responsive media objects.
@@ -218,7 +246,7 @@ $fortitude-enable-media: true;
         **/
         &.#{$fortitude-namespace}media--large {
           > .#{$fortitude-namespace}media__object {
-            @include fortitude-media__object--responsive--large;
+            @include fortitude-media--responsive--large__object;
           }
         }
       }

@@ -45,10 +45,6 @@ $fortitude-enable-badge--pill: false !default;
     padding: fortitude-component-padding($fortitude-badge-height--default, $fortitude-badge-border-width) $fortitude-badge-horizontal-padding--default;
   }
 
-  @if not $is-large {
-    line-height: $fortitude-base-line-height;
-  }
-
   @if $is-pill {
     @include fortitude-badge--pill;
   } @else if $fortitude-badge-border-radius != 0 {
