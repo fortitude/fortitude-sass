@@ -35,7 +35,7 @@ table {
 }
 
 pre {
-  overflow-x: auto;
+  overflow: auto;
   @if $fortitude-enable-vendor-optimizations {
     -webkit-overflow-scrolling: touch;
     -moz-overflow-scrolling: touch;

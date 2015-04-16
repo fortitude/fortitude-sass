@@ -6,10 +6,10 @@ category: Objects
 ---
 The `table` object is a set of simple extending classes that should be applied to table elements.
 
-Class           | Description
---------------- | -----------------
-table--full     | make table full width
-table--fixed    | make all columns equal widths
+Class          | Description
+-------------- | ------------------------------
+`table--full`  | make table full width
+`table--fixed` | make all columns equal widths
 
 
 <div class="note note--warning">
@@ -22,7 +22,8 @@ table--fixed    | make all columns equal widths
   $cell-height: 3rem;
   $border-width: 0.1rem;
   $border-style: "solid"; // this param is optional (default is solid)
-  @include fortitude-table($cell-height, $border-width, $border-style);
+  $line-height: 2rem; // this param is optional (default is $fortitude-base-line-height)
+  @include fortitude-table($cell-height, $border-width, $border-style, $line-height);
 }
 ```
 

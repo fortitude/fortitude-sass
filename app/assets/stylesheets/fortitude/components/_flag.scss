@@ -7,19 +7,19 @@ category: Structure
 The flag object mostly the same thing as a [media object][media] except it can align the description to the top or bottom of itself.
 Only use a flag object when a media object can't do the job.
 
-Class             | Description
------------------ | -----------------
-.flag             | Flag object has default gutters and renders content to the middle
-.flag--top        | Flag object has default gutters and renders content to the top
-.flag--bottom     | Flag object has default gutters and renders content to the bottom
-.flag--flush      | Flag object has no gutters and renders content to the middle
-.flag--small      | Flag object has small gutters and renders content to the middle
-.flag--large      | Flag object has large gutters and renders content to the middle
-.flag--rev        | Flag object and flag body render in reverse order
-.xs-flag          | Flag object is collapsed at all screen sizes
-.sm-flag          | Flag object is collapsed at small screens and up
-.md-flag          | Flag object is collapsed at medium screens and up
-.lg-flag          | Flag object is collapsed at large screens
+Class           | Description
+--------------- | ------------------------------------------------------------------
+`.flag`         | Default gutters and renders content to the middle
+`.flag--top`    | Default gutters and renders content to the top
+`.flag--bottom` | Default gutters and renders content to the bottom
+`.flag--flush`  | No gutters and renders content to the middle
+`.flag--small`  | Small gutters and renders content to the middle
+`.flag--large`  | Large gutters and renders content to the middle
+`.flag--rev`    | Render children in reverse order
+`.xs-flag`      | Collapsed at all screen sizes
+`.sm-flag`      | Collapsed at small screens and up
+`.md-flag`      | Collapsed at medium screens and up
+`.lg-flag`      | Collapsed at large screens
 
 ### Default
 Mouse over the tiles to see how the elements react depending on their size.

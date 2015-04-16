@@ -11,17 +11,17 @@ default gutter size is `2rem` or `20px`
 
 If you need to align your content in the middle or the bottom of itself then consider using a [flag object][flag].
 
-Class              | Description
------------------- | -----------------
-.media             | Media object has default gutters
-.media--flush      | Media object has no gutters
-.media--small      | Media object has small gutters
-.media--large      | Media object has large gutters
-.media--rev        | Media object and media body are reversed
-.xs-media          | Media object and media body are collapsed on all screen sizes
-.sm-media          | Media object and media body are collapsed on small screens and up
-.md-media          | Media object and media body are collapsed on medium screens and up
-.lg-media          | Media object and media body are collapsed only on large screens
+Class           | Description
+--------------- | -----------------
+`.media`        | Default gutters
+`.media--flush` | No gutters
+`.media--small` | Small gutters
+`.media--large` | Large gutters
+.`media--rev`   | Children are rendered in reverse order
+`.xs-media`     | Collapsed on all screen sizes
+`.sm-media`     | Collapsed on small screens and up
+`.md-media`     | Collapsed on medium screens and up
+`.lg-media`     | Collapsed only on large screens
 
 ### Default
 Mouse over the tiles to see how the elements react depending on their size.

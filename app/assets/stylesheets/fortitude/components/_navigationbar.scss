@@ -2,7 +2,6 @@ $fortitude-enable-navigationbar: true;
 
 .#{$fortitude-namespace}navigationbar {
   position: relative;
-  line-height: $fortitude-navigationbar-height;
   min-height: $fortitude-navigationbar-height;
 }
 
@@ -12,7 +11,7 @@ $fortitude-enable-navigationbar: true;
 
 .#{$fortitude-namespace}navigationbar__logo {
   display: inline-block;
-  padding-left: 1rem;
+  padding: fortitude-component-padding($fortitude-navigationbar-height);
   vertical-align: top;
 }
 
@@ -23,6 +22,16 @@ $fortitude-enable-navigationbar: true;
 
 .#{$fortitude-namespace}navigationbar__label {
   display: none;
+  float: right;
+  height: $fortitude-navigationbar-height;
+  padding: fortitude-component-padding($fortitude-navigationbar-height);
+  text-align: center;
+  width: $fortitude-navigationbar-height;
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 .#{$fortitude-namespace}navigationbar__toggle {
@@ -40,18 +49,16 @@ $fortitude-enable-navigationbar: true;
   position: relative;
   vertical-align: top;
 
-  + .#{$fortitude-namespace}navigationbar__item {
-    margin-left: 1rem;
-  }
-
   &:hover .#{$fortitude-namespace}navigationbar__dropdown {
     display: block;
   }
-
-  a {
-    display: block;
-  }
 }
+
+.#{$fortitude-namespace}navigationbar__link {
+  display: block;
+  padding: fortitude-component-padding($fortitude-navigationbar-height);
+}
+
 
 .#{$fortitude-namespace}navigationbar__dropdown {
   display: none;
@@ -81,15 +88,6 @@ $fortitude-enable-navigationbar: true;
 
   .#{$fortitude-namespace}navigationbar__label {
     display: block;
-    float: right;
-    width: $fortitude-navigationbar-height;
-    height: $fortitude-navigationbar-height;
-    text-align: center;
-
-    > * {
-      display: inline-block;
-      vertical-align: middle;
-    }
   }
 
   .#{$fortitude-namespace}navigationbar__toggle {
@@ -130,9 +128,9 @@ $fortitude-enable-navigationbar: true;
   .#{$fortitude-namespace}navigationbar__item {
     display: block;
     margin-left: 1rem;
+  }
 
-    a {
-      display: block;
-    }
+  .#{$fortitude-namespace}navigationbar__link {
+    display: block;
   }
 }

@@ -32,10 +32,10 @@ The `popover` is used to hide content or navigation behind a clickable element
   </label>
   <div class="popover__content box box--default animated" data-ft-popover-content>
     <ul class="bare-list">
-      <li><a href="javascript: void(0);" class="xs-p1">One</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Two</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Three</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Four</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">One</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Two</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Three</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Four</a></li>
     </ul>
   </div>
 </nav>
@@ -50,10 +50,10 @@ The `popover` is used to hide content or navigation behind a clickable element
   </label>
   <div class="popover__content box box--default" data-ft-popover-content>
     <ul class="bare-list">
-      <li><a href="javascript: void(0);" class="xs-p1">One</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Two</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Three</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Four</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">One</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Two</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Three</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Four</a></li>
     </ul>
   </div>
 </nav>

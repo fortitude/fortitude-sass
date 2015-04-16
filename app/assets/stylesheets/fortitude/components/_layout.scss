@@ -6,17 +6,17 @@ category: Structure
 ---
 Used for content that needs a grid default gutter width is `2rem` or `20px`
 
-Class           | Description
---------------- | -----------------
-.layout         | Layout items are aligned to the vertical tops of each other
-.layout--middle | Layout items are aligned to the vertical centers of each other
-.layout--bottom | Layout items are aligned to the vertical bottoms of each other
-.layout--small  | Layout items have small gutters
-.layout--large  | Layout items have large gutters
-.layout--flush  | Layout items have no gutters
-.layout--rev    | Layout items are rendered in reverse order
-.layout--center | Layout items are rendered from the center outward
-.layout--right  | Layout items are rendered from the right hand side
+Class             | Description
+----------------- | ---------------------------------------------------------------
+`.layout`         | `.layout__item` is aligned to the vertical top
+`.layout--middle` | `.layout__item` is aligned to the vertical middle
+`.layout--bottom` | `.layout__item` is aligned to the vertical bottom
+`.layout--small`  | `.layout__item` has small gutters
+`.layout--large`  | `.layout__item` has large gutters
+`.layout--flush`  | `.layout__item` has no gutters
+`.layout--rev`    | `.layout__item` is rendered in reverse order
+`.layout--center` | `.layout__item` is rendered from the center outward
+`.layout--right`  | `.layout__item` is rendered from the right outward
 
 ## 12 Columns
 This fortitude theme uses a 12-column grid, and rows and columns can be represented with the `.layout` and `.layout__item` classes respectively.
