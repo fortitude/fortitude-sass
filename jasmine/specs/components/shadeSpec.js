@@ -14,22 +14,22 @@
     });
 
     it('is visible after event trigger', function(done){
-      $('[ft-shade-open]').trigger('click');
-      $shade.on('opened.ft.shade', function(){
-        expect($shade).toHaveClass('shade--is-active');
+      $('[ft-shade-show]').trigger('click');
+      $shade.on('shown.ft.shade', function(){
+        expect($shade).toHaveClass('shade--is-shown');
         expect($shade).toBeVisible();
         done();
       });
     });
 
-    it('closes when clicked on', function(done){
-      $shade.trigger('open.ft.shade');
-      $shade.on('opened.ft.shade', function(){
-        expect($shade).toHaveClass('shade--is-active');
+    it('hides when clicked on', function(done){
+      $shade.trigger('show.ft.shade');
+      $shade.on('shown.ft.shade', function(){
+        expect($shade).toHaveClass('shade--is-shown');
         $shade.trigger('click');
       });
 
-      $shade.on('closed.ft.shade', function(){
+      $shade.on('hidden.ft.shade', function(){
         expect($shade).not.toBeVisible();
         done();
       });
@@ -49,22 +49,22 @@
     });
 
     it('is visible after event trigger', function(done){
-      $('[data-ft-shade-open]').trigger('click');
-      $shade.on('opened.ft.shade', function(){
-        expect($shade).toHaveClass('shade--is-active');
+      $('[data-ft-shade-show]').trigger('click');
+      $shade.on('shown.ft.shade', function(){
+        expect($shade).toHaveClass('shade--is-shown');
         expect($shade).toBeVisible();
         done();
       });
     });
 
-    it('closes when clicked on', function(done){
-      $shade.trigger('open.ft.shade');
-      $shade.on('opened.ft.shade', function(){
-        expect($shade).toHaveClass('shade--is-active');
+    it('hides when clicked on', function(done){
+      $shade.trigger('show.ft.shade');
+      $shade.on('shown.ft.shade', function(){
+        expect($shade).toHaveClass('shade--is-shown');
         $shade.trigger('click');
       });
 
-      $shade.on('closed.ft.shade', function(){
+      $shade.on('hidden.ft.shade', function(){
         expect($shade).not.toBeVisible();
         done();
       });

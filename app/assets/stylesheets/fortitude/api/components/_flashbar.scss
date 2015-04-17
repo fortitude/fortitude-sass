@@ -12,8 +12,8 @@ $fortitude-flashbar-padding-vertical: 1rem;
 $fortitude-flashbar-padding-horizontal: 1rem;
 $fortitude-flashbar-padding: $fortitude-flashbar-padding-vertical $fortitude-flashbar-padding-horizontal;
 
-$fortitude-flashbar__close-text-decoration: none !default;
-$fortitude-flashbar__close-font-size: 1.8rem;
+$fortitude-flashbar__hide-text-decoration: none !default;
+$fortitude-flashbar__hide-font-size: 1.8rem;
 
 @mixin fortitude-flashbar($extensions: ()) {
   @include fortitude-clearfix;
@@ -22,11 +22,11 @@ $fortitude-flashbar__close-font-size: 1.8rem;
   position: relative;
 }
 
-@mixin fortitude-flashbar--closed($extensions: ()) {
+@mixin fortitude-flashbar--is-hidden($extensions: ()) {
   display: none;
 }
 
-@mixin fortitude-flashbar__close($extensions: ()) {
+@mixin fortitude-flashbar__hide($extensions: ()) {
   @include fortitude-appearance(none);
 
   background: transparent;
@@ -35,6 +35,6 @@ $fortitude-flashbar__close-font-size: 1.8rem;
   padding: 0;
   position: absolute;
   right: 1rem;
-  text-decoration: $fortitude-flashbar__close-text-decoration;
-  font-size: $fortitude-flashbar__close-font-size;
+  text-decoration: $fortitude-flashbar__hide-text-decoration;
+  font-size: $fortitude-flashbar__hide-font-size;
 }

@@ -42,6 +42,9 @@ $fortitude-breakpoints: (
 // define it here.
 $fortitude-namespace: null !default;
 
+// default mixin params
+$fortitude-table-children: ("thead", "tbody", "tfoot");
+
 // These variables are framework variables, sourced from variables defined
 // above. Feel free to use these variables throughout your project, but do not
 // modify or reassign them.

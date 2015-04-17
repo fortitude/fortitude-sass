@@ -2,13 +2,13 @@
   'use strict';
 
   describe(".modal", function(){
-    var $modal, $button, $shade, $closeButton;
+    var $modal, $button, $shade, $hideButton;
 
     beforeEach(function(){
       loadFixtures('modalFixture.html');
       $modal = $('#example-modal');
-      $button = $('button[ft-modal-open="example-modal"]');
-      $closeButton = $('button[ft-modal-close]');
+      $button = $('button[ft-modal-show="example-modal"]');
+      $hideButton = $('button[ft-modal-hide]');
       $shade = $('.shade');
     });
 
@@ -17,11 +17,11 @@
       expect($modal).not.toBeVisible();
     });
 
-    it('shows modal on ft-modal-open click', function(done){
+    it('shows modal on ft-modal-show click', function(done){
       $button.trigger('click');
       _.multiCallback([
-        ['opened.ft.shade', $shade],
-        ['opened.ft.modal', $modal]
+        ['shown.ft.shade', $shade],
+        ['shown.ft.modal', $modal]
       ]).then(function(){
         expect($shade).toBeVisible();
         expect($modal).toBeVisible();
@@ -29,15 +29,15 @@
       });
     });
 
-    it('hides modal on ft-modal-close click', function(done){
-      $modal.trigger('open.ft.modal');
-      $modal.on('opened.ft.modal', function(){
-        $closeButton.trigger('click');
+    it('hides modal on ft-modal-hide click', function(done){
+      $modal.trigger('show.ft.modal');
+      $modal.on('shown.ft.modal', function(){
+        $hideButton.trigger('click');
       });
 
       _.multiCallback([
-        ['closed.ft.shade', $shade],
-        ['closed.ft.modal', $modal]
+        ['hidden.ft.shade', $shade],
+        ['hidden.ft.modal', $modal]
       ]).then(function(){
         expect($shade).not.toBeVisible();
         expect($modal).not.toBeVisible();
@@ -47,14 +47,14 @@
     });
 
     it('hides modal on .shade click', function(done){
-      $modal.trigger('open.ft.modal');
-      $modal.on('opened.ft.modal', function(){
+      $modal.trigger('show.ft.modal');
+      $modal.on('shown.ft.modal', function(){
         $shade.trigger('click');
       });
 
       _.multiCallback([
-        ['closed.ft.shade', $shade],
-        ['closed.ft.modal', $modal]
+        ['hidden.ft.shade', $shade],
+        ['hidden.ft.modal', $modal]
       ]).then(function(){
         expect($shade).not.toBeVisible();
         expect($modal).not.toBeVisible();
@@ -64,13 +64,13 @@
   });
 
   describe(".modal data attrs", function(){
-    var $modal, $button, $shade, $closeButton;
+    var $modal, $button, $shade, $hideButton;
 
     beforeEach(function(){
       loadFixtures('modalDataFixture.html');
       $modal = $('#example-modal');
-      $button = $('button[data-ft-modal-open="example-modal"]');
-      $closeButton = $('button[data-ft-modal-close]');
+      $button = $('button[data-ft-modal-show="example-modal"]');
+      $hideButton = $('button[data-ft-modal-hide]');
       $shade = $('[data-ft-shade]');
     });
 
@@ -79,11 +79,11 @@
       expect($modal).not.toBeVisible();
     });
 
-    it('shows modal on ft-modal-open click', function(done){
+    it('shows modal on ft-modal-show click', function(done){
       $button.trigger('click');
       _.multiCallback([
-        ['opened.ft.shade', $shade],
-        ['opened.ft.modal', $modal]
+        ['shown.ft.shade', $shade],
+        ['shown.ft.modal', $modal]
       ]).then(function(){
         expect($shade).toBeVisible();
         expect($modal).toBeVisible();
@@ -91,15 +91,15 @@
       });
     });
 
-    it('hides modal on ft-modal-close click', function(done){
-      $modal.trigger('open.ft.modal');
-      $modal.on('opened.ft.modal', function(){
-        $closeButton.trigger('click');
+    it('hides modal on ft-modal-hide click', function(done){
+      $modal.trigger('show.ft.modal');
+      $modal.on('shown.ft.modal', function(){
+        $hideButton.trigger('click');
       });
 
       _.multiCallback([
-        ['closed.ft.shade', $shade],
-        ['closed.ft.modal', $modal]
+        ['hidden.ft.shade', $shade],
+        ['hidden.ft.modal', $modal]
       ]).then(function(){
         expect($shade).not.toBeVisible();
         expect($modal).not.toBeVisible();
@@ -109,14 +109,14 @@
     });
 
     it('hides modal on .shade click', function(done){
-      $modal.trigger('open.ft.modal');
-      $modal.on('opened.ft.modal', function(){
+      $modal.trigger('show.ft.modal');
+      $modal.on('shown.ft.modal', function(){
         $shade.trigger('click');
       });
 
       _.multiCallback([
-        ['closed.ft.shade', $shade],
-        ['closed.ft.modal', $modal]
+        ['hidden.ft.shade', $shade],
+        ['hidden.ft.modal', $modal]
       ]).then(function(){
         expect($shade).not.toBeVisible();
         expect($modal).not.toBeVisible();

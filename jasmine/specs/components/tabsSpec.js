@@ -3,7 +3,7 @@
 
   describe('.tabs-navigation and .tabs', function(){
     var itemActive = 'tabs-navigation__item--is-active',
-        targetActive = 'tabs__content--is-active',
+        targetActive = 'tabs__content--is-shown',
         $itemOne, $itemTwo, $targetOne, $targetTwo;
 
     beforeEach(function(){
@@ -26,8 +26,8 @@
       $itemOne.trigger('click');
 
       _.multiCallback([
-        ['opened.ft.tab', $itemOne],
-        ['opened.ft.tabtarget', $targetOne]
+        ['shown.ft.tab', $itemOne],
+        ['shown.ft.tabtarget', $targetOne]
       ]).then(function(){
         expect($itemOne).toHaveClass(itemActive);
         expect($itemTwo).not.toHaveClass(itemActive);
@@ -42,12 +42,12 @@
     });
 
     it('marks other tabs as inactive', function(done){
-      $itemOne.trigger('open.ft.tab');
-      $itemTwo.trigger('open.ft.tab');
+      $itemOne.trigger('show.ft.tab');
+      $itemTwo.trigger('show.ft.tab');
 
       _.multiCallback([
-        ['opened.ft.tab', $itemTwo],
-        ['opened.ft.tabtarget', $targetTwo]
+        ['shown.ft.tab', $itemTwo],
+        ['shown.ft.tabtarget', $targetTwo]
       ]).then(function(){
         expect($itemOne).not.toHaveClass(itemActive);
         expect($itemTwo).toHaveClass(itemActive);
@@ -64,7 +64,7 @@
 
   describe('.tabs-navigation and .tabs data attrs', function(){
     var itemActive = 'tabs-navigation__item--is-active',
-        targetActive = 'tabs__content--is-active',
+        targetActive = 'tabs__content--is-shown',
         $itemOne, $itemTwo, $targetOne, $targetTwo;
 
     beforeEach(function(){
@@ -86,8 +86,8 @@
     it('shows tab one on click', function(done){
       $itemOne.trigger('click');
       _.multiCallback([
-        ['opened.ft.tab', $itemOne],
-        ['opened.ft.tabtarget', $targetOne]
+        ['shown.ft.tab', $itemOne],
+        ['shown.ft.tabtarget', $targetOne]
       ]).then(function(){
         expect($itemOne).toHaveClass(itemActive);
         expect($itemTwo).not.toHaveClass(itemActive);
@@ -102,12 +102,12 @@
     });
 
     it('marks other tabs as inactive', function(done){
-      $itemOne.trigger('open.ft.tab');
-      $itemTwo.trigger('open.ft.tab');
+      $itemOne.trigger('show.ft.tab');
+      $itemTwo.trigger('show.ft.tab');
 
       _.multiCallback([
-        ['opened.ft.tab', $itemTwo],
-        ['opened.ft.tabtarget', $targetTwo]
+        ['shown.ft.tab', $itemTwo],
+        ['shown.ft.tabtarget', $targetTwo]
       ]).then(function(){
         expect($itemOne).not.toHaveClass(itemActive);
         expect($itemTwo).toHaveClass(itemActive);
@@ -124,7 +124,7 @@
 
   describe('.tabs-navigation and .tabs with specified ids', function(){
     var itemActive = 'tabs-navigation__item--is-active',
-        targetActive = 'tabs__content--is-active',
+        targetActive = 'tabs__content--is-shown',
         $itemOne, $itemTwo, $targetOne, $targetTwo;
 
     beforeEach(function(){
@@ -147,8 +147,8 @@
       $itemOne.trigger('click');
 
       _.multiCallback([
-        ['opened.ft.tab', $itemOne],
-        ['opened.ft.tabtarget', $targetOne]
+        ['shown.ft.tab', $itemOne],
+        ['shown.ft.tabtarget', $targetOne]
       ]).then(function(){
         expect($itemOne).toHaveClass(itemActive);
         expect($itemTwo).not.toHaveClass(itemActive);
@@ -163,12 +163,12 @@
     });
 
     it('marks other tabs as inactive', function(done){
-      $itemOne.trigger('open.ft.tab');
-      $itemTwo.trigger('open.ft.tab');
+      $itemOne.trigger('show.ft.tab');
+      $itemTwo.trigger('show.ft.tab');
 
       _.multiCallback([
-        ['opened.ft.tab', $itemTwo],
-        ['opened.ft.tabtarget', $targetTwo]
+        ['shown.ft.tab', $itemTwo],
+        ['shown.ft.tabtarget', $targetTwo]
       ]).then(function(){
         expect($itemOne).not.toHaveClass(itemActive);
         expect($itemTwo).toHaveClass(itemActive);

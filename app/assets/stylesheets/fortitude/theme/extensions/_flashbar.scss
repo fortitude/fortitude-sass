@@ -7,7 +7,7 @@ $fortitude-enable-flashbar: false !default;
         #{$property}: $value;
       }
 
-      > .flashbar__close {
+      > .flashbar__hide {
         color: map-get($rules, color);
       }
     }

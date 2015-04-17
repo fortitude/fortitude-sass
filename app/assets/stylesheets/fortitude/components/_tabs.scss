@@ -13,6 +13,6 @@ $fortitude-enable-tabs: true;
   @include fortitude-tabs__content;
 }
 
-.#{$fortitude-namespace}tabs__content--is-active {
-  @include fortitude-tabs__content--is-active;
+.#{$fortitude-namespace}tabs__content--is-shown {
+  @include fortitude-tabs__content--is-shown;
 }

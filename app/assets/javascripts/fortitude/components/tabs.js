@@ -7,7 +7,7 @@ category: Javascript
 Tabs are used to navigate between different sections of content in a tabbed interface.
 
 <div class="note note--info">
-  <p class="styleguide">Tabs don't need JavaScript by default, but if you want the close buttons to dismiss without an extra call to the server then you'll want to use the JS Component</p>
+  <p class="styleguide">Tabs don't need JavaScript by default, but if you want the tabs to switch without an extra call to the server then you'll want to use the JS Component</p>
   <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
   <ul class="styleguide">
     <li><code class="styleguide">data-ft-tabs</code> on the <code class="styleguide">.tabs</code> element</li>
@@ -40,7 +40,7 @@ $(document).on('show.ft.tabs', '.tabs', function(event, tabIndex) {
 ```html_example
 <nav class="tabs tabs--default" data-ft-tabs data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
   <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default">
-    <li class="tabs-navigation__item">
+    <li class="tabs-navigation__item tabs-navigation__item--is-active">
       <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 1</a>
     </li>
     <li class="tabs-navigation__item">
@@ -50,7 +50,7 @@ $(document).on('show.ft.tabs', '.tabs', function(event, tabIndex) {
       <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 3</a>
     </li>
   </ul>
-  <div class="tabs__content" data-ft-tabs-content>
+  <div class="tabs__content tabs__content--is-shown" data-ft-tabs-content>
     Content for tab 1
   </div>
   <div class="tabs__content" data-ft-tabs-content>
@@ -67,7 +67,7 @@ $(document).on('show.ft.tabs', '.tabs', function(event, tabIndex) {
   'use strict';
 
   var itemActive = 'tabs-navigation__item--is-active',
-      targetActive = 'tabs__content--is-active',
+      targetActive = 'tabs__content--is-shown',
       tabLink = '[ft-tabs-navigation-link], [data-ft-tabs-navigation-link]',
       tabContent = '[ft-tabs-content], [data-ft-tabs-content]',
       tabParent = '[ft-tabs], [data-ft-tabs]',
@@ -102,40 +102,40 @@ $(document).on('show.ft.tabs', '.tabs', function(event, tabIndex) {
 
       if(!$thisContent.length){ return; }
 
-      // return the link to closed state
+      // return the link to hidden state
       $this.ftTransitionWith({
         attr: 'ft-hide-class',
         removeClass: itemActive,
-        endEvent: 'closed.ft.tab'
+        endEvent: 'hidden.ft.tab'
       });
 
-      // return the link's content to closed state
+      // return the link's content to hidden state
       $thisContent.ftTransitionWith({
         attr: 'ft-hide-class',
         removeClass: targetActive,
-        endEvent: 'closed.ft.tabtarget'
+        endEvent: 'hidden.ft.tabtarget'
       });
     });
 
     $link.ftTransitionWith({
       attr: 'ft-show-class',
       addClass: itemActive,
-      endEvent: 'opened.ft.tab'
+      endEvent: 'shown.ft.tab'
     });
 
     return $content.ftTransitionWith({
       attr: 'ft-show-class',
       addClass: targetActive,
-      endEvent: 'opened.ft.tabtarget'
+      endEvent: 'shown.ft.tabtarget'
     });
   };
 
-  $(document).on('open.ft.tab', tabLink, function(event){
+  $(document).on('show.ft.tab', tabLink, function(event){
     linkClicked($(this));
   });
 
   $(document).on('click', tabLink, function(){
-    $(this).trigger('open.ft.tab');
+    $(this).trigger('show.ft.tab');
   });
 
 })(jQuery);

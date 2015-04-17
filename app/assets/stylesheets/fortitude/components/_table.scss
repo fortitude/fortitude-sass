@@ -23,7 +23,11 @@ Class          | Description
   $border-width: 0.1rem;
   $border-style: "solid"; // this param is optional (default is solid)
   $line-height: 2rem; // this param is optional (default is $fortitude-base-line-height)
-  @include fortitude-table($cell-height, $border-width, $border-style, $line-height);
+  $children: ("thead", "tbody", "tfoot"); // this param is optional (default is ("thead", "tbody", "tfoot"))
+  // if you're curious, the children list is needed for compensation in the vertical rhyhtm grid
+  // if you'd like this to default to something else change the
+  // $fortitude-table-children variable in your `_overrides.scss` file.
+  @include fortitude-table($cell-height, $border-width, $border-style, $line-height, $children);
 }
 ```
 
@@ -31,10 +35,37 @@ Would output to:
 
 
 ```scss_example
-.table--vertical-rhythm-example { border-style: solid; border-width: 0.1rem; }
+.table--vertical-rhythm-example {
+  border-style: solid;
+  border-width: 0.1rem;
+}
+
 .table--vertical-rhythm-example th,
-.table--vertical-rhythm-example td { border-style: solid; border-width: 0.1rem; line-height: 2.1rem; padding: 0.4rem; }
-.table--vertical-rhythm-example tbody tr:last-child td { line-height: 2rem; }
+.table--vertical-rhythm-example td {
+  border-style: solid;
+  border-width: 0.1rem;
+  padding: 0.4rem 0.4rem 0.5rem;
+}
+
+.table--vertical-rhythm-example tr:last-child td,
+.table--vertical-rhythm-example tr:last-child th {
+  padding: 0.4rem 0.4rem 0.4rem;
+}
+
+.table--vertical-rhythm-example thead + tbody tr:last-child td,
+.table--vertical-rhythm-example thead + tbody tr:last-child th {
+  padding: 0.4rem 0.4rem 0.5rem;
+}
+
+.table--vertical-rhythm-example tbody + tfoot tr:last-child td,
+.table--vertical-rhythm-example tbody + tfoot tr:last-child th {
+  padding: 0.4rem 0.4rem 0.5rem;
+}
+
+.table--vertical-rhythm-example thead + tbody + tfoot tr:last-child td,
+.table--vertical-rhythm-example thead + tbody + tfoot tr:last-child th {
+  padding: 0.4rem 0.4rem 0.5rem;
+}
 ```
 
 ```html_example

@@ -40,7 +40,7 @@ $fortitude-enable-modal--top:    false !default;
   // set width in extending class
 }
 
-@mixin fortitude-modal--is-active($extensions: ()){
+@mixin fortitude-modal--is-shown($extensions: ()){
   display: block;
 }
 
