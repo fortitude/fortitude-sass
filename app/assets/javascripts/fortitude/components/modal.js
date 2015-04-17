@@ -44,13 +44,20 @@ $(document).on('hide.ft.modal', '.modal', function(event) {
 ### Default <small>(middle)</small>
 
 ```html_example
-<a href="javascript: void(0);" data-ft-modal-show="example-modal">Show Modal</a>
+<button class="button button--default" data-ft-modal-show="example-modal">Show Modal</button>
 <div class="modal animated" id="example-modal" data-ft-modal data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
   <div class="modal__content">
     <button class="modal__hide" data-ft-modal-hide="example-modal">&times;</button>
     <div class="box box--default xs-p1">
       <h1 class="xs-mb1">Hello World</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!</p>
+      <p>
+        Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.
+        Commodi pariatur culpa earum!
+        Qui autem totam cum porro minus iusto,
+        sint consequatur odit voluptatem velit aliquam dolorum dolorem ut,
+        repellendus hic!
+      </p>
     </div>
   </div>
 </div>
@@ -58,13 +65,20 @@ $(document).on('hide.ft.modal', '.modal', function(event) {
 
 ### Top
 ```html_example
-<a href="javascript: void(0);" data-ft-modal-show="example-modal-top">Show Modal</a>
+<button class="button button--default" data-ft-modal-show="example-modal-top">Show Modal</button>
 <div class="modal modal--top animated" id="example-modal-top" data-ft-modal data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
   <div class="modal__content">
     <button class="modal__hide" data-ft-modal-hide="example-modal-top">&times;</button>
     <div class="box box--default xs-p1">
       <h1 class="xs-mb1">Hello World</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!</p>
+      <p>
+        Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.
+        Commodi pariatur culpa earum!
+        Qui autem totam cum porro minus iusto,
+        sint consequatur odit voluptatem velit aliquam dolorum dolorem ut,
+        repellendus hic!
+      </p>
     </div>
   </div>
 </div>
@@ -72,13 +86,20 @@ $(document).on('hide.ft.modal', '.modal', function(event) {
 
 ### Bottom
 ```html_example
-<a href="javascript: void(0);" data-ft-modal-show="example-modal-bottom">Show Modal</a>
+<button class="button button--default" data-ft-modal-show="example-modal-bottom">Show Modal</button>
 <div class="modal modal--bottom animated" id="example-modal-bottom" data-ft-modal data-ft-show-class="fadeInUp" data-ft-hide-class="fadeOutDown">
   <div class="modal__content">
     <button class="modal__hide" data-ft-modal-hide="example-modal-bottom">&times;</button>
     <div class="box box--default xs-p1">
       <h1 class="xs-mb1">Hello World</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!</p>
+      <p>
+        Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.
+        Commodi pariatur culpa earum!
+        Qui autem totam cum porro minus iusto,
+        sint consequatur odit voluptatem velit aliquam dolorum dolorem ut,
+        repellendus hic!
+      </p>
     </div>
   </div>
 </div>
