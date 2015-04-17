@@ -43,7 +43,7 @@ $(document).on('hide.ft.modal', '.modal', function(event) {
 
 ### Default <small>(middle)</small>
 
-```html_example
+```html_preview_example
 <button class="button button--default" data-ft-modal-show="example-modal">Show Modal</button>
 <div class="modal animated" id="example-modal" data-ft-modal data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
   <div class="modal__content">
@@ -64,7 +64,7 @@ $(document).on('hide.ft.modal', '.modal', function(event) {
 ```
 
 ### Top
-```html_example
+```html_preview_example
 <button class="button button--default" data-ft-modal-show="example-modal-top">Show Modal</button>
 <div class="modal modal--top animated" id="example-modal-top" data-ft-modal data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
   <div class="modal__content">
@@ -85,7 +85,7 @@ $(document).on('hide.ft.modal', '.modal', function(event) {
 ```
 
 ### Bottom
-```html_example
+```html_preview_example
 <button class="button button--default" data-ft-modal-show="example-modal-bottom">Show Modal</button>
 <div class="modal modal--bottom animated" id="example-modal-bottom" data-ft-modal data-ft-show-class="fadeInUp" data-ft-hide-class="fadeOutDown">
   <div class="modal__content">

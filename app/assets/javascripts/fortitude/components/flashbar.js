@@ -40,7 +40,7 @@ Class               | Description
 `flashbar--warning` | This is a flashbar for warning information
 `flashbar--danger`  | This is a flashbar for destructive information
 
-```html_example
+```html_preview_example
 <div class="flashbar flashbar--default" data-ft-flashbar>
   <button class="flashbar__hide" data-ft-flashbar-hide>&times;</button>
   <div class="fluid-container">

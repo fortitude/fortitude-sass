@@ -37,7 +37,7 @@ $(document).on('show.ft.tabs', '.tabs', function(event, tabIndex) {
 
 ### Default
 
-```html_example
+```html_preview_example
 <nav class="tabs tabs--default" data-ft-tabs data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
   <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default">
     <li class="tabs-navigation__item tabs-navigation__item--is-active">

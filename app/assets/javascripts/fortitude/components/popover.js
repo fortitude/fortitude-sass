@@ -19,16 +19,17 @@ The `popover` is used to hide content or navigation behind a clickable element
 
 <div class="note note--warning">
   <p class="styleguide">make sure to put the <code class="styleguide">.popover--is-shown__label</code> before the <code class="styleguide">.popover__label</code> this is nessasry so that if you only want to just <code class="styleguide">.popover__label</code> you can</p>
+  <p class="styleguide">You have to use a <code class="styleguide">&lt;span&gt;</code> for buttons because the <code class="styleguide">&lt;label&gt;</code> element is used to trigger the checkbox element</p>
 </div>
 
-```html_example
+```html_preview_example
 <nav class="popover" data-ft-popover="example" data-show-class="fadeIn" data-hide-class="fadeOut">
   <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
   <label for="example-popover" class="popover--is-shown__label">
-    Show <i class="fa fa-caret-up"></i>
+    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
   </label>
   <label for="example-popover" class="popover__label">
-    Hide <i class="fa fa-caret-down"></i>
+    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
   </label>
   <div class="popover__content box box--default animated" data-ft-popover-content>
     <ul class="bare-list">
@@ -43,10 +44,10 @@ The `popover` is used to hide content or navigation behind a clickable element
 <nav class="popover" data-ft-popover="example">
   <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
   <label for="example-popover" class="popover--is-shown__label">
-    Hide <i class="fa fa-caret-up"></i>
+    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
   </label>
   <label for="example-popover" class="popover__label">
-    Show <i class="fa fa-caret-down"></i>
+    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
   </label>
   <div class="popover__content box box--default" data-ft-popover-content>
     <ul class="bare-list">

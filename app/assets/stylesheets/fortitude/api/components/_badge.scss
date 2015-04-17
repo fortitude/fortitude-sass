@@ -5,7 +5,6 @@
 $fortitude-badge-border-radius: 0 !default;
 $fortitude-badge-border-style: solid !default;
 $fortitude-badge-border-width: 0 !default;
-$fortitude-badge-font-size: $fortitude-base-font-size !default;
 
 $fortitude-badge-height--default: 2.6rem !default;
 $fortitude-badge-horizontal-padding--default: 1rem !default;
@@ -32,7 +31,6 @@ $fortitude-enable-badge--pill: false !default;
   font: inherit;
   background-color: transparent;
   text-align: center;
-  font-size: $fortitude-badge-font-size;
   overflow: visible;
   white-space: nowrap;
 

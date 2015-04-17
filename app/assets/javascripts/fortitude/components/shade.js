@@ -30,7 +30,7 @@ $(document).on('show.ft.shade', '.shade', function(event) {
 });
 ```
 
-```html_example
+```html_preview_example
 <button class="button button--default" data-ft-shade-show>Show Shade</button>
 ```
 

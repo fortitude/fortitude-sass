@@ -15,37 +15,39 @@ The `navigationbar` object is used for the main navigation of a website.
   </ul>
 </div>
 
-```html_example
-<div class="navigationbar navigationbar--default" data-ft-navigationbar>
-  <div class="fluid-container">
-    <div class="navigationbar__header">
-      <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
-    </div>
-    <nav class="navigationbar__nav">
-      <input class="navigationbar__toggle" type="checkbox" id="navigationbar__toggle" data-ft-navigationbar-toggle>
-      <label class="navigationbar__label" for="navigationbar__toggle">
+```html_preview_example
+<nav class="navigationbar navigationbar--default" data-ft-navigationbar>
+  <div class="fluid-container clearfix">
+    <div class="navigationbar__header clearfix">
+      <a class="navigationbar__logo" href="#" target="_self">Fortitude</a>
+      <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
         <i class="fa fa-bars"></i>
-      </label>
+      </button>
+      <button class="button xs-float-right sm-float-none">
+        <i class="fa fa-eye-slash"></i>
+      </button>
+    </div>
+    <nav class="navigationbar__nav navigationbar__nav--is-hidden">
       <ul class="navigationbar__list">
         <li class="navigationbar__item">
-          <a href="objects.html" class="navigationbar__link">Objects</a>
+          <a href="#" class="navigationbar__link">Objects</a>
         </li>
         <li class="navigationbar__item">
-          <a href="structure.html" class="navigationbar__link">Structure</a>
+          <a href="#" class="navigationbar__link">Structure</a>
         </li>
         <li class="navigationbar__item">
-          <a href="utilities.html" class="navigationbar__link">Utilities</a>
+          <a href="#" class="navigationbar__link">Utilities</a>
         </li>
         <li class="navigationbar__item">
-          <a href="javascript.html" class="navigationbar__link">Javascript</a>
+          <a href="#" class="navigationbar__link">Javascript</a>
         </li>
-        <li class="navigationbar__item">
-          <a href="architecture.html" class="navigationbar__link">Architecture</a>
+        <li class="navigationbar__item xs-prl1 sm-prl0">
+          <a href="#" class="button button--full button--primary">Architecture</a>
         </li>
       </ul>
     </nav>
   </div>
-</div>
+</nav>
 ```
 */
 

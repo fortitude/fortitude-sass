@@ -49,7 +49,7 @@ Would output to:
 
 .table--vertical-rhythm-example tr:last-child td,
 .table--vertical-rhythm-example tr:last-child th {
-  padding: 0.4rem 0.4rem 0.4rem;
+  padding: 0.4rem;
 }
 
 .table--vertical-rhythm-example thead + tbody tr:last-child td,
@@ -68,7 +68,7 @@ Would output to:
 }
 ```
 
-```html_example
+```html_preview_example
 <table class="table--vertical-rhythm-example table--full table--fixed">
   <thead>
     <tr>

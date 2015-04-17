@@ -27,7 +27,7 @@ $(document).on('change.ft.select-input', '.select-input', function(event) {
 ```
 
 
-```html_example
+```html_preview_example
 <div class="field xs-mb1">
   <label class="xs-block">
     Select Input

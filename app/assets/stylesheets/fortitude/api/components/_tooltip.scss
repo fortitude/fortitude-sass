@@ -38,7 +38,6 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
     opacity: 0;
     transform: translate3d(0, 0, 0);
     transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out, transform 0.15s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-    pointer-events: none;
   }
 
   &::before {

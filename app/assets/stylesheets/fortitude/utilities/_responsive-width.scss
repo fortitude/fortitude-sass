@@ -1,7 +1,7 @@
 /*doc
 ---
-title: Responsive Widths
-name: responsive-widths
+title: Responsive Width
+name: responsive-width
 category: Utilities
 ---
 Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `width`.
@@ -16,11 +16,10 @@ Utility                | Description
 
 ```html_example
 <pre class="xs-6of12">
-  width: 50%;
-  all screen sizes
+  width: 50% for all screen sizes
 </pre>
-<pre class="md-2of12">
-  16.66667% width for medium screens and up
+<pre class="md-6of12">
+  50% width for medium screens and up
 </pre>
 ```
 */

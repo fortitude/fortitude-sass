@@ -74,7 +74,7 @@
   tr:last-child {
     td,
     th {
-      padding: fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height, $border-width);
+      padding: fortitude-component-padding($component-height, $border-width);
     }
   }
 
