@@ -46,7 +46,7 @@ $(document).on('hide.ft.modal', '.modal', function(event) {
 ```html_preview_example
 <button class="button button--default" data-ft-modal-show="example-modal">Show Modal</button>
 <div class="modal animated" id="example-modal" data-ft-modal data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
-  <div class="modal__content">
+  <div class="modal__content" data-ft-modal-content>
     <button class="modal__hide" data-ft-modal-hide="example-modal">&times;</button>
     <div class="box box--default xs-p1">
       <h1 class="xs-mb1">Hello World</h1>
@@ -110,27 +110,49 @@ $(document).on('hide.ft.modal', '.modal', function(event) {
 (function($) {
   'use strict';
 
-  $(document).on('show.ft.modal', '[ft-modal], [data-ft-modal]', function(event) {
-    var $this = $(this);
+  var modalSelector = '[ft-modal], [data-ft-modal]',
+      shadeSelector = '[ft-shade], [data-ft-shade]',
+      enableHideModal = function($modal){
+        var $body = $('body');
+
+        return $body.on('click', function(evt){
+          var $target = $(evt.target);
+
+          if(!$target.closest($modal.find('[ft-modal-content], [data-ft-modal-content]')).length){
+            $modal.trigger('hide.ft.modal');
+            $body.off(evt);
+          }
+        });
+      };
+
+  $(document).on('show.ft.modal', modalSelector, function(event) {
+    var $this = $(this),
+        hideModalHandler;
 
     $.screenLock(true);
-    $('[ft-shade], [data-ft-shade]').trigger('show.ft.shade');
+    $(shadeSelector).trigger('show.ft.shade');
     $this.css({
       paddingRight: $.measureScrollBar()
     });
+
+    hideModalHandler = enableHideModal($this);
 
     $this.ftTransitionWith({
       attr: 'ft-show-class',
       addClass: 'modal--is-shown',
       endEvent: 'shown.ft.modal'
+    }).then(function(){
+      $this.data('ftModalHideHandler', hideModalHandler);
     });
   });
 
-  $(document).on('hide.ft.modal', '[ft-modal], [data-ft-modal]', function(event) {
-    var $this = $(this);
+  $(document).on('hide.ft.modal', modalSelector, function(event) {
+    var $this = $(this),
+        hideModalHandler = $this.data('ftModalHideHandler');
 
     $.screenLock(false);
-    $('[ft-shade], [data-ft-shade]').trigger('hide.ft.shade');
+
+    $(shadeSelector).trigger('hide.ft.shade');
     $this.css({
       paddingRight: ''
     });
@@ -150,10 +172,6 @@ $(document).on('hide.ft.modal', '.modal', function(event) {
   $(document).on('click', '[ft-modal-hide], [data-ft-modal-hide]', function(){
     var $target = $(this).ftTarget('ft-modal-hide');
     $target.trigger('hide.ft.modal');
-  });
-
-  $(document).on('click', '[ft-shade], [data-ft-shade]', function(){
-    $('.modal--is-shown').trigger('hide.ft.modal');
   });
 
 })(jQuery);

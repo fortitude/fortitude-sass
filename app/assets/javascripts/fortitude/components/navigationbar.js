@@ -20,14 +20,14 @@ The `navigationbar` object is used for the main navigation of a website.
   <div class="fluid-container clearfix">
     <div class="navigationbar__header clearfix">
       <a class="navigationbar__logo" href="#" target="_self">Fortitude</a>
-      <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
+      <button class="button xs-inline-block sm-none xs-float-right" data-ft-navigationbar-toggle>
         <i class="fa fa-bars"></i>
       </button>
       <button class="button xs-float-right sm-float-none">
         <i class="fa fa-eye-slash"></i>
       </button>
     </div>
-    <nav class="navigationbar__nav navigationbar__nav--is-hidden">
+    <nav class="navigationbar__nav navigationbar__nav--is-hidden" data-ft-navigationbar-nav>
       <ul class="navigationbar__list">
         <li class="navigationbar__item">
           <a href="#" class="navigationbar__link">Objects</a>
@@ -54,13 +54,49 @@ The `navigationbar` object is used for the main navigation of a website.
 (function($) {
   'use strict';
 
-  $(document).on('change', '[ft-navigationbar-toggle], [data-ft-navigationbar-toggle]', function(){
-    if($(this).prop('checked')){
-      $('[ft-shade], [data-ft-shade]').trigger('show.ft.shade');
-      $.screenLock();
+  var navParentSelector = '[ft-navigationbar], [data-ft-navigationbar]',
+      navSelector = '[ft-navigationbar-nav], [data-ft-navigationbar-nav]',
+      navToggleSelector = '[ft-navigationbar-toggle], [data-ft-navigationbar-toggle]',
+      showClass = 'navigationbar__nav--is-shown',
+      hideClass = 'navigationbar__nav--is-hidden';
+
+  $(document).on('show.ft.navigationbar', navParentSelector, function(evt){
+    var $this = $(this),
+        $navigationbarNav = $this.find(navSelector);
+
+    // can't use ftTransitionWith, since it has
+    // to be visible during animation
+    $navigationbarNav.addClass(showClass);
+    $navigationbarNav.removeClass(hideClass);
+
+    $navigationbarNav.ftTransitionWith({
+      attr: 'ft-show-class',
+      endEvent: 'shown.ft.navigationbar'
+    });
+  });
+
+  $(document).on('hide.ft.navigationbar', navParentSelector, function(evt){
+    var $this = $(this),
+        $navigationbarNav = $this.find(navSelector);
+
+    $navigationbarNav.ftTransitionWith({
+      attr: 'ft-hide-class'
+    }).then(function(){
+      $navigationbarNav.addClass(hideClass);
+      $navigationbarNav.removeClass(showClass);
+      $this.trigger('hidden.ft.navigationbar');
+    });
+  });
+
+  $(document).on('click', navToggleSelector, function(){
+    var $this = $(this),
+        $navigationbar = $this.closest(navParentSelector),
+        $navigationbarNav = $navigationbar.find(navSelector);
+
+    if($navigationbarNav.hasClass(showClass)){
+      $navigationbar.trigger('hide.ft.navigationbar');
     } else {
-      $('[ft-shade], [data-ft-shade]').trigger('hide.ft.shade');
-      $.screenLock(false);
+      $navigationbar.trigger('show.ft.navigationbar');
     }
   });
 })(jQuery);
