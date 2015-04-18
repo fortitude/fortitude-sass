@@ -17,16 +17,16 @@ Example: `sm-float-left` will only float the element at the `sm` breakpoint and 
 
 */
 
-@include fortitude-breakpoint-classes {
-  &-float-left {
+@include fortitude-breakpoints {
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-float-left {
     float: left !important;
   }
 
-  &-float-right {
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-float-right {
     float: right !important;
   }
 
-  &-float-none {
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-float-none {
     float: none !important;
   }
 }

@@ -9,7 +9,7 @@ $fortitude-layout-gutter--large:   fortitude-double($fortitude-layout-gutter--de
 $fortitude-enable-layout--small:   false !default;
 $fortitude-enable-layout--large:   false !default;
 $fortitude-enable-layout--flush:   false !default;
-$fortitude-enable-layout--rev:     false !default;
+$fortitude-enable-layout--reverse: false !default;
 $fortitude-enable-layout--middle:  false !default;
 $fortitude-enable-layout--bottom:  false !default;
 $fortitude-enable-layout--right:   false !default;
@@ -18,12 +18,12 @@ $fortitude-enable-layout--center:  false !default;
 $fortitude-global-border-box:      false !default;
 
 @mixin fortitude-layout($extensions: ()) {
-  $is-flush:  fortitude-contains($extensions, flush);
-  $is-small:  fortitude-contains($extensions, small);
-  $is-large:  fortitude-contains($extensions, large);
-  $is-center: fortitude-contains($extensions, center);
-  $is-right:  fortitude-contains($extensions, right);
-  $is-rev:    fortitude-contains($extensions, rev);
+  $is-flush:   fortitude-contains($extensions, "flush");
+  $is-small:   fortitude-contains($extensions, "small");
+  $is-large:   fortitude-contains($extensions, "large");
+  $is-center:  fortitude-contains($extensions, "center");
+  $is-right:   fortitude-contains($extensions, "right");
+  $is-reverse: fortitude-contains($extensions, "reverse");
 
   list-style: none;
   display: block;
@@ -48,8 +48,8 @@ $fortitude-global-border-box:      false !default;
     text-align: left;
   }
 
-  @if $is-rev {
-    @include fortitude-layout--rev;
+  @if $is-reverse {
+    @include fortitude-layout--reverse;
   }
 }
 
@@ -73,20 +73,20 @@ $fortitude-global-border-box:      false !default;
   text-align: right;
 }
 
-@mixin fortitude-layout--rev {
+@mixin fortitude-layout--reverse {
   direction: rtl;
   text-align: left;
 }
 
 @mixin fortitude-layout__item($extensions: ()) {
-  $is-flush:  fortitude-contains($extensions, flush);
-  $is-small:  fortitude-contains($extensions, small);
-  $is-large:  fortitude-contains($extensions, large);
-  $is-center: fortitude-contains($extensions, center);
-  $is-right:  fortitude-contains($extensions, right);
-  $is-middle: fortitude-contains($extensions, middle);
-  $is-bottom: fortitude-contains($extensions, bottom);
-  $is-rev:    fortitude-contains($extensions, rev);
+  $is-flush:   fortitude-contains($extensions, "flush");
+  $is-small:   fortitude-contains($extensions, "small");
+  $is-large:   fortitude-contains($extensions, "large");
+  $is-center:  fortitude-contains($extensions, "center");
+  $is-right:   fortitude-contains($extensions, "right");
+  $is-middle:  fortitude-contains($extensions, "middle");
+  $is-bottom:  fortitude-contains($extensions, "bottom");
+  $is-reverse: fortitude-contains($extensions, "reverse");
 
   display: inline-block;
   width: 100%;
@@ -116,8 +116,8 @@ $fortitude-global-border-box:      false !default;
     @include fortitude-layout__item--right;
   }
 
-  @if $is-rev {
-    @include fortitude-layout__item--rev;
+  @if $is-reverse {
+    @include fortitude-layout__item--reverse;
   }
 
   @if $fortitude-global-border-box == false {
@@ -153,7 +153,7 @@ $fortitude-global-border-box:      false !default;
   vertical-align: bottom;
 }
 
-@mixin fortitude-layout__item--rev {
+@mixin fortitude-layout__item--reverse {
   direction: ltr;
   text-align: left;
 }

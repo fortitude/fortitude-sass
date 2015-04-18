@@ -27,31 +27,31 @@ Utility                                  | Description
 
 $fortitude-responsive-border-unit-total: 1 !default;
 
-@include fortitude-breakpoint-classes {
+@include fortitude-breakpoints {
   @for $index from 0 through $fortitude-responsive-border-unit-total {
     $value: fortitude-strip-unit-if-zero($index * 0.1rem) !important;
 
-    &-bt#{$index},
-    &-b#{$index},
-    &-btb#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-bt#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-btb#{$index} {
       border-top-width: $value;
     }
 
-    &-br#{$index},
-    &-b#{$index},
-    &-brl#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-br#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-brl#{$index} {
       border-right-width: $value;
     }
 
-    &-bb#{$index},
-    &-b#{$index},
-    &-btb#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-bb#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-btb#{$index} {
       border-bottom-width: $value;
     }
 
-    &-bl#{$index},
-    &-b#{$index},
-    &-brl#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-bl#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-brl#{$index} {
       border-left-width: $value;
     }
   }

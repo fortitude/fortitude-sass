@@ -11,76 +11,121 @@ default gutter size is `2rem` or `20px`
 
 If you need to align your content in the middle or the bottom of itself then consider using a [flag object][flag].
 
-Class           | Description
---------------- | -----------------
-`.media`        | Default gutters
-`.media--flush` | No gutters
-`.media--small` | Small gutters
-`.media--large` | Large gutters
-.`media--rev`   | Children are rendered in reverse order
-`.xs-media`     | Collapsed on all screen sizes
-`.sm-media`     | Collapsed on small screens and up
-`.md-media`     | Collapsed on medium screens and up
-`.lg-media`     | Collapsed only on large screens
+Class             | Description
+----------------- | -----------------
+`.media`          | Default gutters
+`.media--reverse` | Children are rendered in reverse order
+`.xs-media`       | Collapsed on all screen sizes
+`.sm-media`       | Collapsed on small screens and up
+`.md-media`       | Collapsed on medium screens and up
+`.lg-media`       | Collapsed only on large screens
 
 ### Default
-Mouse over the tiles to see how the elements react depending on their size.
-
 ```html_preview_example
 <div class="media">
   <div class="media__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="media__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-</div>
-```
-
-### Flush
-```html_preview_example
-<div class="media media--flush">
-  <div class="media__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-  <div class="media__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-</div>
-```
-
-### Small
-```html_preview_example
-<div class="media media--small">
-  <div class="media__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-  <div class="media__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-</div>
-```
-
-### Large
-```html_preview_example
-<div class="media media--large">
-  <div class="media__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-  <div class="media__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
   </div>
 </div>
 ```
 
 ### Reverse
 ```html_preview_example
-<div class="media media--rev">
+<div class="media media--reverse">
   <div class="media__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="media__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
+  </div>
+</div>
+```
+
+## Responsive
+
+### Collapse at on xs
+```html_preview_example
+<div class="media xs-media">
+  <div class="media__object">
+    <img src="//placehold.it/150" alt="placeholder" />
+  </div>
+  <div class="media__body">
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
+  </div>
+</div>
+```
+
+### Collapse at on sm
+```html_preview_example
+<div class="media sm-media">
+  <div class="media__object">
+    <img src="//placehold.it/150" alt="placeholder" />
+  </div>
+  <div class="media__body">
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
+  </div>
+</div>
+```
+
+### Collapse at on md
+```html_preview_example
+<div class="media md-media">
+  <div class="media__object">
+    <img src="//placehold.it/150" alt="placeholder" />
+  </div>
+  <div class="media__body">
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
+  </div>
+</div>
+```
+
+### Collapse at on lg
+```html_preview_example
+<div class="media lg-media">
+  <div class="media__object">
+    <img src="//placehold.it/150" alt="placeholder" />
+  </div>
+  <div class="media__body">
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
   </div>
 </div>
 ```
@@ -105,150 +150,22 @@ $fortitude-enable-media: true;
   @include fortitude-media__body;
 }
 
-@if $fortitude-enable-media--flush {
-  /**
-   * Flush media objects.
-  **/
-  .#{$fortitude-namespace}media--flush {
-    > .#{$fortitude-namespace}media__object {
-      @include fortitude-media--flush__object;
-    }
-  }
-}
-
-@if $fortitude-enable-media--small {
-  /**
-   * Small media objects.
-  **/
-  .#{$fortitude-namespace}media--small {
-    > .#{$fortitude-namespace}media__object {
-      @include fortitude-media--small__object;
-    }
-  }
-}
-
-@if $fortitude-enable-media--large {
-  /**
-   * Large media objects.
-  **/
-  .#{$fortitude-namespace}media--large {
-    > .#{$fortitude-namespace}media__object {
-      @include fortitude-media--large__object;
-    }
-  }
-}
-
-@if $fortitude-enable-media--rev {
+@if $fortitude-enable-media--reverse {
   /**
    * Reversed image location (right instead of left). Extends `.media`.
   **/
-  .#{$fortitude-namespace}media--rev {
+  .#{$fortitude-namespace}media--reverse {
     > .#{$fortitude-namespace}media__object {
-      @include fortitude-media--rev__object;
-    }
-
-    @if $fortitude-enable-media--flush {
-      /**
-       * Reversed flush media objects.
-      **/
-
-      &.#{$fortitude-namespace}media--flush {
-        > .#{$fortitude-namespace}media__object {
-          @include fortitude-media--rev--flush__object;
-        }
-      }
-    }
-
-    @if $fortitude-enable-media--small {
-      /**
-       * Reversed small media objects.
-      **/
-
-      &.#{$fortitude-namespace}media--small {
-        > .#{$fortitude-namespace}media__object {
-          @include fortitude-media--rev--small__object;
-        }
-      }
-    }
-
-    @if $fortitude-enable-media--large {
-      /**
-       * Large reversed media objects.
-      **/
-      &.#{$fortitude-namespace}media--large {
-        > .#{$fortitude-namespace}media__object {
-          @include fortitude-media--rev--large__object;
-        }
-      }
+      @include fortitude-media--reverse__object;
     }
   }
 }
 
 @if $fortitude-enable-media--responsive {
-  /**
-   * Responsive media objects.
-   *
-   * There is a very pragmatic, simple implementation of a responsive media
-   * object, which simply places the text-content beneath the image-content.
-   *
-   * We use a `max-width` media query because:
-   *
-   * a) it is the least verbose method in terms of amount of code required.
-   * b) the media object’s default state is image-next-to-text, so its stacked
-   *    state is the exception, rather than the rule.
-  **/
-  @include fortitude-breakpoint("(max-width: #{$fortitude-media-collapse-at})") {
-    .#{$fortitude-namespace}media--responsive {
-      /**
-       * Rework the spacings on regular media objects.
-      **/
+  @include fortitude-breakpoints {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-media {
       > .#{$fortitude-namespace}media__object {
         @include fortitude-media--responsive__object;
-      }
-
-      @if $fortitude-enable-media--flush {
-        /**
-         * Small responsive media objects.
-         *
-         * Take a little more heavy-handed approach to reworking
-         * spacings on media objects that are also small media objects
-         * in their regular state.
-        **/
-        &.#{$fortitude-namespace}media--flush {
-          > .#{$fortitude-namespace}media__object {
-            @include fortitude-media--responsive--flush__object;
-          }
-        }
-      }
-
-      @if $fortitude-enable-media--small {
-        /**
-         * Small responsive media objects.
-         *
-         * Take a little more heavy-handed approach to reworking
-         * spacings on media objects that are also small media objects
-         * in their regular state.
-        **/
-        &.#{$fortitude-namespace}media--small {
-          > .#{$fortitude-namespace}media__object {
-            @include fortitude-media--responsive--small__object;
-          }
-        }
-      }
-
-      @if $fortitude-enable-media--large {
-        /**
-         * Large responsive media objects.
-         *
-         * Take a little more heavy-handed approach to reworking
-         * spacings on media objects that are also large media objects
-         * in their regular state.
-        **/
-        &.#{$fortitude-namespace}media--large {
-          > .#{$fortitude-namespace}media__object {
-            @include fortitude-media--responsive--large__object;
-          }
-        }
       }
     }
   }

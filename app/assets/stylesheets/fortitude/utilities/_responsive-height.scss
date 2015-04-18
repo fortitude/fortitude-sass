@@ -14,8 +14,8 @@ $fortitude-responsive-height-total: 12 !default;
 @for $index from 1 through $fortitude-responsive-height-total {
   $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index) !important;
 
-  @include fortitude-breakpoint-classes {
-    &-#{$index} {
+  @include fortitude-breakpoints {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-#{$index} {
       min-height: $value;
     }
   }

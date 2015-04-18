@@ -26,23 +26,23 @@ Utility                | Description
 
 $fortitude-responsive-column-total: 12 !default;
 
-@include fortitude-breakpoint-classes {
+@include fortitude-breakpoints {
   @for $index from 0 through $fortitude-responsive-column-total {
     $value: fortitude-strip-unit-if-zero(percentage($index / $fortitude-responsive-column-total)) !important;
 
-    &-#{$index}of#{$fortitude-responsive-column-total} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-#{$index}of#{$fortitude-responsive-column-total} {
       width: $value;
     }
 
-    &-offset#{$index}of#{$fortitude-responsive-column-total} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-offset#{$index}of#{$fortitude-responsive-column-total} {
       margin-left: $value;
     }
 
-    &-push#{$index}of#{$fortitude-responsive-column-total} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-push#{$index}of#{$fortitude-responsive-column-total} {
       left: $value;
     }
 
-    &-pull#{$index}of#{$fortitude-responsive-column-total} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-pull#{$index}of#{$fortitude-responsive-column-total} {
       right: $value;
     }
   }

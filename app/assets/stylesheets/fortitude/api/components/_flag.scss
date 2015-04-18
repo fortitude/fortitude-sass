@@ -1,17 +1,6 @@
-$fortitude-flag-gutter--default: 2rem !default;
-
-$fortitude-flag-gutter--small: fortitude-halve($fortitude-flag-gutter--default) !default;
-
-$fortitude-flag-gutter--large: fortitude-double($fortitude-flag-gutter--default) !default;
-
-$fortitude-flag-collapse-at--responsive: 720px !default;
-
-$fortitude-enable-flag--small: false !default;
-$fortitude-enable-flag--large: false !default;
-$fortitude-enable-flag--rev: false !default;
-$fortitude-enable-flag--flush: false !default;
 $fortitude-enable-flag--top: false !default;
 $fortitude-enable-flag--bottom: false !default;
+$fortitude-enable-flag--reverse: false !default;
 $fortitude-enable-flag--responsive: false !default;
 
 @mixin fortitude-flag($extensions: ()) {
@@ -19,80 +8,33 @@ $fortitude-enable-flag--responsive: false !default;
   width: 100%;
 }
 
-@mixin fortitude-flag--rev {
+@mixin fortitude-flag--reverse {
   direction: rtl;
 }
 
 @mixin fortitude-flag--responsive {
-  @include fortitude-breakpoint("(max-width: #{$fortitude-flag-collapse-at--responsive})") {
-    @if $fortitude-enable-flag--rev {
-      direction: ltr;
-
-      @content;
-    }
-
-    display: block;
-  }
+  display: block;
 }
 
 @mixin fortitude-flag__object($extensions: ()) {
   display: table-cell;
   vertical-align: middle;
-  padding-right: $fortitude-flag-gutter--default;
 }
 
-@mixin fortitude-flag__object--top {
+@mixin fortitude-flag--top__object {
   vertical-align: top;
 }
 
-@mixin fortitude-flag__object--bottom {
+@mixin fortitude-flag--bottom__object {
   vertical-align: bottom;
 }
 
-@mixin fortitude-flag__object--flush {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-@mixin fortitude-flag__object--small {
-  padding-right: $fortitude-flag-gutter--small;
-}
-
-@mixin fortitude-flag__object--large {
-  padding-right: $fortitude-flag-gutter--large;
-}
-
-@mixin fortitude-flag__object--rev {
+@mixin fortitude-flag--reverse__object {
   direction: ltr;
-  padding-right: 0;
-  padding-left: $fortitude-flag-gutter--default;
 }
 
-@mixin fortitude-flag__object--rev--small {
-  padding-right: 0;
-  padding-left: $fortitude-flag-gutter--small;
-}
-
-@mixin fortitude-flag__object--rev--large {
-  padding-right: 0;
-  padding-left: $fortitude-flag-gutter--large;
-}
-
-@mixin fortitude-flag__object--responsive {
+@mixin fortitude-flag--responsive__object {
   display: block;
-  padding-right: 0;
-  padding-left: 0;
-  margin-bottom: $fortitude-flag-gutter--default;
-}
-
-@mixin fortitude-flag__object--responsive--small {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-@mixin fortitude-flag__object--responsive--large {
-  padding-right: 0;
-  padding-left: 0;
 }
 
 @mixin fortitude-flag__object__content($extensions: ()) {
@@ -108,18 +50,18 @@ $fortitude-enable-flag--responsive: false !default;
   vertical-align: middle;
 }
 
-@mixin fortitude-flag__body--top {
+@mixin fortitude-flag--top__body {
   vertical-align: top;
 }
 
-@mixin fortitude-flag__body--bottom {
+@mixin fortitude-flag--bottom__body {
   vertical-align: bottom;
 }
 
-@mixin fortitude-flag__body--rev {
+@mixin fortitude-flag--reverse__body {
   direction: ltr;
 }
 
-@mixin fortitude-flag__body--responsive {
+@mixin fortitude-flag--responsive__body {
   display: block;
 }

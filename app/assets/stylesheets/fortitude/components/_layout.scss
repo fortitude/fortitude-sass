@@ -6,17 +6,17 @@ category: Structure
 ---
 Used for content that needs a grid default gutter width is `2rem` or `20px`
 
-Class             | Description
------------------ | ---------------------------------------------------------------
-`.layout`         | `.layout__item` is aligned to the vertical top
-`.layout--middle` | `.layout__item` is aligned to the vertical middle
-`.layout--bottom` | `.layout__item` is aligned to the vertical bottom
-`.layout--small`  | `.layout__item` has small gutters
-`.layout--large`  | `.layout__item` has large gutters
-`.layout--flush`  | `.layout__item` has no gutters
-`.layout--rev`    | `.layout__item` is rendered in reverse order
-`.layout--center` | `.layout__item` is rendered from the center outward
-`.layout--right`  | `.layout__item` is rendered from the right outward
+Class              | Description
+------------------ | ---------------------------------------------------------------
+`.layout`          | `.layout__item` is aligned to the vertical top
+`.layout--middle`  | `.layout__item` is aligned to the vertical middle
+`.layout--bottom`  | `.layout__item` is aligned to the vertical bottom
+`.layout--small`   | `.layout__item` has small gutters
+`.layout--large`   | `.layout__item` has large gutters
+`.layout--flush`   | `.layout__item` has no gutters
+`.layout--reverse` | `.layout__item` is rendered in reverse order
+`.layout--center`  | `.layout__item` is rendered from the center outward
+`.layout--right`   | `.layout__item` is rendered from the right outward
 
 ## 12 Columns
 This fortitude theme uses a 12-column grid, and rows and columns can be represented with the `.layout` and `.layout__item` classes respectively.
@@ -175,7 +175,7 @@ You can re-arrange content for different screen sizes using responsive width hel
 
 ### Reverse
 ```html_preview_example
-<div class="layout layout--rev">
+<div class="layout layout--reverse">
   <div class="layout__item md-4of12">
     <div class="box box--styleguide box--styleguide--tall">Check out</div>
   </div><div class="layout__item md-4of12">
@@ -253,15 +253,15 @@ $fortitude-enable-layout: true;
   }
 }
 
-@if $fortitude-enable-layout--rev {
+@if $fortitude-enable-layout--reverse {
   /**
    * Reversed rendered order of layout items, e.g. items 1, 2, 3, 4 in your
    * markup will display in order 4, 3, 2, 1 on your page.
   **/
-  .#{$fortitude-namespace}layout--rev {
-    @include fortitude-layout--rev;
+  .#{$fortitude-namespace}layout--reverse {
+    @include fortitude-layout--reverse;
     > .#{$fortitude-namespace}layout__item {
-      @include fortitude-layout__item--rev;
+      @include fortitude-layout__item--reverse;
     }
   }
 }

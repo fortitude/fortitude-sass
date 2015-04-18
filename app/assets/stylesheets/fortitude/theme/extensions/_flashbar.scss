@@ -8,7 +8,7 @@ $fortitude-enable-flashbar: false !default;
       }
 
       > .flashbar__hide {
-        color: map-get($rules, color);
+        color: transparentize(map-get($fortitude-colors, "black"), 0.5);
       }
     }
   }

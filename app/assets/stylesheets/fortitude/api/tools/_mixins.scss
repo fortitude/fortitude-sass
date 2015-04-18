@@ -28,12 +28,11 @@
   }
 }
 
-@mixin fortitude-breakpoint-classes($breakpoints: $fortitude-class-breakpoints) {
+@mixin fortitude-breakpoints($breakpoints: $fortitude-class-breakpoints) {
   @each $alias, $_ in $breakpoints {
-    .#{$alias} {
-      @include fortitude-breakpoint($alias) {
-        @content;
-      }
+    $fortitude-tmp: map-merge($fortitude-tmp, ("current-breakpoint-alias": $alias)) !global;
+    @include fortitude-breakpoint($alias) {
+      @content;
     }
   }
 }

@@ -59,11 +59,11 @@ $fortitude-responsive-font-sizes: (
   "zeta": fortitude-font-scale(-2)
 ) !default;
 
-@include fortitude-breakpoint-classes {
+@include fortitude-breakpoints {
   @each $alias, $size in $fortitude-responsive-font-sizes {
     $value: map-get($fortitude-responsive-font-sizes, $alias) !important;
 
-    &-#{$alias} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-#{$alias} {
       font-size: $value;
     }
   }

@@ -2,16 +2,9 @@
     #MEDIA
 \*------------------------------------*/
 
-$fortitude-media-gutter:             2rem !default;
-$fortitude-media-gutter--small:      fortitude-halve($fortitude-media-gutter) !default;
-$fortitude-media-gutter--large:      fortitude-double($fortitude-media-gutter) !default;
-
-$fortitude-enable-media--small:      false !default;
-$fortitude-enable-media--large:      false !default;
-$fortitude-enable-media--rev:        false !default;
+$fortitude-enable-media--reverse:    false !default;
 $fortitude-enable-media--flush:      false !default;
 $fortitude-enable-media--responsive: false !default;
-$fortitude-media-collapse-at:        720px !default;
 
 @mixin fortitude-media($extensions: ()) {
   @include fortitude-clearfix;
@@ -19,107 +12,26 @@ $fortitude-media-collapse-at:        720px !default;
 }
 
 @mixin fortitude-media__object($extensions: ()) {
-  $is-flush:      fortitude-contains($extensions, flush);
-  $is-small:      fortitude-contains($extensions, small);
-  $is-large:      fortitude-contains($extensions, large);
-  $is-rev:        fortitude-contains($extensions, rev);
+  $is-reverse:    fortitude-contains($extensions, reverse);
   $is-responsive: fortitude-contains($extensions, responsive);
 
   float: left;
 
-  @if $is-rev {
-    @include fortitude-media--rev__object;
-
-    @if $is-flush {
-      @include fortitude-media--rev--flush__object;
-    } @else if $is-small {
-      @include fortitude-media--rev--small__object;
-    } @else if $is-large {
-      @include fortitude-media--rev--large__object;
-    }
+  @if $is-reverse {
+    @include fortitude-media--reverse__object;
   }
 
   @if $is-responsive {
     @include fortitude-media--responsive__object;
-
-    @if $is-flush {
-      @include fortitude-media--responsive--flush__object;
-    } @else if $is-small {
-      @include fortitude-media--responsive--small__object;
-    } @else if $is-large {
-      @include fortitude-media--responsive--large__object;
-    }
-  }
-
-  @if not $is-responsive or not $is-flush {
-    @if $is-flush {
-      @include fortitude-media--flush__object;
-    } @else if $is-small {
-      @include fortitude-media--small__object;
-    } @else if $is-large {
-      @include fortitude-media--large__object;
-    } @else {
-      margin-right: $fortitude-media-gutter;
-    }
   }
 }
 
-@mixin fortitude-media--flush__object {
-  margin-right: 0;
-}
-
-@mixin fortitude-media--small__object {
-  margin-right: $fortitude-media-gutter--small;
-}
-
-@mixin fortitude-media--large__object {
-  margin-right: $fortitude-media-gutter--large;
-}
-
-@mixin fortitude-media--rev__object {
+@mixin fortitude-media--reverse__object {
   float: right;
-  margin-right: 0;
-  margin-left: $fortitude-media-gutter;
-}
-
-@mixin fortitude-media--rev--flush__object {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-@mixin fortitude-media--rev--small__object {
-  margin-right: 0;
-  margin-left: $fortitude-media-gutter--small;
-}
-
-@mixin fortitude-media--rev--large__object {
-  margin-right: 0;
-  margin-left: $fortitude-media-gutter--large;
 }
 
 @mixin fortitude-media--responsive__object {
   float: none;
-  margin-right: 0;
-  margin-bottom: $fortitude-media-gutter;
-  margin-left: 0;
-}
-
-@mixin fortitude-media--responsive--flush__object {
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-}
-
-@mixin fortitude-media--responsive--small__object {
-  margin-right: 0;
-  margin-bottom: $fortitude-media-gutter--small;
-  margin-left: 0;
-}
-
-@mixin fortitude-media--responsive--large__object {
-  margin-right: 0;
-  margin-bottom: $fortitude-media-gutter--large;
-  margin-left: 0;
 }
 
 @mixin fortitude-media__object__content($extensions: ()) {

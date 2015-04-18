@@ -16,20 +16,20 @@ Example: `sm-text-center` will only set the elements text to center at the `sm` 
 
 */
 
-@include fortitude-breakpoint-classes {
-  &-text-left {
+@include fortitude-breakpoints {
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-text-left {
     text-align: left !important;
   }
 
-  &-text-center {
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-text-center {
     text-align: center !important;
   }
 
-  &-text-right {
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-text-right {
     text-align: right !important;
   }
 
-  &-text-justify {
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-text-justify {
     text-align: justify !important;
   }
 }
