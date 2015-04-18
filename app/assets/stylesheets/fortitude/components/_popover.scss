@@ -6,8 +6,8 @@
   @include fortitude-popover__content;
 }
 
-.#{$fortitude-namespace}popover--is-open__label {
-  @include fortitude-popover--is-open__label;
+.#{$fortitude-namespace}popover--is-shown__label {
+  @include fortitude-popover--is-shown__label;
 }
 
 .#{$fortitude-namespace}popover__toggle {

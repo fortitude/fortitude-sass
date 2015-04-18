@@ -29,31 +29,31 @@ Class                                    | Description
 $fortitude-responsive-margin-unit-total: 10 !default;
 $fortitude-responsive-negative-margin-unit-total: 10 !default;
 
-@include fortitude-breakpoint-classes {
+@include fortitude-breakpoints {
   @for $index from 0 through $fortitude-responsive-margin-unit-total {
     $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index) !important;
 
-    &-mt#{$index},
-    &-m#{$index},
-    &-mtb#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mt#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-m#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mtb#{$index} {
       margin-top: $value;
     }
 
-    &-mr#{$index},
-    &-m#{$index},
-    &-mrl#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mr#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-m#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mrl#{$index} {
       margin-right: $value;
     }
 
-    &-mb#{$index},
-    &-m#{$index},
-    &-mtb#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mb#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-m#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mtb#{$index} {
       margin-bottom: $value;
     }
 
-    &-ml#{$index},
-    &-m#{$index},
-    &-mrl#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-ml#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-m#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mrl#{$index} {
       margin-left: $value;
     }
 
@@ -62,32 +62,32 @@ $fortitude-responsive-negative-margin-unit-total: 10 !default;
   @for $index from 0 through $fortitude-responsive-negative-margin-unit-total {
     $value: fortitude-strip-unit-if-zero(-($fortitude-base-spacing-unit * $index)) !important;
 
-    &-mt-#{$index},
-    &-m-#{$index},
-    &-mtb-#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mt-#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-m-#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mtb-#{$index} {
       margin-top: $value;
     }
 
-    &-mr-#{$index},
-    &-m-#{$index},
-    &-mrl-#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mr-#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-m-#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mrl-#{$index} {
       margin-right: $value;
     }
 
-    &-mb-#{$index},
-    &-m-#{$index},
-    &-mtb-#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mb-#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-m-#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mtb-#{$index} {
       margin-bottom: $value;
     }
 
-    &-ml-#{$index},
-    &-m-#{$index},
-    &-mrl-#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-ml-#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-m-#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mrl-#{$index} {
       margin-left: $value;
     }
   }
 
-  &-mrlauto {
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-mrlauto {
     margin-right: auto !important;
     margin-left: auto !important;
   }

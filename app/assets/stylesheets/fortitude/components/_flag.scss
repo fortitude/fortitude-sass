@@ -7,102 +7,159 @@ category: Structure
 The flag object mostly the same thing as a [media object][media] except it can align the description to the top or bottom of itself.
 Only use a flag object when a media object can't do the job.
 
-Class             | Description
------------------ | -----------------
-.flag             | Flag object has default gutters and renders content to the middle
-.flag--top        | Flag object has default gutters and renders content to the top
-.flag--bottom     | Flag object has default gutters and renders content to the bottom
-.flag--flush      | Flag object has no gutters and renders content to the middle
-.flag--small      | Flag object has small gutters and renders content to the middle
-.flag--large      | Flag object has large gutters and renders content to the middle
-.flag--rev        | Flag object and flag body render in reverse order
-.xs-flag          | Flag object is collapsed at all screen sizes
-.sm-flag          | Flag object is collapsed at small screens and up
-.md-flag          | Flag object is collapsed at medium screens and up
-.lg-flag          | Flag object is collapsed at large screens
+Class            | Description
+---------------- | ------------------------------------------------------------------
+`.flag`          | Default gutters and renders content to the middle
+`.flag--top`     | Default gutters and renders content to the top
+`.flag--bottom`  | Default gutters and renders content to the bottom
+`.flag--reverse` | Render children in reverse order
+`.xs-flag`       | Collapsed at all screen sizes
+`.sm-flag`       | Collapsed at small screens and up
+`.md-flag`       | Collapsed at medium screens and up
+`.lg-flag`       | Collapsed at large screens
 
 ### Default
-Mouse over the tiles to see how the elements react depending on their size.
-
-```html_example
+```html_preview_example
 <div class="flag">
   <div class="flag__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="flag__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
   </div>
 </div>
 ```
 
 ### Top
-```html_example
+```html_preview_example
 <div class="flag flag--top">
   <div class="flag__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="flag__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
   </div>
 </div>
 ```
 
 ### Bottom
-```html_example
+```html_preview_example
 <div class="flag flag--bottom">
   <div class="flag__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="flag__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-</div>
-```
-
-### Flush
-```html_example
-<div class="flag flag--flush">
-  <div class="flag__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-  <div class="flag__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-</div>
-```
-
-### Small
-```html_example
-<div class="flag flag--small">
-  <div class="flag__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-  <div class="flag__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-</div>
-```
-
-### Large
-```html_example
-<div class="flag flag--large">
-  <div class="flag__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
-  </div>
-  <div class="flag__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
   </div>
 </div>
 ```
 
 ### Reverse
-```html_example
-<div class="flag flag--rev">
+```html_preview_example
+<div class="flag flag--reverse">
   <div class="flag__object">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="flag__body">
-    <div class="box box--styleguide box--styleguide--grow-on-hover"></div>
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
+  </div>
+</div>
+```
+
+## Responsive
+
+### Collapse at xs
+```html_preview_example
+<div class="flag xs-flag">
+  <div class="flag__object">
+    <img src="//placehold.it/150" alt="placeholder" />
+  </div>
+  <div class="flag__body">
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
+  </div>
+</div>
+```
+
+### Collapse at sm
+```html_preview_example
+<div class="flag sm-flag">
+  <div class="flag__object">
+    <img src="//placehold.it/150" alt="placeholder" />
+  </div>
+  <div class="flag__body">
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
+  </div>
+</div>
+```
+
+### Collapse at md
+```html_preview_example
+<div class="flag md-flag">
+  <div class="flag__object">
+    <img src="//placehold.it/150" alt="placeholder" />
+  </div>
+  <div class="flag__body">
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
+  </div>
+</div>
+```
+
+### Collapse at lg
+```html_preview_example
+<div class="flag lg-flag">
+  <div class="flag__object">
+    <img src="//placehold.it/150" alt="placeholder" />
+  </div>
+  <div class="flag__body">
+    Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.
+    Iste magnam facilis quas,
+    eos unde illum rem dicta.
+    Atque repudiandae,
+    numquam laudantium quas voluptas,
+    facilis? Illo excepturi nihil quidem a esse!
   </div>
 </div>
 ```
@@ -125,8 +182,7 @@ $fortitude-enable-flag: true;
   @include fortitude-flag__object;
 }
 
-.#{$fortitude-namespace}flag__object > img,
-.#{$fortitude-namespace}flag__object > video {
+.#{$fortitude-namespace}flag__object > * {
   @include fortitude-flag__object__content;
 }
 
@@ -140,10 +196,10 @@ $fortitude-enable-flag: true;
   **/
   .#{$fortitude-namespace}flag--top {
     .#{$fortitude-namespace}flag__object {
-      @include fortitude-flag__object--top;
+      @include fortitude-flag--top__object;
     }
     .#{$fortitude-namespace}flag__body {
-      @include fortitude-flag__body--top;
+      @include fortitude-flag--top__body;
     }
   }
 }
@@ -154,108 +210,41 @@ $fortitude-enable-flag: true;
   **/
   .#{$fortitude-namespace}flag--bottom {
     .#{$fortitude-namespace}flag__object {
-      @include fortitude-flag__object--bottom;
+      @include fortitude-flag--bottom__object;
     }
     .#{$fortitude-namespace}flag__body {
-      @include fortitude-flag__body--bottom;
+      @include fortitude-flag--bottom__body;
     }
   }
 }
 
-@if $fortitude-enable-flag--flush {
-  /**
-   * Flush flag objects have no space between the image- and text-content.
-  **/
-  .#{$fortitude-namespace}flag--flush {
-    > .#{$fortitude-namespace}flag__object {
-      @include fortitude-flag__object--flush;
-    }
-  }
-}
-
-@if $fortitude-enable-flag--small {
-  /**
-   * Small flags.
-  **/
-  .#{$fortitude-namespace}flag--small {
-    > .#{$fortitude-namespace}flag__object {
-      @include fortitude-flag__object--small;
-    }
-  }
-}
-
-@if $fortitude-enable-flag--large {
-  /**
-   * Large flags.
-  **/
-  .#{$fortitude-namespace}flag--large {
-    > .#{$fortitude-namespace}flag__object {
-      @include fortitude-flag__object--large;
-    }
-  }
-}
-
-@if $fortitude-enable-flag--rev {
+@if $fortitude-enable-flag--reverse {
   /**
    * Reversed flag objects have their image-content to the right, and text-content
    * to the left.
   **/
-  .#{$fortitude-namespace}flag--rev {
-    @include fortitude-flag--rev;
+  .#{$fortitude-namespace}flag--reverse {
+    @include fortitude-flag--reverse;
     > .#{$fortitude-namespace}flag__object {
-      @include fortitude-flag__object--rev;
+      @include fortitude-flag--reverse__object;
     }
     > .#{$fortitude-namespace}flag__body {
-      @include fortitude-flag__body--rev;
+      @include fortitude-flag--reverse__body;
     }
-
-    @if $fortitude-enable-flag--small {
-      /**
-       * Reversed Small flags.
-      **/
-      &.#{$fortitude-namespace}flag--small {
-        > .#{$fortitude-namespace}flag__object {
-          @include fortitude-flag__object--rev--small;
-        }
-      }
-    }
-
-    @if $fortitude-enable-flag--large {
-      /**
-       * Large reversed flags.
-      **/
-      &.#{$fortitude-namespace}flag--large {
-        > .#{$fortitude-namespace}flag__object {
-          @include fortitude-flag__object--rev--large;
-        }
-      }
-    }
-
   }
 }
 
 @if $fortitude-enable-flag--responsive {
-  .#{$fortitude-namespace}flag--responsive {
-    @include fortitude-flag--responsive {
+  @include fortitude-breakpoints {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-flag {
+      @include fortitude-flag--responsive;
+
       > .#{$fortitude-namespace}flag__object {
-        @include fortitude-flag__object--responsive;
+        @include fortitude-flag--responsive__object;
       }
+
       > .#{$fortitude-namespace}flag__body {
-        @include fortitude-flag__body--responsive;
-      }
-      @if $fortitude-enable-flag--small {
-        &.#{$fortitude-namespace}flag--small {
-          > .#{$fortitude-namespace}flag__object {
-            @include fortitude-flag__object--responsive--small;
-          }
-        }
-      }
-      @if $fortitude-enable-flag--large {
-        &.#{$fortitude-namespace}flag--large {
-          > .#{$fortitude-namespace}flag__object {
-            @include fortitude-flag__object--responsive--large;
-          }
-        }
+        @include fortitude-flag--responsive__body;
       }
     }
   }

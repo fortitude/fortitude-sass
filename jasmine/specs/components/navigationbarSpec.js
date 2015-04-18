@@ -10,23 +10,23 @@
       $shade = $('[ft-shade]');
     });
 
-    it('does not have the shade open by default', function(){
+    it('does not have the shade shown by default', function(){
       expect($shade).not.toBeVisible();
     });
 
-    it('opens the shade when toggle helper checked', function(done){
+    it('shows the shade when toggle helper checked', function(done){
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $shade.on('opened.ft.shade', function(){
+      $shade.on('shown.ft.shade', function(){
         expect($shade).toBeVisible();
         expect($('html')).toHaveClass('html--is-locked');
         done();
       });
     });
 
-    it('closes the shade when toggle helper unchecked', function(done){
+    it('hides the shade when toggle helper unchecked', function(done){
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $shade.on('closed.ft.shade', function(){
+      $shade.on('hidden.ft.shade', function(){
         expect($shade).not.toBeVisible();
         expect($('html')).not.toHaveClass('html--is-locked');
         done();
@@ -43,23 +43,23 @@
       $shade = $('[data-ft-shade]');
     });
 
-    it('does not have the shade open by default', function(){
+    it('does not have the shade shown by default', function(){
       expect($shade).not.toBeVisible();
     });
 
-    it('opens the shade when toggle helper checked', function(done){
+    it('shows the shade when toggle helper checked', function(done){
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $shade.on('opened.ft.shade', function(){
+      $shade.on('shown.ft.shade', function(){
         expect($shade).toBeVisible();
         expect($('html')).toHaveClass('html--is-locked');
         done();
       });
     });
 
-    it('closes the shade when toggle helper unchecked', function(done){
+    it('hides the shade when toggle helper unchecked', function(done){
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
       $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $shade.on('closed.ft.shade', function(){
+      $shade.on('hidden.ft.shade', function(){
         expect($shade).not.toBeVisible();
         expect($('html')).not.toHaveClass('html--is-locked');
         done();

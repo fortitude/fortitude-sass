@@ -7,7 +7,6 @@ $fortitude-enable-modal--top:    false !default;
   left: 0;
   overflow: hidden;
   overflow-y: auto;
-  pointer-events: none;
   position: fixed;
   right: 0;
   text-align: center;
@@ -32,7 +31,6 @@ $fortitude-enable-modal--top:    false !default;
 @mixin fortitude-modal__content($extensions: ()){
   display: inline-block;
   margin: 1rem;
-  pointer-events: auto;
   position: relative;
   text-align: left;
   vertical-align: middle;
@@ -40,7 +38,7 @@ $fortitude-enable-modal--top:    false !default;
   // set width in extending class
 }
 
-@mixin fortitude-modal--is-active($extensions: ()){
+@mixin fortitude-modal--is-shown($extensions: ()){
   display: block;
 }
 

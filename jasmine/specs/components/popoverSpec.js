@@ -4,12 +4,12 @@
   describe('.popover', function(){
     var checkNotVisible = function($popover){
           expect($popover.find('.popover__label')).toBeVisible();
-          expect($popover.find('.popover--is-open__label')).not.toBeVisible();
+          expect($popover.find('.popover--is-shown__label')).not.toBeVisible();
           expect($popover.find('.popover__content')).not.toBeVisible();
         },
         checkIsVisible = function($popover){
           expect($popover.find('.popover__label')).not.toBeVisible();
-          expect($popover.find('.popover--is-open__label')).toBeVisible();
+          expect($popover.find('.popover--is-shown__label')).toBeVisible();
           expect($popover.find('.popover__content')).toBeVisible();
         },
         checkPopover = function($element){
@@ -22,7 +22,7 @@
       $popovers = $('[ft-popover]');
     });
 
-    it('is not open by default', function(){
+    it('is hidden by default', function(){
       checkNotVisible($popovers.eq(0));
     });
 
@@ -30,7 +30,7 @@
       var $popover = $popovers.eq(0);
       checkPopover($popover);
 
-      $popover.on('opened.ft.popover', function(){
+      $popover.on('shown.ft.popover', function(){
         checkIsVisible($popover);
         $popovers.not($popovers.eq(0)).each(function(){
           checkNotVisible($(this));
@@ -44,27 +44,27 @@
           $second = $popovers.eq(1);
 
       checkPopover($first);
-      $first.on('opened.ft.popover', function(){
+      $first.on('shown.ft.popover', function(){
         checkPopover($second);
       });
 
-      $first.on('closed.ft.popover', function(){
+      $first.on('hidden.ft.popover', function(){
         checkNotVisible($first);
         checkIsVisible($second);
         done();
       });
     });
 
-    it('allows open popovers that do not have the same ft-popover', function(done){
+    it('allows shown popovers that do not have the same ft-popover', function(done){
       var $first = $popovers.eq(0),
           $second = $popovers.eq(2);
 
       checkPopover($first);
-      $first.on('opened.ft.popover', function(){
+      $first.on('shown.ft.popover', function(){
         checkPopover($second);
       });
 
-      $second.on('opened.ft.popover', function(){
+      $second.on('shown.ft.popover', function(){
         expect($first).not.toHaveClass('fadeOut');
         checkIsVisible($second);
         done();
@@ -79,19 +79,19 @@
       checkPopover($popovers.eq(3));
 
       // partner of 0
-      $popovers.eq(0).on('opened.ft.popover', function(){
+      $popovers.eq(0).on('shown.ft.popover', function(){
         checkPopover($popovers.eq(1));
       });
 
       // partner of 3
-      $popovers.eq(3).on('opened.ft.popover', function(){
+      $popovers.eq(3).on('shown.ft.popover', function(){
         checkPopover($popovers.eq(4));
       });
 
       _.multiCallback([
-        ['opened.ft.popover', $popovers.eq(2)],
-        ['closed.ft.popover', $popovers.eq(0)],
-        ['closed.ft.popover', $popovers.eq(3)]
+        ['shown.ft.popover', $popovers.eq(2)],
+        ['hidden.ft.popover', $popovers.eq(0)],
+        ['hidden.ft.popover', $popovers.eq(3)]
       ]).then(function(){
         checkIsVisible($popovers.eq(1));
         checkIsVisible($popovers.eq(2));
@@ -106,12 +106,12 @@
   describe('.popover data attributes', function(){
     var checkNotVisible = function($popover){
           expect($popover.find('.popover__label')).toBeVisible();
-          expect($popover.find('.popover--is-open__label')).not.toBeVisible();
+          expect($popover.find('.popover--is-shown__label')).not.toBeVisible();
           expect($popover.find('.popover__content')).not.toBeVisible();
         },
         checkIsVisible = function($popover){
           expect($popover.find('.popover__label')).not.toBeVisible();
-          expect($popover.find('.popover--is-open__label')).toBeVisible();
+          expect($popover.find('.popover--is-shown__label')).toBeVisible();
           expect($popover.find('.popover__content')).toBeVisible();
         },
         checkPopover = function($element){
@@ -124,7 +124,7 @@
       $popovers = $('[data-ft-popover]');
     });
 
-    it('is not open by default', function(){
+    it('is hidden by default', function(){
       checkNotVisible($popovers.eq(0));
     });
 
@@ -132,7 +132,7 @@
       var $popover = $popovers.eq(0);
       checkPopover($popover);
 
-      $popover.on('opened.ft.popover', function(){
+      $popover.on('shown.ft.popover', function(){
         checkIsVisible($popover);
         $popovers.not($popovers.eq(0)).each(function(){
           checkNotVisible($(this));
@@ -146,27 +146,27 @@
           $second = $popovers.eq(1);
 
       checkPopover($first);
-      $first.on('opened.ft.popover', function(){
+      $first.on('shown.ft.popover', function(){
         checkPopover($second);
       });
 
-      $first.on('closed.ft.popover', function(){
+      $first.on('hidden.ft.popover', function(){
         checkNotVisible($first);
         checkIsVisible($second);
         done();
       });
     });
 
-    it('allows open popovers that do not have the same ft-popover', function(done){
+    it('allows shown popovers that do not have the same ft-popover', function(done){
       var $first = $popovers.eq(0),
           $second = $popovers.eq(2);
 
       checkPopover($first);
-      $first.on('opened.ft.popover', function(){
+      $first.on('shown.ft.popover', function(){
         checkPopover($second);
       });
 
-      $second.on('opened.ft.popover', function(){
+      $second.on('shown.ft.popover', function(){
         expect($first).not.toHaveClass('fadeOut');
         checkIsVisible($second);
         done();
@@ -181,19 +181,19 @@
       checkPopover($popovers.eq(3));
 
       // partner of 0
-      $popovers.eq(0).on('opened.ft.popover', function(){
+      $popovers.eq(0).on('shown.ft.popover', function(){
         checkPopover($popovers.eq(1));
       });
 
       // partner of 3
-      $popovers.eq(3).on('opened.ft.popover', function(){
+      $popovers.eq(3).on('shown.ft.popover', function(){
         checkPopover($popovers.eq(4));
       });
 
       _.multiCallback([
-        ['opened.ft.popover', $popovers.eq(2)],
-        ['closed.ft.popover', $popovers.eq(0)],
-        ['closed.ft.popover', $popovers.eq(3)]
+        ['shown.ft.popover', $popovers.eq(2)],
+        ['hidden.ft.popover', $popovers.eq(0)],
+        ['hidden.ft.popover', $popovers.eq(3)]
       ]).then(function(){
         checkIsVisible($popovers.eq(1));
         checkIsVisible($popovers.eq(2));

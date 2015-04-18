@@ -7,7 +7,7 @@
   display: inline-block;
 }
 
-@mixin fortitude-popover--is-open__label {
+@mixin fortitude-popover--is-shown__label {
   display: none;
 
   :checked ~ & {

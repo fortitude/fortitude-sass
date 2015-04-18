@@ -3,15 +3,15 @@
 \*------------------------------------*/
 
 @mixin fortitude-tabs__content($extensions: ()) {
-  $is-active: fortitude-contains($extensions, active);
+  $is-shown: fortitude-contains($extensions, active);
 
-  @if $is-active {
-    @include fortitude-tabs__content--is-active;
+  @if $is-shown {
+    @include fortitude-tabs__content--is-shown;
   } @else {
     display: none;
   }
 }
 
-@mixin fortitude-tabs__content--is-active {
+@mixin fortitude-tabs__content--is-shown {
   display: block;
 }

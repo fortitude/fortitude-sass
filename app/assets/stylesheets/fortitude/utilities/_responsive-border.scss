@@ -4,38 +4,54 @@ title: Responsive Borders
 name: responsive-borders
 category: Utilities
 ---
-Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how an elements borders.
-Example: `sm-b1` will only apply a 0.1rem border-width to the element at the `sm` breakpoint and up.
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `border`.
+Example: `sm-btb1` will only set the top and bottom border to `0.1rem` or `1px` on the element at the `sm` breakpoint and up.
 
+Utility                                  | Description
+---------------------------------------- | -----------
+`xs`, `sm`, `md`, `lg`                   | breakpoints
+`b`, `btb`, `brl`, `bt`, `br`, `bb` `bl` | `border` &mdash; `t = top`, `r = right`, `b = bottom`, `l = left`
+(0-1)                                    | amount of spacing
+
+```html_example
+<pre class="xs-btb1">
+  border-top-width: 0.1rem;
+  border-bottom-width: 0.1rem;
+  all screen sizes
+</pre>
+<pre class="xs-brl0 md-brl1">
+  borders for medium screens and up
+</pre>
+```
 */
 
 $fortitude-responsive-border-unit-total: 1 !default;
 
-@include fortitude-breakpoint-classes {
+@include fortitude-breakpoints {
   @for $index from 0 through $fortitude-responsive-border-unit-total {
     $value: fortitude-strip-unit-if-zero($index * 0.1rem) !important;
 
-    &-bt#{$index},
-    &-b#{$index},
-    &-btb#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-bt#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-btb#{$index} {
       border-top-width: $value;
     }
 
-    &-br#{$index},
-    &-b#{$index},
-    &-brl#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-br#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-brl#{$index} {
       border-right-width: $value;
     }
 
-    &-bb#{$index},
-    &-b#{$index},
-    &-btb#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-bb#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-btb#{$index} {
       border-bottom-width: $value;
     }
 
-    &-bl#{$index},
-    &-b#{$index},
-    &-brl#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-bl#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-brl#{$index} {
       border-left-width: $value;
     }
   }

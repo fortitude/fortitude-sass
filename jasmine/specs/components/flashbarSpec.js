@@ -9,10 +9,10 @@
       $flashbar = $('[ft-flashbar]');
     });
 
-    it('removes flashbar when close is clicked', function(done){
-      $flashbar.find('.flashbar__close').trigger('click');
-      $flashbar.on('closed.ft.flashbar', function(){
-        expect($flashbar).toHaveClass('flashbar--closed');
+    it('removes flashbar when hide is clicked', function(done){
+      $flashbar.find('.flashbar__hide').trigger('click');
+      $flashbar.on('hidden.ft.flashbar', function(){
+        expect($flashbar).toHaveClass('flashbar--is-hidden');
         expect($flashbar).not.toBeVisible();
         done();
       });
@@ -27,10 +27,10 @@
       $flashbar = $('[data-ft-flashbar]');
     });
 
-    it('removes flashbar when close is clicked', function(done){
-      $flashbar.find('.flashbar__close').trigger('click');
-      $flashbar.on('closed.ft.flashbar', function(){
-        expect($flashbar).toHaveClass('flashbar--closed');
+    it('removes flashbar when hide is clicked', function(done){
+      $flashbar.find('.flashbar__hide').trigger('click');
+      $flashbar.on('hidden.ft.flashbar', function(){
+        expect($flashbar).toHaveClass('flashbar--is-hidden');
         expect($flashbar).not.toBeVisible();
         done();
       });

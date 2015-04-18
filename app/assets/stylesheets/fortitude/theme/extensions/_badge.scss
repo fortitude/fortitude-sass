@@ -5,20 +5,20 @@ parent: badge
 name: badge-extensions
 category: Objects
 ---
-Class           | Description
---------------- | -----------------
-badge--small    | A small badge
-badge--large    | A large badge
-badge--pill     | A pill badge
-badge--default  | A basic badge
-badge--primary  | A badge for primary information
-badge--success  | A badge for success information
-badge--info     | A badge for sidenote information
-badge--warning  | A badge for warning information
-badge--danger   | A badge for destructive information
-badge--inverse  | A basic badge
+Class            | Description
+---------------- | ------------------------------------
+`badge--small`   | A small badge
+`badge--large`   | A large badge
+`badge--pill`    | A pill badge
+`badge--default` | A basic badge
+`badge--primary` | A badge for primary information
+`badge--success` | A badge for success information
+`badge--info`    | A badge for sidenote information
+`badge--warning` | A badge for warning information
+`badge--danger`  | A badge for destructive information
+`badge--inverse` | A basic badge
 
-```html_example
+```html_preview_example
 <strong class="badge badge--small badge--default">Small</strong>
 <strong class="badge badge--large badge--default">Large</strong>
 <strong class="badge badge--pill badge--default">Pill</strong>

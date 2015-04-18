@@ -8,8 +8,8 @@ $fortitude-enable-modal: true;
   @include fortitude-modal__content;
 }
 
-.#{$fortitude-namespace}modal--is-active {
-  @include fortitude-modal--is-active;
+.#{$fortitude-namespace}modal--is-shown {
+  @include fortitude-modal--is-shown;
 }
 
 @if $fortitude-enable-modal--top {

@@ -1,3 +1,14 @@
+/*doc
+---
+title: Html screen lock
+name: js-screen-lock
+category: Javascript
+---
+Used to make the contents of a webpage unscrollable.
+This is ideal when presenting content in a modal or similar UX patterns.
+
+*/
+
 (function($) {
   'use strict';
 

@@ -7,8 +7,8 @@ category: Javascript
 The `popover` is used to hide content or navigation behind a clickable element
 
 <div class="note note--info">
-  <p class="styleguide">Popovers don't need JavaScript by default, but if you have more then 1 popover and you don't want them to all stay open when clicking on one of them then you'll want to use the JS Component</p>
-  <p class="styleguide">when creating a popover if you add a <code class="styleguide">data-ft-popover</code> and set it to a value all other popovers with that value will close when one is open.</p>
+  <p class="styleguide">Popovers don't need JavaScript by default, but if you have more then 1 popover and you don't want them to all stay shown when clicking on one of them then you'll want to use the JS Component</p>
+  <p class="styleguide">when creating a popover if you add a <code class="styleguide">data-ft-popover</code> and set it to a value all other popovers with that value will hide when one is shown.</p>
   <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
   <ul class="styleguide">
     <li><code class="styleguide">data-ft-popover</code> on the <code class="styleguide">.popover</code> element</li>
@@ -18,42 +18,43 @@ The `popover` is used to hide content or navigation behind a clickable element
 </div>
 
 <div class="note note--warning">
-  <p class="styleguide">make sure to put the <code class="styleguide">.popover--is-open__label</code> before the <code class="styleguide">.popover__label</code> this is nessasry so that if you only want to just <code class="styleguide">.popover__label</code> you can</p>
+  <p class="styleguide">make sure to put the <code class="styleguide">.popover--is-shown__label</code> before the <code class="styleguide">.popover__label</code> this is nessasry so that if you only want to just <code class="styleguide">.popover__label</code> you can</p>
+  <p class="styleguide">You have to use a <code class="styleguide">&lt;span&gt;</code> for buttons because the <code class="styleguide">&lt;label&gt;</code> element is used to trigger the checkbox element</p>
 </div>
 
-```html_example
+```html_preview_example
 <nav class="popover" data-ft-popover="example" data-show-class="fadeIn" data-hide-class="fadeOut">
   <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
-  <label for="example-popover" class="popover--is-open__label">
-    Close <i class="fa fa-caret-up"></i>
+  <label for="example-popover" class="popover--is-shown__label">
+    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
   </label>
   <label for="example-popover" class="popover__label">
-    Open <i class="fa fa-caret-down"></i>
+    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
   </label>
   <div class="popover__content box box--default animated" data-ft-popover-content>
     <ul class="bare-list">
-      <li><a href="javascript: void(0);" class="xs-p1">One</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Two</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Three</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Four</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">One</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Two</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Three</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Four</a></li>
     </ul>
   </div>
 </nav>
 
 <nav class="popover" data-ft-popover="example">
   <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
-  <label for="example-popover" class="popover--is-open__label">
-    Close <i class="fa fa-caret-up"></i>
+  <label for="example-popover" class="popover--is-shown__label">
+    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
   </label>
   <label for="example-popover" class="popover__label">
-    Open <i class="fa fa-caret-down"></i>
+    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
   </label>
   <div class="popover__content box box--default" data-ft-popover-content>
     <ul class="bare-list">
-      <li><a href="javascript: void(0);" class="xs-p1">One</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Two</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Three</a></li>
-      <li><a href="javascript: void(0);" class="xs-p1">Four</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">One</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Two</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Three</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Four</a></li>
     </ul>
   </div>
 </nav>
@@ -64,13 +65,13 @@ The `popover` is used to hide content or navigation behind a clickable element
 (function($){
   'use strict';
 
-  $(document).on('open.ft.popover', '[ft-popover], [data-ft-popover]', function(event){
+  $(document).on('show.ft.popover', '[ft-popover], [data-ft-popover]', function(event){
     var $popover = $(this),
         popoverIdentifier = $popover.attr('ft-popover') || $popover.attr('data-ft-popover');
 
     $popover.ftTransitionWith({
       attr: 'ft-show-class',
-      endEvent: 'opened.ft.popover'
+      endEvent: 'shown.ft.popover'
     }).then(function(){
       $popover.prop('checked', true);
     });
@@ -79,18 +80,18 @@ The `popover` is used to hide content or navigation behind a clickable element
       $('[ft-popover="' + popoverIdentifier + '"], [data-ft-popover="' + popoverIdentifier + '"]').each(function(){
         var $element = $(this);
         if(!$element.is($popover)){
-          $element.trigger('close.ft.popover');
+          $element.trigger('hide.ft.popover');
         }
       });
     }
   });
 
-  $(document).on('close.ft.popover', '[ft-popover], [data-ft-popover]', function(event){
+  $(document).on('hide.ft.popover', '[ft-popover], [data-ft-popover]', function(event){
     $(this).ftTransitionWith({
              attr: 'ft-hide-class'
            }).then(function(){
              $(this).find('[ft-popover-toggle], [data-ft-popover-toggle]').prop('checked', false);
-             $(this).trigger('closed.ft.popover');
+             $(this).trigger('hidden.ft.popover');
            });
   });
 
@@ -104,9 +105,9 @@ The `popover` is used to hide content or navigation behind a clickable element
   $(document).on('change', toggleClasses, function(event){
     var $this = $(this);
     if($this.is(':checked')){
-      $(this).closest('[ft-popover], [data-ft-popover]').trigger('open.ft.popover');
+      $(this).closest('[ft-popover], [data-ft-popover]').trigger('show.ft.popover');
     } else {
-      $(this).closest('[ft-popover], [data-ft-popover]').trigger('close.ft.popover');
+      $(this).closest('[ft-popover], [data-ft-popover]').trigger('hide.ft.popover');
     }
   });
 

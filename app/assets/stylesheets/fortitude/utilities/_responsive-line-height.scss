@@ -11,11 +11,11 @@ Example: `sm-inset2` will only set the line-height to `4rem` or `40px` on the el
 
 $fortitude-responsive-line-height-unit-total: 4 !default;
 
-@include fortitude-breakpoint-classes {
+@include fortitude-breakpoints {
   @for $index from 0 through $fortitude-responsive-line-height-unit-total {
     $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index) !important;
 
-    &-inset#{$index} {
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-inset#{$index} {
       line-height: $value;
     }
   }

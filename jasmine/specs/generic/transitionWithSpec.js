@@ -29,6 +29,18 @@
       });
     });
 
+    it('hides using ft-hide-class', function(done){
+      $transition.ftTransitionWith({
+        attr: 'ft-hide-class',
+        endEvent: 'hidden.ft.transition'
+      });
+
+      $transition.on('hidden.ft.transition', function(){
+        expect($transition).not.toHaveClass('undefined');
+        done();
+      });
+    });
+
     it('shows using ft-show-class', function(done){
       $transition.addClass('tiny');
 

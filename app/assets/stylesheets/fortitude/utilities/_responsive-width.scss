@@ -1,0 +1,49 @@
+/*doc
+---
+title: Responsive Width
+name: responsive-width
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `width`.
+Example: `sm-6of12` will only set the width to `50%` on the element at the `sm` breakpoint and up.
+
+Utility                | Description
+---------------------- | -----------
+`xs`, `sm`, `md`, `lg` | breakpoints
+`0`-`12`               | column amount
+`of`                   | 1`of`12 meaning you know you'll get a percent and not rhyhtm unit.
+`12`                   | column total (default is 12)
+
+```html_example
+<pre class="xs-6of12">
+  width: 50% for all screen sizes
+</pre>
+<pre class="md-6of12">
+  50% width for medium screens and up
+</pre>
+```
+*/
+
+$fortitude-responsive-column-total: 12 !default;
+
+@include fortitude-breakpoints {
+  @for $index from 0 through $fortitude-responsive-column-total {
+    $value: fortitude-strip-unit-if-zero(percentage($index / $fortitude-responsive-column-total)) !important;
+
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-#{$index}of#{$fortitude-responsive-column-total} {
+      width: $value;
+    }
+
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-offset#{$index}of#{$fortitude-responsive-column-total} {
+      margin-left: $value;
+    }
+
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-push#{$index}of#{$fortitude-responsive-column-total} {
+      left: $value;
+    }
+
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-pull#{$index}of#{$fortitude-responsive-column-total} {
+      right: $value;
+    }
+  }
+}
