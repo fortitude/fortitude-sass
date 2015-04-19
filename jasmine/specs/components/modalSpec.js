@@ -9,7 +9,6 @@
         var $modal, $button, $shade, $hideButton;
 
         beforeEach(function(){
-          loadFixtures(context.fixture);
           $modal = $(context.modal);
           $button = $(context.button);
           $hideButton = $(context.hideButton);
@@ -96,36 +95,13 @@
       });
     };
 
-    describe('with bare attributes', function(){
-      var modalWithBareAttributes = {};
-
-      beforeEach(function(){
-        modalWithBareAttributes.fixture = 'modalFixture.html';
-        modalWithBareAttributes.modal = '[ft-modal]';
-        modalWithBareAttributes.button = '[ft-modal-show]';
-        modalWithBareAttributes.hideButton = '[ft-modal-hide]';
-        modalWithBareAttributes.shade = '[ft-shade]';
-      });
-
-      it('sets base attributes', function(){
-        expect(modalWithBareAttributes.fixture).toEqual('modalFixture.html');
-      });
-
-      runModalExamples(modalWithBareAttributes);
-    });
-
-    describe('with bare attributes', function(){
-      var modalWithDataAttributes = {};
-
-      beforeEach(function(){
-        modalWithDataAttributes.fixture = 'modalDataFixture.html';
-        modalWithDataAttributes.modal = '[data-ft-modal]';
-        modalWithDataAttributes.button = '[data-ft-modal-show]';
-        modalWithDataAttributes.hideButton = '[data-ft-modal-hide]';
-        modalWithDataAttributes.shade = '[data-ft-shade]';
-      });
-
-      runModalExamples(modalWithDataAttributes);
-    });
+    _.runWithDataAndBare({
+      spec: 'modal',
+      fixture: 'modalDataFixture.html',
+      modal: '[data-ft-modal]',
+      button: '[data-ft-modal-show]',
+      hideButton: '[data-ft-modal-hide]',
+      shade: '[data-ft-shade]'
+    }, runModalExamples);
   });
 })(jQuery);

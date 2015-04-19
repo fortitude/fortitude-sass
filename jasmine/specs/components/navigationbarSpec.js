@@ -47,6 +47,7 @@
   };
 
   _.runWithDataAndBare({
+    spec: '.navigationbar',
     fixture: 'navigationbarDataFixture.html',
     navbar: '[data-ft-navigationbar]',
     toggle: '[data-ft-navigationbar-toggle]',

@@ -12,9 +12,10 @@
               value = $this.attr(name),
               bareName;
 
-          bareName = _.dataToBare(name);
+          bareName = name.replace('data-', '');
 
           if(bareName !== name){
+            if(!value){ value = true; }
             $this.removeAttr(name);
             $this.attr(bareName, value);
           }
@@ -22,18 +23,8 @@
       });
     },
 
-    dataToBare: function(str){
-      var match = _.toString(str).match(/data-/i);
-
-      if(match){
-        return str.replace('data-', '');
-      } else {
-        return str;
-      }
-    },
-
     runWithDataAndBare: function(context, examples){
-      describe('with data attrs', function(){
+      describe(context.spec, function(){
 
         beforeEach(function(){
           loadFixtures(context.fixture);
@@ -41,18 +32,19 @@
 
         examples(context);
 
-        describe('with bare attributes', function(){
+        describe(context.spec + ' with bare attributes', function(){
           var newContext = {};
 
           beforeEach(function(){
             _.forOwn(context, function(val, key){
-              var bare = _.dataToBare(key);
+              var bare = val.replace('data-', '');
 
               if(bare !== key){
                 newContext[key] = bare;
               } else {
                 newContext[key] = val;
               }
+
             });
 
             _.convertFixtures();
