@@ -57,16 +57,14 @@ The `navigationbar` object is used for the main navigation of a website.
   var navParentSelector = '[ft-navigationbar], [data-ft-navigationbar]',
       navSelector = '[ft-navigationbar-nav], [data-ft-navigationbar-nav]',
       navToggleSelector = '[ft-navigationbar-toggle], [data-ft-navigationbar-toggle]',
-      showClass = 'navigationbar__nav--is-shown',
       hideClass = 'navigationbar__nav--is-hidden';
 
-  $(document).on('show.ft.navigationbar', navParentSelector, function(evt){
+  $(document).on('show.ft.navigationbar', navParentSelector, function(){
     var $this = $(this),
         $navigationbarNav = $this.find(navSelector);
 
     // can't use ftTransitionWith, since it has
     // to be visible during animation
-    $navigationbarNav.addClass(showClass);
     $navigationbarNav.removeClass(hideClass);
 
     $navigationbarNav.ftTransitionWith({
@@ -75,7 +73,7 @@ The `navigationbar` object is used for the main navigation of a website.
     });
   });
 
-  $(document).on('hide.ft.navigationbar', navParentSelector, function(evt){
+  $(document).on('hide.ft.navigationbar', navParentSelector, function(){
     var $this = $(this),
         $navigationbarNav = $this.find(navSelector);
 
@@ -83,7 +81,6 @@ The `navigationbar` object is used for the main navigation of a website.
       attr: 'ft-hide-class'
     }).then(function(){
       $navigationbarNav.addClass(hideClass);
-      $navigationbarNav.removeClass(showClass);
       $this.trigger('hidden.ft.navigationbar');
     });
   });
@@ -93,10 +90,10 @@ The `navigationbar` object is used for the main navigation of a website.
         $navigationbar = $this.closest(navParentSelector),
         $navigationbarNav = $navigationbar.find(navSelector);
 
-    if($navigationbarNav.hasClass(showClass)){
-      $navigationbar.trigger('hide.ft.navigationbar');
-    } else {
+    if($navigationbarNav.hasClass(hideClass)){
       $navigationbar.trigger('show.ft.navigationbar');
+    } else {
+      $navigationbar.trigger('hide.ft.navigationbar');
     }
   });
 })(jQuery);

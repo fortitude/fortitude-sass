@@ -6,6 +6,10 @@ category: Structure
 ---
 Used for content that needs a grid default gutter width is `2rem` or `20px`
 
+<div class="note note--warning">
+  <p class="styleguide">When using <code class="styleguide">.layout</code> make sure that the direct child is a <code class="styleguide">.layout__item</code></p>
+</div>
+
 Class              | Description
 ------------------ | ---------------------------------------------------------------
 `.layout`          | `.layout__item` is aligned to the vertical top
