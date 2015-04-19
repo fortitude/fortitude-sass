@@ -1,69 +1,57 @@
 (function($){
   'use strict';
 
-  describe(".navigationbar", function(){
-    var $navbar, $shade;
+  var runNavigationBarExamples = function(context){
+    describe(".navigationbar", function(){
+      var $navbar, $toggle, $nav, $html,
+          showClass = 'navigationbar__nav--is-shown',
+          hideClass = 'navigationbar__nav--is-hidden';
 
-    beforeEach(function(){
-      loadFixtures('navigationbarFixture.html');
-      $navbar = $('[ft-navigationbar]');
-      $shade = $('[ft-shade]');
-    });
+      beforeEach(function(){
+        $navbar = $(context.navbar);
+        $toggle = $(context.toggle);
+        $nav = $(context.nav);
+        $html = $('html');
+      });
 
-    it('does not have the shade shown by default', function(){
-      expect($shade).not.toBeVisible();
-    });
+      it('is not visible by default', function(){
+        expect($nav).not.toBeVisible();
+      });
 
-    it('shows the shade when toggle helper checked', function(done){
-      $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $shade.on('shown.ft.shade', function(){
-        expect($shade).toBeVisible();
-        expect($('html')).toHaveClass('html--is-locked');
-        done();
+      it('shows the navbar when clicked', function(done){
+        $toggle.trigger('click');
+
+        $navbar.on('shown.ft.navigationbar', function(){
+          expect($nav).toHaveClass(showClass);
+          expect($nav).not.toHaveClass(hideClass);
+          expect($nav).toBeVisible();
+          done();
+        });
+      });
+
+      it('hides the navbar when clicked again', function(done){
+        $toggle.trigger('click');
+
+        $navbar.on('shown.ft.navigationbar', function(){
+          $toggle.trigger('click');
+        });
+
+        $navbar.on('hidden.ft.navigationbar', function(){
+          expect($nav).not.toHaveClass(showClass);
+          expect($nav).toHaveClass(hideClass);
+          expect($nav).not.toBeVisible();
+          done();
+        });
       });
     });
+  };
 
-    it('hides the shade when toggle helper unchecked', function(done){
-      $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $shade.on('hidden.ft.shade', function(){
-        expect($shade).not.toBeVisible();
-        expect($('html')).not.toHaveClass('html--is-locked');
-        done();
-      });
-    });
-  });
+  _.runWithDataAndBare({
+    spec: '.navigationbar',
+    fixture: 'navigationbarDataFixture.html',
+    navbar: '[data-ft-navigationbar]',
+    toggle: '[data-ft-navigationbar-toggle]',
+    nav: '[data-ft-navigationbar-nav]'
+  }, runNavigationBarExamples);
 
-  describe(".navigationbar data attributes", function(){
-    var $navbar, $shade;
-
-    beforeEach(function(){
-      loadFixtures('navigationbarDataFixture.html');
-      $navbar = $('[data-ft-navigationbar]');
-      $shade = $('[data-ft-shade]');
-    });
-
-    it('does not have the shade shown by default', function(){
-      expect($shade).not.toBeVisible();
-    });
-
-    it('shows the shade when toggle helper checked', function(done){
-      $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $shade.on('shown.ft.shade', function(){
-        expect($shade).toBeVisible();
-        expect($('html')).toHaveClass('html--is-locked');
-        done();
-      });
-    });
-
-    it('hides the shade when toggle helper unchecked', function(done){
-      $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $navbar.find('.navigationbar__toggle__helper').trigger('click');
-      $shade.on('hidden.ft.shade', function(){
-        expect($shade).not.toBeVisible();
-        expect($('html')).not.toHaveClass('html--is-locked');
-        done();
-      });
-    });
-  });
 })(jQuery);
