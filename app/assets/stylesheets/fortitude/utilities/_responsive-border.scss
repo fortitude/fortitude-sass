@@ -14,13 +14,15 @@ Utility                                  | Description
 (0-1)                                    | amount of spacing
 
 ```html_preview_example
-<div class="box box--default xs-btb1">
-  <code class="styleguide"><pre>border-top-width:    0.1rem;
-border-bottom-width: 0.1rem;</pre></code>
+<div class="box box--default xs-btb1 xs-ptb2 xs-prl1">
+<pre><code class="styleguide">
+border-top-width:    0.1rem;
+border-bottom-width: 0.1rem;
+</code></pre>
   <p>Applied on all screen sizes</p>
 </div>
 
-<div class="box box--default xs-brl0 md-brl1 xs-mt1">
+<div class="box box--default xs-brl0 md-brl1 xs-mt1 xs-ptb2 xs-prl1">
   Right and left borders for medium screens and up
 </div>
 ```

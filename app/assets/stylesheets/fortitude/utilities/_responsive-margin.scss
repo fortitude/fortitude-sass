@@ -15,9 +15,11 @@ Class                                    | Description
 (0-8)                                    | amount of spacing
 
 ```html_preview_example
-<div class="box box--default xs-mtb1 xs-p2">
-  <code class="styleguide"><pre>margin-top:    2rem;
-margin-bottom: 2rem;</pre></code>
+<div class="box box--default xs-mtb1 xs-ptb2 xs-prl1">
+<pre><code class="styleguide">
+margin-top:    2rem;
+margin-bottom: 2rem;
+</code></pre>
   <p>Applied on all screen sizes</p>
 </div>
 

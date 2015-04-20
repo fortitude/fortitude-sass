@@ -15,13 +15,15 @@ Utility                                  | Description
 
 ```html_preview_example
 <div class="box box--default xs-ptb2 xs-prl1">
-<code class="styleguide"><pre>padding-top:    2rem;
+<pre><code class="styleguide">
+padding-top:    2rem;
 padding-right:  1rem;
 padding-bottom: 2rem;
-padding-left:   1rem;</pre></code>
+padding-left:   1rem;
+</code></pre>
   <p>Applied to all screen sizes</p>
 </div>
-<div class="box box--default xs-prl1 sm-prl2 md-prl3 lg-prl4 xs-mt1">
+<div class="box box--default xs-prl1 sm-prl2 md-prl3 lg-prl4 xs-mt1 xs-ptb2 xs-prl1">
   Right and left padding grows along with screen size
 </div>
 ```
