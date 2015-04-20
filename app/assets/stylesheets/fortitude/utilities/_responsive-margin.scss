@@ -16,13 +16,13 @@ Class                                    | Description
 
 ```html_preview_example
 <div class="box box--default xs-mtb1 xs-p2">
-  <code class="xs-block">margin-top: 2rem</code>
-  <code class="xs-block">margin-bottom: 2rem</code>
-  <code class="xs-block">all screen sizes</code>
+  <code class="styleguide"><pre>margin-top:    2rem;
+margin-bottom: 2rem;</pre></code>
+  <p>Applied on all screen sizes</p>
 </div>
 
 <div class="box box--default sm-mrl1 md-mrl2 lg-mrl3 xs-p1">
-  <code>left and right margins grows along with screen size</code>
+  Left and right margins grows along with screen size
 </div>
 ```
 */

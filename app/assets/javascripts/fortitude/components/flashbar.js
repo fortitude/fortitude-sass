@@ -26,7 +26,7 @@ $(document).on('show.ft.flashbar', '.flashbar', function(event) {
 });
 ```
 
-### Modifiers
+### Extensions
 
 Class               | Description
 ------------------- | -----------------

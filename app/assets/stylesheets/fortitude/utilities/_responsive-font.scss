@@ -36,7 +36,9 @@ $fortitude-responsive-font-sizes: (
   "zeta": fortitude-font-scale(-2)
 );
 
-// P.S. don't change these unless you're actually doing it for a good reason.
+// Use caution when changing the font scale - the defaults
+// here are solid for a variety of designs & styles, and
+// changing them has wide-ranging effects
 ```
 
 ```html_preview_example

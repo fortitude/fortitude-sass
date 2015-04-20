@@ -15,13 +15,13 @@ Utility                                  | Description
 
 ```html_preview_example
 <div class="box box--default xs-btb1">
-  <code class="styleguide">border-top-width: 0.1rem;</code>
-  <code class="styleguide">border-bottom-width: 0.1rem;</code>
-  <code class="styleguide">all screen sizes</code>
+  <code class="styleguide"><pre>border-top-width:    0.1rem;
+border-bottom-width: 0.1rem;</pre></code>
+  <p>Applied on all screen sizes</p>
 </div>
 
 <div class="box box--default xs-brl0 md-brl1 xs-mt1">
-  <code class="styleguide">Right and left borders for medium screens and up</code>
+  Right and left borders for medium screens and up
 </div>
 ```
 */

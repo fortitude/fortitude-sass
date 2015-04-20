@@ -8,8 +8,13 @@ Used to make the contents of a webpage unscrollable.
 This is ideal when presenting content in a modal or similar UX patterns.
 
 ```js_example
-$('.your-component').on('click', function(){
-  $.screenLock();
+$('#lock-screen').on('click', function(){
+  $.screenLock(); // locks the screen
+  // $.screenLock(true) also works
+});
+
+$('#unlock-screen').on('click', function(){
+  $.screenLock(false); // unlocks the screen
 });
 ```
 

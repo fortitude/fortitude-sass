@@ -36,37 +36,37 @@ $(document).on('show.ft.popover', '.popover', function(event) {
 
 ```html_preview_example
 <nav class="popover" data-ft-popover="example" data-show-class="fadeIn" data-hide-class="fadeOut">
-  <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
-  <label for="example-popover" class="popover--is-shown__label">
-    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
+  <input type="checkbox" class="popover__toggle" id="menu-one-toggle" data-ft-popover-toggle />
+  <label for="menu-one-toggle" class="popover--is-shown__label">
+    <span class="button button--default">One <i class="fa fa-caret-up"></i></span>
   </label>
-  <label for="example-popover" class="popover__label">
-    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
+  <label for="menu-one-toggle" class="popover__label">
+    <span class="button button--default">One <i class="fa fa-caret-down"></i></span>
   </label>
   <div class="popover__content box box--default animated" data-ft-popover-content>
     <ul class="bare-list">
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">One</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">Two</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">Three</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">Four</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">1-1</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">1-2</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">1-3</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">1-4</a></li>
     </ul>
   </div>
 </nav>
 
 <nav class="popover" data-ft-popover="example">
-  <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
-  <label for="example-popover" class="popover--is-shown__label">
-    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
+  <input type="checkbox" class="popover__toggle" id="menu-two-toggle" data-ft-popover-toggle />
+  <label for="menu-two-toggle" class="popover--is-shown__label">
+    <span class="button button--default">Two <i class="fa fa-caret-up"></i></span>
   </label>
-  <label for="example-popover" class="popover__label">
-    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
+  <label for="menu-two-toggle" class="popover__label">
+    <span class="button button--default">Two <i class="fa fa-caret-down"></i></span>
   </label>
-  <div class="popover__content box box--default" data-ft-popover-content>
+  <div class="popover__content box box--styleguide" data-ft-popover-content>
     <ul class="bare-list">
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">One</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">Two</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">Three</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">Four</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">2-1</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">2-2</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">2-3</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">2-4</a></li>
     </ul>
   </div>
 </nav>
