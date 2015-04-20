@@ -4,17 +4,16 @@ title: Select Input
 name: js-select-input
 category: Javascript
 ---
-Select inputs don't have placeholders by default, this is a JS Component that allows for them.
+Select inputs don't have placeholders by default. The select input javascript component allows you to set a placeholder element for a select dropdown, and apply an extra class when the placeholder is chosen.
 
-<div class="note note--info">
-  <p class="styleguide">Select inputs don't need JavaScript by default, but if you want select inputs to have placeholders then you'll want to use the JS Component</p>
-  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
-  <ul class="styleguide">
-    <li><code class="styleguide">data-ft-select-input</code> on the <code class="styleguide">.select-input</code> element</li>
-  </ul>
-</div>
+### Data Attributes
 
-Below are some events you can listen to:
+* `data-ft-select-input` on the `.select-input` element
+* `class="any-class"` on the `<option>` representing the placeholder
+
+Fortitude comes with a built-in `.placeholder` class you can use here.
+
+### Events
 
 event                    | description
 ------------------------ | -----------------------
@@ -25,7 +24,6 @@ $(document).on('change.ft.select-input', '.select-input', function(event) {
   // do some work
 });
 ```
-
 
 ```html_preview_example
 <div class="field xs-mb1">

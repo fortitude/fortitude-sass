@@ -4,16 +4,27 @@ title: Navigationbar
 name: js-navigationbar
 category: Javascript
 ---
-The `navigationbar` object is used for the main navigation of a website.
+The `navigationbar` object is used for the main navigation of your site or app. The javascript component allows you to show and hide the collapsed mobile navigationbar.
 
-<div class="note note--info">
-  <p class="styleguide">Navigationbars don't need JavaScript by default, but if you want the navigationbar to trigger the shade component then you'll want to use the JS Component</p>
-  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
-  <ul class="styleguide">
-    <li><code class="styleguide">data-ft-navigationbar</code> on the <code class="styleguide">.navigationbar</code> element</li>
-    <li><code class="styleguide">data-ft-navigationbar-toggle</code> on the <code class="styleguide">.navigationbar__toggle</code> element</li>
-  </ul>
-</div>
+### Data Attributes
+
+* `data-ft-navigationbar` on the `.navigationbar` element
+* `data-ft-navigationbar-toggle` n the `.navigationbar__toggle` element
+
+### Events
+
+Event                     | Description
+--------------------------| -----------------------
+`show.ft.navigationbar`   | The navigationbar is going to show
+`shown.ft.navigationbar`  | The navigationbar is shown
+`hide.ft.navigationbar`   | The navigationbar is going to hide
+`hidden.ft.navigationbar` | The navigationbar is hidden
+
+```js_example
+$(document).on('show.ft.navigationbar', '.navigationbar', function(event) {
+  // do some work
+});
+```
 
 ```html_preview_example
 <nav class="navigationbar navigationbar--default" data-ft-navigationbar>
@@ -30,19 +41,19 @@ The `navigationbar` object is used for the main navigation of a website.
     <nav class="navigationbar__nav navigationbar__nav--is-hidden" data-ft-navigationbar-nav>
       <ul class="navigationbar__list">
         <li class="navigationbar__item">
-          <a href="#" class="navigationbar__link">Objects</a>
+          <a href="javascript:void(0);" class="navigationbar__link">Objects</a>
         </li>
         <li class="navigationbar__item">
-          <a href="#" class="navigationbar__link">Structure</a>
+          <a href="javascript:void(0);" class="navigationbar__link">Structure</a>
         </li>
         <li class="navigationbar__item">
-          <a href="#" class="navigationbar__link">Utilities</a>
+          <a href="javascript:void(0);" class="navigationbar__link">Utilities</a>
         </li>
         <li class="navigationbar__item">
-          <a href="#" class="navigationbar__link">Javascript</a>
+          <a href="javascript:void(0);" class="navigationbar__link">Javascript</a>
         </li>
         <li class="navigationbar__item xs-prl1 sm-prl0">
-          <a href="#" class="button button--full button--primary">Architecture</a>
+          <a href="javascript:void(0);" class="button button--full button--primary">Architecture</a>
         </li>
       </ul>
     </nav>

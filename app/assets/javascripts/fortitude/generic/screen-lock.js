@@ -7,6 +7,13 @@ category: Javascript
 Used to make the contents of a webpage unscrollable.
 This is ideal when presenting content in a modal or similar UX patterns.
 
+```js_example
+$('.your-component').on('click', function(){
+  $.screenLock();
+});
+```
+
+
 */
 
 (function($) {
