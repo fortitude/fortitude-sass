@@ -7,6 +7,20 @@ category: Utilities
 Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how what the elements `min-height` is.
 Example: `sm-2` will only set the height to `4rem` or `40px` on the element at the `sm` breakpoint and up.
 
+```html_preview_example
+<div class="box box--styleguide">
+  <div class="sm-4">
+    This will have a min-height of <code class="styleguide">8rem</code> or <code class="styleguide">80px</code> on screen sizes at the <code class="styleguide">sm</code> breakpoint and up, and the base line height at screen sizes on sizes at the <code class="styleguide">xs</code> breakpoint.
+  </div>
+</div>
+
+<div class="box box--styleguide xs-mt1">
+  <div class="xs-2 sm-8">
+    This content will have a height of <code class="styleguide">4rem</code> or <code class="styleguide">40px</code> on screens at the <code class="styleguide">xs</code> breakpoint, and <code class="styleguide">16rem</code> or <code class="styleguide">160px</code> on screens at the <code class="styleguide">sm</code> breakpoint and up.
+  </div>
+</div>
+```
+
 */
 
 $fortitude-responsive-height-total: 12 !default;

@@ -7,7 +7,7 @@ category: Structure
 The `media` object is an image or video on one side, with descriptive content on another side.
 The content area can contain any other objects. In most cases, it contains text, but we could put lists, grids, or even other media objects inside.
 
-default gutter size is `2rem` or `20px`
+`.media` sets a default gutter between `.media__object` and `.media__body`. The default size for this gutter is `2rem` or `20px`.
 
 If you need to align your content in the middle or the bottom of itself then consider using a [flag object][flag].
 
@@ -27,13 +27,15 @@ Class             | Description
     <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="media__body">
-    Lorem ipsum dolor sit amet,
-    consectetur adipisicing elit.
-    Iste magnam facilis quas,
-    eos unde illum rem dicta.
-    Atque repudiandae,
-    numquam laudantium quas voluptas,
-    facilis? Illo excepturi nihil quidem a esse!
+    <p class="xs-pl1">
+      Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit.
+      Iste magnam facilis quas,
+      eos unde illum rem dicta.
+      Atque repudiandae,
+      numquam laudantium quas voluptas,
+      facilis? Illo excepturi nihil quidem a esse!
+    </p>
   </div>
 </div>
 ```
@@ -56,76 +58,84 @@ Class             | Description
 </div>
 ```
 
-## Responsive
+## Responsive Media Objects
 
-### Collapse at on xs
+### Collapse at xs
 ```html_preview_example
 <div class="media xs-media">
   <div class="media__object">
     <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="media__body">
-    Lorem ipsum dolor sit amet,
-    consectetur adipisicing elit.
-    Iste magnam facilis quas,
-    eos unde illum rem dicta.
-    Atque repudiandae,
-    numquam laudantium quas voluptas,
-    facilis? Illo excepturi nihil quidem a esse!
+    <p class="xs-pt1">
+      Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit.
+      Iste magnam facilis quas,
+      eos unde illum rem dicta.
+      Atque repudiandae,
+      numquam laudantium quas voluptas,
+      facilis? Illo excepturi nihil quidem a esse!
+    </p>
   </div>
 </div>
 ```
 
-### Collapse at on sm
+### Collapse at sm
 ```html_preview_example
 <div class="media sm-media">
   <div class="media__object">
     <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="media__body">
-    Lorem ipsum dolor sit amet,
-    consectetur adipisicing elit.
-    Iste magnam facilis quas,
-    eos unde illum rem dicta.
-    Atque repudiandae,
-    numquam laudantium quas voluptas,
-    facilis? Illo excepturi nihil quidem a esse!
+    <p class="xs-pl1 sm-pl0 sm-pt1">
+      Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit.
+      Iste magnam facilis quas,
+      eos unde illum rem dicta.
+      Atque repudiandae,
+      numquam laudantium quas voluptas,
+      facilis? Illo excepturi nihil quidem a esse!
+    </p>
   </div>
 </div>
 ```
 
-### Collapse at on md
+### Collapse at md
 ```html_preview_example
 <div class="media md-media">
   <div class="media__object">
     <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="media__body">
-    Lorem ipsum dolor sit amet,
-    consectetur adipisicing elit.
-    Iste magnam facilis quas,
-    eos unde illum rem dicta.
-    Atque repudiandae,
-    numquam laudantium quas voluptas,
-    facilis? Illo excepturi nihil quidem a esse!
+    <p class="xs-pl1 md-pl0 md-pt1">
+      Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit.
+      Iste magnam facilis quas,
+      eos unde illum rem dicta.
+      Atque repudiandae,
+      numquam laudantium quas voluptas,
+      facilis? Illo excepturi nihil quidem a esse!
+    </p>
   </div>
 </div>
 ```
 
-### Collapse at on lg
+### Collapse at lg
 ```html_preview_example
 <div class="media lg-media">
   <div class="media__object">
     <img src="//placehold.it/150" alt="placeholder" />
   </div>
   <div class="media__body">
-    Lorem ipsum dolor sit amet,
-    consectetur adipisicing elit.
-    Iste magnam facilis quas,
-    eos unde illum rem dicta.
-    Atque repudiandae,
-    numquam laudantium quas voluptas,
-    facilis? Illo excepturi nihil quidem a esse!
+    <p class="xs-pl1 lg-pl0 lg-pt1">
+      Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit.
+      Iste magnam facilis quas,
+      eos unde illum rem dicta.
+      Atque repudiandae,
+      numquam laudantium quas voluptas,
+      facilis? Illo excepturi nihil quidem a esse!
+    </p>
   </div>
 </div>
 ```

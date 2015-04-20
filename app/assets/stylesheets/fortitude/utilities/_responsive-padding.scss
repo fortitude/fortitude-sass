@@ -13,15 +13,19 @@ Utility                                  | Description
 `p`, `ptb`, `prl`, `pt`, `pr`, `pb` `pl` | `padding` &mdash; `t = top`, `r = right`, `b = bottom`, `l = left`
 (0-8)                                    | amount of spacing
 
-```html_example
-<pre class="xs-ptbh1">
-  padding-top: 2rem
-  padding-bottom: 2rem
-  all screen sizes
-</pre>
-<pre class="sm-mrl1 md-prl2 lg-prl3">
-  padding for larger screens
-</pre>
+```html_preview_example
+<div class="box box--default xs-ptb2 xs-prl1">
+<pre><code class="styleguide">
+padding-top:    2rem;
+padding-right:  1rem;
+padding-bottom: 2rem;
+padding-left:   1rem;
+</code></pre>
+  <p>Applied to all screen sizes</p>
+</div>
+<div class="box box--default xs-prl1 sm-prl2 md-prl3 lg-prl4 xs-mt1 xs-ptb2 xs-prl1">
+  Right and left padding grows along with screen size
+</div>
 ```
 */
 

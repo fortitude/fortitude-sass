@@ -14,15 +14,18 @@ Class                                    | Description
 `m`, `mtb`, `mrl`, `mt`, `mr`, `mb` `ml` | `margin` &mdash; `t = top`, `r = right`, `b = bottom`, `l = left`
 (0-8)                                    | amount of spacing
 
-```html_example
-<pre class="xs-mtbh1">
-  margin-top: 2rem
-  margin-bottom: 2rem
-  all screen sizes
-</pre>
-<pre class="sm-mrl1 md-mrl2 lg-mrl3">
-  margin for larger screens
-</pre>
+```html_preview_example
+<div class="box box--default xs-mtb1 xs-ptb2 xs-prl1">
+<pre><code class="styleguide">
+margin-top:    2rem;
+margin-bottom: 2rem;
+</code></pre>
+  <p>Applied on all screen sizes</p>
+</div>
+
+<div class="box box--default sm-mrl1 md-mrl2 lg-mrl3 xs-p1">
+  Left and right margins grows along with screen size
+</div>
 ```
 */
 
