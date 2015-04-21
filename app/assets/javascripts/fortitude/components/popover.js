@@ -4,69 +4,57 @@ title: Popover
 name: js-popover
 category: Javascript
 ---
-The popover component is used to hide content or navigation behind a clickable element. You can specify different content to be shown when the popover is shown or hidden via the `.popover--is-shown__label` and `.popover__label` elements. You can specify the content of the popover via the `.popover__content` element. This functionality does _not_ require javascript.
+The `popover` is used to hide content or navigation behind a clickable element
 
-<div class="note note--warning">
-  <p class="styleguide">Put the <code class="styleguide">.popover--is-shown__label</code> element before the <code class="styleguide">.popover__label</code> element. This allows you to specify different html for when the popover is shown and when it is hidden. This functionality does <em class="text--italic">not</em> require javascript.</p>
-  <p class="styleguide">Use a <code class="styleguide">&lt;span&gt;</code> for buttons inside the <code class="styleguide">.popover__label</code> element. The <code class="styleguide">&lt;label&gt;</code> element is used to trigger the checkbox to show or hide the popover without javascript.</p>
+<div class="note note--info">
+  <p class="styleguide">Popovers don't need JavaScript by default, but if you have more then 1 popover and you don't want them to all stay shown when clicking on one of them then you'll want to use the JS Component</p>
+  <p class="styleguide">when creating a popover if you add a <code class="styleguide">data-ft-popover</code> and set it to a value all other popovers with that value will hide when one is shown.</p>
+  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
+  <ul class="styleguide">
+    <li><code class="styleguide">data-ft-popover</code> on the <code class="styleguide">.popover</code> element</li>
+    <li><code class="styleguide">data-ft-popover-toggle</code> on the <code class="styleguide">.popover__toggle</code> element</li>
+    <li><code class="styleguide">data-ft-popover-content</code> on the <code class="styleguide">.popover__content</code> element</li>
+  </ul>
 </div>
 
-The javascript component covers combining popovers into groups, and allowing only one popover per group to be shown at once. For example, if you have multiple drop-down lists in a navigationbar.
-
-### Data Attributes
-
-* `data-ft-popover="group_name"` on the `.popover` element
-* `data-ft-popover-toggle` on the `.popover__toggle` element
-* `data-ft-popover-content` on the `.popover__content` element
-
-### Events
-
-Event               | Description
---------------------| -----------------------
-`show.ft.popover`   | The popover is going to show
-`shown.ft.popover`  | The popover is shown
-`hide.ft.popover`   | The popover is going to hide
-`hidden.ft.popover` | The popover is hidden
-
-```js_example
-$(document).on('show.ft.popover', '.popover', function(event) {
-  // do some work
-});
-```
+<div class="note note--warning">
+  <p class="styleguide">make sure to put the <code class="styleguide">.popover--is-shown__label</code> before the <code class="styleguide">.popover__label</code> this is nessasry so that if you only want to just <code class="styleguide">.popover__label</code> you can</p>
+  <p class="styleguide">You have to use a <code class="styleguide">&lt;span&gt;</code> for buttons because the <code class="styleguide">&lt;label&gt;</code> element is used to trigger the checkbox element</p>
+</div>
 
 ```html_preview_example
 <nav class="popover" data-ft-popover="example" data-show-class="fadeIn" data-hide-class="fadeOut">
-  <input type="checkbox" class="popover__toggle" id="menu-one-toggle" data-ft-popover-toggle />
-  <label for="menu-one-toggle" class="popover--is-shown__label">
-    <span class="button button--default">One <i class="fa fa-caret-up"></i></span>
+  <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
+  <label for="example-popover" class="popover--is-shown__label">
+    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
   </label>
-  <label for="menu-one-toggle" class="popover__label">
-    <span class="button button--default">One <i class="fa fa-caret-down"></i></span>
+  <label for="example-popover" class="popover__label">
+    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
   </label>
   <div class="popover__content box box--default animated" data-ft-popover-content>
     <ul class="bare-list">
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">1-1</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">1-2</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">1-3</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">1-4</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">One</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Two</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Three</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Four</a></li>
     </ul>
   </div>
 </nav>
 
 <nav class="popover" data-ft-popover="example">
-  <input type="checkbox" class="popover__toggle" id="menu-two-toggle" data-ft-popover-toggle />
-  <label for="menu-two-toggle" class="popover--is-shown__label">
-    <span class="button button--default">Two <i class="fa fa-caret-up"></i></span>
+  <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
+  <label for="example-popover" class="popover--is-shown__label">
+    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
   </label>
-  <label for="menu-two-toggle" class="popover__label">
-    <span class="button button--default">Two <i class="fa fa-caret-down"></i></span>
+  <label for="example-popover" class="popover__label">
+    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
   </label>
-  <div class="popover__content box box--styleguide" data-ft-popover-content>
+  <div class="popover__content box box--default" data-ft-popover-content>
     <ul class="bare-list">
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">2-1</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">2-2</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">2-3</a></li>
-      <li><a href="javascript: void(0);" class="xs-block xs-p1">2-4</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">One</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Two</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Three</a></li>
+      <li><a href="javascript: void(0);" class="xs-block xs-p1">Four</a></li>
     </ul>
   </div>
 </nav>

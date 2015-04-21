@@ -4,21 +4,24 @@ title: Shade
 name: js-shade
 category: Javascript
 ---
-The shade component is used to dim the entire website, which can help the user focus on a specific element such as navigation or a modal. The javascript allows you to show and hide the shade by clicking on elements, and hides the shade when it is clicked on.
+The `shade` object is used to dim the entire website use cases might be to allow the users focus to be on a specific element like navigation or a modal. You can also show and hide the shade using data- attributes, and the shade will automatically hide when clicked on.
 
-### Data Attributes
+<div class="note note--info">
+  <p class="styleguide">Shades don't need JavaScript by default, but if you want the shade to show and dismiss without an extra call to the server, then you'll want to use the JS Component</p>
+  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
+  <ul class="styleguide">
+    <li><code class="styleguide">data-ft-shade-show</code> on any element</li>
+    <li><code class="styleguide">data-ft-shade-hide</code> on any element</li>
+  </ul>
+</div>
 
-* `data-ft-shade` on the `.shade` element
-* `data-ft-shade-show` on an element to show the shade when clicked
-* `data-ft-shade-hide` on an element to hide the shade when clicked
-
-### Events
+Below are some events you can listen to:
 
 event              | description
 ------------------ | -----------------------
 `show.ft.shade`    | The shade is going to show
-`shown.ft.shade`   | The shade is shown
-`hide.ft.shade`    | The shade is going to hide
+`shown.ft.shade`  | The shade is shown
+`hide.ft.shade`   | The shade is going to hide
 `hidden.ft.shade`  | The shade is hidden
 
 ```js_example
@@ -30,8 +33,6 @@ $(document).on('show.ft.shade', '.shade', function(event) {
 ```html_preview_example
 <button class="button button--default" data-ft-shade-show>Show Shade</button>
 ```
-
-
 
 */
 

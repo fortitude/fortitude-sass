@@ -4,7 +4,7 @@ title: Container
 name: container
 category: Structure
 ---
-A container wraps your site's contents and houses the grid system. The default container is full-width on screens in the `xs` breakpoint, and a responsive fixed width on larger screens. The container sets margin, padding and more for the whole screen, so do not nest it within another container.
+Containers are used to wrap site contents and house the grid system. You may choose one of two containers to use in your projects. Note that, due to padding and more, neither container is nestable.
 
 Class        | Description
 ------------ | -----------------------------------
@@ -12,7 +12,7 @@ Class        | Description
 
 ```html_preview_example
 <div class="container">
-  Fixed-width container on larger screens. Don't put this inside another container.
+  &hellip;
 </div>
 ```
 */

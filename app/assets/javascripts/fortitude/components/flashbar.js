@@ -4,14 +4,18 @@ title: Flashbar
 name: js-flashbar
 category: Javascript
 ---
-Flashbars are used to inform a user of something after an action. The javascript component allows you to hide the flashbar when an element is clicked, such as a close button.
+Flashbars are used to inform a user of something after an action and can optionally be dismissed
 
-### Data Attributes
+<div class="note note--info">
+  <p class="styleguide">Flashbars don't need JavaScript by default, but if you want the flashbar to dismiss without an extra call to the server then you'll want to use the JS Component</p>
+  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
+  <ul class="styleguide">
+    <li><code class="styleguide">data-ft-flashbar</code> on the <code class="styleguide">.flashbar</code> element</li>
+    <li><code class="styleguide">data-ft-flashbar-hide</code> on the <code class="styleguide">.flashbar__hide</code> element</li>
+  </ul>
+</div>
 
-* `data-ft-flashbar` on the `.flashbar` element
-* `data-ft-flashbar-hide` on the `.flashbar__hide` element
-
-### Events
+Below are some events you can listen to:
 
 Event                | Description
 -------------------- | -----------------------
@@ -26,7 +30,6 @@ $(document).on('show.ft.flashbar', '.flashbar', function(event) {
 });
 ```
 
-### Extensions
 
 Class               | Description
 ------------------- | -----------------

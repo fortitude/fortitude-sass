@@ -4,7 +4,7 @@ title: Layout
 name: layout
 category: Structure
 ---
-Used to create a responsive horizontal grid system with gutter areas between columns. The default gutter width is `2rem` or `20px`.
+Used for content that needs a grid default gutter width is `2rem` or `20px`
 
 <div class="note note--warning">
   <p class="styleguide">When using <code class="styleguide">.layout</code> make sure that the direct child is a <code class="styleguide">.layout__item</code></p>
@@ -96,8 +96,6 @@ You can re-arrange content for different screen sizes using responsive width hel
 
 ## Gutter Size
 
-`.layout` comes with some extensions to customize the gutter size.
-
 ### Default
 ```html_preview_example
 <div class="layout">
@@ -144,8 +142,6 @@ You can re-arrange content for different screen sizes using responsive width hel
 
 ## Vertical Alignment
 
-You can draw columns with different vertical alignments by using `.layout` extensions.
-
 ### Default
 ```html_preview_example
 <div class="layout">
@@ -180,8 +176,6 @@ You can draw columns with different vertical alignments by using `.layout` exten
 ```
 
 ## Render Style
-
-You can choose which direction columns are drawn from using these `.layout` extensions.
 
 ### Reverse
 ```html_preview_example

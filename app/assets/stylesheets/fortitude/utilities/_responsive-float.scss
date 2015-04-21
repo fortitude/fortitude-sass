@@ -7,7 +7,7 @@ category: Utilities
 Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how an element floats.
 Example: `sm-float-left` will only float the element at the `sm` breakpoint and up.
 
-```html_preview_example
+```html_example
 <div class="clearfix">
   <div class="xs-float-left">Float Left</div>
   <div class="xs-float-right">Float Right</div>

@@ -4,40 +4,42 @@ title: Tabs
 name: js-tabs
 category: Javascript
 ---
-The tabs and tabs-navigation components are used to navigate between different sections of content in a tabbed interface.
-
-### Data Attributes
-
-* `data-ft-tabs` on the parent `.tabs` element
-* `data-ft-tabs-navigation-link` on each `.tabs-navigation__link` elements
-* `data-ft-tabs-content` on each `.tabs__content` element
+Tabs are used to navigate between different sections of content in a tabbed interface.
 
 <div class="note note--info">
-  <p class="styleguide">By default, the tabs-navigation javascript will show and hide tabs based on their order in the html. To link a <code class="styleguide">.tabs-navigation__link</code> element to a tab somewhere else, set the <code class="styleguide">data-ft-tabs-navigation-link</code> attribute to the id of the linked tab.</p>
+  <p class="styleguide">Tabs don't need JavaScript by default, but if you want the tabs to switch without an extra call to the server then you'll want to use the JS Component</p>
+  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
+  <ul class="styleguide">
+    <li><code class="styleguide">data-ft-tabs</code> on the <code class="styleguide">.tabs</code> element</li>
+    <li><code class="styleguide">data-ft-tabs-content</code> on the <code class="styleguide">.tabs__content</code> element</li>
+  </ul>
 </div>
 
-### Events
+<div class="note note--warning">
+  <p class="styleguide">This component depends on the <code class="styleguide">tabs-navigation</code> component</p>
+</div>
 
-event                 | description
---------------------- | -----------------------
-`show.ft.tab`         | This tab navigation link is being changed to the active state
-`shown.ft.tab`        | This tab navigation link is in the active state
-`hide.ft.tab`         | This tab navigation link is being changed to the inactive state
-`hidden.ft.tab`       | This tab navigation link is in the inactive state
-`show.ft.tabtarget`   | This tab content is being shown
-`shown.ft.tabtarget`  | This tab content is shown
-`hide.ft.tabtarget`   | This tab content is being hidden
-`hidden.ft.tabtarget` | This tab content is hidden
+Below are some events you can listen to:
+
+event              | description
+------------------ | -----------------------
+`show.ft.tabs`     | The tabs will show a tab
+`shown.ft.tabs`    | The tabs is showing a tab
+`hide.ft.tabs`     | The tabs will hide a tab
+`hidden.ft.tabs`   | The tabs is hiding a tab
 
 ```js_example
-$(document).on('show.ft.tab', '.tabs', function(event, tabIndex) {
+$(document).on('show.ft.tabs', '.tabs', function(event, tabIndex) {
   // do some work
 });
 ```
 
+
+### Default
+
 ```html_preview_example
-<nav class="tabs tabs--default" data-ft-tabs>
-  <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default xs-mb1">
+<nav class="tabs tabs--default" data-ft-tabs data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
+  <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default">
     <li class="tabs-navigation__item tabs-navigation__item--is-active">
       <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 1</a>
     </li>
@@ -48,20 +50,14 @@ $(document).on('show.ft.tab', '.tabs', function(event, tabIndex) {
       <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 3</a>
     </li>
   </ul>
-  <div class="tabs__content tabs__content--is-shown xs-text-center" data-ft-tabs-content>
-    <div class="box box--default xs-p1 xs-text-center">
-      Content for tab 1
-    </div>
+  <div class="tabs__content tabs__content--is-shown" data-ft-tabs-content>
+    Content for tab 1
   </div>
-  <div class="tabs__content xs-text-center" data-ft-tabs-content>
-    <div class="box box--info xs-p1 xs-text-center">
-      Content for tab 2
-    </div>
+  <div class="tabs__content" data-ft-tabs-content>
+    Content for tab 2
   </div>
-  <div class="tabs__content xs-text-center" data-ft-tabs-content>
-    <div class="box box--inverse xs-p1 xs-text-center">
-      Content for tab 3
-    </div>
+  <div class="tabs__content" data-ft-tabs-content>
+    Content for tab 3
   </div>
 </nav>
 ```

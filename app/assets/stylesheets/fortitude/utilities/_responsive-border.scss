@@ -13,18 +13,15 @@ Utility                                  | Description
 `b`, `btb`, `brl`, `bt`, `br`, `bb` `bl` | `border` &mdash; `t = top`, `r = right`, `b = bottom`, `l = left`
 (0-1)                                    | amount of spacing
 
-```html_preview_example
-<div class="box box--default xs-btb1 xs-ptb2 xs-prl1">
-<pre><code class="styleguide">
-border-top-width:    0.1rem;
-border-bottom-width: 0.1rem;
-</code></pre>
-  <p>Applied on all screen sizes</p>
-</div>
-
-<div class="box box--default xs-brl0 md-brl1 xs-mt1 xs-ptb2 xs-prl1">
-  Right and left borders for medium screens and up
-</div>
+```html_example
+<pre class="xs-btb1">
+  border-top-width: 0.1rem;
+  border-bottom-width: 0.1rem;
+  all screen sizes
+</pre>
+<pre class="xs-brl0 md-brl1">
+  borders for medium screens and up
+</pre>
 ```
 */
 

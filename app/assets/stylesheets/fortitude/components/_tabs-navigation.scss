@@ -4,22 +4,22 @@ title: Tabs Navigation
 name: tabs-navigation
 category: Objects
 ---
-The `tabs-navigation` object is used for horizontal tab navigations. See [the javascript component](/javascript.html#js-tabs) for info on how to combine `tabs` , `tabs__content` and `tabs-navigation` to show and hide tabs.
+The `tabs-navigation` object is used for horizontal tab navigations.
 
 ### Default
 ```html_preview_example
 <ul class="tabs-navigation">
   <li class="tabs-navigation__item">
-    <a href="javascript: void(0);" class="tabs-navigation__link xs-pr1">One</a>
+    <a href="javascript: void(0);" class="tabs-navigation__link">One</a>
   </li>
   <li class="tabs-navigation__item">
-    <a href="javascript: void(0);" class="tabs-navigation__link xs-pr1">Two</a>
+    <a href="javascript: void(0);" class="tabs-navigation__link">Two</a>
   </li>
   <li class="tabs-navigation__item">
-    <a href="javascript: void(0);" class="tabs-navigation__link xs-pr1">Three</a>
+    <a href="javascript: void(0);" class="tabs-navigation__link">Three</a>
   </li>
   <li class="tabs-navigation__item">
-    <a href="javascript: void(0);" class="tabs-navigation__link xs-pr1">Four</a>
+    <a href="javascript: void(0);" class="tabs-navigation__link">Four</a>
   </li>
 </ul>
 ```

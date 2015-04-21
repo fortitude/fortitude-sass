@@ -14,18 +14,13 @@ Utility                | Description
 `of`                   | 1`of`12 meaning you know you'll get a percent and not rhyhtm unit.
 `12`                   | column total (default is 12)
 
-```html_preview_example
-<div class="xs-6of12">
-  <div class="box box--styleguide">
-    50% width for all screen sizes
-  </div>
-</div>
-
-<div class="sm-6of12 lg-3of12 xs-mt1">
-  <div class="box box--styleguide">
-    Full width for screens at the <code class="styleguide">xs</code> breakpoint, 50% width for screens at the <code class="styleguide">sm</code> breakpoint, and 25% width for screens at the <code class="styleguide">lg</code> breakpoint.
-  </div>
-</div>
+```html_example
+<pre class="xs-6of12">
+  width: 50% for all screen sizes
+</pre>
+<pre class="md-6of12">
+  50% width for medium screens and up
+</pre>
 ```
 */
 

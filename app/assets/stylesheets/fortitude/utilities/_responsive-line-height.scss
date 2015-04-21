@@ -7,12 +7,6 @@ category: Utilities
 Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `line-height`.
 Example: `sm-inset2` will only set the line-height to `4rem` or `40px` on the element at the `sm` breakpoint and up.
 
-```html_preview_example
-<div class="xs-inset2 sm-inset4">
-  This content will have a line height of <code class="styleguide">4rem</code> or `40px` on screens at the <code class="styleguide">xs</code> breakpoint, and <code class="styleguide">8rem</code> or <code class="styleguide">80px</code> on screens at the <code class="styleguide">sm</code> breakpoint and up.
-</div>
-```
-
 */
 
 $fortitude-responsive-line-height-unit-total: 4 !default;
