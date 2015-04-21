@@ -68,16 +68,14 @@ $(document).on('show.ft.navigationbar', '.navigationbar', function(event) {
   var navParentSelector = '[ft-navigationbar], [data-ft-navigationbar]',
       navSelector = '[ft-navigationbar-nav], [data-ft-navigationbar-nav]',
       navToggleSelector = '[ft-navigationbar-toggle], [data-ft-navigationbar-toggle]',
-      showClass = 'navigationbar__nav--is-shown',
       hideClass = 'navigationbar__nav--is-hidden';
 
-  $(document).on('show.ft.navigationbar', navParentSelector, function(evt){
+  $(document).on('show.ft.navigationbar', navParentSelector, function(){
     var $this = $(this),
         $navigationbarNav = $this.find(navSelector);
 
     // can't use ftTransitionWith, since it has
     // to be visible during animation
-    $navigationbarNav.addClass(showClass);
     $navigationbarNav.removeClass(hideClass);
 
     $navigationbarNav.ftTransitionWith({
@@ -86,7 +84,7 @@ $(document).on('show.ft.navigationbar', '.navigationbar', function(event) {
     });
   });
 
-  $(document).on('hide.ft.navigationbar', navParentSelector, function(evt){
+  $(document).on('hide.ft.navigationbar', navParentSelector, function(){
     var $this = $(this),
         $navigationbarNav = $this.find(navSelector);
 
@@ -94,7 +92,6 @@ $(document).on('show.ft.navigationbar', '.navigationbar', function(event) {
       attr: 'ft-hide-class'
     }).then(function(){
       $navigationbarNav.addClass(hideClass);
-      $navigationbarNav.removeClass(showClass);
       $this.trigger('hidden.ft.navigationbar');
     });
   });
@@ -104,10 +101,10 @@ $(document).on('show.ft.navigationbar', '.navigationbar', function(event) {
         $navigationbar = $this.closest(navParentSelector),
         $navigationbarNav = $navigationbar.find(navSelector);
 
-    if($navigationbarNav.hasClass(showClass)){
-      $navigationbar.trigger('hide.ft.navigationbar');
-    } else {
+    if($navigationbarNav.hasClass(hideClass)){
       $navigationbar.trigger('show.ft.navigationbar');
+    } else {
+      $navigationbar.trigger('hide.ft.navigationbar');
     }
   });
 })(jQuery);

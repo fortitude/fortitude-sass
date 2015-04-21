@@ -4,7 +4,6 @@
   var runNavigationBarExamples = function(context){
     describe(".navigationbar", function(){
       var $navbar, $toggle, $nav, $html,
-          showClass = 'navigationbar__nav--is-shown',
           hideClass = 'navigationbar__nav--is-hidden';
 
       beforeEach(function(){
@@ -22,7 +21,6 @@
         $toggle.trigger('click');
 
         $navbar.on('shown.ft.navigationbar', function(){
-          expect($nav).toHaveClass(showClass);
           expect($nav).not.toHaveClass(hideClass);
           expect($nav).toBeVisible();
           done();
@@ -37,7 +35,6 @@
         });
 
         $navbar.on('hidden.ft.navigationbar', function(){
-          expect($nav).not.toHaveClass(showClass);
           expect($nav).toHaveClass(hideClass);
           expect($nav).not.toBeVisible();
           done();
