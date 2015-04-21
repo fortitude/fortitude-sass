@@ -54,9 +54,8 @@ $fortitude-enable-navigationbar: true;
   right: 0;
   z-index: 1;
 
-  > li {
+  > .navigationbar__item {
     white-space: nowrap;
-    padding: 0 1rem;
   }
 }
 
