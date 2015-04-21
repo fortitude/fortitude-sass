@@ -34,5 +34,15 @@ $fortitude-enable-navigationbar: false !default;
       text-decoration: none;
       font-size: 1.4rem;
     }
+
+    @include fortitude-breakpoint("xs", $fortitude-breakpoints) {
+      .navigationbar__dropdown {
+        background-color: transparent;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
   }
 }
