@@ -1,10 +1,29 @@
+/*doc
+---
+title: Container
+name: container
+category: Structure
+---
+A container wraps your site's contents and houses the grid system. The default container is full-width on screens in the `xs` breakpoint, and a responsive fixed width on larger screens. The container sets margin, padding and more for the whole screen, so do not nest it within another container.
+
+Class        | Description
+------------ | -----------------------------------
+`.container` | A responsive fixed width container
+
+```html_preview_example
+<div class="container">
+  Fixed-width container on larger screens. Don't put this inside another container.
+</div>
+```
+*/
+
 $fortitude-enable-container: true;
 
 .#{$fortitude-namespace}container {
   @include fortitude-container;
 }
 
-@if $fortitude-enable-container--fixed-top == true {
+@if $fortitude-enable-container--fixed-top {
   .#{$fortitude-namespace}container--fixed-top {
     @include fortitude-container--fixed-top;
   }

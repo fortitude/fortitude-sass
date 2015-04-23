@@ -1,0 +1,24 @@
+.checkbox-input,
+.radio-input,
+.text-input,
+.textarea-input,
+.select-input,
+.color-input {
+  background-color: map-get($fortitude-colors, "white");
+  border-color: map-get($fortitude-colors, "gray");
+  color: map-get($fortitude-colors, "black");
+
+  &::placeholder {
+    color: map-get($fortitude-colors, "gray");
+  }
+}
+
+.range-input {
+  border-color: map-get($fortitude-colors, "gray");
+}
+
+.select-input {
+  &.placeholder {
+    color: map-get($fortitude-colors, "gray");
+  }
+}

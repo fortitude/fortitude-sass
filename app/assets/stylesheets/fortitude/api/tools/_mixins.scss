@@ -28,19 +28,19 @@
   }
 }
 
-@mixin fortitude-breakpoint-classes($breakpoints: $fortitude-class-breakpoints) {
+@mixin fortitude-breakpoints($breakpoints: $fortitude-class-breakpoints) {
   @each $alias, $_ in $breakpoints {
-    .#{$alias} {
-      @include fortitude-breakpoint($alias) {
-        @content;
-      }
+    $fortitude-tmp: map-merge($fortitude-tmp, ("current-breakpoint-alias": $alias)) !global;
+    @include fortitude-breakpoint($alias) {
+      @content;
     }
   }
 }
 
 @mixin fortitude-font-size($font-size, $enable-line-height: true, $line-height: $fortitude-base-line-height) {
   font-size: $font-size;
-  @if $enable-line-height == true {
+
+  @if $enable-line-height {
     line-height: ceil($font-size / $line-height) * $line-height;
   }
 }
@@ -57,4 +57,80 @@
   -webkit-appearance: $appearance;
      -moz-appearance: $appearance;
           appearance: $appearance;
+}
+
+@mixin fortitude-table($component-height, $border-width, $border-style: "solid", $line-height: $fortitude-base-line-height, $children: $fortitude-table-children) {
+  border-style: unquote($border-style);
+  border-width: $border-width;
+
+  th,
+  td {
+    border-style: unquote($border-style);
+    border-width: $border-width;
+    padding: fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height + 0.2rem, $border-width);
+  }
+
+  tr:last-child {
+    td,
+    th {
+      padding: fortitude-component-padding($component-height, $border-width);
+    }
+  }
+
+  @if (fortitude-contains($children, "thead") and fortitude-contains($children, "tbody")) {
+    // if there is a thead and tbody we have to compensate
+    thead + tbody tr:last-child {
+      td,
+      th {
+        padding: fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height + 0.2rem, $border-width);
+      }
+    }
+  }
+
+  @if (fortitude-contains($children, "tbody") and fortitude-contains($children, "tfoot")) {
+    // if there is a tbody and tfoot we have to compensate
+    tbody + tfoot tr:last-child {
+      td,
+      th {
+        padding: fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height + 0.2rem, $border-width);
+      }
+    }
+  }
+
+  @if (fortitude-contains($children, "thead") and fortitude-contains($children, "tbody") and fortitude-contains($children, "tfoot")) {
+    // if there is a thead, tbody and tfoot we have to compensate
+    thead + tbody + tfoot tr:last-child {
+      td,
+      th {
+        padding: fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height, $border-width) fortitude-component-padding($component-height + 0.2rem, $border-width);
+      }
+    }
+  }
+}
+
+@mixin fortitude-triangle($direction, $width, $color) {
+  $directions: (
+    "top": "bottom",
+    "right": "left",
+    "bottom": "top",
+    "left": "right"
+  );
+
+  $opposite-direction: map-get($directions, $direction);
+
+  @if $opposite-direction != null {
+    width: 0;
+    height: 0;
+
+    @each $dir, $opp in $directions {
+      @if $dir == $direction {
+        border-#{$opp}: $width solid $color;
+      } @else if $opp == $direction {
+        // don't render anything
+      } @else {
+        border-#{$dir}: $width solid transparent;
+      }
+    }
+
+  }
 }

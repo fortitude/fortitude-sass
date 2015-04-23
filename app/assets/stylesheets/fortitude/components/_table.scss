@@ -1,16 +1,116 @@
-$fortitude-enable-table: true;
+/*doc
+---
+title: Table
+name: table
+category: Objects
+---
+The `table` object is a set of simple extending classes that should be applied to table elements.
 
-.#{$fortitude-namespace}table,
-%#{$fortitude-namespace}table {
-  width: 100%;
+Class          | Description
+-------------- | ------------------------------
+`table--full`  | make table full width
+`table--fixed` | make all columns equal widths
+
+
+<div class="note note--warning">
+  <p class="styleguide">Make sure to use the <code class="styleguide">fortitude-table</code> mixin when using tables to vertically align them in the vertical rhythm grid</p>
+</div>
+
+
+```scss_example
+.table--vertical-rhythm-example {
+  $cell-height: 3rem;
+  $border-width: 0.1rem;
+  $border-style: "solid"; // this param is optional (default is solid)
+  $line-height: 2rem; // this param is optional (default is $fortitude-base-line-height)
+  $children: ("thead", "tbody", "tfoot"); // this param is optional (default is ("thead", "tbody", "tfoot"))
+  // if you're curious, the children list is needed for compensation in the vertical rhyhtm grid
+  // if you'd like this to default to something else change the
+  // $fortitude-table-children variable in your `_overrides.scss` file.
+  @include fortitude-table($cell-height, $border-width, $border-style, $line-height, $children);
+}
+```
+
+Would output to:
+
+
+```scss_example
+.table--vertical-rhythm-example {
+  border-style: solid;
+  border-width: 0.1rem;
 }
 
-@if $fortitude-enable-table--fixed == true {
+.table--vertical-rhythm-example th,
+.table--vertical-rhythm-example td {
+  border-style: solid;
+  border-width: 0.1rem;
+  padding: 0.4rem 0.4rem 0.5rem;
+}
+
+.table--vertical-rhythm-example tr:last-child td,
+.table--vertical-rhythm-example tr:last-child th {
+  padding: 0.4rem;
+}
+
+.table--vertical-rhythm-example thead + tbody tr:last-child td,
+.table--vertical-rhythm-example thead + tbody tr:last-child th {
+  padding: 0.4rem 0.4rem 0.5rem;
+}
+
+.table--vertical-rhythm-example tbody + tfoot tr:last-child td,
+.table--vertical-rhythm-example tbody + tfoot tr:last-child th {
+  padding: 0.4rem 0.4rem 0.5rem;
+}
+
+.table--vertical-rhythm-example thead + tbody + tfoot tr:last-child td,
+.table--vertical-rhythm-example thead + tbody + tfoot tr:last-child th {
+  padding: 0.4rem 0.4rem 0.5rem;
+}
+```
+
+```html_preview_example
+<table class="table--vertical-rhythm-example table--full table--fixed">
+  <thead>
+    <tr>
+      <th>Column 1</th>
+      <th>Column 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Column 1</td>
+      <td>Column 2</td>
+    </tr>
+    <tr>
+      <td>Column 1</td>
+      <td>Column 2</td>
+    </tr>
+    <tr>
+      <td>Column 1</td>
+      <td>Column 2</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+$fortitude-enable-table: true;
+
+@if $fortitude-enable-table--full {
+  /**
+   * Force tables to be 100% width.
+  **/
+  .#{$fortitude-namespace}table--full {
+    width: 100%;
+  }
+}
+
+@if $fortitude-enable-table--fixed {
   /**
    * Force tables into having equal-width columns.
   **/
-  .#{$fortitude-namespace}table--fixed,
-  %#{$fortitude-namespace}table--fixed {
+  .#{$fortitude-namespace}table--fixed {
     table-layout: fixed;
   }
 }

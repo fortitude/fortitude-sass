@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 @mixin fortitude-shade($extensions: ()) {
-  $is-active: map-get($extensions, 'active');
-  
-  @if($is-active){
-    @include fortitude-shade--is-active;
+  $is-shown: map-get($extensions, 'active');
+
+  @if($is-shown){
+    @include fortitude-shade--is-shown;
   } @else {
     display: none;
   }
@@ -17,6 +17,6 @@
   left: 0;
 }
 
-@mixin fortitude-shade--is-active($extensions: ()) {
+@mixin fortitude-shade--is-shown($extensions: ()) {
   display: block;
 }

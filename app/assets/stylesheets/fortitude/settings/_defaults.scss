@@ -12,15 +12,27 @@
  *    if you change $fortitude-breakpoints.
 **/
 
-$fortitude-base-font-size: 1.2rem !default;
-$fortitude-base-line-height: 2rem !default;
-$fortitude-base-color: #333 !default;
-$fortitude-base-background-color: #fff !default;
-$fortitude-class-breakpoints: (xs: null, sm: 768px, md: 992px, lg: 1200px) !default;
+$fortitude-base-spacing-unit: 1rem;
+$fortitude-base-font-size: 1.6rem !default;
+$fortitude-base-font-ratio: 1.25  !default;
+$fortitude-base-line-height: 2rem !default; // don't use this variable in your code
+                                            // its used for the fortitude-font-size mixin
+
+$fortitude-class-breakpoints: (
+  "xs": null,
+  "sm": 768px,
+  "md": 992px,
+  "lg": 1200px
+) !default;
 $fortitude-enable-vendor-optimizations: false !default;
 
 /* [1] */
-$fortitude-breakpoints: (xs: (max-width: 767px), sm: (min-width: 768px, max-width: 991px), md: (min-width: 992px, max-width: 1199px), lg: (min-width: 1200px)) !default;
+$fortitude-breakpoints: (
+  "xs": (max-width: 767px),
+  "sm": (min-width: 768px, max-width: 991px),
+  "md": (min-width: 992px, max-width: 1199px),
+  "lg": (min-width: 1200px)
+) !default;
 
 /* [1] */
 
@@ -30,11 +42,14 @@ $fortitude-breakpoints: (xs: (max-width: 767px), sm: (min-width: 768px, max-widt
 // define it here.
 $fortitude-namespace: null !default;
 
+// default mixin params
+$fortitude-table-children: ("thead", "tbody", "tfoot");
+
 // These variables are framework variables, sourced from variables defined
 // above. Feel free to use these variables throughout your project, but do not
 // modify or reassign them.
 
-$fortitude-base-spacing-unit: $fortitude-base-line-height;
-$fortitude-base-spacing-unit--small: round($fortitude-base-line-height / 2);
-$fortitude-base-spacing-unit--large: round($fortitude-base-line-height * 2);
+$fortitude-base-spacing-unit--small: round($fortitude-base-spacing-unit / 2);
+$fortitude-base-spacing-unit--large: round($fortitude-base-spacing-unit * 2);
 $fortitude-base-rem-font-size: 0.625rem;
+$fortitude-tmp: ();

@@ -1,10 +1,19 @@
+/*doc
+---
+title: Box
+name: box
+category: Objects
+---
+The box object allows you to separate different sections of content, and through extensions customize things like background colors and border styles.
+*/
+
 $fortitude-enable-box: true;
 
 .#{$fortitude-namespace}box {
   @include fortitude-box;
 }
 
-@if $fortitude-enable-box--rounded == true {
+@if $fortitude-enable-box--rounded {
   .#{$fortitude-namespace}box--rounded {
     @include fortitude-box--rounded;
   }

@@ -1,14 +1,23 @@
+/*doc
+---
+title: Button
+name: button
+category: Objects
+---
+The button object should be used for actions that will cause any significant change to data or interactions in your app.
+*/
+
 $fortitude-enable-button: true;
 
 .#{$fortitude-namespace}button {
   @include fortitude-button;
 }
 
-.#{$fortitude-namespace}button__target {
-  @include fortitude-button__target;
+.#{$fortitude-namespace}button__element {
+  @include fortitude-button__element;
 }
 
-@if $fortitude-enable-button--small == true {
+@if $fortitude-enable-button--small {
   /**
    * Small buttons.
   **/
@@ -17,7 +26,7 @@ $fortitude-enable-button: true;
   }
 }
 
-@if $fortitude-enable-button--large == true {
+@if $fortitude-enable-button--large {
   /**
    * Large buttons.
   **/
@@ -26,7 +35,7 @@ $fortitude-enable-button: true;
   }
 }
 
-@if $fortitude-enable-button--full == true {
+@if $fortitude-enable-button--full {
   /**
    * Full-width buttons.
   **/
@@ -35,7 +44,7 @@ $fortitude-enable-button: true;
   }
 }
 
-@if $fortitude-enable-button--pill == true {
+@if $fortitude-enable-button--pill {
   /**
    * Round-ended buttons.
   **/

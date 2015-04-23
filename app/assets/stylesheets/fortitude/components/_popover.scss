@@ -1,0 +1,15 @@
+.#{$fortitude-namespace}popover {
+  @include fortitude-popover;
+}
+
+.#{$fortitude-namespace}popover__content {
+  @include fortitude-popover__content;
+}
+
+.#{$fortitude-namespace}popover--is-shown__label {
+  @include fortitude-popover--is-shown__label;
+}
+
+.#{$fortitude-namespace}popover__toggle {
+  @include fortitude-popover__toggle;
+}

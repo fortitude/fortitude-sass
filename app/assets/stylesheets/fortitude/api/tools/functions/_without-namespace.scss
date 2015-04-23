@@ -42,24 +42,24 @@
   @return fortitude-rem-to-px($args...);
 }
 
-@function block-spacing-unit-height($args...) {
-  @return fortitude-block-spacing-unit-height($args...);
+@function component-spacing-unit-height($args...) {
+  @return fortitude-component-spacing-unit-height($args...);
 }
 
-@function block-spacing-unit-delta($args...) {
-  @return fortitude-block-spacing-unit-delta($args...);
+@function component-spacing-unit-delta($args...) {
+  @return fortitude-component-spacing-unit-delta($args...);
 }
 
-@function block-negitive-padding($args...) {
-  @return fortitude-block-negitive-padding($args...);
+@function component-negitive-padding($args...) {
+  @return fortitude-component-negitive-padding($args...);
 }
 
-@function block-margin($args...) {
-  @return fortitude-block-margin($args...);
+@function component-margin($args...) {
+  @return fortitude-component-margin($args...);
 }
 
-@function block-padding($args...) {
-  @return fortitude-block-padding($args...);
+@function component-padding($args...) {
+  @return fortitude-component-padding($args...);
 }
 
 @function map-to-query($args...) {

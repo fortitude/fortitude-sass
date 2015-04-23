@@ -1,10 +1,19 @@
+/*doc
+---
+title: Badge
+name: badge
+category: Objects
+---
+Badges are a way to display a small amount of text or an image within a nicely formatted box.
+*/
+
 $fortitude-enable-badge: true;
 
 .#{$fortitude-namespace}badge {
   @include fortitude-badge;
 }
 
-@if $fortitude-enable-badge--small == true {
+@if $fortitude-enable-badge--small {
   /**
    * Small badges.
   **/
@@ -13,7 +22,7 @@ $fortitude-enable-badge: true;
   }
 }
 
-@if $fortitude-enable-badge--large == true {
+@if $fortitude-enable-badge--large {
   /**
    * Large badges.
   **/
@@ -22,7 +31,7 @@ $fortitude-enable-badge: true;
   }
 }
 
-@if $fortitude-enable-badge--pill == true {
+@if $fortitude-enable-badge--pill {
   /**
    * Round-ended badges.
   **/

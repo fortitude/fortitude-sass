@@ -12,7 +12,7 @@
         attr = opts.attr,
         callback = opts.callback,
         existing = $this.data('ftTransitionWith'),
-        transitionClass;
+        transitionClass, activeClass;
 
     if(existing) {
       existing.reject('Initiated another ftTransitionWith');
@@ -24,7 +24,9 @@
     }
 
     if(transitionClass){
-      $this.addClass(transitionClass + ' ' + addClass)
+      activeClass = $.trim([transitionClass, addClass].join(' '));
+
+      $this.addClass(activeClass)
            .waitForAnimation()
            .then(function(){
              if(deferred.state() !== 'rejected'){

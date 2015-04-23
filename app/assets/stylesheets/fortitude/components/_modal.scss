@@ -4,10 +4,30 @@ $fortitude-enable-modal: true;
   @include fortitude-modal;
 }
 
-.#{$fortitude-namespace}modal--is-active {
-  @include fortitude-modal--is-active;
-}
-
 .#{$fortitude-namespace}modal__content {
   @include fortitude-modal__content;
+}
+
+.#{$fortitude-namespace}modal--is-shown {
+  @include fortitude-modal--is-shown;
+}
+
+@if $fortitude-enable-modal--top {
+  .#{$fortitude-namespace}modal--top {
+    @include fortitude-modal--top;
+
+    .#{$fortitude-namespace}modal__content {
+      @include fortitude-modal--top__content;
+    }
+  }
+}
+
+@if $fortitude-enable-modal--bottom {
+  .#{$fortitude-namespace}modal--bottom {
+    @include fortitude-modal--bottom;
+
+    .#{$fortitude-namespace}modal__content {
+      @include fortitude-modal--bottom__content;
+    }
+  }
 }

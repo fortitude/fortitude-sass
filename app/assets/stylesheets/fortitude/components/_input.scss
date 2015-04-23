@@ -1,3 +1,113 @@
+/*doc
+---
+title: Inputs
+name: inputs
+category: Objects
+---
+The `input` object is used for forms
+
+```html_preview_example
+<div class="field xs-mb1">
+  <label>
+    Checkbox Input
+    <input type="checkbox" class="checkbox-input" />
+  </label>
+</div>
+
+<div class="field xs-mb1">
+  <label>
+    Radio Input
+    <input type="radio" class="radio-input" />
+  </label>
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Text Input
+  </label>
+  <input type="text" class="text-input" placeholder="Placeholder" />
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Textarea Input
+  </label>
+  <textarea class="textarea-input" placeholder="Placeholder"></textarea>
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Select Input
+  </label>
+  <select class="select-input" data-ft-select-input>
+    <option value="" class="placeholder">Select One</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+    <option value="4">Four</option>
+  </select>
+</div>
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Range Input
+  </label>
+  <input type="range" class="range-input" />
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Color Input
+  </label>
+  <input type="color" class="color-input" />
+</div>
+```
+
+## Full Width Input
+If you need a full width input there is the `input--full` class that can be applied to any input.
+
+```html_preview_example
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Text Input
+  </label>
+  <input type="text" class="text-input input--full" placeholder="Placeholder" />
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Textarea Input
+  </label>
+  <textarea class="textarea-input input--full" placeholder="Placeholder"></textarea>
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Select Input
+  </label>
+  <select class="select-input input--full" data-ft-select-input>
+    <option value="" class="placeholder">Select One</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+    <option value="4">Four</option>
+  </select>
+</div>
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Range Input
+  </label>
+  <input type="range" class="range-input input--full" />
+</div>
+
+<div class="field xs-mb1">
+  <label class="xs-block">
+    Color Input
+  </label>
+  <input type="color" class="color-input input--full" />
+</div>
+```
+*/
+
 $fortitude-enable-input: true;
 
 .#{$fortitude-namespace}checkbox-input {
@@ -28,8 +138,8 @@ $fortitude-enable-input: true;
   @include fortitude-color-input;
 }
 
-.#{$fortitude-namespace}input__target {
-    @include fortitude-input__target;
+.#{$fortitude-namespace}input__element {
+    @include fortitude-input__element;
 }
 
 .#{$fortitude-namespace}input--full {

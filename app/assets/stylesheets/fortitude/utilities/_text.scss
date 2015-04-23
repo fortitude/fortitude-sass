@@ -1,0 +1,53 @@
+/*doc
+---
+title: Text
+name: text
+category: Utilities
+---
+
+Use the `text--` modifiers to change how text is displayed within an element.
+
+Class                | Description
+-------------------- | -----------------
+`text--italic`       | Italic text
+`text--underline`    | Underline text
+`text--line-through` | Line through text
+`text--lowercase`    | Lowercase text
+`text--uppercase`    | Uppercase text
+`text--capitalize`   | Capitalized text
+
+```html_preview_example
+<span class="text--italic">Italic</span>
+<span class="text--underline">Underline</span>
+<span class="text--line-through">Line through</span>
+<span class="text--lowercase">Lowercase</span>
+<span class="text--uppercase">Uppercase</span>
+<span class="text--capitalize">Capitalize</span>
+```
+*/
+
+$fortitude-enable-text: true;
+
+.#{$fortitude-namespace}text--italic {
+  font-style: italic !important;
+}
+
+.#{$fortitude-namespace}text--underline {
+  text-decoration: underline !important;
+}
+
+.#{$fortitude-namespace}text--line-through {
+  text-decoration: line-through !important;
+}
+
+.#{$fortitude-namespace}text--lowercase {
+  text-transform: lowercase !important;
+}
+
+.#{$fortitude-namespace}text--uppercase {
+  text-transform: uppercase !important;
+}
+
+.#{$fortitude-namespace}text--capitalize {
+  text-transform: capitalize !important;
+}

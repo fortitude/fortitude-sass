@@ -1,3 +1,24 @@
+/*doc
+---
+title: Fluid Container
+parent: container
+name: fluid-container
+category: Structure
+---
+
+A fluid container wraps your site contents and houses the grid system. Like the regular container, this sets margin, padding, and more for the whole screen, so do not nest it within another container.
+
+Class              | Description
+------------------ | ------------------------------------------------------------------
+`.fluid-container` | A full width container, spanning the entire width of the viewport
+
+```html_preview_example
+<div class="fluid-container">
+  A fluid container
+</div>
+```
+*/
+
 $fortitude-enable-fluid-container: true;
 
 .#{$fortitude-namespace}fluid-container {
