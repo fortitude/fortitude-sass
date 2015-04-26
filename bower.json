@@ -3,25 +3,23 @@
   "homepage": "http://fortitude.io/",
   "version": "0.8.0",
   "main": [
-    "app/assets/stylesheets/fortitude/tools/_functions.scss",
-    "app/assets/stylesheets/fortitude/tools/_mixins.scss",
-    "app/assets/stylesheets/fortitude/settings/_defaults.scss",
-    "app/assets/stylesheets/_fortitude.scss"
+    "app/assets/stylesheets/fortitude/theme.scss"
   ],
   "ignore": [
+    "**/.*",
+    "tmp",
     "bin",
-    "features",
     "lib",
-    ".gitignore",
     "Gemfile",
     "Gemfile.lock",
     "Rakefile",
+    "Gruntfile.js",
     "fortitude.gemspec",
-    "**/.*",
+    "package.json",
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "jasmine",
+    "sass_specs"
   ],
   "authors": [
     "Aaron Reisman <aaron@hired.com>"
