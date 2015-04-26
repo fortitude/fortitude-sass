@@ -33,10 +33,14 @@ module.exports = function(grunt) {
     },
 
     sass: {
+      options: {
+        includePaths: [
+          '<%= app.scss %>'
+        ]
+      },
       dist: {
         options: {
           style: 'compact',
-          bundleExec: true,
           sourcemap: 'none'
         },
         files: {
@@ -47,7 +51,6 @@ module.exports = function(grunt) {
       min: {
         options: {
           style: 'compressed',
-          bundleExec: true,
           sourcemap: 'none'
         },
         files: {
@@ -58,11 +61,10 @@ module.exports = function(grunt) {
       test: {
         options: {
           style: 'compact',
-          loadPath: [
-          '<%= app.scss %>',
-          'node_modules/bootcamp/dist'
+          includePaths: [
+            '<%= app.scss %>',
+            'node_modules/bootcamp/dist'
           ],
-          bundleExec: true,
           sourcemap: 'none'
         },
         files: {
@@ -71,6 +73,8 @@ module.exports = function(grunt) {
         }
       }
     },
+
+
 
     autoprefixer: {
       options: {
@@ -123,7 +127,7 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: ['<%= app.js %>/**/*.js'],
-        dest: '<%= app.dist %>/<%= pkg.name %>.js',
+        dest: '<%= app.tmp %>/<%= pkg.name %>.js',
       },
       test: {
         src: ['<%= app.js %>/**/*.js'],
@@ -178,7 +182,7 @@ grunt.loadNpmTasks('grunt-contrib-clean');
 grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Sass resources
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('bootcamp');
