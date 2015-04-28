@@ -7,54 +7,46 @@ category: Utilities
 Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `border`.
 Example: `sm-btb1` will only set the top and bottom border to `0.1rem` or `1px` on the element at the `sm` breakpoint and up.
 
-Utility                                  | Description
----------------------------------------- | -----------
-`xs`, `sm`, `md`, `lg`                   | breakpoints
-`b`, `btb`, `brl`, `bt`, `br`, `bb` `bl` | `border` &mdash; `t = top`, `r = right`, `b = bottom`, `l = left`
-(0-1)                                    | amount of spacing
-
-```html_preview_example
-<div class="box box--default xs-btb1 xs-ptb2 xs-prl1">
-<pre><code class="styleguide">
-border-top-width:    0.1rem;
-border-bottom-width: 0.1rem;
-</code></pre>
-  <p>Applied on all screen sizes</p>
-</div>
-
-<div class="box box--default xs-brl0 md-brl1 xs-mt1 xs-ptb2 xs-prl1">
-  Right and left borders for medium screens and up
-</div>
-```
+Class    | Description
+-------- | -----------------------
+`*-b*`   | border all sides
+`*-btb*` | border top and bottom
+`*-brl*` | border right and left
+`*-bt*`  | border top
+`*-br*`  | border right
+`*-bb*`  | border bottom
+`*-bl*`  | border left
 */
 
 $fortitude-responsive-border-unit-total: 1 !default;
 
 @include fortitude-breakpoints {
+  $alias: map-get($fortitude-tmp, "current-breakpoint-alias");
+
   @for $index from 0 through $fortitude-responsive-border-unit-total {
     $value: fortitude-strip-unit-if-zero($index * 0.1rem) !important;
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-bt#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-btb#{$index} {
+    .#{$fortitude-namespace}#{$alias}-bt#{$index},
+    .#{$fortitude-namespace}#{$alias}-b#{$index},
+    .#{$fortitude-namespace}#{$alias}-btb#{$index} {
       border-top-width: $value;
     }
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-br#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-brl#{$index} {
+    .#{$fortitude-namespace}#{$alias}-br#{$index},
+    .#{$fortitude-namespace}#{$alias}-b#{$index},
+    .#{$fortitude-namespace}#{$alias}-brl#{$index} {
       border-right-width: $value;
     }
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-bb#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-btb#{$index} {
+    .#{$fortitude-namespace}#{$alias}-bb#{$index},
+    .#{$fortitude-namespace}#{$alias}-b#{$index},
+    .#{$fortitude-namespace}#{$alias}-btb#{$index} {
       border-bottom-width: $value;
     }
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-bl#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-b#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-brl#{$index} {
+    .#{$fortitude-namespace}#{$alias}-bl#{$index},
+    .#{$fortitude-namespace}#{$alias}-b#{$index},
+    .#{$fortitude-namespace}#{$alias}-brl#{$index} {
       border-left-width: $value;
     }
   }

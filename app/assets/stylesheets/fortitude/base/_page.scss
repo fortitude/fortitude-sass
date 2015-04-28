@@ -2,12 +2,19 @@
     #PAGE
 \*------------------------------------*/
 
+*,
+*::before,
+*::after {
+  vertical-align: inherit;
+}
+
 html {
   font-size: $fortitude-base-rem-font-size;
 }
 
 body {
   @include fortitude-font-size($fortitude-base-font-size, true);
+  vertical-align: top;
 }
 
 .clearfix {

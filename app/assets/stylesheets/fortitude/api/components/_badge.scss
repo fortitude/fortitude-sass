@@ -7,13 +7,28 @@ $fortitude-badge-border-style: solid !default;
 $fortitude-badge-border-width: 0 !default;
 
 $fortitude-badge-height--default: 2.6rem !default;
-$fortitude-badge-horizontal-padding--default: 1rem !default;
+$fortitude-badge-margin-vertical--default: fortitude-component-margin($fortitude-badge-height--default, $fortitude-badge-border-width) !default;
+$fortitude-badge-margin-horizontal--default: 0 !default;
+$fortitude-badge-margin--default: $fortitude-badge-margin-vertical--default $fortitude-badge-margin-horizontal--default !default;
+$fortitude-badge-padding-vertical--default: fortitude-component-padding($fortitude-badge-height--default, $fortitude-badge-border-width) !default;
+$fortitude-badge-padding-horizontal--default: 1rem !default;
+$fortitude-badge-padding--default: $fortitude-badge-padding-vertical--default $fortitude-badge-padding-horizontal--default !default;
 
 $fortitude-badge-height--small: 2rem !default;
-$fortitude-badge-horizontal-padding--small: 0.5rem !default;
+$fortitude-badge-margin-vertical--small: fortitude-component-margin($fortitude-badge-height--small, $fortitude-badge-border-width) !default;
+$fortitude-badge-margin-horizontal--small: 0 !default;
+$fortitude-badge-margin--small: $fortitude-badge-margin-vertical--small $fortitude-badge-margin-horizontal--small !default;
+$fortitude-badge-padding-vertical--small: fortitude-component-padding($fortitude-badge-height--small, $fortitude-badge-border-width) !default;
+$fortitude-badge-padding-horizontal--small: 0.5rem !default;
+$fortitude-badge-padding--small: $fortitude-badge-padding-vertical--small $fortitude-badge-padding-horizontal--small !default;
 
 $fortitude-badge-height--large: 4rem !default;
-$fortitude-badge-horizontal-padding--large: 2rem !default;
+$fortitude-badge-margin-vertical--large: fortitude-component-margin($fortitude-badge-height--large, $fortitude-badge-border-width) !default;
+$fortitude-badge-margin-horizontal--large: 0 !default;
+$fortitude-badge-margin--large: $fortitude-badge-margin-vertical--large $fortitude-badge-margin-horizontal--large !default;
+$fortitude-badge-padding-vertical--large: fortitude-component-padding($fortitude-badge-height--large, $fortitude-badge-border-width) !default;
+$fortitude-badge-padding-horizontal--large: 2rem !default;
+$fortitude-badge-padding--large: $fortitude-badge-padding-vertical--large $fortitude-badge-padding-horizontal--large !default;
 
 $fortitude-enable-badge--small: false !default;
 $fortitude-enable-badge--large: false !default;
@@ -27,7 +42,6 @@ $fortitude-enable-badge--pill: false !default;
   border: $fortitude-badge-border-width $fortitude-badge-border-style transparent;
   cursor: default;
   display: inline-block;
-  vertical-align: middle;
   font: inherit;
   background-color: transparent;
   text-align: center;
@@ -39,8 +53,8 @@ $fortitude-enable-badge--pill: false !default;
   } @else if $is-large {
     @include fortitude-badge--large;
   } @else {
-    margin: fortitude-component-margin($fortitude-badge-height--default, $fortitude-badge-border-width) 0;
-    padding: fortitude-component-padding($fortitude-badge-height--default, $fortitude-badge-border-width) $fortitude-badge-horizontal-padding--default;
+    margin: $fortitude-badge-margin--default;
+    padding: $fortitude-badge-padding--default;
   }
 
   @if $is-pill {
@@ -51,13 +65,13 @@ $fortitude-enable-badge--pill: false !default;
 }
 
 @mixin fortitude-badge--small {
-  margin: fortitude-component-margin($fortitude-badge-height--small, $fortitude-badge-border-width) 0;
-  padding: fortitude-component-padding($fortitude-badge-height--small, $fortitude-badge-border-width) $fortitude-badge-horizontal-padding--small;
+  margin: $fortitude-badge-margin--small;
+  padding: $fortitude-badge-padding--small;
 }
 
 @mixin fortitude-badge--large {
-  margin: fortitude-component-margin($fortitude-badge-height--large, $fortitude-badge-border-width) 0;
-  padding: fortitude-component-padding($fortitude-badge-height--large, $fortitude-badge-border-width) $fortitude-badge-horizontal-padding--large;
+  margin: $fortitude-badge-margin--large;
+  padding: $fortitude-badge-padding--large;
 }
 
 @mixin fortitude-badge--pill {

@@ -1,103 +1,69 @@
 $fortitude-enable-navigationbar: true;
 
 .#{$fortitude-namespace}navigationbar {
-  position: relative;
-  min-height: $fortitude-navigationbar-height;
-
-  * {
-    vertical-align: top;
-  }
-}
-
-.#{$fortitude-namespace}navigationbar__header {
-  float: left;
+  @include fortitude-navigationbar;
 }
 
 .#{$fortitude-namespace}navigationbar__logo {
-  display: inline-block;
-  padding: fortitude-component-padding($fortitude-navigationbar-height);
-  vertical-align: top;
+  @include fortitude-navigationbar__logo;
 }
 
-.#{$fortitude-namespace}navigationbar__nav {
-  float: right;
+.#{$fortitude-namespace}navigationbar__nav--is-hidden {
+  @include fortitude-navigationbar__nav--is-hidden;
 }
 
 .#{$fortitude-namespace}navigationbar__list {
-  margin: 0;
-  padding: 0 1rem 0 0;
-  list-style: none;
-}
-
-.#{$fortitude-namespace}navigationbar__item {
-  display: inline-block;
-  position: relative;
-  vertical-align: top;
-
-  &:hover .#{$fortitude-namespace}navigationbar__dropdown {
-    display: block;
-  }
+  @include fortitude-navigationbar__list;
 }
 
 .#{$fortitude-namespace}navigationbar__link {
-  display: block;
-  padding: fortitude-component-padding($fortitude-navigationbar-height);
+  @include fortitude-navigationbar__link;
 }
-
 
 .#{$fortitude-namespace}navigationbar__dropdown {
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-
-  > .navigationbar__item {
-    white-space: nowrap;
-  }
+  @include fortitude-navigationbar__dropdown;
 }
 
-@include fortitude-breakpoint("xs", $fortitude-breakpoints) {
-  .#{$fortitude-namespace}navigationbar__header {
-    float: none;
-  }
+.#{$fortitude-namespace}navigationbar__dropdown--nowrap {
+  @include fortitude-navigationbar__dropdown--nowrap;
+}
 
-  .#{$fortitude-namespace}navigationbar__nav {
-    @include fortitude-clearfix;
-    display: block;
-    float: none;
-    margin-top: -$fortitude-navigationbar-height;
-  }
+.#{$fortitude-namespace}navigationbar__dropdown__link {
+  @include fortitude-navigationbar__dropdown__link;
+}
 
-  .#{$fortitude-namespace}navigationbar__nav--is-hidden {
-    display: none;
-  }
+@if $fortitude-enable-navigationbar--responsive {
+  @include fortitude-breakpoints {
+    $alias: map-get($fortitude-tmp, "current-breakpoint-alias");
 
-  .#{$fortitude-namespace}navigationbar__list {
-    clear: both;
-    padding: 0;
-    position: absolute;
-    top: 100%;
-    width: 100%;
+    .#{$fortitude-namespace}#{$alias}-navigationbar {
+      .#{$fortitude-namespace}navigationbar__header {
+        @include fortitude-navigationbar--responsive__header;
+      }
 
-    :checked ~ & {
-      display: block;
+      .#{$fortitude-namespace}navigationbar__nav {
+        @include fortitude-navigationbar--responsive__nav;
+      }
+
+      .#{$fortitude-namespace}navigationbar__nav--is-hidden {
+        @include fortitude-navigationbar--responsive__nav--is-hidden;
+      }
+
+      .#{$fortitude-namespace}navigationbar__list {
+        @include fortitude-navigationbar--responsive__list;
+      }
+
+      .#{$fortitude-namespace}navigationbar__item {
+        @include fortitude-navigationbar--responsive__item;
+
+        &:hover .navigationbar__dropdown {
+          @include fortitude-navigationbar--responsive__item--is-hovered__dropdown;
+        }
+      }
+
+      .#{$fortitude-namespace}navigationbar__dropdown {
+        @include fortitude-navigationbar--responsive__dropdown;
+      }
     }
-  }
-
-  .#{$fortitude-namespace}navigationbar__dropdown {
-    display: block;
-    position: relative;
-  }
-
-  .#{$fortitude-namespace}navigationbar__item {
-    display: block;
-    margin-left: 1rem;
-  }
-
-  .#{$fortitude-namespace}navigationbar__link {
-    display: block;
   }
 }

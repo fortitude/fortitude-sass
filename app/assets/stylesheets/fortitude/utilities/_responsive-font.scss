@@ -28,6 +28,8 @@ $fortitude-base-font-ratio: 1.25;
 
 // change this variable if you want to override any of the default font helpers.
 $fortitude-responsive-font-sizes: (
+  "giga": fortitude-font-scale(5),
+  "mega": fortitude-font-scale(4),
   "alpha": fortitude-font-scale(3),
   "beta": fortitude-font-scale(2),
   "gamma": fortitude-font-scale(1),
@@ -42,6 +44,8 @@ $fortitude-responsive-font-sizes: (
 ```
 
 ```html_preview_example
+<h1 class="xs-giga xs-inset6">Giga 4.88281rem</h1>
+<h1 class="xs-mega xs-inset4">Mega 3.90625rem</h1>
 <h1 class="xs-alpha xs-inset4">h1 3.125rem</h1>
 <h2 class="xs-beta xs-inset4">h2 2.5rem</h2>
 <h3 class="xs-gamma">h3 2rem</h3>
@@ -53,6 +57,8 @@ $fortitude-responsive-font-sizes: (
 */
 
 $fortitude-responsive-font-sizes: (
+  "giga": fortitude-font-scale(5),
+  "mega": fortitude-font-scale(4),
   "alpha": fortitude-font-scale(3),
   "beta": fortitude-font-scale(2),
   "gamma": fortitude-font-scale(1),
@@ -62,10 +68,12 @@ $fortitude-responsive-font-sizes: (
 ) !default;
 
 @include fortitude-breakpoints {
+  $alias: map-get($fortitude-tmp, "current-breakpoint-alias");
+
   @each $alias, $size in $fortitude-responsive-font-sizes {
     $value: map-get($fortitude-responsive-font-sizes, $alias) !important;
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-#{$alias} {
+    .#{$fortitude-namespace}#{$alias}-#{$alias} {
       font-size: $value;
     }
   }

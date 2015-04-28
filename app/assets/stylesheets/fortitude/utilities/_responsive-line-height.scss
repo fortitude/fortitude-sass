@@ -5,23 +5,22 @@ name: responsive-line-height
 category: Utilities
 ---
 Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `line-height`.
-Example: `sm-inset2` will only set the line-height to `4rem` or `40px` on the element at the `sm` breakpoint and up.
+Example: `sm-inset2` will only set the line-height to `2rem` or `20px` on the element at the `sm` breakpoint and up.
 
-```html_preview_example
-<div class="xs-inset2 sm-inset4">
-  This content will have a line height of <code class="styleguide">4rem</code> or `40px` on screens at the <code class="styleguide">xs</code> breakpoint, and <code class="styleguide">8rem</code> or <code class="styleguide">80px</code> on screens at the <code class="styleguide">sm</code> breakpoint and up.
-</div>
-```
-
+Class      | Description
+---------- | ------------
+`*-inset*` | line height
 */
 
-$fortitude-responsive-line-height-unit-total: 4 !default;
+$fortitude-responsive-line-height-unit-total: 6 !default;
 
 @include fortitude-breakpoints {
+  $alias: map-get($fortitude-tmp, "current-breakpoint-alias");
+
   @for $index from 0 through $fortitude-responsive-line-height-unit-total {
     $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index) !important;
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-inset#{$index} {
+    .#{$fortitude-namespace}#{$alias}-inset#{$index} {
       line-height: $value;
     }
   }
