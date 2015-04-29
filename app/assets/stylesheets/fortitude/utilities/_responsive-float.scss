@@ -7,26 +7,25 @@ category: Utilities
 Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how an element floats.
 Example: `sm-float-left` will only float the element at the `sm` breakpoint and up.
 
-```html_preview_example
-<div class="clearfix">
-  <div class="xs-float-left">Float Left</div>
-  <div class="xs-float-right">Float Right</div>
-</div>
-<div class="xs-float-none">Float None</div>
-```
-
+Class           | Description
+--------------- | ------------
+`*-float-left`  | float left
+`*-float-right` | float right
+`*-float-none`  | float none
 */
 
 @include fortitude-breakpoints {
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-float-left {
+  $alias: map-get($fortitude-tmp, "current-breakpoint-alias");
+
+  .#{$fortitude-namespace}#{$alias}-float-left {
     float: left !important;
   }
 
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-float-right {
+  .#{$fortitude-namespace}#{$alias}-float-right {
     float: right !important;
   }
 
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-float-none {
+  .#{$fortitude-namespace}#{$alias}-float-none {
     float: none !important;
   }
 }

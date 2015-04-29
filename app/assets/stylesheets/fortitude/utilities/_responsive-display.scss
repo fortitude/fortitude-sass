@@ -7,48 +7,50 @@ category: Utilities
 Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how an elements is displayed.
 Example: `sm-none` will only hide the element at the `sm` breakpoint and up.
 
-```html_preview_example
-<div class="xs-inline sm-none">
-  This content will not be displayed on screens at the <code class="styleguide">sm</code> breakpoint and up.
-</div>
-
-<div class="xs-none sm-inline">
-  This content will not be displayed screens at the <code class="styleguide">xs</code> breakpoint, but will be displayed on screens at the <code class="styleguide">sm</code> breakpoints and up..
-</div>
-```
-
+Class            | Description
+---------------- | ------------------------
+`*-none`         | display as none
+`*-inline`       | display as inline
+`*-inline-block` | display as inline-block
+`*-block`        | display as block
+`*-table`        | display as table
+`*-table-cell`   | display as table cell
+`*-table-column` | display as table column
+`*-inherit`      | display as inherit
 */
 
 @include fortitude-breakpoints {
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-none {
+  $alias: map-get($fortitude-tmp, "current-breakpoint-alias");
+
+  .#{$fortitude-namespace}#{$alias}-none {
     display: none !important;
   }
 
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-inline {
+  .#{$fortitude-namespace}#{$alias}-inline {
     display: inline !important;
   }
 
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-inline-block {
+  .#{$fortitude-namespace}#{$alias}-inline-block {
     display: inline-block !important;
   }
 
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-block {
+  .#{$fortitude-namespace}#{$alias}-block {
     display: block !important;
   }
 
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-table {
+  .#{$fortitude-namespace}#{$alias}-table {
     display: table !important;
   }
 
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-table-cell {
+  .#{$fortitude-namespace}#{$alias}-table-cell {
     display: table-cell !important;
   }
 
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-table-column {
+  .#{$fortitude-namespace}#{$alias}-table-column {
     display: table-column !important;
   }
 
-  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-inherit {
+  .#{$fortitude-namespace}#{$alias}-inherit {
     display: inherit !important;
   }
 }

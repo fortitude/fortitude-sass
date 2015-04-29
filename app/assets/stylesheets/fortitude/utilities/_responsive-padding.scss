@@ -7,55 +7,46 @@ category: Utilities
 Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify an elements `padding`.
 Example: `sm-ptb2` will only set the bottom and top padding to `2rem` or `20px` on the element at the `sm` breakpoint and up.
 
-Utility                                  | Description
----------------------------------------- | -----------
-`xs`, `sm`, `md`, `lg`                   | breakpoints
-`p`, `ptb`, `prl`, `pt`, `pr`, `pb` `pl` | `padding` &mdash; `t = top`, `r = right`, `b = bottom`, `l = left`
-(0-8)                                    | amount of spacing
-
-```html_preview_example
-<div class="box box--default xs-ptb2 xs-prl1">
-<pre><code class="styleguide">
-padding-top:    2rem;
-padding-right:  1rem;
-padding-bottom: 2rem;
-padding-left:   1rem;
-</code></pre>
-  <p>Applied to all screen sizes</p>
-</div>
-<div class="box box--default xs-prl1 sm-prl2 md-prl3 lg-prl4 xs-mt1 xs-ptb2 xs-prl1">
-  Right and left padding grows along with screen size
-</div>
-```
+Class    | Description
+-------- | -----------------------
+`*-p*`   | padding all sides
+`*-ptb*` | padding top and bottom
+`*-prl*` | padding right and left
+`*-pt*`  | padding top
+`*-pr*`  | padding right
+`*-pb*`  | padding bottom
+`*-pl*`  | padding left
 */
 
 $fortitude-responsive-padding-unit-total: 8 !default;
 
 @include fortitude-breakpoints {
+  $alias: map-get($fortitude-tmp, "current-breakpoint-alias");
+
   @for $index from 0 through $fortitude-responsive-padding-unit-total {
     $value: fortitude-strip-unit-if-zero($fortitude-base-spacing-unit * $index) !important;
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-pt#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-p#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-ptb#{$index} {
+    .#{$fortitude-namespace}#{$alias}-pt#{$index},
+    .#{$fortitude-namespace}#{$alias}-p#{$index},
+    .#{$fortitude-namespace}#{$alias}-ptb#{$index} {
       padding-top: $value;
     }
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-pr#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-p#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-prl#{$index} {
+    .#{$fortitude-namespace}#{$alias}-pr#{$index},
+    .#{$fortitude-namespace}#{$alias}-p#{$index},
+    .#{$fortitude-namespace}#{$alias}-prl#{$index} {
       padding-right: $value;
     }
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-pb#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-p#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-ptb#{$index} {
+    .#{$fortitude-namespace}#{$alias}-pb#{$index},
+    .#{$fortitude-namespace}#{$alias}-p#{$index},
+    .#{$fortitude-namespace}#{$alias}-ptb#{$index} {
       padding-bottom: $value;
     }
 
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-pl#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-p#{$index},
-    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-prl#{$index} {
+    .#{$fortitude-namespace}#{$alias}-pl#{$index},
+    .#{$fortitude-namespace}#{$alias}-p#{$index},
+    .#{$fortitude-namespace}#{$alias}-prl#{$index} {
       padding-left: $value;
     }
   }

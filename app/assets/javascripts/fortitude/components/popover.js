@@ -15,7 +15,7 @@ The javascript component covers combining popovers into groups, and allowing onl
 
 ### Data Attributes
 
-* `data-ft-popover="group_name"` on the `.popover` element
+* `data-ft-popover="group-name"` on the `.popover` element
 * `data-ft-popover-toggle` on the `.popover__toggle` element
 * `data-ft-popover-content` on the `.popover__content` element
 

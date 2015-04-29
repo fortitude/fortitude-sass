@@ -1,1 +1,91 @@
+$fortitude-navigationbar-border-width: 0 !default;
+$fortitude-navigationbar-border-style: solid !default;
 $fortitude-navigationbar-height: 4rem !default;
+$fortitude-navigationbar-margin-horizontal: 0 !default;
+$fortitude-navigationbar-margin-vertical: fortitude-component-margin($fortitude-navigationbar-height, $fortitude-navigationbar-border-width) !default;
+$fortitude-navigarionbar-margin: $fortitude-navigationbar-margin-vertical $fortitude-navigationbar-margin-horizontal !default;
+$fortitude-navigationbar-padding-horizontal: 1rem !default;
+$fortitude-navigationbar-padding-vertical: fortitude-component-padding($fortitude-navigationbar-height, $fortitude-navigationbar-border-width) !default;
+$fortitude-navigationbar-padding: $fortitude-navigationbar-padding-vertical $fortitude-navigationbar-padding-horizontal !default;
+$fortitude-navigationbar__dropdown-padding-horizontal: 2rem !default;
+$fortitude-navigationbar__dropdown-padding-vertical: fortitude-component-padding($fortitude-navigationbar-height, $fortitude-navigationbar-border-width) !default;
+$fortitude-navigationbar__dropdown-padding: $fortitude-navigationbar__dropdown-padding-vertical $fortitude-navigationbar__dropdown-padding-horizontal !default;
+
+
+$fortitude-enable-navigationbar--responsive: false !default;
+
+@mixin fortitude-navigationbar {
+  border: $fortitude-navigationbar-border-width $fortitude-navigationbar-border-style transparent;
+}
+
+@mixin fortitude-navigationbar__logo {
+  display: inline-block;
+  margin: $fortitude-navigarionbar-margin;
+  padding: $fortitude-navigationbar-padding;
+}
+
+@mixin fortitude-navigationbar__nav--is-hidden {
+  display: none;
+}
+
+@mixin fortitude-navigationbar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin fortitude-navigationbar__link {
+  display: block;
+  padding: $fortitude-navigationbar-padding;
+}
+
+@mixin fortitude-navigationbar__dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin fortitude-navigationbar__dropdown--nowrap {
+  white-space: nowrap;
+}
+
+@mixin fortitude-navigationbar__dropdown__link {
+  display: block;
+  padding: $fortitude-navigationbar__dropdown-padding;
+}
+
+
+@mixin fortitude-navigationbar--responsive__header {
+  float: left;
+}
+
+@mixin fortitude-navigationbar--responsive__nav {
+  float: right;
+}
+
+@mixin fortitude-navigationbar--responsive__nav--is-hidden {
+  display: block;
+}
+
+@mixin fortitude-navigationbar--responsive__list {
+  @include fortitude-clearfix;
+  padding: 0 $fortitude-navigationbar-padding-horizontal;
+}
+
+@mixin fortitude-navigationbar--responsive__item {
+  float: left;
+  position: relative;
+}
+
+@mixin fortitude-navigationbar--responsive__item--is-hovered__dropdown {
+  display: block;
+}
+
+@mixin fortitude-navigationbar--responsive__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+  margin: 0;
+}

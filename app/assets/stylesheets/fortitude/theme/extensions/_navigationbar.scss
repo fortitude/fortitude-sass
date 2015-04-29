@@ -14,33 +14,40 @@ $fortitude-enable-navigationbar: false !default;
 
     .navigationbar__list {
       background-color: map-get($fortitude-colors, "white");
+    }
+
+    .navigationbar__link,
+    .navigationbar__dropdown__link {
       box-shadow: 0 0.1rem 0 0 map-get($fortitude-colors, "gray-light");
     }
 
-    .navigationbar__dropdown {
-      background-color: map-get($fortitude-colors, "gray-light");
-
-      &::before {
-        @include fortitude-triangle("top", 0.8rem, map-get($fortitude-colors, "gray-light"));
-        content: "";
-        position: absolute;
-        right: 20%;
-        top: -0.8rem;
-      }
-    }
-
-    .navigationbar__link {
+    .navigationbar__link,
+    .navigationbar__dropdown__link {
       color: map-get($fortitude-colors, "black");
       text-decoration: none;
       font-size: 1.4rem;
     }
+  }
 
-    @include fortitude-breakpoint("xs", $fortitude-breakpoints) {
+  @include fortitude-breakpoints {
+    $alias: map-get($fortitude-tmp, "current-breakpoint-alias");
+    .#{$alias}-navigationbar.navigationbar--default {
+      .navigationbar__link,
+      .navigationbar__dropdown__link {
+        box-shadow: none;
+      }
+
       .navigationbar__dropdown {
-        background-color: transparent;
+        background-color: map-get($fortitude-colors, "gray-light");
+        color: map-get($fortitude-colors, "black");
 
         &::before {
-          display: none;
+          @include fortitude-triangle("top", 1rem, map-get($fortitude-colors, "gray-light"));
+          content: "";
+          position: absolute;
+          top: -1rem;
+          left: 50%;
+          margin-left: -1rem;
         }
       }
     }

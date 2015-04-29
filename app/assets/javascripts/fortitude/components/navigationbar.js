@@ -6,6 +6,17 @@ category: Javascript
 ---
 The `navigationbar` object is used for the main navigation of your site or app. The javascript component allows you to show and hide the collapsed mobile navigationbar.
 
+Class                              | Description
+---------------------------------- | -----------------------------------------------------------
+`.xs-navigationbar`                | Show desktop navigationbar style on all breakpoints
+`.sm-navigationbar`                | Show desktop navigationbar style on `sm` breakpoint and up
+`.md-navigationbar`                | Show desktop navigationbar style on `md` breakpoint and up
+`.lg-navigationbar`                | Show desktop navigationbar style on `lg` breakpoint
+
+<div class="note note--info">
+  If you are using a dropdown in your navigationbar and you would like the items in the dropdown to not wrap you can add the <code class="styleguide">navigationbar__dropdown--nowrap</code> class to the <code class="styleguide">navigationbar__dropdown</code>
+</div>
+
 ### Data Attributes
 
 * `data-ft-navigationbar` on the `.navigationbar` element
@@ -27,7 +38,7 @@ $(document).on('show.ft.navigationbar', '.navigationbar', function(event) {
 ```
 
 ```html_preview_example
-<nav class="navigationbar navigationbar--default" data-ft-navigationbar>
+<nav class="navigationbar sm-navigationbar navigationbar--default" data-ft-navigationbar>
   <div class="fluid-container clearfix">
     <div class="navigationbar__header clearfix">
       <a class="navigationbar__logo" href="#" target="_self">Fortitude</a>
