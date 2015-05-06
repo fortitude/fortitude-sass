@@ -197,10 +197,6 @@ $fortitude-enable-flag: true;
   @include fortitude-flag__object;
 }
 
-.#{$fortitude-namespace}flag__object > * {
-  @include fortitude-flag__object__content;
-}
-
 .#{$fortitude-namespace}flag__body {
   @include fortitude-flag__body;
 }

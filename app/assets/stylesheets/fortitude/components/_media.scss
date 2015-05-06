@@ -151,11 +151,6 @@ $fortitude-enable-media: true;
   @include fortitude-media__object;
 }
 
-.#{$fortitude-namespace}media__object > * {
-  @include fortitude-media__object__content;
-}
-
-
 .#{$fortitude-namespace}media__body {
   @include fortitude-media__body;
 }

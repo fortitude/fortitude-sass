@@ -70,10 +70,10 @@ $fortitude-responsive-font-sizes: (
 @include fortitude-breakpoints {
   $alias: map-get($fortitude-tmp, "current-breakpoint-alias");
 
-  @each $alias, $size in $fortitude-responsive-font-sizes {
-    $value: map-get($fortitude-responsive-font-sizes, $alias) !important;
+  @each $name, $size in $fortitude-responsive-font-sizes {
+    $value: map-get($fortitude-responsive-font-sizes, $name) !important;
 
-    .#{$fortitude-namespace}#{$alias}-#{$alias} {
+    .#{$fortitude-namespace}#{$alias}-#{$name} {
       font-size: $value;
     }
   }

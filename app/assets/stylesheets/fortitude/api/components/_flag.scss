@@ -4,7 +4,7 @@ $fortitude-enable-flag--reverse: false !default;
 $fortitude-enable-flag--responsive: false !default;
 
 @mixin fortitude-flag($extensions: ()) {
-  display: table;
+  display: block;
   width: 100%;
 }
 
@@ -13,11 +13,11 @@ $fortitude-enable-flag--responsive: false !default;
 }
 
 @mixin fortitude-flag--responsive {
-  display: block;
+  display: table;
 }
 
 @mixin fortitude-flag__object($extensions: ()) {
-  display: table-cell;
+  display: block;
   vertical-align: middle;
 }
 
@@ -34,18 +34,11 @@ $fortitude-enable-flag--responsive: false !default;
 }
 
 @mixin fortitude-flag--responsive__object {
-  display: block;
-}
-
-@mixin fortitude-flag__object__content($extensions: ()) {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: none;
+  display: table-cell;
 }
 
 @mixin fortitude-flag__body($extensions: ()) {
-  display: table-cell;
+  display: block;
   width: 100%;
   vertical-align: middle;
 }
@@ -63,5 +56,5 @@ $fortitude-enable-flag--responsive: false !default;
 }
 
 @mixin fortitude-flag--responsive__body {
-  display: block;
+  display: table-cell;
 }

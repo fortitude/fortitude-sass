@@ -138,7 +138,7 @@
 @function fortitude-component-margin($component-height, $component-border-width: 0rem, $component-spacing-unit: $fortitude-base-spacing-unit) {
   $component-spacing-unit-height: fortitude-component-spacing-unit-height($component-height, $component-spacing-unit);
   $value: fortitude-halve($component-spacing-unit-height - $component-height);
-  $value: $value + fortitude-component-negitive-padding($component-height, $component-border-width, $component-spacing-unit);
+  $value: $value;
 
   @return fortitude-strip-unit-if-zero($value);
 }

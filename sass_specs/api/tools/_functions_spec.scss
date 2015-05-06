@@ -172,10 +172,6 @@
     @include it("returns the margin of a component") {
       @include should(expect(fortitude-component-margin($component-height, $component-border-width, $base-spacing-unit)), to(equal(fortitude-halve($component-margin))));
     }
-
-    @include it("returns the margin of a component") {
-      @include should(expect(fortitude-component-margin(1.8rem, 0.2rem, $base-spacing-unit)), to(equal(-0.2rem)));
-    }
   }
 
   @include describe("fortitude-component-padding") {
