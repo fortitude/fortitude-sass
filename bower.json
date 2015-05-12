@@ -1,7 +1,7 @@
 {
   "name": "fortitude-sass",
   "homepage": "http://fortitude.io/",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "main": [
     "app/assets/stylesheets/fortitude/theme.scss"
   ],

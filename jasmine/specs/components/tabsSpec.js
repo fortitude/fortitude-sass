@@ -72,9 +72,9 @@
   _.runWithDataAndBare({
     spec: 'data-ft-tabs',
     fixture: 'tabsDataFixture.html',
-    itemOne: '[data-ft-tabs-navigation-link]:eq(0)',
+    itemOne: '[data-ft-tabs-navigation-item]:eq(0)',
     targetOne: '[data-ft-tabs-content]:eq(0)',
-    itemTwo: '[data-ft-tabs-navigation-link]:eq(1)',
+    itemTwo: '[data-ft-tabs-navigation-item]:eq(1)',
     targetTwo: '[data-ft-tabs-content]:eq(1)'
   }, runTabsExamples);
 
@@ -85,9 +85,9 @@
   _.runWithDataAndBare({
     spec: 'data-ft-tabs with ids specified',
     fixture: 'tabsIdFixture.html',
-    itemOne: '[data-ft-tabs-navigation-link="tab-one"]',
+    itemOne: '[data-ft-tabs-navigation-item="tab-one"]',
     targetOne: '#tab-one',
-    itemTwo: '[data-ft-tabs-navigation-link="tab-two"]',
+    itemTwo: '[data-ft-tabs-navigation-item="tab-two"]',
     targetTwo: '#tab-two'
   }, runTabsExamples);
 

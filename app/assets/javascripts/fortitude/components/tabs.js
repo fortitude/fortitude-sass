@@ -9,21 +9,21 @@ The tabs and tabs-navigation components are used to navigate between different s
 ### Data Attributes
 
 * `data-ft-tabs` on the parent `.tabs` element
-* `data-ft-tabs-navigation-link` on each `.tabs-navigation__link` elements
+* `data-ft-tabs-navigation-item` on each `.tabs-navigation__item` elements
 * `data-ft-tabs-content` on each `.tabs__content` element
 
 <div class="note note--info">
-  <p class="styleguide">By default, the tabs-navigation javascript will show and hide tabs based on their order in the html. To link a <code class="styleguide">.tabs-navigation__link</code> element to a tab somewhere else, set the <code class="styleguide">data-ft-tabs-navigation-link</code> attribute to the id of the linked tab.</p>
+  <p class="styleguide">By default, the tabs-navigation javascript will show and hide tabs based on their order in the html. To link a <code class="styleguide">.tabs-navigation__item</code> element to a tab somewhere else, set the <code class="styleguide">data-ft-tabs-navigation-item</code> attribute to the id of the linked tab.</p>
 </div>
 
 ### Events
 
 event                 | description
 --------------------- | -----------------------
-`show.ft.tab`         | This tab navigation link is being changed to the active state
-`shown.ft.tab`        | This tab navigation link is in the active state
-`hide.ft.tab`         | This tab navigation link is being changed to the inactive state
-`hidden.ft.tab`       | This tab navigation link is in the inactive state
+`show.ft.tab`         | This tab navigation item is being changed to the active state
+`shown.ft.tab`        | This tab navigation item is in the active state
+`hide.ft.tab`         | This tab navigation item is being changed to the inactive state
+`hidden.ft.tab`       | This tab navigation item is in the inactive state
 `show.ft.tabtarget`   | This tab content is being shown
 `shown.ft.tabtarget`  | This tab content is shown
 `hide.ft.tabtarget`   | This tab content is being hidden
@@ -38,14 +38,14 @@ $(document).on('show.ft.tab', '.tabs', function(event, tabIndex) {
 ```html_preview_example
 <nav class="tabs tabs--default" data-ft-tabs>
   <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default xs-mb1">
-    <li class="tabs-navigation__item tabs-navigation__item--is-active">
-      <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 1</a>
+    <li class="tabs-navigation__item tabs-navigation__item--is-active" data-ft-tabs-navigation-item>
+      <a href="javascript: void(0);" class="tabs-navigation__link">Tab 1</a>
     </li>
-    <li class="tabs-navigation__item">
-      <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 2</a>
+    <li class="tabs-navigation__item" data-ft-tabs-navigation-item>
+      <a href="javascript: void(0);" class="tabs-navigation__link">Tab 2</a>
     </li>
-    <li class="tabs-navigation__item">
-      <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 3</a>
+    <li class="tabs-navigation__item" data-ft-tabs-navigation-item>
+      <a href="javascript: void(0);" class="tabs-navigation__link">Tab 3</a>
     </li>
   </ul>
   <div class="tabs__content tabs__content--is-shown xs-text-center" data-ft-tabs-content>
@@ -72,48 +72,48 @@ $(document).on('show.ft.tab', '.tabs', function(event, tabIndex) {
 
   var itemActive = 'tabs-navigation__item--is-active',
       targetActive = 'tabs__content--is-shown',
-      tabLink = '[ft-tabs-navigation-link], [data-ft-tabs-navigation-link]',
+      tabItem = '[ft-tabs-navigation-item], [data-ft-tabs-navigation-item]',
       tabContent = '[ft-tabs-content], [data-ft-tabs-content]',
       tabParent = '[ft-tabs], [data-ft-tabs]',
-      contentAttr = 'ft-tabs-navigation-link';
+      contentAttr = 'ft-tabs-navigation-item';
 
-  var linkClicked = function($link){
-    var $parent = $link.closest(tabParent),
-        $content = $link.ftTarget(contentAttr),
+  var itemClicked = function($item){
+    var $parent = $item.closest(tabParent),
+        $content = $item.ftTarget(contentAttr),
         $siblings, activeClass, index;
 
     if(!$content.length){
-      index = $parent.find(tabLink).index($link);
+      index = $parent.find(tabItem).index($item);
       $content = $parent.find(tabContent).eq(index);
     }
 
     if(!$content.length){ return; }
 
-    $siblings = $parent.find(tabLink);
+    $siblings = $parent.find(tabItem);
 
     if(!$siblings.length) { return; }
 
     $siblings.each(function(){
-      // $this is a sibling of $link
-      // so it will be another tabs-navigation__link
+      // $this is a sibling of $item
+      // so it will be another tabs-navigation__item
       var $this = $(this),
           $thisContent = $this.ftTarget(contentAttr);
 
       if(!$thisContent.length){
-        index = $parent.find(tabLink).index($this);
+        index = $parent.find(tabItem).index($this);
         $thisContent = $parent.find(tabContent).eq(index);
       }
 
       if(!$thisContent.length){ return; }
 
-      // return the link to hidden state
+      // return the item to hidden state
       $this.ftTransitionWith({
         attr: 'ft-hide-class',
         removeClass: itemActive,
         endEvent: 'hidden.ft.tab'
       });
 
-      // return the link's content to hidden state
+      // return the item's content to hidden state
       $thisContent.ftTransitionWith({
         attr: 'ft-hide-class',
         removeClass: targetActive,
@@ -121,7 +121,7 @@ $(document).on('show.ft.tab', '.tabs', function(event, tabIndex) {
       });
     });
 
-    $link.ftTransitionWith({
+    $item.ftTransitionWith({
       attr: 'ft-show-class',
       addClass: itemActive,
       endEvent: 'shown.ft.tab'
@@ -134,11 +134,11 @@ $(document).on('show.ft.tab', '.tabs', function(event, tabIndex) {
     });
   };
 
-  $(document).on('show.ft.tab', tabLink, function(event){
-    linkClicked($(this));
+  $(document).on('show.ft.tab', tabItem, function(event){
+    itemClicked($(this));
   });
 
-  $(document).on('click', tabLink, function(){
+  $(document).on('click', tabItem, function(){
     $(this).trigger('show.ft.tab');
   });
 
