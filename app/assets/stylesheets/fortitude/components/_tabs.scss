@@ -1,0 +1,29 @@
+/*doc
+---
+title: Tabs
+name: tabs
+category: Objects
+---
+The `tabs__content` object is used to encapsulate the content for individual tabs. See [the javascript component](/javascript.html#js-tabs) for info on how to combine `tabs` , `tabs__content` and `tabs-navigation` to show and hide tabs.
+
+```html_preview_example
+<div class="tabs__content">
+  Tabs are <code class="styleguide">display: none</code> by default
+</div>
+
+<div class="tabs__content tabs__content--is-shown">
+  Tabs with the <code class="styleguide">--is-shown</code> modifier are <code class="styleguide">display: block</code>
+</div>
+```
+
+*/
+
+$fortitude-enable-tabs: true;
+
+.#{$fortitude-namespace}tabs__content {
+  @include fortitude-tabs__content;
+}
+
+.#{$fortitude-namespace}tabs__content--is-shown {
+  @include fortitude-tabs__content--is-shown;
+}

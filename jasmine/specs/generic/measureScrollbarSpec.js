@@ -2,7 +2,7 @@
   'use strict';
 
   describe('$.measureScrollBar', function(){
- 
+
     beforeEach(function(){
       loadFixtures('measureScrollBarFixture.html');
     });
@@ -11,7 +11,7 @@
     // just ensuring this doesn't raise an error
     it('gets scrollbar width', function(){
       var fullHtml = $(document.body).html();
-      expect($.measureScrollBar()).toEqual(0);
+      expect($.measureScrollBar()).not.toEqual(0);
       expect($(document.body).html()).toEqual(fullHtml);
     });
   });

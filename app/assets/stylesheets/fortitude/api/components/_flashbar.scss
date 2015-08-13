@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    #FLASHBAR
+\*------------------------------------*/
+
+/**
+ * A simple flashbar object.
+**/
+
+$fortitude-flashbar-border-style: solid !default;
+$fortitude-flashbar-border-width: 0 !default;
+$fortitude-flashbar-padding-vertical: 1rem;
+$fortitude-flashbar-padding-horizontal: 1rem;
+$fortitude-flashbar-padding: $fortitude-flashbar-padding-vertical $fortitude-flashbar-padding-horizontal;
+
+$fortitude-flashbar__hide-text-decoration: none !default;
+$fortitude-flashbar__hide-font-size: 1.8rem;
+
+@mixin fortitude-flashbar($extensions: ()) {
+  @include fortitude-clearfix;
+  border: $fortitude-flashbar-border-width $fortitude-flashbar-border-style transparent;
+  padding: $fortitude-flashbar-padding;
+  position: relative;
+}
+
+@mixin fortitude-flashbar--is-hidden($extensions: ()) {
+  display: none;
+}
+
+@mixin fortitude-flashbar__hide($extensions: ()) {
+  @include fortitude-appearance(none);
+
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 1rem;
+  text-decoration: $fortitude-flashbar__hide-text-decoration;
+  font-size: $fortitude-flashbar__hide-font-size;
+}

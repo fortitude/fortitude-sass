@@ -1,0 +1,54 @@
+/*doc
+---
+title: Responsive Display
+name: responsive-display
+category: Utilities
+---
+Using the `xs`,`sm`,`md`,`lg` breakpoints you can modify how an elements is displayed.
+Example: `sm-none` will only hide the element at the `sm` breakpoint and up.
+
+```html_preview_example
+<div class="xs-inline sm-none">
+  This content will not be displayed on screens at the <code class="styleguide">sm</code> breakpoint and up.
+</div>
+
+<div class="xs-none sm-inline">
+  This content will not be displayed screens at the <code class="styleguide">xs</code> breakpoint, but will be displayed on screens at the <code class="styleguide">sm</code> breakpoints and up..
+</div>
+```
+
+*/
+
+@include fortitude-breakpoints {
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-none {
+    display: none !important;
+  }
+
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-inline {
+    display: inline !important;
+  }
+
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-inline-block {
+    display: inline-block !important;
+  }
+
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-block {
+    display: block !important;
+  }
+
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-table {
+    display: table !important;
+  }
+
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-table-cell {
+    display: table-cell !important;
+  }
+
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-table-column {
+    display: table-column !important;
+  }
+
+  .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-inherit {
+    display: inherit !important;
+  }
+}

@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    #SHADE
+\*------------------------------------*/
+
+@mixin fortitude-shade($extensions: ()) {
+  $is-shown: map-get($extensions, 'active');
+
+  @if($is-shown){
+    @include fortitude-shade--is-shown;
+  } @else {
+    display: none;
+  }
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin fortitude-shade--is-shown($extensions: ()) {
+  display: block;
+}

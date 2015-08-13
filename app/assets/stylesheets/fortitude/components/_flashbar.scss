@@ -1,0 +1,13 @@
+$fortitude-enable-flashbar: true;
+
+.#{$fortitude-namespace}flashbar {
+  @include fortitude-flashbar;
+}
+
+.#{$fortitude-namespace}flashbar--is-hidden {
+  @include fortitude-flashbar--is-hidden;
+}
+
+.#{$fortitude-namespace}flashbar__hide {
+  @include fortitude-flashbar__hide;
+}

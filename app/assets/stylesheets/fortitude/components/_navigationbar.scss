@@ -1,0 +1,103 @@
+$fortitude-enable-navigationbar: true;
+
+.#{$fortitude-namespace}navigationbar {
+  position: relative;
+  min-height: $fortitude-navigationbar-height;
+
+  * {
+    vertical-align: top;
+  }
+}
+
+.#{$fortitude-namespace}navigationbar__header {
+  float: left;
+}
+
+.#{$fortitude-namespace}navigationbar__logo {
+  display: inline-block;
+  padding: fortitude-component-padding($fortitude-navigationbar-height);
+  vertical-align: top;
+}
+
+.#{$fortitude-namespace}navigationbar__nav {
+  float: right;
+}
+
+.#{$fortitude-namespace}navigationbar__list {
+  margin: 0;
+  padding: 0 1rem 0 0;
+  list-style: none;
+}
+
+.#{$fortitude-namespace}navigationbar__item {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+
+  &:hover .#{$fortitude-namespace}navigationbar__dropdown {
+    display: block;
+  }
+}
+
+.#{$fortitude-namespace}navigationbar__link {
+  display: block;
+  padding: fortitude-component-padding($fortitude-navigationbar-height);
+}
+
+
+.#{$fortitude-namespace}navigationbar__dropdown {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+
+  > .navigationbar__item {
+    white-space: nowrap;
+  }
+}
+
+@include fortitude-breakpoint("xs", $fortitude-breakpoints) {
+  .#{$fortitude-namespace}navigationbar__header {
+    float: none;
+  }
+
+  .#{$fortitude-namespace}navigationbar__nav {
+    @include fortitude-clearfix;
+    display: block;
+    float: none;
+    margin-top: -$fortitude-navigationbar-height;
+  }
+
+  .#{$fortitude-namespace}navigationbar__nav--is-hidden {
+    display: none;
+  }
+
+  .#{$fortitude-namespace}navigationbar__list {
+    clear: both;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+
+    :checked ~ & {
+      display: block;
+    }
+  }
+
+  .#{$fortitude-namespace}navigationbar__dropdown {
+    display: block;
+    position: relative;
+  }
+
+  .#{$fortitude-namespace}navigationbar__item {
+    display: block;
+    margin-left: 1rem;
+  }
+
+  .#{$fortitude-namespace}navigationbar__link {
+    display: block;
+  }
+}

@@ -1,0 +1,67 @@
+$fortitude-enable-flag--top: false !default;
+$fortitude-enable-flag--bottom: false !default;
+$fortitude-enable-flag--reverse: false !default;
+$fortitude-enable-flag--responsive: false !default;
+
+@mixin fortitude-flag($extensions: ()) {
+  display: table;
+  width: 100%;
+}
+
+@mixin fortitude-flag--reverse {
+  direction: rtl;
+}
+
+@mixin fortitude-flag--responsive {
+  display: block;
+}
+
+@mixin fortitude-flag__object($extensions: ()) {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@mixin fortitude-flag--top__object {
+  vertical-align: top;
+}
+
+@mixin fortitude-flag--bottom__object {
+  vertical-align: bottom;
+}
+
+@mixin fortitude-flag--reverse__object {
+  direction: ltr;
+}
+
+@mixin fortitude-flag--responsive__object {
+  display: block;
+}
+
+@mixin fortitude-flag__object__content($extensions: ()) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: none;
+}
+
+@mixin fortitude-flag__body($extensions: ()) {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+}
+
+@mixin fortitude-flag--top__body {
+  vertical-align: top;
+}
+
+@mixin fortitude-flag--bottom__body {
+  vertical-align: bottom;
+}
+
+@mixin fortitude-flag--reverse__body {
+  direction: ltr;
+}
+
+@mixin fortitude-flag--responsive__body {
+  display: block;
+}

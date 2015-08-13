@@ -1,0 +1,41 @@
+/*doc
+---
+title: Tooltip
+name: tooltip
+category: Objects
+---
+The `tooltip` Object is used for displaying supporting information on hover of the contained content.
+
+<div class="note note--info">
+  <p class="styleguide">Tooltips in Fortitude do not require <em class="text--italic">any</em> javascript - pure CSS!</p>
+</div>
+
+```html_preview_example
+<a href="javascript: void(0);" class="tooltip tooltip--top" data-tooltip="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!">Top</a>
+<a href="javascript: void(0);" class="tooltip tooltip--right" data-tooltip="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!">Right</a>
+<a href="javascript: void(0);" class="tooltip tooltip--bottom" data-tooltip="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!">Bottom</a>
+<a href="javascript: void(0);" class="tooltip tooltip--left" data-tooltip="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!">Left</a>
+```
+*/
+
+$fortitude-enable-tooltip: true;
+
+.#{$fortitude-namespace}tooltip {
+  @include fortitude-tooltip;
+}
+
+.#{$fortitude-namespace}tooltip--top {
+  @include fortitude-tooltip--top;
+}
+
+.#{$fortitude-namespace}tooltip--right {
+  @include fortitude-tooltip--right;
+}
+
+.#{$fortitude-namespace}tooltip--bottom {
+  @include fortitude-tooltip--bottom;
+}
+
+.#{$fortitude-namespace}tooltip--left {
+  @include fortitude-tooltip--left;
+}

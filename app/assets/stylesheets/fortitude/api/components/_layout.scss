@@ -1,0 +1,159 @@
+/*------------------------------------*\
+    #LAYOUT
+\*------------------------------------*/
+
+$fortitude-layout-gutter--default: 2rem !default;
+$fortitude-layout-gutter--small:   fortitude-halve($fortitude-layout-gutter--default) !default;
+$fortitude-layout-gutter--large:   fortitude-double($fortitude-layout-gutter--default) !default;
+
+$fortitude-enable-layout--small:   false !default;
+$fortitude-enable-layout--large:   false !default;
+$fortitude-enable-layout--flush:   false !default;
+$fortitude-enable-layout--reverse: false !default;
+$fortitude-enable-layout--middle:  false !default;
+$fortitude-enable-layout--bottom:  false !default;
+$fortitude-enable-layout--right:   false !default;
+$fortitude-enable-layout--center:  false !default;
+
+$fortitude-global-border-box:      false !default;
+
+@mixin fortitude-layout($extensions: ()) {
+  $is-flush:   fortitude-contains($extensions, "flush");
+  $is-small:   fortitude-contains($extensions, "small");
+  $is-large:   fortitude-contains($extensions, "large");
+  $is-center:  fortitude-contains($extensions, "center");
+  $is-right:   fortitude-contains($extensions, "right");
+  $is-reverse: fortitude-contains($extensions, "reverse");
+
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  @if $is-flush {
+    @include fortitude-layout--flush;
+  } @else if $is-small {
+    @include fortitude-layout--small;
+  } @else if $is-large {
+    @include fortitude-layout--large;
+  } @else {
+    margin-left: -$fortitude-layout-gutter--default;
+  }
+
+  @if $is-center {
+    @include fortitude-layout--center;
+  } @else if $is-right {
+    @include fortitude-layout--right;
+  } @else {
+    text-align: left;
+  }
+
+  @if $is-reverse {
+    @include fortitude-layout--reverse;
+  }
+}
+
+@mixin fortitude-layout--flush {
+  margin-left: 0;
+}
+
+@mixin fortitude-layout--small {
+  margin-left: -$fortitude-layout-gutter--small;
+}
+
+@mixin fortitude-layout--large {
+  margin-left: -$fortitude-layout-gutter--large;
+}
+
+@mixin fortitude-layout--center {
+  text-align: center;
+}
+
+@mixin fortitude-layout--right {
+  text-align: right;
+}
+
+@mixin fortitude-layout--reverse {
+  direction: rtl;
+  text-align: left;
+}
+
+@mixin fortitude-layout__item($extensions: ()) {
+  $is-flush:   fortitude-contains($extensions, "flush");
+  $is-small:   fortitude-contains($extensions, "small");
+  $is-large:   fortitude-contains($extensions, "large");
+  $is-center:  fortitude-contains($extensions, "center");
+  $is-right:   fortitude-contains($extensions, "right");
+  $is-middle:  fortitude-contains($extensions, "middle");
+  $is-bottom:  fortitude-contains($extensions, "bottom");
+  $is-reverse: fortitude-contains($extensions, "reverse");
+
+  display: inline-block;
+  width: 100%;
+  position: relative;
+
+  @if $is-middle {
+    @include fortitude-layout__item--middle;
+  } @else if $is-bottom {
+    @include fortitude-layout__item--bottom;
+  } @else {
+    vertical-align: top;
+  }
+
+  @if $is-flush {
+    @include fortitude-layout__item--flush;
+  } @else if $is-small {
+    @include fortitude-layout__item--small;
+  } @else if $is-large {
+    @include fortitude-layout__item--large;
+  } @else {
+    padding-left: $fortitude-layout-gutter--default;
+  }
+
+  @if $is-center {
+    @include fortitude-layout__item--center;
+  } @else if $is-right {
+    @include fortitude-layout__item--right;
+  }
+
+  @if $is-reverse {
+    @include fortitude-layout__item--reverse;
+  }
+
+  @if $fortitude-global-border-box == false {
+    box-sizing: border-box;
+  }
+}
+
+@mixin fortitude-layout__item--flush {
+  padding-left: 0;
+}
+
+@mixin fortitude-layout__item--small {
+  padding-left: $fortitude-layout-gutter--small;
+}
+
+@mixin fortitude-layout__item--large {
+  padding-left: $fortitude-layout-gutter--large;
+}
+
+@mixin fortitude-layout__item--center {
+  text-align: left;
+}
+
+@mixin fortitude-layout__item--right {
+  text-align: left;
+}
+
+@mixin fortitude-layout__item--middle {
+  vertical-align: middle;
+}
+
+@mixin fortitude-layout__item--bottom {
+  vertical-align: bottom;
+}
+
+@mixin fortitude-layout__item--reverse {
+  direction: ltr;
+  text-align: left;
+}

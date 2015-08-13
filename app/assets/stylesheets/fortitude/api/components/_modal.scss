@@ -1,0 +1,73 @@
+$fortitude-enable-modal--bottom: false !default;
+$fortitude-enable-modal--top:    false !default;
+
+@mixin fortitude-modal($extensions: ()){
+  bottom: 0;
+  display: none;
+  left: 0;
+  overflow: hidden;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 3;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    margin: 0 -0.3rem;
+    vertical-align: middle;
+  }
+
+  @if $fortitude-enable-vendor-optimizations {
+    -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+}
+
+@mixin fortitude-modal__content($extensions: ()){
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  text-align: left;
+  vertical-align: middle;
+  width: auto;
+  // set width in extending class
+}
+
+@mixin fortitude-modal--is-shown($extensions: ()){
+  display: block;
+}
+
+@mixin fortitude-modal--middle {
+  &::before {
+    vertical-align: middle;
+  }
+}
+
+@mixin fortitude-modal--middle__content($extensions: ()) {
+  vertical-align: middle;
+}
+
+@mixin fortitude-modal--top {
+  &::before {
+    vertical-align: top;
+  }
+}
+
+@mixin fortitude-modal--top__content($extensions: ()) {
+  vertical-align: top;
+}
+
+@mixin fortitude-modal--bottom {
+  &::before {
+    vertical-align: bottom;
+  }
+}
+
+@mixin fortitude-modal--bottom__content($extensions: ()) {
+  vertical-align: bottom;
+}

@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #BOX
+\*------------------------------------*/
+
+$fortitude-box-border-style: solid !default;
+$fortitude-box-border-width: 0 !default;
+$fortitude-box-border-radius--rounded: 0.5rem !default;
+
+$fortitude-enable-box--rounded: false !default;
+
+@mixin fortitude-box($extensions: ()) {
+  $is-rounded: fortitude-contains($extensions, rounded);
+
+  @include fortitude-clearfix;
+  display: block;
+  border: $fortitude-box-border-width $fortitude-box-border-style transparent;
+
+  @if $is-rounded {
+    @include fortitude-box--rounded;
+  }
+}
+
+@mixin fortitude-box--rounded {
+  border-radius: $fortitude-box-border-radius--rounded;
+}

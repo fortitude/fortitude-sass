@@ -1,9 +1,0 @@
-$fortitude-enable-box: true;
-
-.#{$fortitude-namespace}box {
-  @include fortitude-box;
-}
-
-.#{$fortitude-namespace}box--rounded {
-  @include fortitude-box--rounded;
-}

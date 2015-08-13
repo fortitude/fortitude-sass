@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    #INLINE-LIST
+\*------------------------------------*/
+
+@mixin fortitude-inline-list($extensions: ()) {
+  margin:  0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    display: inline-block;
+  }
+}

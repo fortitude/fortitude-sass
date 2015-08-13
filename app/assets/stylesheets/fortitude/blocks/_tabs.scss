@@ -1,9 +1,0 @@
-$fortitude-enable-tabs: true;
-
-.#{$fortitude-namespace}tabs__target {
-  @include fortitude-tabs__target;
-}
-
-.#{$fortitude-namespace}tabs__target--is-active {
-  @include fortitude-tabs__target--is-active;
-}

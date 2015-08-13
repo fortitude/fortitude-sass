@@ -1,9 +1,0 @@
-$fortitude-enable-container: true;
-
-.#{$fortitude-namespace}container {
-  @include fortitude-container;
-}
-
-.#{$fortitude-namespace}container--fixed-top {
-  @include fortitude-container--fixed-top;
-}

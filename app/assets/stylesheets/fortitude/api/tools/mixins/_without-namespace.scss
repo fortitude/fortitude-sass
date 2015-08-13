@@ -1,0 +1,23 @@
+@mixin breakpoint($args...) {
+  @include fortitude-breakpoint($args...) {
+    @content;
+  }
+}
+
+@mixin breakpoints($args...) {
+  @include fortitude-breakpoints($args...) {
+    @content;
+  }
+}
+
+@mixin font-size($args...) {
+  @include fortitude-font-size($args...);
+}
+
+@mixin clearfix($args...) {
+  @include fortitude-clearfix($args...);
+}
+
+@mixin appearance($args...) {
+  @include appearance($args);
+}

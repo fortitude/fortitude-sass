@@ -1,0 +1,323 @@
+/*doc
+---
+title: Layout
+name: layout
+category: Structure
+---
+Used to create a responsive horizontal grid system with gutter areas between columns. The default gutter width is `2rem` or `20px`.
+
+<div class="note note--warning">
+  <p class="styleguide">When using <code class="styleguide">.layout</code> make sure that the direct child is a <code class="styleguide">.layout__item</code></p>
+</div>
+
+Class              | Description
+------------------ | ---------------------------------------------------------------
+`.layout`          | `.layout__item` is aligned to the vertical top
+`.layout--middle`  | `.layout__item` is aligned to the vertical middle
+`.layout--bottom`  | `.layout__item` is aligned to the vertical bottom
+`.layout--small`   | `.layout__item` has small gutters
+`.layout--large`   | `.layout__item` has large gutters
+`.layout--flush`   | `.layout__item` has no gutters
+`.layout--reverse` | `.layout__item` is rendered in reverse order
+`.layout--center`  | `.layout__item` is rendered from the center outward
+`.layout--right`   | `.layout__item` is rendered from the right outward
+
+## 12 Columns
+This fortitude theme uses a 12-column grid, and rows and columns can be represented with the `.layout` and `.layout__item` classes respectively.
+
+```html_preview_example
+<div class="layout xs-mb1">
+  <div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div><div class="layout__item md-1of12">
+    <div class="box box--styleguide">1 of 12</div>
+  </div>
+</div>
+
+<div class="layout xs-mb1">
+  <div class="layout__item md-8of12">
+    <div class="box box--styleguide">8 of 12</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">4 of 12</div>
+  </div>
+</div>
+
+<div class="layout xs-mb1">
+  <div class="layout__item md-4of12">
+    <div class="box box--styleguide">4 of 12</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">4 of 12</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">4 of 12</div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide">6 of 12</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">6 of 12</div>
+  </div>
+</div>
+```
+
+## Responsive Grid
+You can re-arrange content for different screen sizes using responsive width helpers. Resize your window and watch the columns in this example go from full-width at the `xs` size to 8 columns at `sm`, 6 columns at `md`, and 4 columns at `lg`.
+
+```html_preview_example
+<div class="layout">
+  <div class="layout__item sm-8of12 md-6of12 lg-4of12">
+    <div class="box box--styleguide">sm-8of12 md-6of12 lg-4of12</div>
+  </div><div class="layout__item sm-4of12 md-6of12 lg-8of12">
+    <div class="box box--styleguide">sm-4of12 md-6of12 lg-8of12</div>
+  </div>
+</div>
+```
+
+## Gutter Size
+
+`.layout` comes with some extensions to customize the gutter size.
+
+### Default
+```html_preview_example
+<div class="layout">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">The default size</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">nothing special</div>
+  </div>
+</div>
+```
+
+### Small
+```html_preview_example
+<div class="layout layout--small">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">these tiny gutters</div>
+  </div>
+</div>
+```
+
+### Large
+```html_preview_example
+<div class="layout layout--large">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">these huge gutters</div>
+  </div>
+</div>
+```
+
+### Flush
+```html_preview_example
+<div class="layout layout--flush">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">No</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">gutters</div>
+  </div>
+</div>
+```
+
+## Vertical Alignment
+
+You can draw columns with different vertical alignments by using `.layout` extensions.
+
+### Default
+```html_preview_example
+<div class="layout">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">No matter how tall this gets</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">This will still be at the top</div>
+  </div>
+</div>
+```
+
+### Middle
+```html_preview_example
+<div class="layout layout--middle">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">No matter how tall this gets</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">This will still be in the middle</div>
+  </div>
+</div>
+```
+
+### Bottom
+```html_preview_example
+<div class="layout layout--bottom">
+  <div class="layout__item md-6of12">
+    <div class="box box--styleguide box--styleguide--tall">No matter how tall this gets</div>
+  </div><div class="layout__item md-6of12">
+    <div class="box box--styleguide">This will still be at the bottom</div>
+  </div>
+</div>
+```
+
+## Render Style
+
+You can choose which direction columns are drawn from using these `.layout` extensions.
+
+### Reverse
+```html_preview_example
+<div class="layout layout--reverse">
+  <div class="layout__item md-4of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">These elements rendering in reverse order</div>
+  </div>
+</div>
+```
+
+### Center
+```html_preview_example
+<div class="layout layout--center">
+  <div class="layout__item md-4of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">These elements rendering from the center</div>
+  </div>
+</div>
+```
+
+### Right
+```html_preview_example
+<div class="layout layout--right">
+  <div class="layout__item md-4of12">
+    <div class="box box--styleguide box--styleguide--tall">Check out</div>
+  </div><div class="layout__item md-4of12">
+    <div class="box box--styleguide">These elements rendering from the right</div>
+  </div>
+</div>
+```
+*/
+
+$fortitude-enable-layout: true;
+
+.#{$fortitude-namespace}layout {
+  @include fortitude-layout;
+}
+
+.#{$fortitude-namespace}layout__item {
+  @include fortitude-layout__item;
+}
+
+@if $fortitude-enable-layout--small {
+  /**
+   * Layouts with small gutters.
+  **/
+  .#{$fortitude-namespace}layout--small {
+    @include fortitude-layout--small;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout__item--small;
+    }
+  }
+}
+
+@if $fortitude-enable-layout--large {
+  /**
+   * Layouts with large gutters.
+  **/
+  .#{$fortitude-namespace}layout--large {
+    @include fortitude-layout--large;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout__item--large;
+    }
+  }
+}
+
+@if $fortitude-enable-layout--flush {
+  /**
+   * Layouts with no gutters.
+  **/
+  .#{$fortitude-namespace}layout--flush {
+    @include fortitude-layout--flush;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout__item--flush;
+    }
+  }
+}
+
+@if $fortitude-enable-layout--reverse {
+  /**
+   * Reversed rendered order of layout items, e.g. items 1, 2, 3, 4 in your
+   * markup will display in order 4, 3, 2, 1 on your page.
+  **/
+  .#{$fortitude-namespace}layout--reverse {
+    @include fortitude-layout--reverse;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout__item--reverse;
+    }
+  }
+}
+
+@if $fortitude-enable-layout--middle {
+  /**
+   * Align layout items to the vertical centers of each other.
+  **/
+  .#{$fortitude-namespace}layout--middle {
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout__item--middle;
+    }
+  }
+}
+
+@if $fortitude-enable-layout--bottom {
+  /**
+   * Align layout items to the vertical bottoms of each other.
+  **/
+  .#{$fortitude-namespace}layout--bottom {
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout__item--bottom;
+    }
+  }
+}
+
+@if $fortitude-enable-layout--right {
+  /**
+   * Make the layout items fill up from the right hand side.
+  **/
+  .#{$fortitude-namespace}layout--right {
+    @include fortitude-layout--right;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout__item--right;
+    }
+  }
+}
+
+@if $fortitude-enable-layout--center {
+  /**
+   * Make the layout items fill up from the center outward.
+  **/
+  .#{$fortitude-namespace}layout--center {
+    @include fortitude-layout--center;
+    > .#{$fortitude-namespace}layout__item {
+      @include fortitude-layout__item--center;
+    }
+  }
+}

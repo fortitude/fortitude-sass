@@ -1,0 +1,72 @@
+/*doc
+---
+title: Typography
+name: typography
+category: Utilities
+---
+These are the heading sizes that you can use site wide.
+The responsive Helpers are optional, and can be used to modify the font-size at different screen sizes. using the `xs`,`sm`,`md`,`lg` breakpoints.
+
+<div class="note note--success">
+  <p class="styleguide">If you want to change the font-sizes for utility classes its highly recommended that you use the <code class="styleguide">fortitude-font-scale</code> function when setting up your project. (see example below)</p>
+  <p class="styleguide">Don't know what a font-scale is? <a href="http://type-scale.com/" target="_blank">Check this out</a>.</p>
+</div>
+
+<div class="note note--info">
+  <p class="styleguide">You'll notice there is a <code class="styleguide">xs-inset4</code> applied to the first 2 font-sizes, this is just setting the line-height to <code class="styleguide">4rem</code> or <code class="styleguide">40px</code> we do this so the text will fit nicely within the vertical rhythm grid.</p>
+</div>
+
+```scss_example
+// settings/_overrides.scss
+
+// change this variable to change the font-size that is used on the body element
+// and the font-size that is used as a base font-size for the `fortitude-font-scale` function.
+$fortitude-base-font-size: 1.2rem;
+
+// change this variable if you want override the font-scale-ratio when calculating the font sizes.
+$fortitude-base-font-ratio: 1.25;
+
+// change this variable if you want to override any of the default font helpers.
+$fortitude-responsive-font-sizes: (
+  "alpha": fortitude-font-scale(3),
+  "beta": fortitude-font-scale(2),
+  "gamma": fortitude-font-scale(1),
+  "delta": fortitude-font-scale(0),
+  "epsilon": fortitude-font-scale(-1),
+  "zeta": fortitude-font-scale(-2)
+);
+
+// Use caution when changing the font scale - the defaults
+// here are solid for a variety of designs & styles, and
+// changing them has wide-ranging effects
+```
+
+```html_preview_example
+<h1 class="xs-alpha xs-inset4">h1 3.125rem</h1>
+<h2 class="xs-beta xs-inset4">h2 2.5rem</h2>
+<h3 class="xs-gamma">h3 2rem</h3>
+<h4 class="xs-delta">h4 1.6rem</h4>
+<h5 class="xs-epsilon">h5 1.28rem</h5>
+<h6 class="xs-zeta">h6 1.024rem</h6>
+```
+
+*/
+
+$fortitude-responsive-font-sizes: (
+  "alpha": fortitude-font-scale(3),
+  "beta": fortitude-font-scale(2),
+  "gamma": fortitude-font-scale(1),
+  "delta": fortitude-font-scale(0),
+  "epsilon": fortitude-font-scale(-1),
+  "zeta": fortitude-font-scale(-2)
+) !default;
+
+@include fortitude-breakpoints {
+  @each $alias, $size in $fortitude-responsive-font-sizes {
+    $value: map-get($fortitude-responsive-font-sizes, $alias) !important;
+
+    .#{$fortitude-namespace}#{map-get($fortitude-tmp, "current-breakpoint-alias")}-#{$alias} {
+      font-size: $value;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #CONTAINER
+\*------------------------------------*/
+
+$fortitude-container-breakpoints: (
+  xs: 100%,
+  sm: 74rem,
+  md: 96rem,
+  lg: 116rem
+) !default;
+
+$fortitude-global-border-box: false !default;
+
+$fortitude-enable-container--fixed-top: false !default;
+
+@mixin fortitude-container($extensions: ()) {
+  @include fortitude-clearfix;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $alias, $breakpoint in $fortitude-breakpoints {
+    @include fortitude-breakpoint($alias) {
+      width: map-get($fortitude-container-breakpoints, $alias);
+    }
+  }
+
+  @if $fortitude-global-border-box == false {
+    box-sizing: border-box;
+  }
+}
+
+@mixin fortitude-container--fixed-top {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+}
