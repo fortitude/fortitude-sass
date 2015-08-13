@@ -1,12 +1,12 @@
 @include describe("fortitude-tint") {
   @include it("returns a lighter version of the original color") {
-    @include should(expect(fortitude-tint(black, 10%)), to(equal(#191919)));
+    @include should(expect(fortitude-tint(black, 10%)), to(equal(#1a1a1a)));
   }
 }
 
 @include describe("fortitude-shade") {
   @include it("returns a darker version of the original color") {
-    @include should(expect(fortitude-shade(white, 10%)), to(equal(#e5e5e5)));
+    @include should(expect(fortitude-shade(white, 10%)), to(equal(#e6e6e6)));
   }
 }
 
