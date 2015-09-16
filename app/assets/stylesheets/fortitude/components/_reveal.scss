@@ -1,0 +1,11 @@
+.reveal__label--show,
+.reveal__label--hide {
+  cursor: pointer;
+}
+
+.reveal__checkbox,
+.reveal__checkbox:not(:checked) ~ .reveal__content,
+.reveal__checkbox:checked ~ .reveal__label--show,
+.reveal__checkbox:not(:checked) ~ .reveal__label--hide {
+  display: none;
+}
