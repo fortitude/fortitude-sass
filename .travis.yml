@@ -8,3 +8,5 @@ install:
 
 script:
   - grunt test
+
+sudo: false
