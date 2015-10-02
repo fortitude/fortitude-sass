@@ -29,7 +29,9 @@ $fortitude-global-border-box: false !default;
   $is-pill: fortitude-contains($extensions, pill);
 
   background-color: transparent;
-  border: $fortitude-button-border-width $fortitude-button-border-style transparent;
+  border-style: $fortitude-button-border-style;
+  border-width: $fortitude-button-border-width;
+  border-color: transparent;
   display: inline-block;
   vertical-align: middle;
   font: inherit;
@@ -89,8 +91,6 @@ $fortitude-global-border-box: false !default;
 
 @mixin fortitude-button--full {
   width: 100%;
-  padding-right: 0;
-  padding-left: 0;
 }
 
 @mixin fortitude-button--pill {

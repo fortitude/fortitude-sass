@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fortitude-sass (0.7.6)
+    fortitude-sass (0.7.7)
       autoprefixer-rails
       execjs
       sass (~> 3.3)

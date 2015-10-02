@@ -87,7 +87,7 @@
 
 @function fortitude-block-padding($block-height, $block-border-width: 0rem, $block-line-height: $fortitude-base-line-height) {
   $value: fortitude-halve($block-height - $block-line-height - fortitude-double($block-border-width));
-  @return fortitude-strip-unit-if-zero($value);
+  @return if($value > 0, fortitude-strip-unit-if-zero($value), 0);
 }
 
 @function fortitude-map-to-query($map) {
