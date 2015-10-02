@@ -25,15 +25,17 @@ $fortitude-enable-badge--pill: false !default;
   $is-large: fortitude-contains($extensions, large);
   $is-pill: fortitude-contains($extensions, pill);
 
-  border: $fortitude-badge-border-width $fortitude-badge-border-style transparent;
-  display: inline-block;
-  vertical-align: middle;
-  font: inherit;
   background-color: transparent;
-  text-align: center;
+  border-color: transparent;
+  border-style: $fortitude-badge-border-style;
+  border-width: $fortitude-badge-border-width;
+  display: inline-block;
   font-size: $fortitude-badge-font-size;
+  font: inherit;
   height: $fortitude-badge-height--default;
   overflow: visible;
+  text-align: center;
+  vertical-align: middle;
   white-space: nowrap;
 
   @if $is-small {
