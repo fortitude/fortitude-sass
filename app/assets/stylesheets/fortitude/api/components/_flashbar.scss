@@ -12,7 +12,10 @@ $fortitude-flashbar__close-text-decoration: none !default;
 
 @mixin fortitude-flashbar($extensions: ()) {
   @include fortitude-clearfix;
-  border: $fortitude-flashbar-border-width $fortitude-flashbar-border-style transparent;
+
+  border-color: transparent;
+  border-style: $fortitude-flashbar-border-style;
+  border-width: fortitude-rem-to-px($fortitude-flashbar-border-width);
   position: relative;
 }
 
