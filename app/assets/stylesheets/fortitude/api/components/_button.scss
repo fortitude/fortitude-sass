@@ -4,7 +4,7 @@
 
 $fortitude-button-border-radius: 0.2rem !default;
 $fortitude-button-border-style: solid !default;
-$fortitude-button-border-width: 0 !default;
+$fortitude-button-border-width: 0.1rem !default;
 
 $fortitude-button-height--default: 3.6rem !default;
 $fortitude-button-horizontal-padding--default: 2rem !default;
@@ -12,7 +12,7 @@ $fortitude-button-horizontal-padding--default: 2rem !default;
 $fortitude-button-height--small: 3rem !default;
 $fortitude-button-horizontal-padding--small: 1rem !default;
 
-$fortitude-button-height--large: 6rem !default;
+$fortitude-button-height--large: 5rem !default;
 $fortitude-button-horizontal-padding--large: 3rem !default;
 
 $fortitude-enable-button--small: false !default;
@@ -30,7 +30,7 @@ $fortitude-global-border-box: false !default;
 
   background-color: transparent;
   border-style: $fortitude-button-border-style;
-  border-width: $fortitude-button-border-width;
+  border-width: fortitude-rem-to-px($fortitude-button-border-width);
   border-color: transparent;
   display: inline-block;
   vertical-align: middle;

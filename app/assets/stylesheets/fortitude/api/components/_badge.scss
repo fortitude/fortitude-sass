@@ -7,7 +7,7 @@ $fortitude-badge-border-style: solid !default;
 $fortitude-badge-border-width: 0 !default;
 $fortitude-badge-font-size: $fortitude-base-font-size !default;
 
-$fortitude-badge-height--default: 2.6rem !default;
+$fortitude-badge-height--default: 2rem !default;
 $fortitude-badge-horizontal-padding--default: 1rem !default;
 
 $fortitude-badge-height--small: 2rem !default;
@@ -28,7 +28,7 @@ $fortitude-enable-badge--pill: false !default;
   background-color: transparent;
   border-color: transparent;
   border-style: $fortitude-badge-border-style;
-  border-width: $fortitude-badge-border-width;
+  border-width: fortitude-rem-to-px($fortitude-badge-border-width);
   display: inline-block;
   font-size: $fortitude-badge-font-size;
   font: inherit;

@@ -1,4 +1,4 @@
-$fortitude-responsive-line-height-unit-total: 2 !default;
+$fortitude-responsive-line-height-unit-total: 3 !default;
 
 @include fortitude-breakpoint-classes {
   @for $index from 0 through $fortitude-responsive-line-height-unit-total {

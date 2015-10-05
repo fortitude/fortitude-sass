@@ -82,7 +82,7 @@ $fortitude-global-border-box: false !default;
 
   border-color: transparent;
   border-style: $fortitude-text-input-border-style;
-  border-width: if($fortitude-text-input-border-width != 0, $fortitude-text-input-border-width, 0);
+  border-width: if($fortitude-text-input-border-width != 0, fortitude-rem-to-px($fortitude-text-input-border-width), 0);
   height: $fortitude-text-input-height;
   margin: fortitude-block-margin($fortitude-text-input-height, $fortitude-text-input-border-width, $fortitude-base-line-height) 0;
   padding: fortitude-block-padding($fortitude-text-input-height, $fortitude-text-input-border-width, $fortitude-base-line-height) ($fortitude-text-input-horizontal-padding - $fortitude-text-input-border-width);
@@ -106,7 +106,7 @@ $fortitude-global-border-box: false !default;
 
   border-color: transparent;
   border-style: $fortitude-textarea-input-border-style;
-  border-width: if($fortitude-textarea-input-border-width != 0, $fortitude-textarea-input-border-width, 0);
+  border-width: if($fortitude-textarea-input-border-width != 0, fortitude-rem-to-px($fortitude-textarea-input-border-width), 0);
   margin: fortitude-block-margin($fortitude-textarea-input-height, $fortitude-textarea-input-border-width, $fortitude-base-line-height) 0;
   min-height: $fortitude-textarea-input-min-height;
   padding: fortitude-block-padding($fortitude-textarea-input-height, $fortitude-textarea-input-border-width, $fortitude-base-line-height)  ($fortitude-textarea-input-horizontal-padding - $fortitude-textarea-input-border-width);
@@ -130,7 +130,7 @@ $fortitude-global-border-box: false !default;
 
   border-color: transparent;
   border-style: $fortitude-select-input-border-style;
-  border-width: if($fortitude-select-input-border-width != 0, $fortitude-select-input-border-width, 0);
+  border-width: if($fortitude-select-input-border-width != 0, fortitude-rem-to-px($fortitude-select-input-border-width), 0);
   height: $fortitude-select-input-height;
   margin: fortitude-block-margin($fortitude-select-input-height, $fortitude-select-input-border-width, $fortitude-base-line-height) 0;
   padding: fortitude-block-padding($fortitude-select-input-height, $fortitude-select-input-border-width, $fortitude-base-line-height)  ($fortitude-select-input-horizontal-padding - $fortitude-select-input-border-width);
@@ -157,7 +157,7 @@ $fortitude-global-border-box: false !default;
 
   border-color: transparent;
   border-style: $fortitude-checkbox-input-border-style;
-  border-width: if($fortitude-checkbox-input-border-width != 0, $fortitude-checkbox-input-border-width, 0);
+  border-width: if($fortitude-checkbox-input-border-width != 0, fortitude-rem-to-px($fortitude-checkbox-input-border-width), 0);
   height: $fortitude-checkbox-input-size;
   margin: fortitude-block-margin($fortitude-checkbox-input-size + 0.2rem, $fortitude-checkbox-input-border-width, $fortitude-base-line-height) 0;
   padding: fortitude-block-padding($fortitude-checkbox-input-size, $fortitude-checkbox-input-border-width, $fortitude-base-line-height);
@@ -177,7 +177,7 @@ $fortitude-global-border-box: false !default;
 
   border-color: transparent;
   border-style: $fortitude-radio-input-border-style;
-  border-width: if($fortitude-radio-input-border-width != 0, $fortitude-radio-input-border-width, 0);
+  border-width: if($fortitude-radio-input-border-width != 0, fortitude-rem-to-px($fortitude-radio-input-border-width), 0);
   height: $fortitude-radio-input-size;
   margin: fortitude-block-margin($fortitude-radio-input-size + 0.4rem, $fortitude-radio-input-border-width, $fortitude-base-line-height) 0;
   padding: fortitude-block-padding($fortitude-radio-input-size, $fortitude-radio-input-border-width, $fortitude-base-line-height);
@@ -198,7 +198,7 @@ $fortitude-global-border-box: false !default;
 
   border-color: transparent;
   border-style: $fortitude-range-input-border-style;
-  border-width: if($fortitude-range-input-border-width != 0, $fortitude-range-input-border-width, 0);
+  border-width: if($fortitude-range-input-border-width != 0, fortitude-rem-to-px($fortitude-range-input-border-width), 0);
   height: $fortitude-range-input-height;
   margin: fortitude-block-margin($fortitude-range-input-height, $fortitude-range-input-border-width, $fortitude-base-line-height) 0;
   padding: fortitude-block-padding($fortitude-range-input-height, $fortitude-range-input-border-width, $fortitude-base-line-height)  ($fortitude-range-input-horizontal-padding - $fortitude-range-input-border-width);
@@ -222,7 +222,7 @@ $fortitude-global-border-box: false !default;
 
   border-color: transparent;
   border-style: $fortitude-color-input-border-style;
-  border-width: if($fortitude-color-input-border-width != 0, $fortitude-color-input-border-width, 0);
+  border-width: if($fortitude-color-input-border-width != 0, fortitude-rem-to-px($fortitude-color-input-border-width), 0);
   height: $fortitude-color-input-height;
   margin: fortitude-block-margin($fortitude-color-input-height, $fortitude-color-input-border-width, $fortitude-base-line-height) 0;
   padding: fortitude-block-padding($fortitude-color-input-height, $fortitude-color-input-border-width, $fortitude-base-line-height) ($fortitude-color-input-horizontal-padding - $fortitude-color-input-border-width);

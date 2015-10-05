@@ -11,8 +11,11 @@ $fortitude-box-border-radius--rounded: 0.2rem !default;
   $is-rounded: fortitude-contains($extensions, rounded);
 
   @include fortitude-clearfix;
+
+  border-color: transparent;
+  border-style: $fortitude-box-border-style;
+  border-width: fortitude-rem-to-px($fortitude-box-border-width);
   display: block;
-  border: $fortitude-box-border-width $fortitude-box-border-style transparent;
 
   @if $is-rounded {
     @include fortitude-box--rounded;

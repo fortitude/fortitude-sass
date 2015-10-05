@@ -40,10 +40,12 @@ $fortitude-tooltip-min-height: $fortitude-tooltip-line-height + $fortitude-toolt
   }
 
   &::before {
-    z-index: 1001;
-    border: $fortitude-tooltip-arrow-size solid transparent;
     background: transparent;
+    border-color: transparent;
+    border-style: solid;
+    border-width: fortitude-rem-to-px($fortitude-tooltip-arrow-size);
     content: "";
+    z-index: 1001;
   }
 
   &::after {
